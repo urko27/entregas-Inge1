@@ -83,7 +83,7 @@ restateA: unNumeroNatural
 	! !
 
 
-!I class methodsFor: '--** private fileout/in **--' stamp: 'manuel urko 8/30/2023 10:42:04'!
+!I class methodsFor: '--** private fileout/in **--' stamp: 'manuel urko 9/2/2023 18:41:30'!
 initializeCollaboratorsFromFile
 	"Auto generated method for loading purposes - Do not modify it"
 
@@ -92,7 +92,7 @@ initializeCollaboratorsFromFile
 
 
 !classDefinition: #II category: 'Peano'!
-I subclass: #II
+DenotativeObject subclass: #II
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
@@ -129,6 +129,18 @@ II class
 	self = aNaturalNumber ifTrue: [^false].
 	^self previous < aNaturalNumber! !
 
+!II class methodsFor: 'as yet unclassified' stamp: 'manuel urko 9/2/2023 18:39:32'!
+descripcionDeErrorDeNoSePuedeDividirPorUnNumeroMayor
+	^'No se puede dividir por un numero mayor'
+	
+	! !
+
+!II class methodsFor: 'as yet unclassified' stamp: 'manuel urko 9/2/2023 18:39:42'!
+descripcionDeErrorDeNumerosNegativosNoSoportados
+	^'Resta de numeros negativos no soportados'
+	
+	! !
+
 !II class methodsFor: 'as yet unclassified' stamp: 'manuel urko 8/28/2023 21:49:43'!
 next
 	next ifNotNil: [^next].
@@ -155,12 +167,10 @@ restateA: unNumeroNatural
 	^unNumeroNatural previous - self previous.! !
 
 
-!II class methodsFor: '--** private fileout/in **--' stamp: 'manuel urko 8/30/2023 10:42:04'!
+!II class methodsFor: '--** private fileout/in **--' stamp: 'manuel urko 9/2/2023 18:41:30'!
 initializeCollaboratorsFromFile
 	"Auto generated method for loading purposes - Do not modify it"
 
-	next := III.
-	previous := I.
 	next := III.
 	previous := I.! !
 
@@ -178,12 +188,10 @@ II subclass: #III
 III class
 	instanceVariableNames: ''!
 
-!III class methodsFor: '--** private fileout/in **--' stamp: 'manuel urko 8/30/2023 10:42:04'!
+!III class methodsFor: '--** private fileout/in **--' stamp: 'manuel urko 9/2/2023 18:41:30'!
 initializeCollaboratorsFromFile
 	"Auto generated method for loading purposes - Do not modify it"
 
-	next := IIII.
-	previous := II.
 	next := IIII.
 	previous := II.! !
 
@@ -201,12 +209,10 @@ II subclass: #IIII
 IIII class
 	instanceVariableNames: ''!
 
-!IIII class methodsFor: '--** private fileout/in **--' stamp: 'manuel urko 8/30/2023 10:42:04'!
+!IIII class methodsFor: '--** private fileout/in **--' stamp: 'manuel urko 9/2/2023 18:41:30'!
 initializeCollaboratorsFromFile
 	"Auto generated method for loading purposes - Do not modify it"
 
-	next := nil.
-	previous := III.
 	next := nil.
 	previous := III.! !
 
