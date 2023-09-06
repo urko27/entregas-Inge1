@@ -36,6 +36,12 @@ assertThatAClosure: aClosure in: customerBook takesLessThan: milliseconds
 assertThatAClosure: aClosure throws: expected andAssert: assertions	
 	[aClosure value. self fail] on: expected do: [:anError | assertions value: anError].! !
 
+!CustomerBookTest methodsFor: 'testing' stamp: 'manuel urko 9/6/2023 12:40:11'!
+assertThatCustomerBook: customerBook hasNumberOfActiveCustomers: expectedNumberOfActiveCustomers hasNumberOfSuspendedCustomers: expectedNumberOfSuspendedCustomers hasNumberOfCustomers: expectedNumberOfCustomers 
+	self assert: expectedNumberOfActiveCustomers equals: customerBook numberOfActiveCustomers.
+	self assert: expectedNumberOfSuspendedCustomers equals: customerBook numberOfSuspendedCustomers.
+	self assert: expectedNumberOfCustomers equals: customerBook numberOfCustomers.! !
+
 !CustomerBookTest methodsFor: 'testing' stamp: 'manuel urko 9/5/2023 21:49:25'!
 assertThatCustomerBook: customerBook hasNumberOfActiveCustomers: expectedNumberOfActiveCustomers hasNumberOfSuspendedCustomers: expectedNumberOfSuspendedCustomers hasNumberOfCustomers: expectedNumberOfCustomers andDoesNotIncludeCustomerNamed: customerNamed
 	self assert: expectedNumberOfActiveCustomers equals: customerBook numberOfActiveCustomers.
@@ -94,7 +100,7 @@ test04CanNotRemoveAnInvalidCustomer
 	andAssert: [:anError | self assert: customerBook numberOfCustomers = 1.self assert: (customerBook includesCustomerNamed: johnLennon) ] .
 ! !
 
-!CustomerBookTest methodsFor: 'testing' stamp: 'manuel urko 9/5/2023 21:47:50'!
+!CustomerBookTest methodsFor: 'testing' stamp: 'manuel urko 9/6/2023 12:41:35'!
 test05SuspendingACustomerShouldNotRemoveItFromCustomerBook
 	| customerBook paulMcCartney|
 	
@@ -102,15 +108,15 @@ test05SuspendingACustomerShouldNotRemoveItFromCustomerBook
 	paulMcCartney := 'Paul McCartney'.
 	customerBook addCustomerNamed: paulMcCartney.
 	customerBook suspendCustomerNamed: paulMcCartney.
-	
 	self 
 		assertThatCustomerBook: customerBook  
 		hasNumberOfActiveCustomers: 0
 		hasNumberOfSuspendedCustomers: 1 
-		hasNumberOfCustomers: 1
-		andIncludesCustomerNamed: paulMcCartney.! !
+		hasNumberOfCustomers: 1.
+		
+	self assert: (customerBook includesCustomerNamed: paulMcCartney).! !
 
-!CustomerBookTest methodsFor: 'testing' stamp: 'manuel urko 9/5/2023 21:50:24'!
+!CustomerBookTest methodsFor: 'testing' stamp: 'manuel urko 9/6/2023 12:42:10'!
 test06RemovingASuspendedCustomerShouldRemoveItFromCustomerBook
 	| customerBook paulMcCartney|
 	
@@ -125,8 +131,9 @@ test06RemovingASuspendedCustomerShouldRemoveItFromCustomerBook
 		assertThatCustomerBook: customerBook
 		hasNumberOfActiveCustomers: 0
 		hasNumberOfSuspendedCustomers: 0
-		hasNumberOfCustomers: 0
-		andDoesNotIncludeCustomerNamed: paulMcCartney.! !
+		hasNumberOfCustomers: 0.
+		
+	self deny: (customerBook includesCustomerNamed: paulMcCartney).! !
 
 !CustomerBookTest methodsFor: 'testing' stamp: 'manuel urko 9/6/2023 08:38:06'!
 test07CanNotSuspendAnInvalidCustomer
