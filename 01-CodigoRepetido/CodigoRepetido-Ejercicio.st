@@ -32,8 +32,8 @@ assertThatAMethod: aClosure takesLessThan: milliseconds
 	
 	self assert: (millisecondsAfterRunning-millisecondsBeforeRunning) < (milliseconds)! !
 
-!CustomerBookTest methodsFor: 'testing' stamp: 'h 9/7/2023 14:01:36'!
-assertThatAMethod: aClosure throws: expected andAssert: assertions	
+!CustomerBookTest methodsFor: 'testing' stamp: 'h 9/7/2023 15:14:06'!
+assertThatAMethod: aClosure throwsError: expected andAssert: assertions	
 	[aClosure value. self fail] on: expected do: [:anError | assertions value: anError].! !
 
 !CustomerBookTest methodsFor: 'testing' stamp: 'manuel urko 9/6/2023 13:06:30'!
@@ -60,13 +60,13 @@ test02RemovingCustomerShouldNotTakeMoreThan100Milliseconds
 	self assertThatAMethod: [customerBook removeCustomerNamed: paulMcCartney.] takesLessThan: 100*millisecond.
 ! !
 
-!CustomerBookTest methodsFor: 'testing' stamp: 'h 9/7/2023 14:01:58'!
+!CustomerBookTest methodsFor: 'testing' stamp: 'h 9/7/2023 15:14:56'!
 test03CanNotAddACustomerWithEmptyName 	self 
 		assertThatAMethod: [customerBook addCustomerNamed: ''] 
-		throws: Error
+		throwsError: Error
 		andAssert: [:anError | self assert: anError messageText = 'Customer name cannot be empty!!!!!!'].! !
 
-!CustomerBookTest methodsFor: 'testing' stamp: 'h 9/7/2023 14:02:05'!
+!CustomerBookTest methodsFor: 'testing' stamp: 'h 9/7/2023 15:14:48'!
 test04CanNotRemoveAnInvalidCustomer
 	| johnLennon |
 	johnLennon := 'John Lennon'.
@@ -74,7 +74,7 @@ test04CanNotRemoveAnInvalidCustomer
 	customerBook addCustomerNamed: johnLennon.
 	self 
 		assertThatAMethod:  [customerBook removeCustomerNamed: 'Paul McCartney'.] 
-		throws: NotFound 
+		throwsError: NotFound 
 		andAssert: [:anError | self 
 			assertThatCustomerBookHasNumberOfCustomers: 1 
 			andIncludesCustomerNamed: johnLennon] .
@@ -109,7 +109,7 @@ test06RemovingASuspendedCustomerShouldRemoveItFromCustomerBook
 		
 	self deny: (customerBook includesCustomerNamed: paulMcCartney).! !
 
-!CustomerBookTest methodsFor: 'testing' stamp: 'h 9/7/2023 14:02:12'!
+!CustomerBookTest methodsFor: 'testing' stamp: 'h 9/7/2023 15:14:24'!
 test07CanNotSuspendAnInvalidCustomer
 	| johnLennon |
 	johnLennon := 'John Lennon'.
@@ -117,13 +117,13 @@ test07CanNotSuspendAnInvalidCustomer
 	
 	self 
 		assertThatAMethod: [customerBook suspendCustomerNamed: 'George Harrison'.]
-		throws: CantSuspend
+		throwsError: CantSuspend
 		andAssert: [:anError | self
 			assertThatCustomerBookHasNumberOfCustomers: 1
 			andIncludesCustomerNamed: johnLennon].
 ! !
 
-!CustomerBookTest methodsFor: 'testing' stamp: 'h 9/7/2023 14:02:18'!
+!CustomerBookTest methodsFor: 'testing' stamp: 'h 9/7/2023 15:14:42'!
 test08CanNotSuspendAnAlreadySuspendedCustomer
 	| johnLennon |
 	
@@ -132,7 +132,7 @@ test08CanNotSuspendAnAlreadySuspendedCustomer
 	customerBook suspendCustomerNamed: johnLennon.
 	self 
 		assertThatAMethod: [customerBook suspendCustomerNamed: johnLennon.]
-		throws: CantSuspend
+		throwsError: CantSuspend
 		andAssert: [:anError | self 
 			assertThatCustomerBookHasNumberOfCustomers: 1 
 			andIncludesCustomerNamed: johnLennon].! !
