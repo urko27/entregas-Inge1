@@ -444,18 +444,13 @@ divideFraction: fractionToDivide
 divideInteger: integerToDivide 
 	^Fraccion with: integerToDivide over: self! !
 
-!Entero methodsFor: 'arithmetic operations' stamp: 'manuel urko 9/12/2023 21:55:24'!
+!Entero methodsFor: 'arithmetic operations' stamp: 'manuel urko 9/12/2023 22:21:36'!
 fibonacci
-	| one two fibonacciPrevious fibonacciPrevious2 pp|
+	| one two |
 	one := Entero with: 1.
 	two := Entero with: 2.
-
-	pp := (self - one).
 	
-	fibonacciPrevious := pp fibonacci.
-	fibonacciPrevious2 := (self - two) fibonacci.
-	
-	^ fibonacciPrevious + fibonacciPrevious2! !
+	^ (self - one) fibonacci + (self - two) fibonacci.! !
 
 !Entero methodsFor: 'arithmetic operations' stamp: 'manuel urko 9/12/2023 22:10:36'!
 greatestCommonDivisorWith: anEntero 
