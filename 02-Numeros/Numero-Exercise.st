@@ -453,16 +453,16 @@ greatestCommonDivisorWith: anEntero
 	
 	^self class with: (value gcd: anEntero integerValue)! !
 
-!Entero methodsFor: 'arithmetic operations' stamp: 'h 9/12/2023 00:15:21'!
-multiplyByFraction: firstFactor
+!Entero methodsFor: 'arithmetic operations' stamp: 'h 9/13/2023 13:57:49'!
+multiplyByFraction: firstFractionFactor
 	
-	^self * firstFactor numerator / firstFactor denominator
+	^self * firstFractionFactor numerator / firstFractionFactor denominator
 	! !
 
-!Entero methodsFor: 'arithmetic operations' stamp: 'manuel urko 9/13/2023 11:02:42'!
-multiplyByInteger: firstFactor
+!Entero methodsFor: 'arithmetic operations' stamp: 'h 9/13/2023 13:58:49'!
+multiplyByInteger: firstIntegerFactor
 	
-	^self class with: value * firstFactor integerValue
+	^self class with: value * firstIntegerFactor integerValue
 	! !
 
 !Entero methodsFor: 'arithmetic operations' stamp: 'h 9/12/2023 00:13:53'!
@@ -486,10 +486,6 @@ hash
 
 	^value hash! !
 
-
-!Entero methodsFor: 'initialization' stamp: 'manuel urko 9/12/2023 20:13:58'!
-initalizeWith: aValue.
-	value := aValue! !
 
 !Entero methodsFor: 'initialization' stamp: 'manuel urko 9/12/2023 20:14:18'!
 initializeWith: aValue.
@@ -518,20 +514,20 @@ printOn: aStream
 	aStream print: value ! !
 
 
-!Entero methodsFor: 'testing' stamp: 'manuel urko 9/12/2023 22:02:17'!
+!Entero methodsFor: 'testing' stamp: 'h 9/13/2023 13:15:52'!
 isNegative
 	
-	^false! !
+	^self subclassResponsibility! !
 
-!Entero methodsFor: 'testing' stamp: 'manuel urko 9/12/2023 22:02:37'!
+!Entero methodsFor: 'testing' stamp: 'h 9/13/2023 13:15:56'!
 isOne
 	
-	^false! !
+	^self subclassResponsibility! !
 
-!Entero methodsFor: 'testing' stamp: 'manuel urko 9/12/2023 22:02:43'!
+!Entero methodsFor: 'testing' stamp: 'h 9/13/2023 13:16:00'!
 isZero
 	
-	^false! !
+	^self subclassResponsibility! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -543,7 +539,7 @@ Entero class
 negativeFibonacciErrorDescription
 	^ ' Fibonacci no está definido aquí para Enteros Negativos!!!!!!'! !
 
-!Entero class methodsFor: 'instance creation' stamp: 'manuel urko 9/13/2023 10:54:14'!
+!Entero class methodsFor: 'instance creation' stamp: 'h 9/13/2023 13:13:19'!
 with: aValue
 
 	"Esta verificacion esta puesta por si se equivocan y quieren crear un Entero pasando otra cosa que un Integer - Hernan"
@@ -551,7 +547,7 @@ with: aValue
 	aValue < 0 ifTrue: [^EnteroNegativo new initializeWith: aValue ].
 	aValue = 0 ifTrue: [^EnteroCero new initializeWith: aValue].
 	aValue = 1 ifTrue: [^EnteroUno new initializeWith: aValue].
-	^EnteroPositivo new initalizeWith: aValue.! !
+	^EnteroPositivo new initializeWith: aValue.! !
 
 
 !classDefinition: #EnteroCero category: 'Numero-Exercise'!
@@ -560,6 +556,14 @@ Entero subclass: #EnteroCero
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Numero-Exercise'!
+
+!EnteroCero methodsFor: 'testing' stamp: 'h 9/13/2023 13:17:20'!
+isNegative
+	^false! !
+
+!EnteroCero methodsFor: 'testing' stamp: 'h 9/13/2023 13:17:13'!
+isOne
+	^false.! !
 
 !EnteroCero methodsFor: 'testing' stamp: 'manuel urko 9/12/2023 22:03:56'!
 isZero
@@ -582,6 +586,14 @@ Entero subclass: #EnteroNegativo
 isNegative
 	^true.! !
 
+!EnteroNegativo methodsFor: 'testing' stamp: 'h 9/13/2023 13:16:57'!
+isOne
+	^false! !
+
+!EnteroNegativo methodsFor: 'testing' stamp: 'h 9/13/2023 13:16:49'!
+isZero
+	^false! !
+
 
 !EnteroNegativo methodsFor: 'arithmetic operations' stamp: 'manuel urko 9/12/2023 18:02:00'!
 fibonacci
@@ -595,9 +607,22 @@ Entero subclass: #EnteroPositivo
 	poolDictionaries: ''
 	category: 'Numero-Exercise'!
 
-!EnteroPositivo methodsFor: 'arithmetic operations' stamp: 'manuel urko 9/13/2023 10:53:21'!
+!EnteroPositivo methodsFor: 'testing' stamp: 'h 9/13/2023 13:18:05'!
+isNegative
+	^false! !
+
+!EnteroPositivo methodsFor: 'testing' stamp: 'h 9/13/2023 13:17:50'!
+isOne
+	^false! !
+
+!EnteroPositivo methodsFor: 'testing' stamp: 'h 9/13/2023 13:17:42'!
+isZero
+	^false! !
+
+
+!EnteroPositivo methodsFor: 'arithmetic operations' stamp: 'h 9/13/2023 13:21:47'!
 fibonacci
-| one two |
+	| one two |
 	one := Entero with: 1.
 	two := Entero with: 2.
 	
@@ -611,9 +636,17 @@ Entero subclass: #EnteroUno
 	poolDictionaries: ''
 	category: 'Numero-Exercise'!
 
+!EnteroUno methodsFor: 'testing' stamp: 'h 9/13/2023 13:18:33'!
+isNegative
+	^false.! !
+
 !EnteroUno methodsFor: 'testing' stamp: 'manuel urko 9/12/2023 22:04:56'!
 isOne
 	^true.! !
+
+!EnteroUno methodsFor: 'testing' stamp: 'h 9/13/2023 13:18:28'!
+isZero
+	^false.! !
 
 
 !EnteroUno methodsFor: 'arithmetic operations' stamp: 'manuel urko 9/12/2023 21:35:44'!
@@ -672,16 +705,16 @@ divideFraction: fractionToDivide
 divideInteger: fractionToDivide 
 	^(self denominator * fractionToDivide) / self numerator! !
 
-!Fraccion methodsFor: 'arithmetic operations' stamp: 'h 9/12/2023 00:15:59'!
-multiplyByFraction: firstFactor 
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'h 9/13/2023 13:58:06'!
+multiplyByFraction: firstFractionFactor 
 	
-	^(numerator * firstFactor numerator) / (denominator * firstFactor denominator)
+	^(numerator * firstFractionFactor numerator) / (denominator * firstFractionFactor denominator)
 	! !
 
-!Fraccion methodsFor: 'arithmetic operations' stamp: 'h 9/12/2023 00:15:49'!
-multiplyByInteger: firstFactor
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'h 9/13/2023 14:00:12'!
+multiplyByInteger: firstIntegerFactor
 	
-	^firstFactor * self numerator / self denominator
+	^firstIntegerFactor * self numerator / self denominator
 	! !
 
 !Fraccion methodsFor: 'arithmetic operations' stamp: 'h 9/12/2023 00:14:37'!
@@ -766,13 +799,13 @@ printOn: aStream
 Fraccion class
 	instanceVariableNames: ''!
 
-!Fraccion class methodsFor: 'intance creation' stamp: 'NR 9/23/2018 23:45:19'!
+!Fraccion class methodsFor: 'intance creation' stamp: 'h 9/13/2023 14:19:28'!
 with: aDividend over: aDivisor
 
 	| greatestCommonDivisor numerator denominator |
 	
 	aDivisor isZero ifTrue: [ self error: self canNotDivideByZeroErrorDescription ].
-	aDividend isZero ifTrue: [ ^aDividend ].
+	aDividend isZero ifTrue: [ ^aDividend ]. 
 	
 	aDivisor isNegative ifTrue:[ ^aDividend negated / aDivisor negated].
 	
