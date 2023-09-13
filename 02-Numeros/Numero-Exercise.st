@@ -343,7 +343,7 @@ multiplyByFraction: firstFactor
 multiplyByInteger: firstFactor
 	self subclassResponsibility! !
 
-!Numero methodsFor: 'arithmetic operations' stamp: 'NR 9/23/2018 23:37:13'!
+!Numero methodsFor: 'arithmetic operations' stamp: 'manuel urko 9/13/2023 11:01:05'!
 negated
 	
 	^self * (Entero with: -1)! !
@@ -444,13 +444,9 @@ divideFraction: fractionToDivide
 divideInteger: integerToDivide 
 	^Fraccion with: integerToDivide over: self! !
 
-!Entero methodsFor: 'arithmetic operations' stamp: 'manuel urko 9/12/2023 22:21:36'!
+!Entero methodsFor: 'arithmetic operations' stamp: 'manuel urko 9/13/2023 10:53:05'!
 fibonacci
-	| one two |
-	one := Entero with: 1.
-	two := Entero with: 2.
-	
-	^ (self - one) fibonacci + (self - two) fibonacci.! !
+	self subclassResponsibility .! !
 
 !Entero methodsFor: 'arithmetic operations' stamp: 'manuel urko 9/12/2023 22:10:36'!
 greatestCommonDivisorWith: anEntero 
@@ -463,10 +459,10 @@ multiplyByFraction: firstFactor
 	^self * firstFactor numerator / firstFactor denominator
 	! !
 
-!Entero methodsFor: 'arithmetic operations' stamp: 'manuel urko 9/12/2023 22:18:58'!
+!Entero methodsFor: 'arithmetic operations' stamp: 'manuel urko 9/13/2023 11:02:42'!
 multiplyByInteger: firstFactor
 	
-	^Entero with: value * firstFactor integerValue
+	^self class with: value * firstFactor integerValue
 	! !
 
 !Entero methodsFor: 'arithmetic operations' stamp: 'h 9/12/2023 00:13:53'!
@@ -474,10 +470,10 @@ substractToFraction: firstSubtrahend
 	^firstSubtrahend numerator - (self * firstSubtrahend denominator) / firstSubtrahend denominator 
 	! !
 
-!Entero methodsFor: 'arithmetic operations' stamp: 'manuel urko 9/12/2023 21:56:51'!
+!Entero methodsFor: 'arithmetic operations' stamp: 'manuel urko 9/13/2023 11:02:37'!
 substractToInteger: firstSubtrahend 
 
-	^ Entero with: firstSubtrahend integerValue - value.! !
+	^ self class with: firstSubtrahend integerValue - value.! !
 
 
 !Entero methodsFor: 'comparing' stamp: 'HernanWilkinson 5/7/2016 21:01'!
@@ -547,7 +543,7 @@ Entero class
 negativeFibonacciErrorDescription
 	^ ' Fibonacci no está definido aquí para Enteros Negativos!!!!!!'! !
 
-!Entero class methodsFor: 'instance creation' stamp: 'manuel urko 9/12/2023 20:36:04'!
+!Entero class methodsFor: 'instance creation' stamp: 'manuel urko 9/13/2023 10:54:14'!
 with: aValue
 
 	"Esta verificacion esta puesta por si se equivocan y quieren crear un Entero pasando otra cosa que un Integer - Hernan"
@@ -555,7 +551,7 @@ with: aValue
 	aValue < 0 ifTrue: [^EnteroNegativo new initializeWith: aValue ].
 	aValue = 0 ifTrue: [^EnteroCero new initializeWith: aValue].
 	aValue = 1 ifTrue: [^EnteroUno new initializeWith: aValue].
-	^self new initalizeWith: aValue! !
+	^EnteroPositivo new initalizeWith: aValue.! !
 
 
 !classDefinition: #EnteroCero category: 'Numero-Exercise'!
@@ -590,6 +586,22 @@ isNegative
 !EnteroNegativo methodsFor: 'arithmetic operations' stamp: 'manuel urko 9/12/2023 18:02:00'!
 fibonacci
 	^self error: Entero negativeFibonacciErrorDescription.! !
+
+
+!classDefinition: #EnteroPositivo category: 'Numero-Exercise'!
+Entero subclass: #EnteroPositivo
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numero-Exercise'!
+
+!EnteroPositivo methodsFor: 'arithmetic operations' stamp: 'manuel urko 9/13/2023 10:53:21'!
+fibonacci
+| one two |
+	one := Entero with: 1.
+	two := Entero with: 2.
+	
+	^ (self - one) fibonacci + (self - two) fibonacci.! !
 
 
 !classDefinition: #EnteroUno category: 'Numero-Exercise'!
