@@ -218,6 +218,44 @@ Object subclass: #SentenceFinderByPrefix
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
 
+!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'h 9/16/2023 21:44:05'!
+findSentencesWithPrefix: aPrefix inStack: aStack
+	|stackSentences matchingPrefixes|
+	stackSentences := OOStack new.
+	matchingPrefixes := OrderedCollection new.
+	"cambiar ifs y declaratividad"	
+
+	aPrefix isEmpty ifTrue: [^self error: self class prefixCannotBeEmptyError].
+	"no se como checkear si el prefijo tiene un espacio vacio: ' ' "
+
+	aStack size timesRepeat: [stackSentences push: aStack pop. self includeSentence: stackSentences top 
+						  in: matchingPrefixes ifPrefixMatches: aPrefix].
+					
+	stackSentences size timesRepeat: [aStack push: stackSentences pop].
+	
+	^matchingPrefixes 
+	! !
+
+!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'h 9/16/2023 20:23:40'!
+includeSentence: aSentece in: aCollection ifPrefixMatches: aPrefix
+	
+	(aSentece beginsWith: aPrefix) ifTrue: [^aCollection addFirst: aSentece]
+	! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'SentenceFinderByPrefix class' category: 'Stack-Exercise'!
+SentenceFinderByPrefix class
+	instanceVariableNames: ''!
+
+!SentenceFinderByPrefix class methodsFor: 'as yet unclassified' stamp: 'h 9/16/2023 20:39:32'!
+prefixCannotBeEmptyError
+	^'prefijo no puede ser vacio'! !
+
+!SentenceFinderByPrefix class methodsFor: 'as yet unclassified' stamp: 'h 9/16/2023 20:40:02'!
+prefixCannotHaveEmptySpacesError
+	^'prefijo no puede tener espacios vacios'! !
+
 
 !classDefinition: #StackState category: 'Stack-Exercise'!
 Object subclass: #StackState
