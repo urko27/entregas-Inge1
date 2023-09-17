@@ -139,10 +139,136 @@ test10CanNotTopWhenThereAreNoObjectsInTheStack
 
 !classDefinition: #SentenceFinderByPrefixTest category: 'Stack-Exercise'!
 TestCase subclass: #SentenceFinderByPrefixTest
-	instanceVariableNames: ''
+	instanceVariableNames: 'aSentenceFinderByPrefix'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
+
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'manuel urko 9/17/2023 08:34:04'!
+test01SearchOnEmptyStackShouldReturnEmptyCollection
+	|stack sentencesWithPrefixMatch|
+	
+	stack := OOStack new.
+	
+	sentencesWithPrefixMatch := aSentenceFinderByPrefix findSentencesWithPrefix: 'a' inStack: stack.
+	
+	self assert: [sentencesWithPrefixMatch size = 0].
+	
+	! !
+
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'manuel urko 9/17/2023 08:36:18'!
+test02SearchOnStackWithNoMatchingPrefixShouldReturnEmptyCollection
+	|stack sentencesWithPrefixMatch|
+	
+	stack := OOStack new.
+	stack push: 'holiwi'.
+	
+	sentencesWithPrefixMatch := aSentenceFinderByPrefix findSentencesWithPrefix: 'a' inStack: stack.
+	
+	self assert: [sentencesWithPrefixMatch size = 0].
+	
+	! !
+
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'manuel urko 9/17/2023 09:29:48'!
+test03SearchOnStackWithMatchingPrefixShouldReturnCollectionWithSentence
+	|stack sentencesWithPrefixMatch expectedStackSize expectedTop|
+	
+	stack := OOStack new.
+	stack push: 'aloha'.
+	expectedStackSize := stack size.
+	expectedTop := stack top.
+	
+	sentencesWithPrefixMatch := aSentenceFinderByPrefix findSentencesWithPrefix: 'a' inStack: stack.
+	
+	self assert: [sentencesWithPrefixMatch size = 1].
+	self assertThatOrderedCollection: sentencesWithPrefixMatch containsElements: #('aloha').
+	self assertThatStack: stack hasExpectedSize: expectedStackSize andExpectedTop: expectedTop.
+	
+	
+	! !
+
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'manuel urko 9/17/2023 09:29:40'!
+test04SearchOnStackWithMultipleMatchingPrefixShouldReturnCollectionWithSentences
+	|stack sentencesWithPrefixMatch expectedStackSize expectedTop|
+	
+	stack := OOStack new.
+	stack push: 'aloha'.
+	stack push: 'arrivederci'.
+	expectedStackSize := stack size.
+	expectedTop := stack top.
+	
+	sentencesWithPrefixMatch := aSentenceFinderByPrefix findSentencesWithPrefix: 'a' inStack: stack.
+	
+	self assert: [sentencesWithPrefixMatch size = 2].
+	self assertThatOrderedCollection: sentencesWithPrefixMatch containsElements: #('aloha' 'arrivederci').
+	self assertThatStack: stack hasExpectedSize: expectedStackSize andExpectedTop: expectedTop .
+	
+	
+	! !
+
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'manuel urko 9/17/2023 09:25:17'!
+test05SearchOnStackWithMultipleMatchingPrefixShouldReturnCollectionWithOnlyMatchingSentences
+	|stack sentencesWithPrefixMatch expectedStackSize expectedTop|
+	
+	stack := OOStack new.
+	stack push: 'aloha'.
+	stack push: 'arrivederci'.
+	stack push: 'ciao'.
+	expectedStackSize := stack size.
+	expectedTop := stack top.
+	
+	sentencesWithPrefixMatch := aSentenceFinderByPrefix findSentencesWithPrefix: 'a' inStack: stack.
+	
+	self assert: [sentencesWithPrefixMatch size = 2].
+	self assertThatOrderedCollection: sentencesWithPrefixMatch containsElements: #('aloha' 'arrivederci').
+	self assertThatStack: stack hasExpectedSize: expectedStackSize andExpectedTop: expectedTop .
+	
+	
+	! !
+
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'manuel urko 9/17/2023 09:47:43'!
+test06SearchOnStackWithMatchingPrefixesShouldAlsoMatchCasing
+	|stack sentencesWithPrefixMatch expectedStackSize expectedTop|
+	
+	stack := OOStack new.
+	stack push: 'aloha'.
+	stack push: 'Arrivederci'.
+	stack push: 'ciao'.
+	expectedStackSize := stack size.
+	expectedTop := stack top.
+	
+	sentencesWithPrefixMatch := aSentenceFinderByPrefix findSentencesWithPrefix: 'a' inStack: stack.
+	
+	self assert: [sentencesWithPrefixMatch size = 1].
+	self assertThatOrderedCollection: sentencesWithPrefixMatch containsElements: #('aloha').
+	self assertThatStack: stack hasExpectedSize: expectedStackSize andExpectedTop: expectedTop .
+	
+	
+	! !
+
+
+!SentenceFinderByPrefixTest methodsFor: 'setUp' stamp: 'manuel urko 9/17/2023 08:31:37'!
+setUp
+	aSentenceFinderByPrefix := SentenceFinderByPrefix new
+	! !
+
+
+!SentenceFinderByPrefixTest methodsFor: 'assertions' stamp: 'manuel urko 9/17/2023 09:07:22'!
+assertThatOrderedCollection: anOrderedCollection containsElement: anElement
+	self assert: [(anOrderedCollection occurrencesOf: anElement) = 1]! !
+
+!SentenceFinderByPrefixTest methodsFor: 'assertions' stamp: 'manuel urko 9/17/2023 09:24:14'!
+assertThatOrderedCollection: anOrderedCollection containsElements: collectionOfElements
+	collectionOfElements do: [:anElement | self assert: [(anOrderedCollection occurrencesOf: anElement) = 1]].! !
+
+!SentenceFinderByPrefixTest methodsFor: 'assertions' stamp: 'manuel urko 9/17/2023 08:45:53'!
+assertThatStack: aStack hasExpectedSize: expectedStackSize andExpectedTop: expectedTop.
+	self assert: [aStack size = expectedStackSize ].
+	self assert: [aStack top = expectedTop].! !
+
+!SentenceFinderByPrefixTest methodsFor: 'assertions' stamp: 'manuel urko 9/17/2023 08:38:00'!
+assertThatStackHasNotChanged: aStack
+	! !
 
 
 !classDefinition: #OOStack category: 'Stack-Exercise'!
@@ -218,23 +344,20 @@ Object subclass: #SentenceFinderByPrefix
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
 
-!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'h 9/16/2023 21:44:05'!
+!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'manuel urko 9/17/2023 09:43:57'!
 findSentencesWithPrefix: aPrefix inStack: aStack
 	|stackSentences matchingPrefixes|
 	stackSentences := OOStack new.
 	matchingPrefixes := OrderedCollection new.
-	"cambiar ifs y declaratividad"	
-
-	aPrefix isEmpty ifTrue: [^self error: self class prefixCannotBeEmptyError].
-	"no se como checkear si el prefijo tiene un espacio vacio: ' ' "
-
-	aStack size timesRepeat: [stackSentences push: aStack pop. self includeSentence: stackSentences top 
-						  in: matchingPrefixes ifPrefixMatches: aPrefix].
-					
-	stackSentences size timesRepeat: [aStack push: stackSentences pop].
 	
-	^matchingPrefixes 
-	! !
+	aPrefix isEmpty ifTrue: [^self error: self class prefixCannotBeEmptyError].
+	
+	aStack size timesRepeat: 
+	[ stackSentences push: aStack pop. 
+	self includeSentence: (stackSentences top) in: matchingPrefixes ifPrefixMatches: aPrefix ].
+				
+	stackSentences size timesRepeat: [aStack push: stackSentences pop].
+	^matchingPrefixes! !
 
 !SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'h 9/16/2023 20:23:40'!
 includeSentence: aSentece in: aCollection ifPrefixMatches: aPrefix
