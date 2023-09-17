@@ -349,26 +349,43 @@ Object subclass: #SentenceFinderByPrefix
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
 
-!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'manuel urko 9/17/2023 09:43:57'!
-findSentencesWithPrefix: aPrefix inStack: aStack
-	|stackSentences matchingPrefixes|
-	stackSentences := OOStack new.
-	matchingPrefixes := OrderedCollection new.
-	
-	aPrefix isEmpty ifTrue: [^self error: self class prefixCannotBeEmptyError].
-	
-	aStack size timesRepeat: 
-	[ stackSentences push: aStack pop. 
-	self includeSentence: (stackSentences top) in: matchingPrefixes ifPrefixMatches: aPrefix ].
-				
-	stackSentences size timesRepeat: [aStack push: stackSentences pop].
-	^matchingPrefixes! !
-
-!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'h 9/16/2023 20:23:40'!
+!SentenceFinderByPrefix methodsFor: 'finders - private' stamp: 'h 9/16/2023 20:23:40'!
 includeSentence: aSentece in: aCollection ifPrefixMatches: aPrefix
 	
 	(aSentece beginsWith: aPrefix) ifTrue: [^aCollection addFirst: aSentece]
 	! !
+
+!SentenceFinderByPrefix methodsFor: 'finders - private' stamp: 'h 9/17/2023 20:06:49'!
+restoreStack: stackToRestore with: sentencesInStack
+	
+	sentencesInStack size timesRepeat: [stackToRestore push: sentencesInStack pop].
+
+! !
+
+!SentenceFinderByPrefix methodsFor: 'finders - private' stamp: 'h 9/17/2023 20:12:33'!
+selectSentencesWithPrefix: aSentencePrefix from: aStackWithSentences 
+	|stackSentences sentencesWithSamePrefix|
+	
+	stackSentences := OOStack new.
+	sentencesWithSamePrefix := OrderedCollection new.
+	
+	aStackWithSentences size timesRepeat: [ 
+		stackSentences push: aStackWithSentences pop.
+		self includeSentence: (stackSentences top) in: sentencesWithSamePrefix ifPrefixMatches: aSentencePrefix
+		].
+
+	self restoreStack: aStackWithSentences with: stackSentences.
+	^sentencesWithSamePrefix
+
+! !
+
+
+!SentenceFinderByPrefix methodsFor: 'finders' stamp: 'h 9/17/2023 19:51:42'!
+findSentencesWithPrefix: aPrefix inStack: aStack
+	
+	aPrefix isEmpty ifTrue: [^self error: self class prefixCannotBeEmptyError].
+	
+	^self selectSentencesWithPrefix: aPrefix from: aStack.! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
