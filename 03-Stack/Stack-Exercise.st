@@ -248,6 +248,24 @@ test06SearchOnStackWithMatchingPrefixesShouldAlsoMatchCasing
 	
 	! !
 
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'manuel urko 9/18/2023 10:22:50'!
+test07SearchOnStackWithMatchingWordShouldReturnCollectionWithWord
+	|sentencesWithPrefixMatch expectedStackSize expectedTop|
+	
+	stack push: 'aloha'.
+	stack push: 'Arrivederci'.
+	stack push: 'ciao'.
+	
+	expectedStackSize := stack size.
+	expectedTop := stack top.
+	sentencesWithPrefixMatch := aSentenceFinderByPrefix findSentencesWithPrefix: 'Arrivederci' inStack: stack.
+	
+	self  assertThatCollection: sentencesWithPrefixMatch 
+		hasSize: 1 
+		andContainsElements: #('Arrivederci').
+	self assertThatStack: stack hasExpectedSize: expectedStackSize andExpectedTop: expectedTop .
+	! !
+
 
 !SentenceFinderByPrefixTest methodsFor: 'setUp' stamp: 'manuel urko 9/17/2023 10:12:21'!
 setUp
