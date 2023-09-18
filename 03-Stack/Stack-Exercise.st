@@ -157,8 +157,9 @@ test01SearchOnEmptyStackShouldReturnEmptyCollection
 	
 	! !
 
-!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'manuel urko 9/18/2023 14:26:56'!
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'h 9/18/2023 14:46:34'!
 test02SearchOnStackWithNoMatchingPrefixShouldReturnEmptyCollection
+
 	|sentencesWithPrefixMatch  |
 	self pushToTestStacks: 'holiwi'.
 	
@@ -201,8 +202,8 @@ test04SearchOnStackWithMultipleMatchingPrefixShouldReturnCollectionWithSentences
 	
 	! !
 
-!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'manuel urko 9/18/2023 14:29:15'!
-test06SearchOnStackWithMultipleMatchingPrefixShouldReturnCollectionWithOnlyMatchingSentences
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'h 9/18/2023 14:37:21'!
+test05SearchOnStackWithMultipleMatchingPrefixShouldReturnCollectionWithOnlyMatchingSentences
 	|sentencesWithPrefixMatch|
 	self pushToTestStacks: 'aloha'.
 	self pushToTestStacks: 'arrivederci'.
@@ -217,8 +218,8 @@ test06SearchOnStackWithMultipleMatchingPrefixShouldReturnCollectionWithOnlyMatch
 	
 	! !
 
-!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'manuel urko 9/18/2023 14:30:27'!
-test07SearchOnStackWithMatchingPrefixesShouldAlsoMatchCasing
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'h 9/18/2023 14:37:28'!
+test06SearchOnStackWithMatchingPrefixesShouldAlsoMatchCasing
 	|sentencesWithPrefixMatch|
 	
 	self pushToTestStacks: 'aloha'.
@@ -235,8 +236,8 @@ test07SearchOnStackWithMatchingPrefixesShouldAlsoMatchCasing
 	
 	! !
 
-!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'manuel urko 9/18/2023 14:31:16'!
-test08SearchOnStackWithMatchingWordShouldReturnCollectionWithWord
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'h 9/18/2023 14:37:35'!
+test07SearchOnStackWithMatchingWordShouldReturnCollectionWithWord
 	|sentencesWithPrefixMatch|
 
 	self pushToTestStacks: 'aloha'.
@@ -250,8 +251,8 @@ test08SearchOnStackWithMatchingWordShouldReturnCollectionWithWord
 	self assertThatStack: stack isTheSameAs: stackBeforeSearch .
 	! !
 
-!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'h 9/18/2023 13:04:57'!
-test09SearchWithEmptyPrefixShouldThrowError
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'h 9/18/2023 14:37:41'!
+test08SearchWithEmptyPrefixShouldThrowError
 
 	self
 		should: [ aSentenceFinderByPrefix findSentencesWithPrefix: '' inStack: stack]
@@ -260,8 +261,8 @@ test09SearchWithEmptyPrefixShouldThrowError
 			self assert: anError messageText = SentenceFinderByPrefix prefixCannotBeEmptyError ]
 	! !
 
-!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'h 9/18/2023 13:04:51'!
-test10SearchWithWhiteSpaceShouldThrowError
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'h 9/18/2023 14:37:48'!
+test09SearchWithWhiteSpaceShouldThrowError
 
 	self
 		should: [ aSentenceFinderByPrefix findSentencesWithPrefix: 'hola chau' inStack: stack]
@@ -378,16 +379,16 @@ Object subclass: #SentenceFinderByPrefix
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
 
-!SentenceFinderByPrefix methodsFor: 'finders - private' stamp: 'h 9/18/2023 12:11:10'!
-includeSentence: aSentece in: aCollection ifPrefixMatches: aPrefix
+!SentenceFinderByPrefix methodsFor: 'finders - private' stamp: 'h 9/18/2023 14:45:54'!
+includeSentence: aSenteceToBeIncluded in: aCollection ifPrefixMatches: aPrefix
 	
-	(aSentece beginsWith: aPrefix) ifTrue: [^aCollection addFirst: aSentece]
+	(aSenteceToBeIncluded beginsWith: aPrefix) ifTrue: [^aCollection addFirst: aSenteceToBeIncluded ]
 	! !
 
-!SentenceFinderByPrefix methodsFor: 'finders - private' stamp: 'h 9/18/2023 12:11:04'!
-restoreStack: stackToRestore with: sentencesInStack
+!SentenceFinderByPrefix methodsFor: 'finders - private' stamp: 'h 9/18/2023 14:45:01'!
+restoreStack: stackToRestore with: sentencesOfStack
 	
-	sentencesInStack size timesRepeat: [stackToRestore push: sentencesInStack pop].
+	sentencesOfStack size timesRepeat: [stackToRestore push: sentencesOfStack pop].
 
 ! !
 
@@ -410,19 +411,34 @@ selectSentencesWithPrefix: aSentencePrefix from: aStackWithSentences
 ! !
 
 
-!SentenceFinderByPrefix methodsFor: 'tests' stamp: 'h 9/18/2023 11:37:54'!
-checkIfPrefixHasBlankSpaces: aPrefix
+!SentenceFinderByPrefix methodsFor: 'tests' stamp: 'h 9/18/2023 14:44:17'!
+checkIfPrefixHasBlankSpaces: aPrefixToBeChecked
 
-	(aPrefix allSatisfy: [:aCharacter | aCharacter isSeparator not ]) ifFalse: [^self error: self class        	prefixCannotHaveEmptySpacesError ].! !
+	(aPrefixToBeChecked allSatisfy: [:aCharacter | aCharacter isSeparator not ]) ifFalse: [^self error: self class        	prefixCannotHaveEmptySpacesError ].! !
 
+!SentenceFinderByPrefix methodsFor: 'tests' stamp: 'h 9/18/2023 14:40:19'!
+checkIfPrefixIsEmpty: aPrefixToBeChecked
 
-!SentenceFinderByPrefix methodsFor: 'finders' stamp: 'h 9/18/2023 12:09:09'!
-findSentencesWithPrefix: aPrefix inStack: aStack
+	aPrefixToBeChecked isEmpty ifTrue: [^self error: self class prefixCannotBeEmptyError]
+
+	! !
+
+!SentenceFinderByPrefix methodsFor: 'tests' stamp: 'h 9/18/2023 14:40:34'!
+checkPrefixIsValid: aPrefixToBeValidated
+
+	self checkIfPrefixIsEmpty: aPrefixToBeValidated .
 	
-	aPrefix isEmpty ifTrue: [^self error: self class prefixCannotBeEmptyError].
-	self checkIfPrefixHasBlankSpaces: aPrefix.
+	self checkIfPrefixHasBlankSpaces: aPrefixToBeValidated .
+
+	! !
+
+
+!SentenceFinderByPrefix methodsFor: 'finders' stamp: 'h 9/18/2023 14:45:25'!
+findSentencesWithPrefix: aPrefix inStack: aStackWithSentences
 	
-	^self selectSentencesWithPrefix: aPrefix from: aStack.! !
+	self checkPrefixIsValid: aPrefix .
+	
+	^self selectSentencesWithPrefix: aPrefix from: aStackWithSentences .! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
