@@ -266,6 +266,26 @@ test07SearchOnStackWithMatchingWordShouldReturnCollectionWithWord
 	self assertThatStack: stack hasExpectedSize: expectedStackSize andExpectedTop: expectedTop .
 	! !
 
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'manuel urko 9/18/2023 10:28:19'!
+test08SearchWithEmptyPrefixShouldThrowError
+
+	self
+		should: [ aSentenceFinderByPrefix findSentencesWithPrefix: '' inStack: stack]
+		raise: Error
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = SentenceFinderByPrefix prefixCannotBeEmptyError ]
+	! !
+
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'manuel urko 9/18/2023 10:39:09'!
+test09SearchWithWhiteSpaceShouldThrowError
+
+	self
+		should: [ aSentenceFinderByPrefix findSentencesWithPrefix: 'hola chau' inStack: stack]
+		raise: Error
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = SentenceFinderByPrefix prefixCannotHaveEmptySpacesError ]
+	! !
+
 
 !SentenceFinderByPrefixTest methodsFor: 'setUp' stamp: 'manuel urko 9/17/2023 10:12:21'!
 setUp
@@ -398,10 +418,10 @@ selectSentencesWithPrefix: aSentencePrefix from: aStackWithSentences
 ! !
 
 
-!SentenceFinderByPrefix methodsFor: 'finders' stamp: 'h 9/17/2023 19:51:42'!
+!SentenceFinderByPrefix methodsFor: 'finders' stamp: 'manuel urko 9/18/2023 10:40:38'!
 findSentencesWithPrefix: aPrefix inStack: aStack
 	
-	aPrefix isEmpty ifTrue: [^self error: self class prefixCannotBeEmptyError].
+	aPrefix isEmpty ifTrue: [^self error: self class prefixCannotBeEmptyError].	(aPrefix allSatisfy: [:aCharacter | aCharacter isSeparator not ]) not ifTrue: [^self error: self class prefixCannotHaveEmptySpacesError ].
 	
 	^self selectSentencesWithPrefix: aPrefix from: aStack.! !
 
