@@ -406,10 +406,14 @@ topOf: aStack
 StackState class
 	instanceVariableNames: ''!
 
-!StackState class methodsFor: 'as yet unclassified' stamp: 'h 9/15/2023 14:58:22'!
+!StackState class methodsFor: 'instance creation' stamp: 'manuel urko 9/18/2023 10:13:11'!
+canHandle: aStack
+	self subclassResponsibility ! !
+
+!StackState class methodsFor: 'instance creation' stamp: 'manuel urko 9/18/2023 10:17:38'!
 from: aStack
-	aStack isEmpty ifTrue: [^EmptyStack new].
-	^NotEmptyStack new
+
+	^(StackState allSubclasses detect:[:aClass | aClass canHandle: aStack]) new.
 	! !
 
 
@@ -428,6 +432,16 @@ popFrom: anEmptyStack
 topOf: anEmptyStack
 	^anEmptyStack topOfEmptyStack! !
 
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'EmptyStack class' category: 'Stack-Exercise'!
+EmptyStack class
+	instanceVariableNames: ''!
+
+!EmptyStack class methodsFor: 'instance creation' stamp: 'manuel urko 9/18/2023 10:13:51'!
+canHandle: aStack
+	^aStack isEmpty! !
+
 
 !classDefinition: #NotEmptyStack category: 'Stack-Exercise'!
 StackState subclass: #NotEmptyStack
@@ -445,3 +459,13 @@ popFrom: aStackToPop
 topOf: aNonEmptyStack
 	^aNonEmptyStack topOfNonEmptyStack
 	! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'NotEmptyStack class' category: 'Stack-Exercise'!
+NotEmptyStack class
+	instanceVariableNames: ''!
+
+!NotEmptyStack class methodsFor: 'instance creation' stamp: 'manuel urko 9/18/2023 10:15:20'!
+canHandle: aStack
+	^aStack isEmpty not! !
