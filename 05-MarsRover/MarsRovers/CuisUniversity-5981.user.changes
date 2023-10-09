@@ -1,0 +1,2190 @@
+
+
+----STARTUP---- (7 October 2023 18:37:36) as C:\Users\Intekio\Desktop\windows64\CuisUniversity-5981.image!
+
+
+TestCase subclass: #MarsRoversTests
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRovers'!
+
+!classDefinition: #MarsRoversTests category: 'MarsRovers' stamp: 'h 10/7/2023 18:38:16'!
+TestCase subclass: #MarsRoversTests
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRovers'!
+
+!classDefinition: #Rovers category: 'MarsRovers' stamp: 'h 10/7/2023 18:38:49'!
+Object subclass: #Rovers
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRovers'!
+!MarsRoversTests methodsFor: 'no messages' stamp: 'h 10/7/2023 18:38:32'!
+test01
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: #North.
+	
+	rovers processInstructions: ''. 
+	
+	self assert: (rovers isAt: 0@0 withDirection: #North)! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:38:55'!
+ERROR!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:38:55'!
+ERROR!
+!Rovers class methodsFor: 'instance creation' stamp: 'h 10/7/2023 18:38:59'!
+atPosition: aRenameMe1 withDirection: aRenameMe2 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeAtPosition: aRenameMe1 withDirection: aRenameMe2 ! !
+!Rovers class methodsFor: 'instance creation' stamp: 'h 10/7/2023 18:39:21' prior: 50331685!
+atPosition: startingPosition withDirection: startingDirection
+	
+	^self new initializeAtPosition: startingPosition withDirection: startingDirection ! !
+!Rovers class methodsFor: 'instance creation' stamp: 'h 10/7/2023 18:40:03' prior: 50331695!
+atPosition: startingPosition withDirection: startingDirection
+	
+	^self new ! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:40:13'!
+ERROR!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:40:13'!
+ERROR!
+!Rovers methodsFor: 'process' stamp: 'h 10/7/2023 18:40:23'!
+processInstructions: aRenameMe1 
+	self shouldBeImplemented.! !
+!Rovers methodsFor: 'process' stamp: 'h 10/7/2023 18:40:25' prior: 50331712!
+processInstructions: aRenameMe1 
+	! !
+!Rovers methodsFor: 'process' stamp: 'h 10/7/2023 18:40:30' prior: 50331717!
+processInstructions: instructions
+	! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:40:33'!
+ERROR!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:40:33'!
+ERROR!
+!Rovers methodsFor: 'test' stamp: 'h 10/7/2023 18:40:40'!
+isAt: aRenameMe1 withDirection: aRenameMe2 
+	self shouldBeImplemented.! !
+!Rovers methodsFor: 'test' stamp: 'h 10/7/2023 18:40:47' prior: 50331729!
+isAt: aRenameMe1 withDirection: aRenameMe2 
+	
+	^true! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:40:58'!
+PASSED!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:40:58'!
+PASSED!
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 18:42:16'!
+test02RoversWithDiferentStartingPositionAndDirection
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 1@0 withDirection: #South.
+	
+	rovers processInstructions: ''. 
+	
+	self deny: (rovers isAt: 0@0 withDirection: #North)! !
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 18:42:18'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 18:42:18'!
+FAILURE!
+!Rovers class methodsFor: 'instance creation' stamp: 'h 10/7/2023 18:42:39' prior: 50331703!
+atPosition: startingPosition withDirection: startingDirection
+	
+	^self initializeAtPosition: startingPosition withDirection: startingDirection! !
+
+!classDefinition: #Rovers category: 'MarsRovers' stamp: 'h 10/7/2023 18:43:30'!
+Object subclass: #Rovers
+	instanceVariableNames: 'position'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRovers'!
+
+!classDefinition: #Rovers category: 'MarsRovers' stamp: 'h 10/7/2023 18:43:31'!
+Object subclass: #Rovers
+	instanceVariableNames: 'position direction'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRovers'!
+!Rovers methodsFor: 'initialize' stamp: 'h 10/7/2023 18:43:28'!
+initializeAtPosition: startingPosition withDirection: startingDirection
+
+	position := startingPosition .
+	direction := startingDirection .! !
+!Rovers methodsFor: 'test' stamp: 'h 10/7/2023 18:44:34' prior: 50331734!
+isAt: posiblePosition withDirection: posibleDirection
+	
+	^position = posiblePosition and: [posibleDirection = direction]! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:44:37'!
+ERROR!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 18:44:37'!
+ERROR!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:45:01'!
+ERROR!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 18:45:01'!
+ERROR!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:45:03'!
+ERROR!
+!Rovers class methodsFor: 'instance creation' stamp: 'h 10/7/2023 18:45:22' prior: 50331761!
+atPosition: startingPosition withDirection: startingDirection
+	
+	^self new initializeAtPosition: startingPosition withDirection: startingDirection! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:45:23'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 18:45:24'!
+PASSED!
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 18:46:12'!
+test03
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: #North.
+	
+	rovers processInstructions: 'f'. 
+	
+	self assert: (rovers isAt: 0@1 withDirection: #North)! !
+!Rovers methodsFor: 'process' stamp: 'h 10/7/2023 18:46:58' prior: 50331721!
+processInstructions: instructions
+	
+	position := position x @ position y +1! !
+!Rovers methodsFor: 'process' stamp: 'h 10/7/2023 18:47:44' prior: 50331833!
+processInstructions: instructions
+	
+	instructions first = $f ifTrue: [position := position x @ position y +1]! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:47:47'!
+ERROR!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 18:47:47'!
+ERROR!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 18:47:47'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:47:55'!
+ERROR!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 18:47:55'!
+ERROR!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 18:47:56'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:48:01'!
+ERROR!
+!Rovers methodsFor: 'process' stamp: 'h 10/7/2023 18:48:42' prior: 50331838!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	position := position x @ position y +1.! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:48:45'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 18:48:45'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 18:48:45'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 18:48:45'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:48:51'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 18:48:51'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 18:48:51'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 18:48:51'!
+FAILURE!
+
+rovers!
+!Rovers methodsFor: 'process' stamp: 'h 10/7/2023 18:49:29' prior: 50331864!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	position := position x @ (position y +1).! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:49:31'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 18:49:31'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 18:49:31'!
+PASSED!
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 18:49:44'!
+test04
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: #North.
+	
+	rovers processInstructions: 'b'.
+	
+	self assert: (rovers isAt: 0@1 withDirection: #North)! !
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 18:49:55' prior: 50331908!
+test04
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: #North.
+	
+	rovers processInstructions: 'b'.
+	
+	self assert: (rovers isAt: 0@-1 withDirection: #North)! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:49:59'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 18:49:59'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 18:49:59'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04 stamp: 'h 10/7/2023 18:49:59'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test04 stamp: 'h 10/7/2023 18:49:59'!
+FAILURE!
+!Rovers methodsFor: 'process' stamp: 'h 10/7/2023 18:51:12' prior: 50331893!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions first = $b ifTrue: [position := position x @ (position y -1)].
+	position := position x @ (position y +1).! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:51:15'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 18:51:15'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 18:51:15'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04 stamp: 'h 10/7/2023 18:51:15'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test04 stamp: 'h 10/7/2023 18:51:15'!
+FAILURE!
+
+rovers!
+
+instructions first!
+
+position x @ (position y -1)!
+!Rovers methodsFor: 'process' stamp: 'h 10/7/2023 18:52:54' prior: 50331939!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions first = $b ifTrue: [position := position x @ (position y -1)].
+	instructions first = $f ifTrue:  [position := position x @ (position y +1)].! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:52:56'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 18:52:56'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 18:52:56'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04 stamp: 'h 10/7/2023 18:52:56'!
+PASSED!
+!Rovers methodsFor: 'process' stamp: 'h 10/7/2023 18:57:23' prior: 50331963!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions first = $b ifTrue: [position := position x @ (position y -1)].
+	instructions first = $f ifTrue:  [position := position x @ (position y +1)].! !
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 18:59:13' prior: 50331917!
+test04
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: #North.
+	
+	rovers processInstructions: 'l'.
+	
+	self assert: (rovers isAt: 0@0 withDirection: #West)! !
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 18:59:24' prior: 50331995!
+test04
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: #North.
+	
+	rovers processInstructions: 'b'.
+	
+	self assert: (rovers isAt: 0@-1 withDirection: #North)! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:59:25'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 18:59:25'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 18:59:25'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04 stamp: 'h 10/7/2023 18:59:25'!
+PASSED!
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 18:59:36'!
+test05
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: #North.
+	
+	rovers processInstructions: 'l'.
+	
+	self assert: (rovers isAt: 0@-1 withDirection: #West)! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 18:59:38'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 18:59:38'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 18:59:38'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04 stamp: 'h 10/7/2023 18:59:38'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05 stamp: 'h 10/7/2023 18:59:38'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test05 stamp: 'h 10/7/2023 18:59:38'!
+FAILURE!
+!Rovers methodsFor: 'process' stamp: 'h 10/7/2023 19:00:33' prior: 50331984!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions first = $b ifTrue: [position := position x @ (position y -1)].
+	instructions first = $f ifTrue:  [position := position x @ (position y +1)].
+	instructions first = $i ifTrue:  [direction := #West].! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:00:39'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 19:00:39'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 19:00:39'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04 stamp: 'h 10/7/2023 19:00:39'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05 stamp: 'h 10/7/2023 19:00:39'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test05 stamp: 'h 10/7/2023 19:00:39'!
+FAILURE!
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:00:48' prior: 50332023!
+test05
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: #North.
+	
+	rovers processInstructions: 'l'.
+	
+	self assert: (rovers isAt: 0@0 withDirection: #West)! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:00:50'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 19:00:50'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 19:00:50'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04 stamp: 'h 10/7/2023 19:00:50'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05 stamp: 'h 10/7/2023 19:00:50'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test05 stamp: 'h 10/7/2023 19:00:50'!
+FAILURE!
+!Rovers methodsFor: 'process' stamp: 'h 10/7/2023 19:01:08' prior: 50332047!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions first = $b ifTrue: [position := position x @ (position y -1)].
+	instructions first = $f ifTrue:  [position := position x @ (position y +1)].
+	instructions first = $l ifTrue:  [direction := #West].! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:01:10'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 19:01:10'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 19:01:10'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04 stamp: 'h 10/7/2023 19:01:10'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05 stamp: 'h 10/7/2023 19:01:10'!
+PASSED!
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:02:38'!
+test06
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: #East.
+	
+	rovers processInstructions: 'l'.
+	
+	self assert: (rovers isAt: 0@0 withDirection: #North)! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:02:40'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 19:02:40'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 19:02:40'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04 stamp: 'h 10/7/2023 19:02:40'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05 stamp: 'h 10/7/2023 19:02:40'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06 stamp: 'h 10/7/2023 19:02:40'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test06 stamp: 'h 10/7/2023 19:02:40'!
+FAILURE!
+!Rovers methodsFor: 'process' stamp: 'h 10/7/2023 19:05:05' prior: 50332099!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions first = $b ifTrue: [position := position x @ (position y -1)].
+	instructions first = $f ifTrue:  [position := position x @ (position y +1)].
+	instructions first = $l ifTrue:  [direction = #East ifTrue: [direction := #North] 
+										     ifFalse: [direction := #West]].! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:05:07'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 19:05:07'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 19:05:07'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04 stamp: 'h 10/7/2023 19:05:07'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05 stamp: 'h 10/7/2023 19:05:07'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06 stamp: 'h 10/7/2023 19:05:07'!
+PASSED!
+
+Object subclass: #CardinalDirection
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRovers'!
+
+!classDefinition: #CardinalDirection category: 'MarsRovers' stamp: 'h 10/7/2023 19:07:47'!
+Object subclass: #CardinalDirection
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRovers'!
+
+CardinalDirection subclass: #North
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRovers'!
+
+!classDefinition: #North category: 'MarsRovers' stamp: 'h 10/7/2023 19:08:28'!
+CardinalDirection subclass: #North
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRovers'!
+
+CardinalDirection subclass: #West
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRovers'!
+
+!classDefinition: #West category: 'MarsRovers' stamp: 'h 10/7/2023 19:08:33'!
+CardinalDirection subclass: #West
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRovers'!
+
+CardinalDirection subclass: #East
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRovers'!
+
+!classDefinition: #East category: 'MarsRovers' stamp: 'h 10/7/2023 19:08:37'!
+CardinalDirection subclass: #East
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRovers'!
+!Rovers methodsFor: 'process' stamp: 'h 10/7/2023 19:11:56' prior: 50332150!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions first = $b ifTrue: [position := position x @ (position y -1)].
+	instructions first = $f ifTrue:  [position := position x @ (position y +1)].
+	
+	instructions first = $l ifTrue: [direction cardinalInTheLeft].
+	
+	"instructions first = $l ifTrue:  [direction = #East ifTrue: [direction := #North] 
+										     ifFalse: [direction := #West]]."! !
+!East methodsFor: 'no messages' stamp: 'h 10/7/2023 19:13:39'!
+cardinalInTheLeft
+
+	^North! !
+!North methodsFor: 'no messages' stamp: 'h 10/7/2023 19:13:53'!
+cardinalInTheLeft
+
+	^West! !
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:15:38' prior: 50331672!
+test01
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: North new.
+	
+	rovers processInstructions: ''. 
+	
+	self assert: (rovers isAt: 0@0 withDirection: North new)! !
+
+!classDefinition: #South category: 'MarsRovers' stamp: 'h 10/7/2023 19:16:08'!
+CardinalDirection subclass: #South
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRovers'!
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:15:58' prior: 50331743!
+test02RoversWithDiferentStartingPositionAndDirection
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 1@0 withDirection: South new.
+	
+	rovers processInstructions: ''. 
+	
+	self deny: (rovers isAt: 0@0 withDirection: North new)! !
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:16:19' prior: 50331825!
+test03
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: North new.
+	
+	rovers processInstructions: 'f'. 
+	
+	self assert: (rovers isAt: 0@1 withDirection: North new)! !
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:16:25' prior: 50332004!
+test04
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: North new.
+	
+	rovers processInstructions: 'b'.
+	
+	self assert: (rovers isAt: 0@-1 withDirection: North new)! !
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:16:34' prior: 50332075!
+test05
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: North new.
+	
+	rovers processInstructions: 'l'.
+	
+	self assert: (rovers isAt: 0@0 withDirection: West new)! !
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:16:42' prior: 50332124!
+test06
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: East new.
+	
+	rovers processInstructions: 'l'.
+	
+	self assert: (rovers isAt: 0@0 withDirection: North new)! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:16:43'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 19:16:44'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 19:16:44'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test04 stamp: 'h 10/7/2023 19:16:44'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test05 stamp: 'h 10/7/2023 19:16:44'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test06 stamp: 'h 10/7/2023 19:16:44'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:16:53'!
+FAILURE!
+!Rovers methodsFor: 'process' stamp: 'h 10/7/2023 19:17:30' prior: 50332223!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions first = $b ifTrue: [position := position x @ (position y -1)].
+	instructions first = $f ifTrue:  [position := position x @ (position y +1)].
+	
+	instructions first = $l ifTrue: [direction := direction cardinalInTheLeft].
+	
+	"instructions first = $l ifTrue:  [direction = #East ifTrue: [direction := #North] 
+										     ifFalse: [direction := #West]]."! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:17:34'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 19:17:34'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 19:17:34'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test04 stamp: 'h 10/7/2023 19:17:34'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test05 stamp: 'h 10/7/2023 19:17:34'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test06 stamp: 'h 10/7/2023 19:17:34'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:17:50'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 19:17:50'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 19:17:50'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test04 stamp: 'h 10/7/2023 19:17:50'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test05 stamp: 'h 10/7/2023 19:17:50'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test06 stamp: 'h 10/7/2023 19:17:50'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:17:52'!
+FAILURE!
+!North methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:18:42' prior: 50332242!
+cardinalInTheLeft
+
+	^West new! !
+!East methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:18:48' prior: 50332239!
+cardinalInTheLeft
+
+	^North new! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:18:55'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 19:18:55'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 19:18:55'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test04 stamp: 'h 10/7/2023 19:18:55'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test05 stamp: 'h 10/7/2023 19:18:56'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test06 stamp: 'h 10/7/2023 19:18:56'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:19:04'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:19:04'!
+FAILURE!
+
+rovers!
+
+rovers!
+
+posibleDirection!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:19:46'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 19:19:46'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 19:19:46'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test04 stamp: 'h 10/7/2023 19:19:46'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test05 stamp: 'h 10/7/2023 19:19:46'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test06 stamp: 'h 10/7/2023 19:19:47'!
+FAILURE!
+
+direction!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:20:04'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:20:10'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:20:10'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:21:33'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:21:33'!
+FAILURE!
+
+posibleDirection = direction!
+
+North new = North new!
+!Rovers methodsFor: 'test' stamp: 'h 10/7/2023 19:23:23' prior: 50331789!
+isAt: posiblePosition withDirection: posibleDirection
+	
+	^position = posiblePosition and: [posibleDirection isKindOf: direction ]! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:23:27'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 19:23:27'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 19:23:27'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test04 stamp: 'h 10/7/2023 19:23:27'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test05 stamp: 'h 10/7/2023 19:23:27'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test06 stamp: 'h 10/7/2023 19:23:27'!
+FAILURE!
+!Rovers methodsFor: 'test' stamp: 'h 10/7/2023 19:23:39' prior: 50332436!
+isAt: posiblePosition withDirection: posibleDirection
+	
+	^position = posiblePosition and: [posibleDirection class = direction class ]! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:23:41'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 19:23:41'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03 stamp: 'h 10/7/2023 19:23:41'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04 stamp: 'h 10/7/2023 19:23:41'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05 stamp: 'h 10/7/2023 19:23:41'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06 stamp: 'h 10/7/2023 19:23:41'!
+PASSED!
+!South methodsFor: 'no messages' stamp: 'h 10/7/2023 19:25:01'!
+cardinalInTheLeft
+
+	^East new! !
+!West methodsFor: 'no messages' stamp: 'h 10/7/2023 19:25:11'!
+cardinalInTheLeft
+
+	^South new! !
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:26:07'!
+test03RoversCanMoveForward
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: North new.
+	
+	rovers processInstructions: 'f'. 
+	
+	self assert: (rovers isAt: 0@1 withDirection: North new)! !
+
+!methodRemoval: MarsRoversTests #test03 stamp: 'h 10/7/2023 19:26:08'!
+test03
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: North new.
+	
+	rovers processInstructions: 'f'. 
+	
+	self assert: (rovers isAt: 0@1 withDirection: North new)!
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:26:19'!
+test04RoversCanMoveBackwards
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: North new.
+	
+	rovers processInstructions: 'b'.
+	
+	self assert: (rovers isAt: 0@-1 withDirection: North new)! !
+
+!methodRemoval: MarsRoversTests #test04 stamp: 'h 10/7/2023 19:26:19'!
+test04
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: North new.
+	
+	rovers processInstructions: 'b'.
+	
+	self assert: (rovers isAt: 0@-1 withDirection: North new)!
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:26:41'!
+test05RoversCanRotateToTheLeft
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: North new.
+	
+	rovers processInstructions: 'l'.
+	
+	self assert: (rovers isAt: 0@0 withDirection: West new)! !
+
+!methodRemoval: MarsRoversTests #test05 stamp: 'h 10/7/2023 19:26:41'!
+test05
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: North new.
+	
+	rovers processInstructions: 'l'.
+	
+	self assert: (rovers isAt: 0@0 withDirection: West new)!
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:27:13'!
+test06RoversCanRotateToTheLeftWithDiferentDirection
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: East new.
+	
+	rovers processInstructions: 'l'.
+	
+	self assert: (rovers isAt: 0@0 withDirection: North new)! !
+
+!methodRemoval: MarsRoversTests #test06 stamp: 'h 10/7/2023 19:27:13'!
+test06
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: East new.
+	
+	rovers processInstructions: 'l'.
+	
+	self assert: (rovers isAt: 0@0 withDirection: North new)!
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:28:10'!
+test07RoversCanRotateToTheRight
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: North new.
+	
+	rovers processInstructions: 'r'.
+	
+	self assert: (rovers isAt: 0@0 withDirection: East new)! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:28:19'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 19:28:19'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/7/2023 19:28:19'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/7/2023 19:28:19'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/7/2023 19:28:19'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/7/2023 19:28:19'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/7/2023 19:28:19'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/7/2023 19:28:19'!
+FAILURE!
+!North methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:28:29'!
+cardinalInTheRight
+
+	^East new! !
+!Rovers methodsFor: 'process' stamp: 'h 10/7/2023 19:28:56' prior: 50332326!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions first = $b ifTrue: [position := position x @ (position y -1)].
+	instructions first = $f ifTrue:  [position := position x @ (position y +1)].
+	
+	instructions first = $l ifTrue: [direction := direction cardinalInTheLeft].
+	instructions first = $r ifTrue: [direction := direction cardinalInTheRight].
+	! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:28:59'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 19:28:59'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/7/2023 19:28:59'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/7/2023 19:28:59'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/7/2023 19:28:59'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/7/2023 19:28:59'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/7/2023 19:28:59'!
+PASSED!
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:29:24'!
+test07RoversCanRotateToTheRightWithDifferentDirection
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: West new.
+	
+	rovers processInstructions: 'r'.
+	
+	self assert: (rovers isAt: 0@0 withDirection: North new)! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:29:25'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 19:29:25'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/7/2023 19:29:25'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/7/2023 19:29:25'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/7/2023 19:29:26'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/7/2023 19:29:26'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/7/2023 19:29:26'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/7/2023 19:29:26'!
+ERROR!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/7/2023 19:29:26'!
+ERROR!
+!South methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:29:45'!
+cardinalInTheRight
+
+	^West new! !
+!West methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:30:02'!
+cardinalInTheRight
+
+	^North new! !
+!East methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:30:10'!
+cardinalInTheRight
+
+	^South new! !
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:30:22'!
+test08RoversCanRotateToTheRightWithDifferentDirection
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: West new.
+	
+	rovers processInstructions: 'r'.
+	
+	self assert: (rovers isAt: 0@0 withDirection: North new)! !
+
+!methodRemoval: MarsRoversTests #test07RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/7/2023 19:30:23'!
+test07RoversCanRotateToTheRightWithDifferentDirection
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: West new.
+	
+	rovers processInstructions: 'r'.
+	
+	self assert: (rovers isAt: 0@0 withDirection: North new)!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/7/2023 19:30:24'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/7/2023 19:30:24'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/7/2023 19:30:24'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/7/2023 19:30:24'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/7/2023 19:30:24'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/7/2023 19:30:25'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/7/2023 19:30:25'!
+PASSED!
+
+!testRun: #MarsRoversTests #test08RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/7/2023 19:30:25'!
+PASSED!
+!CardinalDirection methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:32:34'!
+cardinalInTheLeft
+
+	self subclassResponsibility! !
+!CardinalDirection methodsFor: 'as yet unclassified' stamp: 'h 10/7/2023 19:32:42'!
+cardinalInTheRight
+
+	self subclassResponsibility! !
+
+----SNAPSHOT----(7 October 2023 19:33:16) CuisUniversity-5981.image priorSource: 10197292!
+
+----QUIT----(7 October 2023 19:38:33) CuisUniversity-5981.image priorSource: 34835!
+
+----STARTUP---- (9 October 2023 14:28:16) as C:\Users\Intekio\Desktop\windows64\CuisUniversity-5981.image!
+
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:29:22'!
+test08RoversCanMoveForwardWithDifferentDirection
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: West new.
+	
+	rovers processInstructions: 'f'.
+	
+	self assert: (rovers isAt: 1@0 withDirection: West new)! !
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:29:32'!
+test09RoversCanMoveForwardWithDifferentDirection
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: West new.
+	
+	rovers processInstructions: 'f'.
+	
+	self assert: (rovers isAt: 1@0 withDirection: West new)! !
+
+!methodRemoval: MarsRoversTests #test08RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:29:32'!
+test08RoversCanMoveForwardWithDifferentDirection
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: West new.
+	
+	rovers processInstructions: 'f'.
+	
+	self assert: (rovers isAt: 1@0 withDirection: West new)!
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/9/2023 14:29:34'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/9/2023 14:29:34'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/9/2023 14:29:34'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/9/2023 14:29:34'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/9/2023 14:29:34'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/9/2023 14:29:34'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/9/2023 14:29:34'!
+PASSED!
+
+!testRun: #MarsRoversTests #test08RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/9/2023 14:29:34'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:29:34'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:29:34'!
+FAILURE!
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:31:33' prior: 50332595!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions first = $b ifTrue: [position := position x @ (position y -1)].
+	instructions first = $f ifTrue:  [position := direction forwardPositionForCurrentPosition: position].
+	
+	instructions first = $l ifTrue: [direction := direction cardinalInTheLeft].
+	instructions first = $r ifTrue: [direction := direction cardinalInTheRight].
+	! !
+!West methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:32:27'!
+forwardPositionForCurrentPosition: currentPosition
+	
+	^(currentPosition x+1) @ currentPosition y! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/9/2023 14:32:28'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/9/2023 14:32:29'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/9/2023 14:32:29'!
+ERROR!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/9/2023 14:32:29'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/9/2023 14:32:29'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/9/2023 14:32:29'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/9/2023 14:32:29'!
+PASSED!
+
+!testRun: #MarsRoversTests #test08RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/9/2023 14:32:29'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:32:29'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/9/2023 14:32:29'!
+ERROR!
+!South methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:32:54'!
+forwardPositionForCurrentPosition: currentPosition
+	
+	^(currentPosition x) @ (currentPosition y-1)! !
+!North methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:33:10'!
+forwardPositionForCurrentPosition: currentPosition
+	
+	^(currentPosition x) @ (currentPosition y +1)! !
+!East methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:33:24'!
+forwardPositionForCurrentPosition: currentPosition
+	
+	^(currentPosition x+1) @ currentPosition y! !
+!West methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:33:30' prior: 50332828!
+forwardPositionForCurrentPosition: currentPosition
+	
+	^(currentPosition x-1) @ currentPosition y! !
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:33:38' prior: 50332759!
+test09RoversCanMoveForwardWithDifferentDirection
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: West new.
+	
+	rovers processInstructions: 'f'.
+	
+	self assert: (rovers isAt: -1@0 withDirection: West new)! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/9/2023 14:33:39'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/9/2023 14:33:39'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/9/2023 14:33:39'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/9/2023 14:33:39'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/9/2023 14:33:39'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/9/2023 14:33:39'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/9/2023 14:33:39'!
+PASSED!
+
+!testRun: #MarsRoversTests #test08RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/9/2023 14:33:39'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:33:39'!
+PASSED!
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:33:58'!
+test09RoversCanMoveBackwardsWithDifferentDirection
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: West new.
+	
+	rovers processInstructions: 'b'.
+	
+	self assert: (rovers isAt: 1@0 withDirection: West new)! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/9/2023 14:34:00'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/9/2023 14:34:00'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/9/2023 14:34:00'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/9/2023 14:34:00'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/9/2023 14:34:00'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/9/2023 14:34:00'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/9/2023 14:34:00'!
+PASSED!
+
+!testRun: #MarsRoversTests #test08RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/9/2023 14:34:00'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveBackwardsWithDifferentDirection stamp: 'h 10/9/2023 14:34:00'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:34:00'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveBackwardsWithDifferentDirection stamp: 'h 10/9/2023 14:34:00'!
+FAILURE!
+!North methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:35:05'!
+backwardPositionForCurrentPosition: aPosition
+	
+	^aPosition x @ (aPosition y - 1)! !
+!East methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:35:15'!
+backwardPositionForCurrentPosition: aPosition
+	^(aPosition x - 1) @ aPosition y! !
+!South methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:35:29'!
+backwardPositionForCurrentPosition: aPosition
+	^aPosition x @ (aPosition y +1)! !
+!West methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:35:39'!
+backwardPositionForCurrentPosition: aPosition
+	^(aPosition x + 1) @ aPosition y! !
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:35:57' prior: 50332812!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions first = $b ifTrue: [position := direction backwardPositionForCurrentPosition: position].
+	instructions first = $f ifTrue:  [position := direction forwardPositionForCurrentPosition: position].
+	
+	instructions first = $l ifTrue: [direction := direction cardinalInTheLeft].
+	instructions first = $r ifTrue: [direction := direction cardinalInTheRight].
+	! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/9/2023 14:35:59'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/9/2023 14:35:59'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/9/2023 14:35:59'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/9/2023 14:35:59'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/9/2023 14:35:59'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/9/2023 14:35:59'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/9/2023 14:35:59'!
+PASSED!
+
+!testRun: #MarsRoversTests #test08RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/9/2023 14:35:59'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveBackwardsWithDifferentDirection stamp: 'h 10/9/2023 14:35:59'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:35:59'!
+PASSED!
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:36:41'!
+isMoveBackwardsInstruction: anInstruction
+
+	^ anInstruction first = $b! !
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:36:41' prior: 50332997!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	(self isMoveBackwardsInstruction: instructions) ifTrue: [position := direction backwardPositionForCurrentPosition: position].
+	instructions first = $f ifTrue:  [position := direction forwardPositionForCurrentPosition: position].
+	
+	instructions first = $l ifTrue: [direction := direction cardinalInTheLeft].
+	instructions first = $r ifTrue: [direction := direction cardinalInTheRight].
+	! !
+
+!methodRemoval: Rovers #isMoveBackwardsInstruction: stamp: 'h 10/9/2023 14:37:06'!
+isMoveBackwardsInstruction: anInstruction
+
+	^ anInstruction first = $b!
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:37:20' prior: 50333052!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions first = $b ifTrue: [position := direction backwardPositionForCurrentPosition: position].
+	instructions first = $f ifTrue:  [position := direction forwardPositionForCurrentPosition: position].
+	
+	instructions first = $l ifTrue: [direction := direction cardinalInTheLeft].
+	instructions first = $r ifTrue: [direction := direction cardinalInTheRight].
+	! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/9/2023 14:37:22'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/9/2023 14:37:22'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/9/2023 14:37:22'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/9/2023 14:37:22'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/9/2023 14:37:22'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/9/2023 14:37:22'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/9/2023 14:37:22'!
+PASSED!
+
+!testRun: #MarsRoversTests #test08RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/9/2023 14:37:22'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveBackwardsWithDifferentDirection stamp: 'h 10/9/2023 14:37:22'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:37:22'!
+PASSED!
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:37:37'!
+moveBackwards
+
+	^ position := direction backwardPositionForCurrentPosition: position! !
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:37:37' prior: 50333074!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions first = $b ifTrue: [self moveBackwards].
+	instructions first = $f ifTrue:  [position := direction forwardPositionForCurrentPosition: position].
+	
+	instructions first = $l ifTrue: [direction := direction cardinalInTheLeft].
+	instructions first = $r ifTrue: [direction := direction cardinalInTheRight].
+	! !
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:37:43'!
+moveForward
+
+	^ position := direction forwardPositionForCurrentPosition: position! !
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:37:43' prior: 50333130!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions first = $b ifTrue: [self moveBackwards].
+	instructions first = $f ifTrue:  [self moveForward].
+	
+	instructions first = $l ifTrue: [direction := direction cardinalInTheLeft].
+	instructions first = $r ifTrue: [direction := direction cardinalInTheRight].
+	! !
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:37:52'!
+rotateLeft
+
+	^ direction := direction cardinalInTheLeft! !
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:37:52' prior: 50333151!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions first = $b ifTrue: [self moveBackwards].
+	instructions first = $f ifTrue:  [self moveForward].
+	
+	instructions first = $l ifTrue: [self rotateLeft].
+	instructions first = $r ifTrue: [direction := direction cardinalInTheRight].
+	! !
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:37:58'!
+rotateRight
+
+	^ direction := direction cardinalInTheRight! !
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:37:58' prior: 50333169!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions first = $b ifTrue: [self moveBackwards].
+	instructions first = $f ifTrue:  [self moveForward].
+	
+	instructions first = $l ifTrue: [self rotateLeft].
+	instructions first = $r ifTrue: [self rotateRight].
+	! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/9/2023 14:38:13'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/9/2023 14:38:13'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/9/2023 14:38:13'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/9/2023 14:38:13'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/9/2023 14:38:13'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/9/2023 14:38:13'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/9/2023 14:38:13'!
+PASSED!
+
+!testRun: #MarsRoversTests #test08RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/9/2023 14:38:13'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveBackwardsWithDifferentDirection stamp: 'h 10/9/2023 14:38:13'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:38:13'!
+PASSED!
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:38:25'!
+test10RoversCanMoveForwardWithDifferentDirection
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: West new.
+	
+	rovers processInstructions: 'f'.
+	
+	self assert: (rovers isAt: -1@0 withDirection: West new)! !
+
+!methodRemoval: MarsRoversTests #test09RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:38:25'!
+test09RoversCanMoveForwardWithDifferentDirection
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: West new.
+	
+	rovers processInstructions: 'f'.
+	
+	self assert: (rovers isAt: -1@0 withDirection: West new)!
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:39:09'!
+test11RoversCanProcessMultipleOfTheSameInstructions
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: North new.
+	
+	rovers processInstructions: 'ff'.
+	
+	self assert: (rovers isAt: 2@0 withDirection: North new)! !
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:39:54' prior: 50333186!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions first = $b ifTrue: [instructions do: [:anInstruction |self moveBackwards]].
+	instructions first = $f ifTrue:  [instructions do: [:anInstruction |self moveForward]].
+	
+	instructions first = $l ifTrue: [instructions do: [:anInstruction |self rotateLeft]].
+	instructions first = $r ifTrue: [instructions do: [:anInstruction |self rotateRight]].
+	! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/9/2023 14:39:57'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/9/2023 14:39:57'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/9/2023 14:39:57'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/9/2023 14:39:57'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/9/2023 14:39:57'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/9/2023 14:39:57'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/9/2023 14:39:57'!
+PASSED!
+
+!testRun: #MarsRoversTests #test08RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/9/2023 14:39:57'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveBackwardsWithDifferentDirection stamp: 'h 10/9/2023 14:39:57'!
+PASSED!
+
+!testRun: #MarsRoversTests #test10RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:39:57'!
+PASSED!
+
+!testRun: #MarsRoversTests #test11RoversCanProcessMultipleOfTheSameInstructions stamp: 'h 10/9/2023 14:39:57'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test11RoversCanProcessMultipleOfTheSameInstructions stamp: 'h 10/9/2023 14:39:57'!
+FAILURE!
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:40:07' prior: 50333252!
+test11RoversCanProcessMultipleOfTheSameInstructions
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: North new.
+	
+	rovers processInstructions: 'ff'.
+	
+	self assert: (rovers isAt: 0@2 withDirection: North new)! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/9/2023 14:40:08'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/9/2023 14:40:08'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/9/2023 14:40:08'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/9/2023 14:40:08'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/9/2023 14:40:09'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/9/2023 14:40:09'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/9/2023 14:40:09'!
+PASSED!
+
+!testRun: #MarsRoversTests #test08RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/9/2023 14:40:09'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveBackwardsWithDifferentDirection stamp: 'h 10/9/2023 14:40:09'!
+PASSED!
+
+!testRun: #MarsRoversTests #test10RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:40:09'!
+PASSED!
+
+!testRun: #MarsRoversTests #test11RoversCanProcessMultipleOfTheSameInstructions stamp: 'h 10/9/2023 14:40:09'!
+PASSED!
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:41:24'!
+test12RoversCanProcessMultipleDifferentInstructions
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: North new.
+	
+	rovers processInstructions: 'ffr'.
+	
+	self assert: (rovers isAt: 0@2 withDirection: East new)! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/9/2023 14:41:26'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/9/2023 14:41:26'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/9/2023 14:41:26'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/9/2023 14:41:26'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/9/2023 14:41:26'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/9/2023 14:41:26'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/9/2023 14:41:26'!
+PASSED!
+
+!testRun: #MarsRoversTests #test08RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/9/2023 14:41:26'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveBackwardsWithDifferentDirection stamp: 'h 10/9/2023 14:41:26'!
+PASSED!
+
+!testRun: #MarsRoversTests #test10RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:41:26'!
+PASSED!
+
+!testRun: #MarsRoversTests #test11RoversCanProcessMultipleOfTheSameInstructions stamp: 'h 10/9/2023 14:41:26'!
+PASSED!
+
+!testRun: #MarsRoversTests #test12RoversCanProcessMultipleDifferentInstructions stamp: 'h 10/9/2023 14:41:26'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test12RoversCanProcessMultipleDifferentInstructions stamp: 'h 10/9/2023 14:41:26'!
+FAILURE!
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:42:21' prior: 50333262!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions do: [:anInstruction |
+		instructions first = $b ifTrue: [self moveBackwards].
+		instructions first = $f ifTrue:  [self moveForward].
+		instructions first = $l ifTrue: [self rotateLeft].
+		instructions first = $r ifTrue: [self rotateRight].
+		].
+	
+	! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/9/2023 14:42:23'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/9/2023 14:42:23'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/9/2023 14:42:23'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/9/2023 14:42:23'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/9/2023 14:42:23'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/9/2023 14:42:23'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/9/2023 14:42:23'!
+PASSED!
+
+!testRun: #MarsRoversTests #test08RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/9/2023 14:42:23'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveBackwardsWithDifferentDirection stamp: 'h 10/9/2023 14:42:23'!
+PASSED!
+
+!testRun: #MarsRoversTests #test10RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:42:24'!
+PASSED!
+
+!testRun: #MarsRoversTests #test11RoversCanProcessMultipleOfTheSameInstructions stamp: 'h 10/9/2023 14:42:24'!
+PASSED!
+
+!testRun: #MarsRoversTests #test12RoversCanProcessMultipleDifferentInstructions stamp: 'h 10/9/2023 14:42:24'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test12RoversCanProcessMultipleDifferentInstructions stamp: 'h 10/9/2023 14:42:24'!
+FAILURE!
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:42:47' prior: 50333422!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions do: [:anInstruction |
+		instructions = $b ifTrue: [self moveBackwards].
+		instructions = $f ifTrue:  [self moveForward].
+		instructions = $l ifTrue: [self rotateLeft].
+		instructions = $r ifTrue: [self rotateRight].
+		].
+	
+	! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/9/2023 14:42:49'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/9/2023 14:42:49'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/9/2023 14:42:49'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/9/2023 14:42:49'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/9/2023 14:42:49'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/9/2023 14:42:49'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/9/2023 14:42:49'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test08RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/9/2023 14:42:49'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveBackwardsWithDifferentDirection stamp: 'h 10/9/2023 14:42:49'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test10RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:42:49'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test11RoversCanProcessMultipleOfTheSameInstructions stamp: 'h 10/9/2023 14:42:49'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test12RoversCanProcessMultipleDifferentInstructions stamp: 'h 10/9/2023 14:42:49'!
+FAILURE!
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:43:10' prior: 50333480!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions do: [:anInstruction |
+		anInstruction = $b ifTrue: [self moveBackwards].
+		anInstruction = $f ifTrue:  [self moveForward].
+		anInstruction = $l ifTrue: [self rotateLeft].
+		anInstruction = $r ifTrue: [self rotateRight].
+		].
+	
+	! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/9/2023 14:43:12'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/9/2023 14:43:12'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/9/2023 14:43:12'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/9/2023 14:43:12'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/9/2023 14:43:12'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/9/2023 14:43:12'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/9/2023 14:43:12'!
+PASSED!
+
+!testRun: #MarsRoversTests #test08RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/9/2023 14:43:12'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveBackwardsWithDifferentDirection stamp: 'h 10/9/2023 14:43:12'!
+PASSED!
+
+!testRun: #MarsRoversTests #test10RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:43:13'!
+PASSED!
+
+!testRun: #MarsRoversTests #test11RoversCanProcessMultipleOfTheSameInstructions stamp: 'h 10/9/2023 14:43:13'!
+PASSED!
+
+!testRun: #MarsRoversTests #test12RoversCanProcessMultipleDifferentInstructions stamp: 'h 10/9/2023 14:43:13'!
+PASSED!
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:43:34'!
+isMoveBackwardsInstruction: anInstruction
+
+	^ anInstruction = $b! !
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:43:34' prior: 50333534!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions do: [:anInstruction |
+		(self isMoveBackwardsInstruction: anInstruction) ifTrue: [self moveBackwards].
+		anInstruction = $f ifTrue:  [self moveForward].
+		anInstruction = $l ifTrue: [self rotateLeft].
+		anInstruction = $r ifTrue: [self rotateRight].
+		].
+	
+	! !
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:43:46'!
+isMoveForwardInstruction: anInstruction
+
+	^ anInstruction = $f! !
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:43:46' prior: 50333592!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions do: [:anInstruction |
+		(self isMoveBackwardsInstruction: anInstruction) ifTrue: [self moveBackwards].
+		(self isMoveForwardInstruction: anInstruction) ifTrue:  [self moveForward].
+		anInstruction = $l ifTrue: [self rotateLeft].
+		anInstruction = $r ifTrue: [self rotateRight].
+		].
+	
+	! !
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:44:08'!
+isRotateLeftInstruction: anInstruction
+
+	^ anInstruction = $l! !
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:44:08' prior: 50333610!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions do: [:anInstruction |
+		(self isMoveBackwardsInstruction: anInstruction) ifTrue: [self moveBackwards].
+		(self isMoveForwardInstruction: anInstruction) ifTrue:  [self moveForward].
+		(self isRotateLeftInstruction: anInstruction) ifTrue: [self rotateLeft].
+		anInstruction = $r ifTrue: [self rotateRight].
+		].
+	
+	! !
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:44:19'!
+isRotateRightInstruction: anInstruction
+
+	^ anInstruction = $r! !
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:44:19' prior: 50333629!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions do: [:anInstruction |
+		(self isMoveBackwardsInstruction: anInstruction) ifTrue: [self moveBackwards].
+		(self isMoveForwardInstruction: anInstruction) ifTrue:  [self moveForward].
+		(self isRotateLeftInstruction: anInstruction) ifTrue: [self rotateLeft].
+		(self isRotateRightInstruction: anInstruction) ifTrue: [self rotateRight].
+		].
+	
+	! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/9/2023 14:44:24'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/9/2023 14:44:25'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/9/2023 14:44:25'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/9/2023 14:44:25'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/9/2023 14:44:25'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/9/2023 14:44:25'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/9/2023 14:44:25'!
+PASSED!
+
+!testRun: #MarsRoversTests #test08RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/9/2023 14:44:25'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveBackwardsWithDifferentDirection stamp: 'h 10/9/2023 14:44:25'!
+PASSED!
+
+!testRun: #MarsRoversTests #test10RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:44:25'!
+PASSED!
+
+!testRun: #MarsRoversTests #test11RoversCanProcessMultipleOfTheSameInstructions stamp: 'h 10/9/2023 14:44:25'!
+PASSED!
+
+!testRun: #MarsRoversTests #test12RoversCanProcessMultipleDifferentInstructions stamp: 'h 10/9/2023 14:44:25'!
+PASSED!
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:44:53'!
+test13RoversStopsProcessingAfterInvalidInstruction
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: North new.
+	
+	rovers processInstructions: 'f#f'.
+	
+	self assert: (rovers isAt: 0@1 withDirection: East new)! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/9/2023 14:44:56'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/9/2023 14:44:56'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/9/2023 14:44:56'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/9/2023 14:44:57'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/9/2023 14:44:57'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/9/2023 14:44:57'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/9/2023 14:44:57'!
+PASSED!
+
+!testRun: #MarsRoversTests #test08RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/9/2023 14:44:57'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveBackwardsWithDifferentDirection stamp: 'h 10/9/2023 14:44:57'!
+PASSED!
+
+!testRun: #MarsRoversTests #test10RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:44:57'!
+PASSED!
+
+!testRun: #MarsRoversTests #test11RoversCanProcessMultipleOfTheSameInstructions stamp: 'h 10/9/2023 14:44:57'!
+PASSED!
+
+!testRun: #MarsRoversTests #test12RoversCanProcessMultipleDifferentInstructions stamp: 'h 10/9/2023 14:44:57'!
+PASSED!
+
+!testRun: #MarsRoversTests #test13RoversStopsProcessingAfterInvalidInstruction stamp: 'h 10/9/2023 14:44:57'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test13RoversStopsProcessingAfterInvalidInstruction stamp: 'h 10/9/2023 14:44:57'!
+FAILURE!
+!MarsRoversTests methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:45:03' prior: 50333706!
+test13RoversStopsProcessingAfterInvalidInstruction
+
+	|rovers|
+	
+	rovers := Rovers atPosition: 0@0 withDirection: North new.
+	
+	rovers processInstructions: 'f#f'.
+	
+	self assert: (rovers isAt: 0@1 withDirection: North new)! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/9/2023 14:45:04'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/9/2023 14:45:04'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/9/2023 14:45:04'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/9/2023 14:45:04'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/9/2023 14:45:04'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/9/2023 14:45:04'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/9/2023 14:45:04'!
+PASSED!
+
+!testRun: #MarsRoversTests #test08RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/9/2023 14:45:04'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveBackwardsWithDifferentDirection stamp: 'h 10/9/2023 14:45:04'!
+PASSED!
+
+!testRun: #MarsRoversTests #test10RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:45:04'!
+PASSED!
+
+!testRun: #MarsRoversTests #test11RoversCanProcessMultipleOfTheSameInstructions stamp: 'h 10/9/2023 14:45:05'!
+PASSED!
+
+!testRun: #MarsRoversTests #test12RoversCanProcessMultipleDifferentInstructions stamp: 'h 10/9/2023 14:45:05'!
+PASSED!
+
+!testRun: #MarsRoversTests #test13RoversStopsProcessingAfterInvalidInstruction stamp: 'h 10/9/2023 14:45:05'!
+FAILURE!
+
+!testRun: #MarsRoversTests #test13RoversStopsProcessingAfterInvalidInstruction stamp: 'h 10/9/2023 14:45:05'!
+FAILURE!
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:45:43' prior: 50333649!
+processInstructions: instructions
+	
+	instructions isEmpty ifTrue: [^self].
+	
+	instructions do: [:anInstruction |
+		(self isInvalidInstruction: anInstruction) ifTrue: [^self].
+		
+		(self isMoveBackwardsInstruction: anInstruction) ifTrue: [self moveBackwards].
+		(self isMoveForwardInstruction: anInstruction) ifTrue:  [self moveForward].
+		(self isRotateLeftInstruction: anInstruction) ifTrue: [self rotateLeft].
+		(self isRotateRightInstruction: anInstruction) ifTrue: [self rotateRight].
+		].
+	
+	! !
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:46:45'!
+isInvalidInstruction: anInstruction
+
+	^(anInstruction = $f) not and:[(anInstruction = $b) not and: [(anInstruction = $r) not] and: (anInstruction = $l) not]! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/9/2023 14:46:47'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/9/2023 14:46:47'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/9/2023 14:46:47'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/9/2023 14:46:47'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/9/2023 14:46:47'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/9/2023 14:46:47'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/9/2023 14:46:47'!
+PASSED!
+
+!testRun: #MarsRoversTests #test08RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/9/2023 14:46:47'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveBackwardsWithDifferentDirection stamp: 'h 10/9/2023 14:46:47'!
+PASSED!
+
+!testRun: #MarsRoversTests #test10RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:46:47'!
+PASSED!
+
+!testRun: #MarsRoversTests #test11RoversCanProcessMultipleOfTheSameInstructions stamp: 'h 10/9/2023 14:46:47'!
+PASSED!
+
+!testRun: #MarsRoversTests #test12RoversCanProcessMultipleDifferentInstructions stamp: 'h 10/9/2023 14:46:47'!
+PASSED!
+
+!testRun: #MarsRoversTests #test13RoversStopsProcessingAfterInvalidInstruction stamp: 'h 10/9/2023 14:46:47'!
+PASSED!
+!Rovers methodsFor: 'process' stamp: 'h 10/9/2023 14:47:05' prior: 50333823!
+processInstructions: instructions
+	
+	instructions do: [:anInstruction |
+		(self isInvalidInstruction: anInstruction) ifTrue: [^self].
+		
+		(self isMoveBackwardsInstruction: anInstruction) ifTrue: [self moveBackwards].
+		(self isMoveForwardInstruction: anInstruction) ifTrue:  [self moveForward].
+		(self isRotateLeftInstruction: anInstruction) ifTrue: [self rotateLeft].
+		(self isRotateRightInstruction: anInstruction) ifTrue: [self rotateRight].
+		].
+	
+	! !
+
+!testRun: #MarsRoversTests #test01 stamp: 'h 10/9/2023 14:47:06'!
+PASSED!
+
+!testRun: #MarsRoversTests #test02RoversWithDiferentStartingPositionAndDirection stamp: 'h 10/9/2023 14:47:06'!
+PASSED!
+
+!testRun: #MarsRoversTests #test03RoversCanMoveForward stamp: 'h 10/9/2023 14:47:06'!
+PASSED!
+
+!testRun: #MarsRoversTests #test04RoversCanMoveBackwards stamp: 'h 10/9/2023 14:47:06'!
+PASSED!
+
+!testRun: #MarsRoversTests #test05RoversCanRotateToTheLeft stamp: 'h 10/9/2023 14:47:06'!
+PASSED!
+
+!testRun: #MarsRoversTests #test06RoversCanRotateToTheLeftWithDiferentDirection stamp: 'h 10/9/2023 14:47:06'!
+PASSED!
+
+!testRun: #MarsRoversTests #test07RoversCanRotateToTheRight stamp: 'h 10/9/2023 14:47:06'!
+PASSED!
+
+!testRun: #MarsRoversTests #test08RoversCanRotateToTheRightWithDifferentDirection stamp: 'h 10/9/2023 14:47:06'!
+PASSED!
+
+!testRun: #MarsRoversTests #test09RoversCanMoveBackwardsWithDifferentDirection stamp: 'h 10/9/2023 14:47:06'!
+PASSED!
+
+!testRun: #MarsRoversTests #test10RoversCanMoveForwardWithDifferentDirection stamp: 'h 10/9/2023 14:47:06'!
+PASSED!
+
+!testRun: #MarsRoversTests #test11RoversCanProcessMultipleOfTheSameInstructions stamp: 'h 10/9/2023 14:47:06'!
+PASSED!
+
+!testRun: #MarsRoversTests #test12RoversCanProcessMultipleDifferentInstructions stamp: 'h 10/9/2023 14:47:07'!
+PASSED!
+
+!testRun: #MarsRoversTests #test13RoversStopsProcessingAfterInvalidInstruction stamp: 'h 10/9/2023 14:47:07'!
+PASSED!
+
+----SNAPSHOT----(9 October 2023 14:47:18) CuisUniversity-5981.image priorSource: 34927!
+
+----QUIT----(9 October 2023 14:47:21) CuisUniversity-5981.image priorSource: 73723!
+
+----STARTUP---- (9 October 2023 14:55:20) as C:\Users\Intekio\Desktop\windows64\CuisUniversity-5981.image!
+
+!CardinalDirection methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:55:28'!
+backwardPositionForCurrentPosition: aPosition
+
+	self subclassResponsibility! !
+!CardinalDirection methodsFor: 'as yet unclassified' stamp: 'h 10/9/2023 14:55:32'!
+forwardPositionForCurrentPosition: currentPosition
+
+	self subclassResponsibility! !
+
+----QUIT----(9 October 2023 14:55:40) CuisUniversity-5981.image priorSource: 73812!
