@@ -1,26 +1,40 @@
 !classDefinition: #PortfolioTest category: 'Portfolio-Ejercicio'!
 TestCase subclass: #PortfolioTest
-	instanceVariableNames: 'portfolio firstAccount'
+	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Portfolio-Ejercicio'!
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:32:31'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/13/2023 20:29:45'!
 test01EmptyPortfolioBalanceEqualsZero
+
+	|portfolio|
+	
+	portfolio := Portfolio new.
+	
 	self assert: portfolio balance equals: 0.! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:38:20'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/13/2023 20:32:42'!
 test02PortfolioWithOneAccountBalanceEqualsAccountBalance
+
+	|portfolio firstAccount|
+	
+	firstAccount := ReceptiveAccount new.
+	portfolio := Portfolio new.
+	
 	Deposit register: 100 on: firstAccount .
 	portfolio addAccount: firstAccount.
 	
 	self assert: portfolio balance equals: firstAccount balance.! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:38:20'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/13/2023 20:36:56'!
 test03BalanceOfPortfolioWithMultipleAccountsIsTheSumOfTheAccountsBalances
-	|secondAccount|
+
+	|portfolio firstAccount secondAccount|
 	
+	firstAccount := ReceptiveAccount new.
 	secondAccount := ReceptiveAccount new.
+	portfolio := Portfolio new.
 	
 	Deposit register: 100 on: firstAccount .
 	Deposit register: 50 on: secondAccount .
@@ -29,11 +43,14 @@ test03BalanceOfPortfolioWithMultipleAccountsIsTheSumOfTheAccountsBalances
 	
 	self assert: portfolio balance equals: firstAccount balance + secondAccount balance.! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:38:20'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/14/2023 00:50:52'!
 test04PortfolioWithOnePortfolioHaveSameBalance
-	|firstIncludedPortfolio|
+
+	|portfolio firstIncludedPortfolio firstAccount|
 	
+	firstAccount := ReceptiveAccount new.
 	firstIncludedPortfolio := Portfolio new.
+	portfolio := Portfolio new.
 	
 	Deposit register: 100 on: firstAccount .
 	firstIncludedPortfolio addAccount: firstAccount .
@@ -41,14 +58,16 @@ test04PortfolioWithOnePortfolioHaveSameBalance
 	
 	self assert: portfolio balance equals: firstIncludedPortfolio balance.! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:38:19'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/14/2023 01:00:17'!
 test05BalanceOfPortfolioWithMultiplePortfoliosIsTheSumOfThePortfoliosBalances
 
-	|firstIncludedPortfolio secondIncludedPortfolio secondAccount|
+	|portfolio firstIncludedPortfolio secondIncludedPortfolio secondAccount firstAccount|
 	
+	firstAccount := ReceptiveAccount new.
 	secondAccount := ReceptiveAccount new.
 	firstIncludedPortfolio := Portfolio new.
 	secondIncludedPortfolio := Portfolio new.
+	portfolio := Portfolio new.
 	
 	Deposit register: 100 on: firstAccount .
 	Deposit register: 200 on: secondAccount .
@@ -59,15 +78,17 @@ test05BalanceOfPortfolioWithMultiplePortfoliosIsTheSumOfThePortfoliosBalances
 	
 	self assert: portfolio balance equals: firstIncludedPortfolio balance + secondIncludedPortfolio balance.! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:38:20'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/14/2023 01:06:00'!
 test06BalanceOfPortfolioWithAccountsAndPortfoliosIsTheSumOfTheBalances
 
-	|firstIncludedPortfolio secondIncludedPortfolio secondAccount thirdAccount|
+	|portfolio firstIncludedPortfolio secondIncludedPortfolio secondAccount firstAccount thirdAccount|
 	
+	firstAccount := ReceptiveAccount new.
 	secondAccount := ReceptiveAccount new.
 	thirdAccount := ReceptiveAccount new.
 	firstIncludedPortfolio := Portfolio new.
 	secondIncludedPortfolio := Portfolio new.
+	portfolio := Portfolio new.
 	
 	Deposit register: 100 on: firstAccount .
 	Deposit register: 200 on: secondAccount .
@@ -80,43 +101,51 @@ test06BalanceOfPortfolioWithAccountsAndPortfoliosIsTheSumOfTheBalances
 	
 	self assert: portfolio balance equals: 400.! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:38:20'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/14/2023 01:21:37'!
 test07EmptyPortfolioDoesNotHaveRegisteredTransactions
 
-	|aDeposit|
+	|portfolio anAccount aDeposit|
 	
-	aDeposit := Deposit register: 100 on: firstAccount.
+	anAccount := ReceptiveAccount new.
+	portfolio := Portfolio new.
+	aDeposit := Deposit register: 100 on: anAccount.
 	
 	self deny: (portfolio hasRegistered: aDeposit ).! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:38:20'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/14/2023 01:33:57'!
 test08PortfolioWithOneAccounthasRegisteredTransaction
 
-	|aDeposit|
+	|portfolio firstAccount aDeposit|
 	
+	firstAccount := ReceptiveAccount new.
+	portfolio := Portfolio new.
 	aDeposit := Deposit register: 100 on: firstAccount.
 	portfolio addAccount: firstAccount .
 	
 	self assert: (portfolio hasRegistered: aDeposit ).! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:38:20'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/14/2023 01:33:25'!
 test09PortfolioWithAccountsDoesNotHaveRegisteredTransaction
 
-	|secondAccount aDeposit|
+	|portfolio firstAccount secondAccount aDeposit|
 	
+	firstAccount := ReceptiveAccount new.
 	secondAccount := ReceptiveAccount new.
+	portfolio := Portfolio new.
 	aDeposit := Deposit register: 100 on: firstAccount.
 	portfolio addAccount: secondAccount .
 	
 	self deny: (portfolio hasRegistered: aDeposit ).! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:38:20'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/14/2023 01:47:40'!
 test10PortfolioWithPortfoliosDetectsRegisteredTransactions
 
-	|firstIncludedPortfolio secondIncludedPortfolio secondAccount firstDeposit secondDeposit|
+	|portfolio firstIncludedPortfolio secondIncludedPortfolio firstAccount secondAccount firstDeposit secondDeposit|
 	
 	firstIncludedPortfolio := Portfolio new.
 	secondIncludedPortfolio := Portfolio new.
+	portfolio := Portfolio new.
+	firstAccount := ReceptiveAccount new.
 	secondAccount := ReceptiveAccount new.
 	
 	firstDeposit := Deposit register: 100 on: firstAccount.
@@ -131,24 +160,36 @@ test10PortfolioWithPortfoliosDetectsRegisteredTransactions
 	self assert: (portfolio hasRegistered: firstDeposit ).
 	self assert: (portfolio hasRegistered: secondDeposit ).! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:38:20'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/19/2023 15:04:05'!
 test11PortfolioWithOneAccountKnowsItsTransactions
-	Deposit register: 100 on: firstAccount.
-	
-	portfolio addAccount: firstAccount .
-	
-	self assert: portfolio transactions equals: firstAccount transactions.! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:32:31'!
+	|portfolio anAccount aTransaction|
+	
+	anAccount := ReceptiveAccount new.
+	portfolio := Portfolio new.
+	aTransaction := Deposit register: 100 on: anAccount.
+	
+	portfolio addAccount: anAccount .
+	
+	self assert: (portfolio transactions includes: aTransaction ).! !
+
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/19/2023 15:03:25'!
 test12EmptyPortfolioDoesNotHaveTransactions
-	self assert: portfolio transactions equals: OrderedCollection new.! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:38:20'!
+	|portfolio|
+	
+	portfolio := Portfolio new.
+	
+	self assert: portfolio transactions isEmpty.! !
+
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/14/2023 02:19:54'!
 test13PortfolioWithMultipleAccountsKnowsItsTransactions
 
-	|secondAccount firstTransaction secondTransaction|
+	|portfolio firstAccount secondAccount firstTransaction secondTransaction|
 	
+	firstAccount := ReceptiveAccount new.
 	secondAccount := ReceptiveAccount new.
+	portfolio := Portfolio new.
 	
 	firstTransaction := Deposit register: 100 on: firstAccount. 
 	secondTransaction := Deposit register: 100 on: secondAccount .
@@ -159,11 +200,13 @@ test13PortfolioWithMultipleAccountsKnowsItsTransactions
 	self assert: (portfolio transactions includes: secondTransaction ).
 	self assert: portfolio transactions size equals: 2 .! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:38:20'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/14/2023 15:33:26'!
 test14PortfolioWithPortfolioKnowsItsTransactions
 
-	|firstTransaction firstIncludedPortfolio|
+	|portfolio firstAccount firstTransaction firstIncludedPortfolio|
 	
+	firstAccount := ReceptiveAccount new.
+	portfolio := Portfolio new.
 	firstIncludedPortfolio := Portfolio new.
 	
 	firstTransaction := Deposit register: 100 on: firstAccount. 
@@ -174,13 +217,15 @@ test14PortfolioWithPortfolioKnowsItsTransactions
 	self assert: (portfolio transactions includes: firstTransaction ).
 	self assert: portfolio transactions size equals: 1 .! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:38:20'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/14/2023 15:40:06'!
 test15PortfolioWithPortfoliosAndAccountsKnowsItsTransactions
 
-	|secondAccount thirdAccount firstTransaction secondTransaction thirdTransaction firstIncludedPortfolio secondIncludedPortfolio|
+	|portfolio firstAccount secondAccount thirdAccount firstTransaction secondTransaction thirdTransaction firstIncludedPortfolio secondIncludedPortfolio|
 	
+	firstAccount := ReceptiveAccount new.
 	secondAccount := ReceptiveAccount new.
 	thirdAccount := ReceptiveAccount new.
+	portfolio := Portfolio new.
 	firstIncludedPortfolio := Portfolio new.
 	secondIncludedPortfolio := Portfolio new.	
 	
@@ -200,35 +245,45 @@ test15PortfolioWithPortfoliosAndAccountsKnowsItsTransactions
 	self assert: (portfolio transactions includes: thirdTransaction ).
 	self assert: portfolio transactions size equals: 3 .! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:38:20'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/14/2023 15:50:40'!
 test16CannotAddAlreadyAddedAccount
-	portfolio addAccount: firstAccount .
+
+	|portfolio anAccount|
 	
-	self should: [portfolio addAccount: firstAccount ]
+	anAccount := ReceptiveAccount new.
+	portfolio := Portfolio new.
+	
+	portfolio addAccount: anAccount .
+	
+	self should: [portfolio addAccount: anAccount ]
 		raise: Error
 		withExceptionDo: [:anError | self assert: anError messageText = Portfolio errorCannotAddAlreadyAddedAccount ]! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:38:20'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/14/2023 15:53:14'!
 test17PortfolioCannotAddAccountIncludedInAnIncludedPortfolio
 
-	|includedPortfolio|
-
-	includedPortfolio := Portfolio new.
+	|portfolio includedPortfolio anAccount|
 	
-	includedPortfolio addAccount: firstAccount .
+	anAccount := ReceptiveAccount new.
+	includedPortfolio := Portfolio new.
+	portfolio := Portfolio new.
+	
+	includedPortfolio addAccount: anAccount .
 	portfolio addPortfolio: includedPortfolio.
 	
-	self should: [portfolio addAccount: firstAccount ]
+	self should: [portfolio addAccount: anAccount ]
 		raise: Error
 		withExceptionDo: [:anError | self assert: anError messageText = Portfolio errorCannotAddAlreadyAddedAccount ]! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:38:20'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/14/2023 16:04:22'!
 test18PortfolioWithMultiplePortfoliosCannotAddAccountIncludedInOneOfThosePortfolios
 
-	|firstIncludedPortfolio secondIncludedPortfolio |
+	|portfolio firstIncludedPortfolio secondIncludedPortfolio firstAccount |
 	
+	firstAccount := ReceptiveAccount new.
 	firstIncludedPortfolio := Portfolio new.
 	secondIncludedPortfolio := Portfolio new.
+	portfolio := Portfolio new.
 	
 	secondIncludedPortfolio addAccount: firstAccount.
 	portfolio addPortfolio: firstIncludedPortfolio.
@@ -238,11 +293,12 @@ test18PortfolioWithMultiplePortfoliosCannotAddAccountIncludedInOneOfThosePortfol
 		raise: Error
 		withExceptionDo: [:anError | self assert: anError messageText = Portfolio errorCannotAddAlreadyAddedAccount ]! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:32:31'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/14/2023 16:25:46'!
 test19CannotAddPortfolioAlreadyAdded
 
-	|firstIncludedPortfolio |
+	|portfolio firstIncludedPortfolio |
 	
+	portfolio := Portfolio new.
 	firstIncludedPortfolio := Portfolio new.
 	
 	portfolio addPortfolio: firstIncludedPortfolio .
@@ -251,14 +307,15 @@ test19CannotAddPortfolioAlreadyAdded
 		raise: Error
 		withExceptionDo: [:anError | self assert: anError messageText = Portfolio errorCannotAddAlreadyAddedPortfolio ]! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:32:30'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/14/2023 16:34:44'!
 test20PortfolioWithMultiplePortfoliosCannotAddPortfolioIncludedInOneOfThosePortfolios
 
-	|firstIncludedPortfolio secondIncludedPortfolio thirdIncludedPortfolio|
+	|portfolio firstIncludedPortfolio secondIncludedPortfolio thirdIncludedPortfolio|
 	
 	firstIncludedPortfolio := Portfolio new.
 	secondIncludedPortfolio := Portfolio new.
 	thirdIncludedPortfolio := Portfolio new.
+	portfolio := Portfolio new.
 	
 	secondIncludedPortfolio addPortfolio: thirdIncludedPortfolio.
 	portfolio addPortfolio: firstIncludedPortfolio .
@@ -268,65 +325,73 @@ test20PortfolioWithMultiplePortfoliosCannotAddPortfolioIncludedInOneOfThosePortf
 		raise: Error
 		withExceptionDo: [:anError | self assert: anError messageText = Portfolio errorCannotAddAlreadyAddedPortfolio ]! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:38:20'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/18/2023 16:38:55'!
 test21CannotAddAccountThatFatherPortfolioAlreadyHas
 
-	|fatherPortfolio|
+	|portfolio fatherPortfolio anAccount|
 	
+	anAccount := ReceptiveAccount new.
+	portfolio := Portfolio new.
 	fatherPortfolio := Portfolio new.
 	
 	fatherPortfolio addPortfolio: portfolio .
-	fatherPortfolio addAccount: firstAccount .
+	fatherPortfolio addAccount: anAccount .
 	
-	self should: [portfolio addAccount: firstAccount ]
+	self should: [portfolio addAccount: anAccount ]
 		raise: Error
 		withExceptionDo: [:anError | 
 			self assert: anError messageText = Portfolio errorCannotAddAccountOfFatherPortfolio 
 			]! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:38:20'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/18/2023 16:39:57'!
 test22CannotAddAccountAlreadyAddedOnOneOfMultipleFatherPortfolios
 
-	|fatherPortfolio  secondFatherPortfolio |
+	|portfolio fatherPortfolio  secondFatherPortfolio anAccount|
 	
+	anAccount := ReceptiveAccount new.
+	portfolio := Portfolio new.
 	fatherPortfolio := Portfolio new.
 	secondFatherPortfolio := Portfolio new.
 	
 	fatherPortfolio addPortfolio: portfolio .
 	secondFatherPortfolio addPortfolio: portfolio .
 	
-	secondFatherPortfolio addAccount: firstAccount .
+	secondFatherPortfolio addAccount: anAccount .
 	
-	self should: [portfolio addAccount: firstAccount ]
+	self should: [portfolio addAccount: anAccount ]
 		raise: Error
 		withExceptionDo: [:anError | 
 			self assert: anError messageText = Portfolio errorCannotAddAccountOfFatherPortfolio 
 			]! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:38:20'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/18/2023 16:40:28'!
 test23CannotAddAccountAlreadyAddedInRootPortfolio
 
-	|fatherPortfolio  rootPortfolio|
+	|portfolio fatherPortfolio  rootPortfolio anAccount|
 	
+	anAccount := ReceptiveAccount new.
+	portfolio := Portfolio new.
 	fatherPortfolio := Portfolio new.
 	rootPortfolio := Portfolio new.
 	
 	fatherPortfolio addPortfolio: portfolio .
 	rootPortfolio addPortfolio: fatherPortfolio .
 	
-	rootPortfolio addAccount: firstAccount .
+	rootPortfolio addAccount: anAccount .
 	
-	self should: [portfolio addAccount: firstAccount ]
+	self should: [portfolio addAccount: anAccount ]
 		raise: Error
 		withExceptionDo: [:anError | 
 			self assert: anError messageText = Portfolio errorCannotAddAccountOfFatherPortfolio 
 			]! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:38:20'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/18/2023 16:41:03'!
 test24CannotAddAccountAlreadyAddedInOneOfTheRootsOfThePortfoliosTree
 
-	|fatherPortfolio rootPortfolio secondRootPortfolio|
+	|portfolio fatherPortfolio rootPortfolio secondRootPortfolio anAccount|
 	
+	anAccount := ReceptiveAccount new.
+	portfolio := Portfolio new.
 	fatherPortfolio := Portfolio new.
 	rootPortfolio := Portfolio new.
 	secondRootPortfolio := Portfolio new.
@@ -336,20 +401,21 @@ test24CannotAddAccountAlreadyAddedInOneOfTheRootsOfThePortfoliosTree
 	rootPortfolio addPortfolio: fatherPortfolio .
 	secondRootPortfolio addPortfolio: fatherPortfolio .
 	
-	secondRootPortfolio addAccount: firstAccount .
+	secondRootPortfolio addAccount: anAccount .
 	
-	self should: [portfolio addAccount: firstAccount ]
+	self should: [portfolio addAccount: anAccount ]
 		raise: Error
 		withExceptionDo: [:anError | 
 			self assert: anError messageText = Portfolio errorCannotAddAccountOfFatherPortfolio 
 			]! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:32:31'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/18/2023 16:43:23'!
 test25CannotAddPortfolioThatFatherPortfolioAlreadyHas
 
-	|fatherPortfolio anAddedPortfolio|
+	|portfolio fatherPortfolio anAddedPortfolio|
 	
 	anAddedPortfolio := Portfolio new.
+	portfolio := Portfolio new.
 	fatherPortfolio := Portfolio new.
 	
 	fatherPortfolio addPortfolio: portfolio .
@@ -361,12 +427,13 @@ test25CannotAddPortfolioThatFatherPortfolioAlreadyHas
 			self assert: anError messageText = Portfolio errorCannotAddPortfolioOfFatherPortfolio 
 			]! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:32:30'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/18/2023 16:52:41'!
 test26CannotAddPortfolioAlreadyAddedInOneOfMultipleFatherPortfolios
 
-	|fatherPortfolio  secondFatherPortfolio anAddedPortfolio|
+	|portfolio fatherPortfolio  secondFatherPortfolio anAddedPortfolio|
 	
 	anAddedPortfolio := Portfolio new.
+	portfolio := Portfolio new.
 	fatherPortfolio := Portfolio new.
 	secondFatherPortfolio := Portfolio new.
 	
@@ -381,12 +448,13 @@ test26CannotAddPortfolioAlreadyAddedInOneOfMultipleFatherPortfolios
 			self assert: anError messageText = Portfolio errorCannotAddPortfolioOfFatherPortfolio 
 			]! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'manu urko 10/19/2023 14:32:31'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'h 10/18/2023 16:56:09'!
 test27CannotAddPortfolioAlreadyAddedInOneOfTheRootsOfThePortfoliosTree
 
-	|fatherPortfolio rootPortfolio secondRootPortfolio anAddedPortfolio|
+	|portfolio fatherPortfolio rootPortfolio secondRootPortfolio anAddedPortfolio|
 	
 	anAddedPortfolio := Portfolio new.
+	portfolio := Portfolio new.
 	fatherPortfolio := Portfolio new.
 	rootPortfolio := Portfolio new.
 	secondRootPortfolio := Portfolio new.
@@ -403,12 +471,6 @@ test27CannotAddPortfolioAlreadyAddedInOneOfTheRootsOfThePortfoliosTree
 		withExceptionDo: [:anError | 
 			self assert: anError messageText = Portfolio errorCannotAddPortfolioOfFatherPortfolio 
 			]! !
-
-
-!PortfolioTest methodsFor: 'setup' stamp: 'manu urko 10/19/2023 14:38:20'!
-setUp
-	portfolio := Portfolio new.
-	firstAccount := ReceptiveAccount new.! !
 
 
 !classDefinition: #ReceptiveAccountTest category: 'Portfolio-Ejercicio'!
@@ -636,78 +698,8 @@ initialize
 	fatherPortfolios := OrderedCollection new.! !
 
 
-!Portfolio methodsFor: 'add' stamp: 'h 10/18/2023 17:07:59'!
-addAccount: anAccountToAdd
-
-	self assertAccountIsNotADuplicate: anAccountToAdd.
-	
-	self assertFathersDoNotHaveAccount: anAccountToAdd.
-	
-	accounts add: anAccountToAdd .! !
-
-!Portfolio methodsFor: 'add' stamp: 'h 10/18/2023 17:06:58'!
-addPortfolio: aPortfolioToBeAdded 
-
-	self assertPortfolioIsNotDuplicated: aPortfolioToBeAdded.
-	
-	self assertFathersDoNotHavePortfolio: aPortfolioToBeAdded.
-	
-	portfolios add: aPortfolioToBeAdded.
-	
-	aPortfolioToBeAdded addFather: self.! !
-
-
-!Portfolio methodsFor: 'test' stamp: 'h 10/18/2023 16:51:54'!
-checkIfFatherPortfoliosHaveAccount: anAccountToCheck
-
-	^fatherPortfolios anySatisfy: [:aFatherPortfolio | 
-		aFatherPortfolio findRootFather anySatisfy: [:aRootPortfolio | 
-			aRootPortfolio hasAccount: anAccountToCheck]
-		]! !
-
-!Portfolio methodsFor: 'test' stamp: 'h 10/18/2023 16:55:04'!
-checkIfFatherPortfoliosHavePortfolio: aPortfolioToCheck
-	
-	^fatherPortfolios anySatisfy: [:aFatherPortfolio | 
-		aFatherPortfolio findRootFather anySatisfy: [:aRootPortfolio | 
-			aRootPortfolio hasPortfolio: aPortfolioToCheck 
-			]
-		]! !
-
-!Portfolio methodsFor: 'test' stamp: 'h 10/14/2023 16:03:13'!
-hasAccount: anAccount
-	
-	(accounts includes: anAccount) ifTrue: [^true].
-	
-	(portfolios anySatisfy: [:aPortfolio | aPortfolio hasAccount: anAccount ]) ifTrue: [^true].
-	
-	^false! !
-
-!Portfolio methodsFor: 'test' stamp: 'h 10/14/2023 16:31:03'!
-hasPortfolio: aPortfolioToFind
-
-	(portfolios includes: aPortfolioToFind ) ifTrue: [^true].
-	
-	(portfolios anySatisfy: [:aPortfolio | aPortfolio hasPortfolio: aPortfolioToFind ]) ifTrue: [^true].
-	
-	^false! !
-
-!Portfolio methodsFor: 'test' stamp: 'h 10/14/2023 01:46:24'!
-hasRegistered: aTransaction
-	
-	(accounts anySatisfy: [:anAccount | anAccount hasRegistered: aTransaction]) ifTrue: [^true].
-	
-	(portfolios anySatisfy: [:aPortfolio | aPortfolio hasRegistered: aTransaction]) ifTrue: [^true].
-	
-	^false! !
-
-
-!Portfolio methodsFor: 'transactions' stamp: 'h 10/14/2023 15:41:23'!
-transactions
-
-	|transactions|
-	
-	transactions := OrderedCollection new.
+!Portfolio methodsFor: 'transactions - private' stamp: 'h 10/19/2023 15:24:45'!
+addTransactionsTo: transactions
 	
 	accounts inject: transactions into: [:currentTransactions :anAccount | 
 		anAccount transactions do:[:aTransaction | currentTransactions add: aTransaction ]. currentTransactions
@@ -720,32 +712,116 @@ transactions
 	^transactions ! !
 
 
-!Portfolio methodsFor: 'asserts' stamp: 'h 10/18/2023 17:07:35'!
+!Portfolio methodsFor: 'add' stamp: 'h 10/18/2023 17:07:59'!
+addAccount: anAccountToAdd
+
+	self assertAccountIsNotADuplicate: anAccountToAdd.
+	
+	self assertFathersDoNotHaveAccount: anAccountToAdd.
+	
+	accounts add: anAccountToAdd .! !
+
+!Portfolio methodsFor: 'add' stamp: 'h 10/19/2023 14:54:34'!
+addPortfolio: aPortfolioToBeAdded 
+
+	self assertPortfolioIsNotDuplicated: aPortfolioToBeAdded.
+	
+	self assertFathersDoNotHavePortfolio: aPortfolioToBeAdded.
+	
+	portfolios add: aPortfolioToBeAdded.
+	
+	aPortfolioToBeAdded addFather: self.! !
+
+
+!Portfolio methodsFor: 'test' stamp: 'h 10/19/2023 14:30:59'!
+checkIfFatherPortfoliosHaveAccount: anAccountToCheck
+
+	^self findRootFather anySatisfy: [:aRootPortfolio |
+			aRootPortfolio hasAccount: anAccountToCheck
+		]! !
+
+!Portfolio methodsFor: 'test' stamp: 'h 10/19/2023 14:44:15'!
+checkIfFatherPortfoliosHavePortfolio: aPortfolioToCheck
+	
+	^self findRootFather anySatisfy: [:aRootPortfolio | 
+			aRootPortfolio hasPortfolio: aPortfolioToCheck 
+		]
+! !
+
+!Portfolio methodsFor: 'test' stamp: 'h 10/19/2023 14:58:11'!
+hasAccount: anAccountToFind
+	
+	^(accounts includes: anAccountToFind) or:[.
+	
+	(portfolios anySatisfy: [:aPortfolio | aPortfolio hasAccount: anAccountToFind ])].! !
+
+!Portfolio methodsFor: 'test' stamp: 'h 10/19/2023 14:57:48'!
+hasPortfolio: aPortfolioToFind
+
+	^(portfolios includes: aPortfolioToFind ) or: [
+	
+	(portfolios anySatisfy: [:aPortfolio | aPortfolio hasPortfolio: aPortfolioToFind ])]! !
+
+!Portfolio methodsFor: 'test' stamp: 'h 10/19/2023 14:57:00'!
+hasRegistered: aTransaction
+	
+	^(accounts anySatisfy: [:anAccount | anAccount hasRegistered: aTransaction]) or:[
+	
+	(portfolios anySatisfy: [:aPortfolio | aPortfolio hasRegistered: aTransaction])].! !
+
+
+!Portfolio methodsFor: 'transactions' stamp: 'h 10/19/2023 15:19:23'!
+transactions
+
+	|transactions|
+	
+	transactions := Set new.
+	
+	self addTransactionsTo: transactions .
+	
+	^transactions ! !
+
+
+!Portfolio methodsFor: 'asserts' stamp: 'h 10/19/2023 15:00:06'!
 assertAccountIsNotADuplicate: anAccountToCheck
 
 	(accounts includes: anAccountToCheck) ifTrue: [self error: self class errorCannotAddAlreadyAddedAccount ].
 	
-	(portfolios anySatisfy: [:aPortfolio | aPortfolio hasAccount: anAccountToCheck]) ifTrue: [self error: self class errorCannotAddAlreadyAddedAccount ]! !
+	(portfolios anySatisfy: [:aPortfolio | aPortfolio hasAccount: anAccountToCheck]) ifTrue: [
+		self error: self class errorCannotAddAlreadyAddedAccount 
+		]! !
 
-!Portfolio methodsFor: 'asserts' stamp: 'h 10/18/2023 17:07:59'!
+!Portfolio methodsFor: 'asserts' stamp: 'h 10/19/2023 14:59:35'!
 assertFathersDoNotHaveAccount: anAccountToCheck
 
-	^ (self checkIfFatherPortfoliosHaveAccount: anAccountToCheck) ifTrue:[self error: self class errorCannotAddAccountOfFatherPortfolio ]! !
+	^ (self checkIfFatherPortfoliosHaveAccount: anAccountToCheck) ifTrue:[
+		self error: self class errorCannotAddAccountOfFatherPortfolio 
+		]! !
 
-!Portfolio methodsFor: 'asserts' stamp: 'h 10/18/2023 17:04:36'!
+!Portfolio methodsFor: 'asserts' stamp: 'h 10/19/2023 14:59:53'!
 assertFathersDoNotHavePortfolio: aPortfolioToCheck
 
-	^ (self checkIfFatherPortfoliosHavePortfolio: aPortfolioToCheck) ifTrue:[self error: self class errorCannotAddPortfolioOfFatherPortfolio]! !
+	^ (self checkIfFatherPortfoliosHavePortfolio: aPortfolioToCheck) ifTrue:[
+		self error: self class errorCannotAddPortfolioOfFatherPortfolio
+		]! !
 
-!Portfolio methodsFor: 'asserts' stamp: 'h 10/18/2023 17:06:57'!
+!Portfolio methodsFor: 'asserts' stamp: 'h 10/19/2023 15:00:02'!
 assertPortfolioIsNotDuplicated: aPortfolioToCheck
 
 	(portfolios includes: aPortfolioToCheck) ifTrue: [self error: self class errorCannotAddAlreadyAddedPortfolio ].
 	
-	(portfolios anySatisfy: [:aPortfolio | aPortfolio hasPortfolio: aPortfolioToCheck ]) ifTrue: [self error: self class errorCannotAddAlreadyAddedPortfolio ]! !
+	(portfolios anySatisfy: [:aPortfolio | aPortfolio hasPortfolio: aPortfolioToCheck ]) ifTrue: [
+		self error: self class errorCannotAddAlreadyAddedPortfolio 
+		]! !
 
 
-!Portfolio methodsFor: 'add - private' stamp: 'h 10/18/2023 16:31:07'!
+!Portfolio methodsFor: 'add - private' stamp: 'h 10/18/2023 15:51:24'!
+addFather: aFatherPortfolio
+
+	fatherPortfolios add: aFatherPortfolio.! !
+
+
+!Portfolio methodsFor: 'test - private' stamp: 'h 10/19/2023 14:42:29'!
 findRootFather
 	
 	|roots|
@@ -754,13 +830,9 @@ findRootFather
 
 	fatherPortfolios ifEmpty:[^roots add: self;yourself].
 
-	^fatherPortfolios do: [:aFatherPortfolio | roots addAll: aFatherPortfolio findRootFather].! !
-
-
-!Portfolio methodsFor: 'test - private' stamp: 'h 10/18/2023 15:51:24'!
-addFather: aFatherPortfolio
-
-	fatherPortfolios add: aFatherPortfolio.! !
+	fatherPortfolios do: [:aFatherPortfolio | roots addAll: aFatherPortfolio findRootFather].
+	
+	^roots! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
