@@ -1,0 +1,1306 @@
+
+
+----QUIT----(13 August 2023 19:14:09) CuisUniversity-5981.image priorSource: 5713367!
+
+----STARTUP---- (13 August 2023 19:14:10) as /Users/hernan/Documents/Cuis/5.0-64Bits/Cuis-University-Installer/CuisUniversity-5981.image!
+
+
+----QUIT----(13 August 2023 19:14:10) CuisUniversity-5981.image priorSource: 10197065!
+
+----STARTUP---- (19 October 2023 21:26:08) as C:\Users\Manuel Urkovich\Facu\Inge1\cuisPortfolio2\windows64\CuisUniversity-5981.image!
+
+
+----End fileIn of C:\Users\Manuel Urkovich\Facu\Inge1\cuisPortfolio2\windows64\Portfolio-Solucion.st----!
+
+TestCase subclass: #TransferenceTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #TransferenceTest category: 'Portfolio-Solucion' stamp: 'mmuu 10/19/2023 21:28:25'!
+TestCase subclass: #TransferenceTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #Transference category: 'Portfolio-Solucion' stamp: 'mmuu 10/19/2023 21:30:00'!
+Object subclass: #Transference
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!TransferenceTest methodsFor: 'no messages' stamp: 'mmuu 10/19/2023 21:29:55'!
+test01
+	|senderAccount receiverAccount|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	Deposit register: 100 on: senderAccount.
+	
+	Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: receiverAccount balance equals: 100.
+	self assert: senderAccount balance equals: 0.! !
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/19/2023 21:30:02'!
+ERROR!
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/19/2023 21:30:02'!
+ERROR!
+!Transference class methodsFor: 'instance creation' stamp: 'mmuu 10/19/2023 21:30:08'!
+with: aRenameMe1 from: senderAccount to: receiverAccount 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeWith: aRenameMe1 from: senderAccount to: receiverAccount ! !
+!Transference class methodsFor: 'instance creation' stamp: 'mmuu 10/19/2023 21:30:39' prior: 50651083!
+with: anAmount from: aSenderAccount to: aReceiverAccount 
+	
+	^self new initializeWith: anAmount from: aSenderAccount to: aReceiverAccount ! !
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/19/2023 21:30:42'!
+ERROR!
+
+!classDefinition: #Transference category: 'Portfolio-Solucion' stamp: 'mmuu 10/19/2023 21:30:50'!
+Object subclass: #Transference
+	instanceVariableNames: 'amount'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #Transference category: 'Portfolio-Solucion' stamp: 'mmuu 10/19/2023 21:30:50'!
+Object subclass: #Transference
+	instanceVariableNames: 'amount senderAccount'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #Transference category: 'Portfolio-Solucion' stamp: 'mmuu 10/19/2023 21:30:50'!
+Object subclass: #Transference
+	instanceVariableNames: 'amount senderAccount receiverAccount'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/19/2023 21:30:50'!
+initializeWith: anAmount from: aSenderAccount to: aReceiverAccount 
+	self shouldBeImplemented.
+	amount := anAmount.
+	senderAccount := aSenderAccount.
+	receiverAccount := aReceiverAccount.! !
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/19/2023 21:30:59' prior: 50651128!
+initializeWith: anAmount from: aSenderAccount to: aReceiverAccount 
+	amount := anAmount.
+	senderAccount := aSenderAccount.
+	receiverAccount := aReceiverAccount.! !
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/19/2023 21:31:07'!
+FAILURE!
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/19/2023 21:31:07'!
+FAILURE!
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/19/2023 21:33:53' prior: 50651137!
+initializeWith: anAmount from: aSenderAccount to: aReceiverAccount 
+	aSenderAccount registerSendTransference: anAmount.
+	aReceiverAccount registerReceiveTransference: anAmount.! !
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/19/2023 21:35:27'!
+ERROR!
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/19/2023 21:35:27'!
+ERROR!
+!ReceptiveAccount methodsFor: 'transactions' stamp: 'mmuu 10/19/2023 21:35:36'!
+registerSendTransference: anAmount 
+	self shouldBeImplemented.! !
+!ReceptiveAccount methodsFor: 'transactions' stamp: 'mmuu 10/19/2023 21:36:06' prior: 50651165!
+registerSendTransference: anAmount 
+	transactions add: (Deposit for: anAmount)! !
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/19/2023 21:36:14'!
+ERROR!
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/19/2023 21:36:14'!
+ERROR!
+!ReceptiveAccount methodsFor: 'transactions' stamp: 'mmuu 10/19/2023 21:36:23'!
+registerReceiveTransference: anAmount 
+	self shouldBeImplemented.! !
+!ReceptiveAccount methodsFor: 'transactions' stamp: 'mmuu 10/19/2023 21:36:36' prior: 50651181!
+registerReceiveTransference: anAmount 
+	transactions add: (Deposit for: anAmount)! !
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/19/2023 21:36:39'!
+FAILURE!
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/19/2023 21:36:39'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'transactions' stamp: 'mmuu 10/19/2023 21:37:01' prior: 50651171!
+registerSendTransference: anAmount 
+	transactions add: (Withdraw for: anAmount)! !
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/19/2023 21:37:06'!
+PASSED!
+
+Object subclass: #Transference
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #Transference category: 'Portfolio-Solucion' stamp: 'mmuu 10/19/2023 21:37:19'!
+Object subclass: #Transference
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/19/2023 21:37:54'!
+with: anAmount from: aSenderAccount to: aReceiverAccount 
+	aSenderAccount registerSendTransference: anAmount.
+	aReceiverAccount registerReceiveTransference: anAmount.! !
+!Transference class methodsFor: 'as yet unclassified' stamp: 'mmuu 10/19/2023 21:37:54' prior: 50651094!
+with: anAmount from: aSenderAccount to: aReceiverAccount 
+	
+	^self new with: anAmount from: aSenderAccount to: aReceiverAccount ! !
+
+!methodRemoval: Transference #initializeWith:from:to: stamp: 'mmuu 10/19/2023 21:37:54'!
+initializeWith: anAmount from: aSenderAccount to: aReceiverAccount 
+	aSenderAccount registerSendTransference: anAmount.
+	aReceiverAccount registerReceiveTransference: anAmount.!
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/19/2023 21:38:01'!
+PASSED!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/19/2023 21:41:38'!
+test02
+	|senderAccount receiverAccount|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	Deposit register: 100 on: senderAccount.
+	Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: receiverAccount balance equals: 100.
+	self assert: senderAccount balance equals: 0.! !
+
+!methodRemoval: TransferenceTest #test02 stamp: 'mmuu 10/19/2023 21:41:43'!
+test02
+	|senderAccount receiverAccount|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	Deposit register: 100 on: senderAccount.
+	Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: receiverAccount balance equals: 100.
+	self assert: senderAccount balance equals: 0.!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/19/2023 21:42:49' prior: 50651064!
+test01
+	|senderAccount receiverAccount|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	Deposit register: 100 on: senderAccount.
+	Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: receiverAccount balance equals: 100.
+	self assert: senderAccount balance equals: 0.! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/19/2023 21:44:41'!
+test02
+	|senderAccount receiverAccount transference deposit|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	deposit := Deposit register: 100 on: senderAccount.
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: receiverAccount balance equals: 100.
+	self assert: senderAccount balance equals: 0.
+	self assert: transference getDeposit equals: deposit.! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/19/2023 21:48:30' prior: 50651286!
+test02
+	|senderAccount receiverAccount transference deposit|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	deposit := Deposit register: 100 on: senderAccount.
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: transference getDeposit equals: deposit.! !
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/19/2023 21:49:40'!
+ERROR!
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/19/2023 21:49:45'!
+getDeposit
+	self shouldBeImplemented.! !
+
+Object subclass: #Transference
+	instanceVariableNames: 'senderAccount receiverAccount'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #Transference category: 'Portfolio-Solucion' stamp: 'mmuu 10/19/2023 21:51:47'!
+Object subclass: #Transference
+	instanceVariableNames: 'senderAccount receiverAccount'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/19/2023 21:52:23' prior: 50651218!
+with: anAmount from: aSenderAccount to: aReceiverAccount
+	senderAccount := aSenderAccount .
+	receiverAccount := aReceiverAccount .
+	aSenderAccount registerSendTransference: anAmount.
+	aReceiverAccount registerReceiveTransference: anAmount.! !
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/19/2023 21:53:52' prior: 50651319!
+getDeposit
+	senderAccount! !
+
+!classDefinition: #Transference category: 'Portfolio-Solucion' stamp: 'mmuu 10/19/2023 21:55:25'!
+Object subclass: #Transference
+	instanceVariableNames: 'senderAccount receiverAccount transferenceAmount'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/19/2023 21:55:24' prior: 50651348!
+getDeposit
+	senderAccount hasRegistered: (Deposit for: transferenceAmount)! !
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/19/2023 21:55:35' prior: 50651337!
+with: anAmount from: aSenderAccount to: aReceiverAccount
+	senderAccount := aSenderAccount .
+	receiverAccount := aReceiverAccount .
+	transferenceAmount := anAmount.
+	aSenderAccount registerSendTransference: anAmount.
+	aReceiverAccount registerReceiveTransference: anAmount.! !
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/19/2023 21:55:39'!
+FAILURE!
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/19/2023 21:55:39'!
+FAILURE!
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/19/2023 21:55:54' prior: 50651361!
+getDeposit
+	^senderAccount hasRegistered: (Deposit for: transferenceAmount)! !
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/19/2023 21:55:56'!
+PASSED!
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/19/2023 21:55:56'!
+FAILURE!
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/19/2023 21:55:56'!
+FAILURE!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/19/2023 21:56:53' prior: 50651303!
+test02
+	|senderAccount receiverAccount transference deposit|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	deposit := Deposit register: 100 on: senderAccount.
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (senderAccount hasRegistered: (Withdraw for: 100))! !
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/19/2023 21:57:00'!
+FAILURE!
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/19/2023 21:57:00'!
+FAILURE!
+
+!methodRemoval: Transference #getDeposit stamp: 'mmuu 10/19/2023 21:59:42'!
+getDeposit
+	^senderAccount hasRegistered: (Deposit for: transferenceAmount)!
+
+!classDefinition: #Transference category: 'Portfolio-Solucion' stamp: 'mmuu 10/19/2023 22:00:42'!
+Object subclass: #Transference
+	instanceVariableNames: 'senderAccount receiverAccount transferenceAmount deposit'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #Transference category: 'Portfolio-Solucion' stamp: 'mmuu 10/19/2023 22:00:43'!
+Object subclass: #Transference
+	instanceVariableNames: 'senderAccount receiverAccount transferenceAmount deposit withdraw'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/19/2023 22:00:41' prior: 50651367!
+with: anAmount from: aSenderAccount to: aReceiverAccount
+	senderAccount := aSenderAccount .
+	receiverAccount := aReceiverAccount .
+	transferenceAmount := anAmount.
+	deposit := Deposit for: anAmount.
+	withdraw := Withdraw for: anAmount.
+	aSenderAccount register: withdraw.
+	aReceiverAccount register: deposit.! !
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/19/2023 22:00:48'!
+PASSED!
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/19/2023 22:00:48'!
+FAILURE!
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/19/2023 22:00:48'!
+FAILURE!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/19/2023 22:01:30' prior: 50651398!
+test02
+	|senderAccount receiverAccount transference deposit|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	deposit := Deposit register: 100 on: senderAccount.
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (senderAccount hasRegistered: (transference getDeposit))! !
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/19/2023 22:01:51'!
+getDeposit
+	^deposit! !
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/19/2023 22:01:53'!
+FAILURE!
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/19/2023 22:01:53'!
+FAILURE!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/19/2023 22:02:12' prior: 50651462!
+test02
+	|senderAccount receiverAccount transference deposit|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	deposit := Deposit register: 100 on: senderAccount.
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (receiverAccount hasRegistered: (transference getDeposit))! !
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/19/2023 22:02:15'!
+PASSED!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/19/2023 22:02:48' prior: 50651486!
+test02
+	|senderAccount receiverAccount transference deposit|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	deposit := Deposit register: 100 on: senderAccount.
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (senderAccount hasRegistered: (transference getWithdraw)).
+	self assert: (receiverAccount hasRegistered: (transference getDeposit))! !
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/19/2023 22:03:00'!
+getWithdraw
+	^withdraw! !
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/19/2023 22:03:05'!
+PASSED!
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/19/2023 22:03:05'!
+PASSED!
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/19/2023 22:03:05'!
+PASSED!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/19/2023 22:03:15' prior: 50651503!
+test02
+	|senderAccount receiverAccount transference|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	Deposit register: 100 on: senderAccount.
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (senderAccount hasRegistered: (transference getWithdraw)).
+	self assert: (receiverAccount hasRegistered: (transference getDeposit))! !
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/19/2023 22:03:16'!
+PASSED!
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/19/2023 22:03:29' prior: 50651441!
+with: anAmount from: aSenderAccount to: aReceiverAccount
+	"senderAccount := aSenderAccount .
+	receiverAccount := aReceiverAccount .
+	transferenceAmount := anAmount."
+	deposit := Deposit for: anAmount.
+	withdraw := Withdraw for: anAmount.
+	aSenderAccount register: withdraw.
+	aReceiverAccount register: deposit.! !
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/19/2023 22:03:30'!
+PASSED!
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/19/2023 22:03:30'!
+PASSED!
+
+----SNAPSHOT----(19 October 2023 22:03:36) CuisUniversity-5981.image priorSource: 10197292!
+
+----SNAPSHOT----(19 October 2023 22:03:48) CuisUniversity-5981.image priorSource: 10237337!
+
+----STARTUP---- (20 October 2023 12:53:17) as C:\Users\Manuel Urkovich\Facu\Inge1\cuisPortfolio2\windows64\CuisUniversity-5981.image!
+
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/20/2023 12:54:43'!
+PASSED!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 12:58:19'!
+test03
+	|senderAccount receiverAccount transference|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: senderAccount balance equals: -100.
+	self assert: receiverAccount balance equals: 100.! !
+
+!testRun: #TransferenceTest #test03 stamp: 'mmuu 10/20/2023 12:58:22'!
+PASSED!
+
+!methodRemoval: TransferenceTest #test03 stamp: 'mmuu 10/20/2023 12:58:27'!
+test03
+	|senderAccount receiverAccount transference|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: senderAccount balance equals: -100.
+	self assert: receiverAccount balance equals: 100.!
+
+!methodRemoval: ReceptiveAccount #registerReceiveTransference: stamp: 'mmuu 10/20/2023 12:58:47'!
+registerReceiveTransference: anAmount 
+	transactions add: (Deposit for: anAmount)!
+
+!methodRemoval: ReceptiveAccount #registerSendTransference: stamp: 'mmuu 10/20/2023 12:58:47'!
+registerSendTransference: anAmount 
+	transactions add: (Withdraw for: anAmount)!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:02:26'!
+test03
+	|senderAccount receiverAccount transference|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	Deposit register: 100 on: senderAccount.
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: ((transference getWithdraw) getTransference) equals: transference.! !
+
+!testRun: #TransferenceTest #test03 stamp: 'mmuu 10/20/2023 13:02:31'!
+ERROR!
+
+!testRun: #TransferenceTest #test03 stamp: 'mmuu 10/20/2023 13:02:31'!
+ERROR!
+
+AccountTransaction subclass: #WithdrawLeg
+	instanceVariableNames: 'value'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #WithdrawLeg category: 'Portfolio-Solucion' stamp: 'mmuu 10/20/2023 13:03:09'!
+AccountTransaction subclass: #WithdrawLeg
+	instanceVariableNames: 'value'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!WithdrawLeg class methodsFor: 'no messages' stamp: 'mmuu 10/20/2023 13:03:22'!
+for: aValue
+
+	^ self new initializeFor: aValue ! !
+!WithdrawLeg methodsFor: 'no messages' stamp: 'mmuu 10/20/2023 13:03:30'!
+initializeFor: aValue
+
+	value := aValue ! !
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/20/2023 13:05:29' prior: 50651550!
+with: anAmount from: aSenderAccount to: aReceiverAccount
+	"senderAccount := aSenderAccount .
+	receiverAccount := aReceiverAccount .
+	transferenceAmount := anAmount."
+	deposit := Deposit for: anAmount.
+	withdraw := WithdrawLeg for: anAmount.
+	aSenderAccount register: withdraw.
+	aReceiverAccount register: deposit.! !
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/20/2023 13:05:46'!
+ERROR!
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/20/2023 13:05:46'!
+ERROR!
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:06:03' overrides: 50650943!
+affectBalance: aBalance
+
+	^aBalance - value! !
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/20/2023 13:06:06'!
+PASSED!
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/20/2023 13:06:19'!
+PASSED!
+
+!testRun: #TransferenceTest #test03 stamp: 'mmuu 10/20/2023 13:06:36'!
+ERROR!
+
+!testRun: #TransferenceTest #test03 stamp: 'mmuu 10/20/2023 13:06:36'!
+ERROR!
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:06:43'!
+getTransference
+	self shouldBeImplemented.! !
+
+!classDefinition: #WithdrawLeg category: 'Portfolio-Solucion' stamp: 'mmuu 10/20/2023 13:06:53'!
+AccountTransaction subclass: #WithdrawLeg
+	instanceVariableNames: 'value transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:06:52' prior: 50651694!
+getTransference
+	^transference! !
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/20/2023 13:08:06' prior: 50651661!
+with: anAmount from: aSenderAccount to: aReceiverAccount
+	"senderAccount := aSenderAccount .
+	receiverAccount := aReceiverAccount .
+	transferenceAmount := anAmount."
+	deposit := Deposit for: anAmount.
+	withdraw := WithdrawLeg for: self of: anAmount.
+	aSenderAccount register: withdraw.
+	aReceiverAccount register: deposit.! !
+!WithdrawLeg class methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:08:58'!
+for: aTransference of: anAmount
+
+	^ self new initializeFor: aTransference of: anAmount ! !
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:09:26'!
+initializeFor: aTransference of: anAmount 
+	transference := aTransference.
+	value := anAmount ! !
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/20/2023 13:09:31'!
+PASSED!
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/20/2023 13:09:31'!
+PASSED!
+
+!testRun: #TransferenceTest #test03 stamp: 'mmuu 10/20/2023 13:09:31'!
+PASSED!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:09:44' prior: 50651621!
+test03
+	|senderAccount receiverAccount transference|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: ((transference getWithdraw) getTransference) equals: transference.! !
+
+!testRun: #TransferenceTest #test03 stamp: 'mmuu 10/20/2023 13:09:46'!
+PASSED!
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/20/2023 13:10:01'!
+getWithdrawLeg
+	^withdraw! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:10:01' prior: 50651531!
+test02
+	|senderAccount receiverAccount transference|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	Deposit register: 100 on: senderAccount.
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (senderAccount hasRegistered: (transference getWithdrawLeg)).
+	self assert: (receiverAccount hasRegistered: (transference getDeposit))! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:10:01' prior: 50651744!
+test03
+	|senderAccount receiverAccount transference|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: ((transference getWithdrawLeg) getTransference) equals: transference.! !
+
+!methodRemoval: Transference #getWithdraw stamp: 'mmuu 10/20/2023 13:10:01'!
+getWithdraw
+	^withdraw!
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/20/2023 13:10:09'!
+PASSED!
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/20/2023 13:10:09'!
+PASSED!
+
+!testRun: #TransferenceTest #test03 stamp: 'mmuu 10/20/2023 13:10:09'!
+PASSED!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:10:27'!
+test04
+	|senderAccount receiverAccount transference|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: ((transference getDeposit) getTransference) equals: transference.! !
+
+!testRun: #TransferenceTest #test04 stamp: 'mmuu 10/20/2023 13:10:29'!
+ERROR!
+
+!testRun: #TransferenceTest #test04 stamp: 'mmuu 10/20/2023 13:10:29'!
+ERROR!
+
+AccountTransaction subclass: #DepositLeg
+	instanceVariableNames: 'value transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #DepositLeg category: 'Portfolio-Solucion' stamp: 'mmuu 10/20/2023 13:10:43'!
+AccountTransaction subclass: #DepositLeg
+	instanceVariableNames: 'value transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!methodRemoval: WithdrawLeg class #for: stamp: 'mmuu 10/20/2023 13:10:48'!
+for: aValue
+
+	^ self new initializeFor: aValue !
+!DepositLeg class methodsFor: 'no messages' stamp: 'mmuu 10/20/2023 13:10:54'!
+for: aTransference of: anAmount
+
+	^ self new initializeFor: aTransference of: anAmount ! !
+
+!methodRemoval: WithdrawLeg #initializeFor: stamp: 'mmuu 10/20/2023 13:10:59'!
+initializeFor: aValue
+
+	value := aValue !
+!DepositLeg methodsFor: 'no messages' stamp: 'mmuu 10/20/2023 13:11:12'!
+initializeFor: aTransference of: anAmount 
+	transference := aTransference.
+	value := anAmount! !
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:11:28' overrides: 50650943!
+affectBalance: aBalance
+
+	^aBalance + value! !
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:11:50'!
+getTransference
+	^transference ! !
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/20/2023 13:11:54'!
+PASSED!
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/20/2023 13:11:54'!
+PASSED!
+
+!testRun: #TransferenceTest #test03 stamp: 'mmuu 10/20/2023 13:11:54'!
+PASSED!
+
+!testRun: #TransferenceTest #test04 stamp: 'mmuu 10/20/2023 13:11:54'!
+ERROR!
+
+!testRun: #TransferenceTest #test04 stamp: 'mmuu 10/20/2023 13:11:54'!
+ERROR!
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/20/2023 13:12:08' prior: 50651711!
+with: anAmount from: aSenderAccount to: aReceiverAccount
+	"senderAccount := aSenderAccount .
+	receiverAccount := aReceiverAccount .
+	transferenceAmount := anAmount."
+	deposit := Deposit for: self of: anAmount.
+	withdraw := WithdrawLeg for: self of: anAmount.
+	aSenderAccount register: withdraw.
+	aReceiverAccount register: deposit.! !
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/20/2023 13:12:11'!
+ERROR!
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/20/2023 13:12:11'!
+ERROR!
+
+!testRun: #TransferenceTest #test03 stamp: 'mmuu 10/20/2023 13:12:11'!
+ERROR!
+
+!testRun: #TransferenceTest #test04 stamp: 'mmuu 10/20/2023 13:12:11'!
+ERROR!
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/20/2023 13:12:13'!
+ERROR!
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/20/2023 13:12:22' prior: 50651876!
+with: anAmount from: aSenderAccount to: aReceiverAccount
+	"senderAccount := aSenderAccount .
+	receiverAccount := aReceiverAccount .
+	transferenceAmount := anAmount."
+	deposit := DepositLeg for: self of: anAmount.
+	withdraw := WithdrawLeg for: self of: anAmount.
+	aSenderAccount register: withdraw.
+	aReceiverAccount register: deposit.! !
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/20/2023 13:12:24'!
+PASSED!
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/20/2023 13:12:24'!
+PASSED!
+
+!testRun: #TransferenceTest #test03 stamp: 'mmuu 10/20/2023 13:12:24'!
+PASSED!
+
+!testRun: #TransferenceTest #test04 stamp: 'mmuu 10/20/2023 13:12:24'!
+PASSED!
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/20/2023 13:13:34'!
+getDepositLeg
+	^deposit! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:13:34' prior: 50651764!
+test02
+	|senderAccount receiverAccount transference|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	Deposit register: 100 on: senderAccount.
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (senderAccount hasRegistered: (transference getWithdrawLeg)).
+	self assert: (receiverAccount hasRegistered: (transference getDepositLeg))! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:13:34' prior: 50651804!
+test04
+	|senderAccount receiverAccount transference|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: ((transference getDepositLeg) getTransference) equals: transference.! !
+
+!methodRemoval: Transference #getDeposit stamp: 'mmuu 10/20/2023 13:13:34'!
+getDeposit
+	^deposit!
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/20/2023 13:13:38'!
+PASSED!
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/20/2023 13:13:38'!
+PASSED!
+
+!testRun: #TransferenceTest #test03 stamp: 'mmuu 10/20/2023 13:13:38'!
+PASSED!
+
+!testRun: #TransferenceTest #test04 stamp: 'mmuu 10/20/2023 13:13:38'!
+PASSED!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:16:35' prior: 50651930!
+test02
+	|senderAccount receiverAccount transference|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	Deposit register: 100 on: senderAccount.
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (senderAccount hasRegistered: transference getWithdrawLeg).
+	self assert: (receiverAccount hasRegistered: transference getDepositLeg)! !
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/20/2023 13:16:39'!
+PASSED!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:16:45' prior: 50651781!
+test03
+	|senderAccount receiverAccount transference|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getWithdrawLeg getTransference) equals: transference.! !
+
+!testRun: #TransferenceTest #test03 stamp: 'mmuu 10/20/2023 13:16:47'!
+PASSED!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:16:59' prior: 50651992!
+test03
+	|senderAccount receiverAccount transference|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: transference getWithdrawLeg getTransference equals: transference.! !
+
+!testRun: #TransferenceTest #test03 stamp: 'mmuu 10/20/2023 13:17:01'!
+PASSED!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:17:07' prior: 50651947!
+test04
+	|senderAccount receiverAccount transference|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getDepositLeg getTransference) equals: transference.! !
+
+!testRun: #TransferenceTest #test04 stamp: 'mmuu 10/20/2023 13:17:09'!
+PASSED!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:17:13' prior: 50652008!
+test03
+	|senderAccount receiverAccount transference|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getWithdrawLeg getTransference) equals: transference.! !
+
+!testRun: #TransferenceTest #test03 stamp: 'mmuu 10/20/2023 13:17:15'!
+PASSED!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:40:12'!
+test05
+	|senderAccount receiverAccount transference|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getDepositLeg getWithdrawLeg) equals: transference getWithdrawLeg.! !
+
+!testRun: #TransferenceTest #test05 stamp: 'mmuu 10/20/2023 16:40:13'!
+ERROR!
+
+!testRun: #TransferenceTest #test05 stamp: 'mmuu 10/20/2023 16:40:13'!
+ERROR!
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:40:18'!
+getWithdrawLeg
+	self shouldBeImplemented.! !
+
+----SNAPSHOT----(20 October 2023 16:40:28) CuisUniversity-5981.image priorSource: 10237430!
+
+AccountTransaction subclass: #DepositLeg
+	instanceVariableNames: 'value transference withdrawLeg'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #DepositLeg category: 'Portfolio-Solucion' stamp: 'mmuu 10/20/2023 16:40:59'!
+AccountTransaction subclass: #DepositLeg
+	instanceVariableNames: 'value transference withdrawLeg'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+AccountTransaction subclass: #DepositLeg
+	instanceVariableNames: 'value transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #DepositLeg category: 'Portfolio-Solucion' stamp: 'mmuu 10/20/2023 16:41:05'!
+AccountTransaction subclass: #DepositLeg
+	instanceVariableNames: 'value transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:41:20' prior: 50652073!
+getWithdrawLeg
+	^transference getWithdrawLeg ! !
+
+!testRun: #TransferenceTest #test05 stamp: 'mmuu 10/20/2023 16:41:23'!
+PASSED!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:41:38' prior: 50652055!
+test05
+	|senderAccount receiverAccount transference|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getWithdrawLeg getDepositLeg) equals: transference getDepositLeg.! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:40:12' prior: 50652116!
+test05
+	|senderAccount receiverAccount transference|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getDepositLeg getWithdrawLeg) equals: transference getWithdrawLeg.! !
+
+!testRun: #TransferenceTest #test05 stamp: 'mmuu 10/20/2023 16:41:49'!
+PASSED!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:41:59'!
+test06
+	|senderAccount receiverAccount transference|
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getWithdrawLeg getDepositLeg) equals: transference getDepositLeg.! !
+
+!testRun: #TransferenceTest #test06 stamp: 'mmuu 10/20/2023 16:42:01'!
+ERROR!
+
+!testRun: #TransferenceTest #test06 stamp: 'mmuu 10/20/2023 16:42:01'!
+ERROR!
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:42:06'!
+getDepositLeg
+	self shouldBeImplemented.! !
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:42:12' prior: 50652164!
+getDepositLeg
+	^transference getWithdrawLeg ! !
+
+!testRun: #TransferenceTest #test06 stamp: 'mmuu 10/20/2023 16:42:15'!
+FAILURE!
+
+!testRun: #TransferenceTest #test06 stamp: 'mmuu 10/20/2023 16:42:15'!
+FAILURE!
+
+!testRun: #TransferenceTest #test05 stamp: 'mmuu 10/20/2023 16:42:35'!
+PASSED!
+
+!testRun: #TransferenceTest #test06 stamp: 'mmuu 10/20/2023 16:42:38'!
+FAILURE!
+
+!testRun: #TransferenceTest #test06 stamp: 'mmuu 10/20/2023 16:42:38'!
+FAILURE!
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:42:52' prior: 50652169!
+getDepositLeg
+	^transference getDepositLeg ! !
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/20/2023 16:42:54'!
+PASSED!
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/20/2023 16:42:54'!
+PASSED!
+
+!testRun: #TransferenceTest #test03 stamp: 'mmuu 10/20/2023 16:42:54'!
+PASSED!
+
+!testRun: #TransferenceTest #test04 stamp: 'mmuu 10/20/2023 16:42:54'!
+PASSED!
+
+!testRun: #TransferenceTest #test05 stamp: 'mmuu 10/20/2023 16:42:54'!
+PASSED!
+
+!testRun: #TransferenceTest #test06 stamp: 'mmuu 10/20/2023 16:42:54'!
+PASSED!
+
+!classDefinition: #TransferenceTest category: 'Portfolio-Solucion' stamp: 'mmuu 10/20/2023 16:45:00'!
+TestCase subclass: #TransferenceTest
+	instanceVariableNames: 'senderAccountReplace'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #TransferenceTest category: 'Portfolio-Solucion' stamp: 'mmuu 10/20/2023 16:45:00'!
+TestCase subclass: #TransferenceTest
+	instanceVariableNames: 'senderAccountReplace receiverAccountReplace'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:44:58' overrides: 16961394!
+setUp
+	senderAccountReplace := ReceptiveAccount new.
+	receiverAccountReplace := ReceptiveAccount new.! !
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:45:29' prior: 50651272!
+test01
+	Deposit register: 100 on: senderAccountReplace.
+	Transference with: 100 from: senderAccountReplace to: receiverAccountReplace.
+	
+	self assert: receiverAccountReplace balance equals: 100.
+	self assert: senderAccountReplace balance equals: 0.! !
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/20/2023 16:45:31'!
+PASSED!
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:45:47' prior: 50651973!
+test02
+	|transference|
+	Deposit register: 100 on: senderAccountReplace.
+	transference := Transference with: 100 from: senderAccountReplace to: receiverAccountReplace.
+	
+	self assert: (senderAccountReplace hasRegistered: transference getWithdrawLeg).
+	self assert: (receiverAccountReplace hasRegistered: transference getDepositLeg)! !
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/20/2023 16:45:51'!
+PASSED!
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:46:06' prior: 50652040!
+test03
+	|transference|
+	transference := Transference with: 100 from: senderAccountReplace to: receiverAccountReplace.
+	
+	self assert: (transference getWithdrawLeg getTransference) equals: transference.! !
+
+!testRun: #TransferenceTest #test03 stamp: 'mmuu 10/20/2023 16:46:07'!
+PASSED!
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:46:17' prior: 50652024!
+test04
+	|transference|
+	transference := Transference with: 100 from: senderAccountReplace to: receiverAccountReplace.
+	
+	self assert: (transference getDepositLeg getTransference) equals: transference.! !
+
+!testRun: #TransferenceTest #test04 stamp: 'mmuu 10/20/2023 16:46:19'!
+PASSED!
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:46:29' prior: 50652130!
+test05
+	|transference|
+	
+	transference := Transference with: 100 from: senderAccountReplace to: receiverAccountReplace.
+	
+	self assert: (transference getDepositLeg getWithdrawLeg) equals: transference getWithdrawLeg.! !
+
+!testRun: #TransferenceTest #test05 stamp: 'mmuu 10/20/2023 16:46:30'!
+PASSED!
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:46:38' prior: 50652146!
+test06
+	|transference|
+	
+	transference := Transference with: 100 from: senderAccountReplace to: receiverAccountReplace.
+	
+	self assert: (transference getWithdrawLeg getDepositLeg) equals: transference getDepositLeg.! !
+
+!testRun: #TransferenceTest #test06 stamp: 'mmuu 10/20/2023 16:46:40'!
+PASSED!
+
+!classDefinition: #TransferenceTest category: 'Portfolio-Solucion' stamp: 'mmuu 10/20/2023 16:47:00'!
+TestCase subclass: #TransferenceTest
+	instanceVariableNames: 'senderAccount receiverAccountReplace'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:47:00' prior: 50652261!
+test03
+	|transference|
+	transference := Transference with: 100 from: senderAccount to: receiverAccountReplace.
+	
+	self assert: (transference getWithdrawLeg getTransference) equals: transference.! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:47:00' prior: 50652231!
+test01
+	Deposit register: 100 on: senderAccount.
+	Transference with: 100 from: senderAccount to: receiverAccountReplace.
+	
+	self assert: receiverAccountReplace balance equals: 100.
+	self assert: senderAccount balance equals: 0.! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:47:00' prior: 50652285!
+test05
+	|transference|
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccountReplace.
+	
+	self assert: (transference getDepositLeg getWithdrawLeg) equals: transference getWithdrawLeg.! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:47:00' prior: 50652224 overrides: 16961394!
+setUp
+	senderAccount := ReceptiveAccount new.
+	receiverAccountReplace := ReceptiveAccount new.! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:47:00' prior: 50652273!
+test04
+	|transference|
+	transference := Transference with: 100 from: senderAccount to: receiverAccountReplace.
+	
+	self assert: (transference getDepositLeg getTransference) equals: transference.! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:47:00' prior: 50652245!
+test02
+	|transference|
+	Deposit register: 100 on: senderAccount.
+	transference := Transference with: 100 from: senderAccount to: receiverAccountReplace.
+	
+	self assert: (senderAccount hasRegistered: transference getWithdrawLeg).
+	self assert: (receiverAccountReplace hasRegistered: transference getDepositLeg)! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:47:00' prior: 50652298!
+test06
+	|transference|
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccountReplace.
+	
+	self assert: (transference getWithdrawLeg getDepositLeg) equals: transference getDepositLeg.! !
+
+!classDefinition: #TransferenceTest category: 'Portfolio-Solucion' stamp: 'mmuu 10/20/2023 16:47:04'!
+TestCase subclass: #TransferenceTest
+	instanceVariableNames: 'senderAccount receiverAccount'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:47:04' prior: 50652320!
+test03
+	|transference|
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getWithdrawLeg getTransference) equals: transference.! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:47:04' prior: 50652330!
+test01
+	Deposit register: 100 on: senderAccount.
+	Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: receiverAccount balance equals: 100.
+	self assert: senderAccount balance equals: 0.! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:47:04' prior: 50652341!
+test05
+	|transference|
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getDepositLeg getWithdrawLeg) equals: transference getWithdrawLeg.! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:47:04' prior: 50652352 overrides: 16961394!
+setUp
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:47:04' prior: 50652359!
+test04
+	|transference|
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getDepositLeg getTransference) equals: transference.! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:47:04' prior: 50652369!
+test02
+	|transference|
+	Deposit register: 100 on: senderAccount.
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (senderAccount hasRegistered: transference getWithdrawLeg).
+	self assert: (receiverAccount hasRegistered: transference getDepositLeg)! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:47:04' prior: 50652382!
+test06
+	|transference|
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getWithdrawLeg getDepositLeg) equals: transference getDepositLeg.! !
+
+!testRun: #TransferenceTest #test01 stamp: 'mmuu 10/20/2023 16:47:06'!
+PASSED!
+
+!testRun: #TransferenceTest #test02 stamp: 'mmuu 10/20/2023 16:47:06'!
+PASSED!
+
+!testRun: #TransferenceTest #test03 stamp: 'mmuu 10/20/2023 16:47:06'!
+PASSED!
+
+!testRun: #TransferenceTest #test04 stamp: 'mmuu 10/20/2023 16:47:06'!
+PASSED!
+
+!testRun: #TransferenceTest #test05 stamp: 'mmuu 10/20/2023 16:47:06'!
+PASSED!
+
+!testRun: #TransferenceTest #test06 stamp: 'mmuu 10/20/2023 16:47:06'!
+PASSED!
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:47:31'!
+test01transferenceShouldAffectBalanceOfSenderAndReceiver
+	Deposit register: 100 on: senderAccount.
+	Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: receiverAccount balance equals: 100.
+	self assert: senderAccount balance equals: 0.! !
+
+!methodRemoval: TransferenceTest #test01 stamp: 'mmuu 10/20/2023 16:47:31'!
+test01
+	Deposit register: 100 on: senderAccount.
+	Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: receiverAccount balance equals: 100.
+	self assert: senderAccount balance equals: 0.!
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:48:07'!
+test02transferenceShouldAffectRegisteredTransactionsOfBothParts
+	|transference|
+	Deposit register: 100 on: senderAccount.
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (senderAccount hasRegistered: transference getWithdrawLeg).
+	self assert: (receiverAccount hasRegistered: transference getDepositLeg)! !
+
+!methodRemoval: TransferenceTest #test02 stamp: 'mmuu 10/20/2023 16:48:07'!
+test02
+	|transference|
+	Deposit register: 100 on: senderAccount.
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (senderAccount hasRegistered: transference getWithdrawLeg).
+	self assert: (receiverAccount hasRegistered: transference getDepositLeg)!
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:48:29'!
+test03withdrawLegCanGetTransference
+	|transference|
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getWithdrawLeg getTransference) equals: transference.! !
+
+!methodRemoval: TransferenceTest #test03 stamp: 'mmuu 10/20/2023 16:48:29'!
+test03
+	|transference|
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getWithdrawLeg getTransference) equals: transference.!
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:48:38'!
+test04depositLegCanGetTransference
+	|transference|
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getDepositLeg getTransference) equals: transference.! !
+
+!methodRemoval: TransferenceTest #test04 stamp: 'mmuu 10/20/2023 16:48:38'!
+test04
+	|transference|
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getDepositLeg getTransference) equals: transference.!
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:48:50'!
+test05depositLegCanGetWithdrawLet
+	|transference|
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getDepositLeg getWithdrawLeg) equals: transference getWithdrawLeg.! !
+
+!methodRemoval: TransferenceTest #test05 stamp: 'mmuu 10/20/2023 16:48:50'!
+test05
+	|transference|
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getDepositLeg getWithdrawLeg) equals: transference getWithdrawLeg.!
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:48:54'!
+test05depositLegCanGetWithdrawLeg
+	|transference|
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getDepositLeg getWithdrawLeg) equals: transference getWithdrawLeg.! !
+
+!methodRemoval: TransferenceTest #test05depositLegCanGetWithdrawLet stamp: 'mmuu 10/20/2023 16:48:54'!
+test05depositLegCanGetWithdrawLet
+	|transference|
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getDepositLeg getWithdrawLeg) equals: transference getWithdrawLeg.!
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:49:05'!
+test06withdrawLegCanGetDepositLeg
+	|transference|
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getWithdrawLeg getDepositLeg) equals: transference getDepositLeg.! !
+
+!methodRemoval: TransferenceTest #test06 stamp: 'mmuu 10/20/2023 16:49:05'!
+test06
+	|transference|
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getWithdrawLeg getDepositLeg) equals: transference getDepositLeg.!
+
+!testRun: #TransferenceTest #test01transferenceShouldAffectBalanceOfSenderAndReceiver stamp: 'mmuu 10/20/2023 16:49:08'!
+PASSED!
+
+!testRun: #TransferenceTest #test02transferenceShouldAffectRegisteredTransactionsOfBothParts stamp: 'mmuu 10/20/2023 16:49:08'!
+PASSED!
+
+!testRun: #TransferenceTest #test03withdrawLegCanGetTransference stamp: 'mmuu 10/20/2023 16:49:08'!
+PASSED!
+
+!testRun: #TransferenceTest #test04depositLegCanGetTransference stamp: 'mmuu 10/20/2023 16:49:08'!
+PASSED!
+
+!testRun: #TransferenceTest #test05depositLegCanGetWithdrawLeg stamp: 'mmuu 10/20/2023 16:49:08'!
+PASSED!
+
+!testRun: #TransferenceTest #test06withdrawLegCanGetDepositLeg stamp: 'mmuu 10/20/2023 16:49:08'!
+PASSED!
+
+!testRun: #TransferenceTest #test01transferenceShouldAffectBalanceOfSenderAndReceiver stamp: 'mmuu 10/20/2023 16:49:20'!
+PASSED!
+
+!testRun: #TransferenceTest #test02transferenceShouldAffectRegisteredTransactionsOfBothParts stamp: 'mmuu 10/20/2023 16:49:20'!
+PASSED!
+
+!testRun: #TransferenceTest #test03withdrawLegCanGetTransference stamp: 'mmuu 10/20/2023 16:49:20'!
+PASSED!
+
+!testRun: #TransferenceTest #test04depositLegCanGetTransference stamp: 'mmuu 10/20/2023 16:49:20'!
+PASSED!
+
+!testRun: #TransferenceTest #test05depositLegCanGetWithdrawLeg stamp: 'mmuu 10/20/2023 16:49:20'!
+PASSED!
+
+!testRun: #TransferenceTest #test06withdrawLegCanGetDepositLeg stamp: 'mmuu 10/20/2023 16:49:20'!
+PASSED!
+
+----SNAPSHOT----(20 October 2023 16:49:28) CuisUniversity-5981.image priorSource: 10253644!
