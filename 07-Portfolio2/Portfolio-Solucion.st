@@ -307,64 +307,63 @@ test07AccountKnowsItsTransactions
 
 !classDefinition: #TransferenceTest category: 'Portfolio-Solucion'!
 TestCase subclass: #TransferenceTest
-	instanceVariableNames: ''
+	instanceVariableNames: 'senderAccount receiverAccount'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Portfolio-Solucion'!
 
-!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/19/2023 21:42:49'!
-test01
-	|senderAccount receiverAccount|
+!TransferenceTest methodsFor: 'setup' stamp: 'mmuu 10/20/2023 16:47:04'!
+setUp
 	senderAccount := ReceptiveAccount new.
-	receiverAccount := ReceptiveAccount new.
-	
+	receiverAccount := ReceptiveAccount new.! !
+
+
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:47:31'!
+test01transferenceShouldAffectBalanceOfSenderAndReceiver
 	Deposit register: 100 on: senderAccount.
 	Transference with: 100 from: senderAccount to: receiverAccount.
 	
 	self assert: receiverAccount balance equals: 100.
 	self assert: senderAccount balance equals: 0.! !
 
-!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:16:35'!
-test02
-	|senderAccount receiverAccount transference|
-	senderAccount := ReceptiveAccount new.
-	receiverAccount := ReceptiveAccount new.
-	
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:48:07'!
+test02transferenceShouldAffectRegisteredTransactionsOfBothParts
+	|transference|
 	Deposit register: 100 on: senderAccount.
 	transference := Transference with: 100 from: senderAccount to: receiverAccount.
 	
 	self assert: (senderAccount hasRegistered: transference getWithdrawLeg).
 	self assert: (receiverAccount hasRegistered: transference getDepositLeg)! !
 
-!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:17:13'!
-test03
-	|senderAccount receiverAccount transference|
-	senderAccount := ReceptiveAccount new.
-	receiverAccount := ReceptiveAccount new.
-	
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:48:29'!
+test03withdrawLegCanGetTransference
+	|transference|
 	transference := Transference with: 100 from: senderAccount to: receiverAccount.
 	
 	self assert: (transference getWithdrawLeg getTransference) equals: transference.! !
 
-!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:17:07'!
-test04
-	|senderAccount receiverAccount transference|
-	senderAccount := ReceptiveAccount new.
-	receiverAccount := ReceptiveAccount new.
-	
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:48:38'!
+test04depositLegCanGetTransference
+	|transference|
 	transference := Transference with: 100 from: senderAccount to: receiverAccount.
 	
 	self assert: (transference getDepositLeg getTransference) equals: transference.! !
 
-!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:40:12'!
-test05
-	|senderAccount receiverAccount transference|
-	senderAccount := ReceptiveAccount new.
-	receiverAccount := ReceptiveAccount new.
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:48:54'!
+test05depositLegCanGetWithdrawLeg
+	|transference|
 	
 	transference := Transference with: 100 from: senderAccount to: receiverAccount.
 	
 	self assert: (transference getDepositLeg getWithdrawLeg) equals: transference getWithdrawLeg.! !
+
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:49:05'!
+test06withdrawLegCanGetDepositLeg
+	|transference|
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getWithdrawLeg getDepositLeg) equals: transference getDepositLeg.! !
 
 
 !classDefinition: #Account category: 'Portfolio-Solucion'!
@@ -690,9 +689,9 @@ affectBalance: aBalance
 getTransference
 	^transference ! !
 
-!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:40:18'!
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:41:20'!
 getWithdrawLeg
-	self shouldBeImplemented.! !
+	^transference getWithdrawLeg ! !
 
 !DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:11:12'!
 initializeFor: aTransference of: anAmount 
@@ -758,6 +757,10 @@ AccountTransaction subclass: #WithdrawLeg
 affectBalance: aBalance
 
 	^aBalance - value! !
+
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 16:42:52'!
+getDepositLeg
+	^transference getDepositLeg ! !
 
 !WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:06:52'!
 getTransference
