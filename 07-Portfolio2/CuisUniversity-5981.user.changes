@@ -1308,3 +1308,4104 @@ PASSED!
 ----SNAPSHOT----(20 October 2023 16:51:34) CuisUniversity-5981.image priorSource: 10272627!
 
 ----SNAPSHOT----(20 October 2023 16:52:00) CuisUniversity-5981.image priorSource: 10272720!
+
+----STARTUP---- (22 October 2023 18:05:01) as C:\Users\Manuel Urkovich\Facu\Inge1\cuisPortfolio2\windows64\CuisUniversity-5981.image!
+
+
+TestCase subclass: #AccountSummaryTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #AccountSummaryTest category: 'Portfolio-Solucion' stamp: 'mmuu 10/22/2023 18:25:52'!
+TestCase subclass: #AccountSummaryTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #AccountSummary category: 'Portfolio-Solucion' stamp: 'mmuu 10/22/2023 18:33:58'!
+Object subclass: #AccountSummary
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!AccountSummaryTest methodsFor: 'no messages' stamp: 'mmuu 10/22/2023 18:33:51'!
+test01
+	|account accountSummary|
+	
+	account := ReceptiveAccount new.
+	accountSummary := AccountSummary for: account.
+	
+	self assert: accountSummary entries size equals: 0.
+	self assert: accountSummary entries first equals: 'balance = 0'! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 18:34:03'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 18:34:03'!
+ERROR!
+!AccountSummary class methodsFor: 'instance creation' stamp: 'mmuu 10/22/2023 18:34:11'!
+for: account 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeFor: account ! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 18:36:12'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 18:36:12'!
+ERROR!
+!AccountSummary class methodsFor: 'instance creation' stamp: 'mmuu 10/22/2023 18:36:24' prior: 50652719!
+for: account 
+	^self new initializeFor: account ! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 18:36:29'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 18:36:39'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 18:36:39'!
+ERROR!
+
+!classDefinition: #AccountSummary category: 'Portfolio-Solucion' stamp: 'mmuu 10/22/2023 18:36:49'!
+Object subclass: #AccountSummary
+	instanceVariableNames: 'account_CHANGE_ME'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!AccountSummary methodsFor: 'initialization' stamp: 'mmuu 10/22/2023 18:36:49'!
+initializeFor: account 
+	self shouldBeImplemented.
+	account_CHANGE_ME := account.! !
+
+Object subclass: #AccountSummary
+	instanceVariableNames: 'account'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!AccountSummary class methodsFor: 'instance creation' stamp: 'mmuu 10/22/2023 18:37:58' prior: 50652732!
+for: anAccount 
+	^self new initializeFor: anAccount ! !
+!AccountSummary methodsFor: 'initialization' stamp: 'mmuu 10/22/2023 18:38:08' prior: 50652752!
+initializeFor: anAccount 
+	self shouldBeImplemented.
+	account_CHANGE_ME := anAccount.! !
+!AccountSummary methodsFor: 'initialization' stamp: 'mmuu 10/22/2023 18:38:14' prior: 50652768!
+initializeFor: anAccount 
+	account_CHANGE_ME := anAccount.! !
+
+!classDefinition: #AccountSummary category: 'Portfolio-Solucion' stamp: 'mmuu 10/22/2023 18:38:23'!
+Object subclass: #AccountSummary
+	instanceVariableNames: 'account'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!AccountSummary methodsFor: 'as yet unclassified' stamp: 'mmuu 10/22/2023 18:38:23' prior: 50652774!
+initializeFor: anAccount 
+	account := anAccount.! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 18:39:17'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 18:39:17'!
+ERROR!
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/22/2023 18:39:46'!
+entries
+	self shouldBeImplemented.! !
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/22/2023 18:40:04' prior: 50652797!
+entries
+	^OrderedCollection new.! !
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/22/2023 18:40:31' prior: 50652802!
+entries
+	^OrderedCollection with: 'balance = 0'.! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 18:40:35'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 18:40:35'!
+FAILURE!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/22/2023 18:40:42' prior: 50652703!
+test01
+	|account accountSummary|
+	
+	account := ReceptiveAccount new.
+	accountSummary := AccountSummary for: account.
+	
+	self assert: accountSummary entries size equals: 1.
+	self assert: accountSummary entries first equals: 'balance = 0'! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 18:40:45'!
+PASSED!
+
+AccountTransaction subclass: #TransferLegs
+	instanceVariableNames: 'value transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #TransferLegs category: 'Portfolio-Solucion' stamp: 'mmuu 10/22/2023 18:51:33'!
+AccountTransaction subclass: #TransferLegs
+	instanceVariableNames: 'value transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+AccountTransaction subclass: #TransferLegs
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #TransferLegs category: 'Portfolio-Solucion' stamp: 'mmuu 10/22/2023 18:51:47'!
+AccountTransaction subclass: #TransferLegs
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+TransferLegs subclass: #DepositLeg
+	instanceVariableNames: 'value transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #DepositLeg category: 'Portfolio-Solucion' stamp: 'mmuu 10/22/2023 18:52:01'!
+TransferLegs subclass: #DepositLeg
+	instanceVariableNames: 'value transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+TransferLegs subclass: #WithdrawLeg
+	instanceVariableNames: 'value transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #WithdrawLeg category: 'Portfolio-Solucion' stamp: 'mmuu 10/22/2023 18:52:09'!
+TransferLegs subclass: #WithdrawLeg
+	instanceVariableNames: 'value transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!testRun: #TransferenceTest #test01transferenceShouldAffectBalanceOfSenderAndReceiver stamp: 'mmuu 10/22/2023 18:52:13'!
+PASSED!
+
+!testRun: #TransferenceTest #test02transferenceShouldAffectRegisteredTransactionsOfBothParts stamp: 'mmuu 10/22/2023 18:52:13'!
+PASSED!
+
+!testRun: #TransferenceTest #test03withdrawLegCanGetTransference stamp: 'mmuu 10/22/2023 18:52:13'!
+PASSED!
+
+!testRun: #TransferenceTest #test04depositLegCanGetTransference stamp: 'mmuu 10/22/2023 18:52:13'!
+PASSED!
+
+!testRun: #TransferenceTest #test05depositLegCanGetWithdrawLeg stamp: 'mmuu 10/22/2023 18:52:13'!
+PASSED!
+
+!testRun: #TransferenceTest #test06withdrawLegCanGetDepositLeg stamp: 'mmuu 10/22/2023 18:52:13'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 18:57:37'!
+PASSED!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/22/2023 19:04:42'!
+test02
+	|account accountSummary|
+	
+	account := ReceptiveAccount new.
+	accountSummary := AccountSummary for: account .
+	
+	Deposit register: 100 on: account.
+	
+	self assert: accountSummary entries size equals: 2.
+	self assert: accountSummary entries first equals: 'deposito por 100'.
+	self assert: accountSummary entries last equals: 'balance = 100'! !
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/22/2023 19:04:44'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/22/2023 19:04:44'!
+FAILURE!
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/22/2023 19:14:16' prior: 50652807!
+entries
+	|summary|
+	summary := account createAccountSummary.
+	summary add: 'balance = ', account balance asString.! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 19:14:26'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/22/2023 19:14:26'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 19:14:28'!
+ERROR!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/22/2023 19:14:39'!
+createAccountSummary
+	self shouldBeImplemented.! !
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/22/2023 19:53:25' prior: 50652942!
+createAccountSummary
+	transactions do: [:aTransaction | aTransaction | [^'deposito = 100']]! !
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/22/2023 19:53:36' prior: 50652947!
+createAccountSummary
+	transactions do: [:aTransaction | aTransaction | [^'deposito por 100']]! !
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/22/2023 19:53:46' prior: 50652953!
+createAccountSummary
+	^transactions do: [:aTransaction | aTransaction | [^'deposito por 100']]! !
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/22/2023 19:54:03'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/22/2023 19:54:03'!
+ERROR!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/22/2023 19:54:32' prior: 50652959!
+createAccountSummary
+	^transactions do: [:aTransaction | [^'deposito por 100']]! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 19:54:39'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/22/2023 19:54:39'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 19:54:41'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 19:55:38'!
+ERROR!
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/22/2023 19:55:55' prior: 50652928!
+entries
+	|summary|
+	summary := account createAccountSummary.
+	summary add: 'balance = ', account balance asString.
+	^summary ! !
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/22/2023 19:56:01'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/22/2023 19:56:01'!
+ERROR!
+
+!testRun: #TransferenceTest #test01transferenceShouldAffectBalanceOfSenderAndReceiver stamp: 'mmuu 10/22/2023 20:00:36'!
+PASSED!
+
+!testRun: #TransferenceTest #test02transferenceShouldAffectRegisteredTransactionsOfBothParts stamp: 'mmuu 10/22/2023 20:00:36'!
+PASSED!
+
+!testRun: #TransferenceTest #test03withdrawLegCanGetTransference stamp: 'mmuu 10/22/2023 20:00:36'!
+PASSED!
+
+!testRun: #TransferenceTest #test04depositLegCanGetTransference stamp: 'mmuu 10/22/2023 20:00:36'!
+PASSED!
+
+!testRun: #TransferenceTest #test05depositLegCanGetWithdrawLeg stamp: 'mmuu 10/22/2023 20:00:36'!
+PASSED!
+
+!testRun: #TransferenceTest #test06withdrawLegCanGetDepositLeg stamp: 'mmuu 10/22/2023 20:00:37'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mmuu 10/22/2023 20:00:39'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mmuu 10/22/2023 20:00:39'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mmuu 10/22/2023 20:00:39'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mmuu 10/22/2023 20:00:39'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mmuu 10/22/2023 20:00:39'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mmuu 10/22/2023 20:00:39'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mmuu 10/22/2023 20:00:39'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 20:01:31'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/22/2023 20:01:31'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 20:01:33'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/22/2023 20:02:39'!
+ERROR!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/22/2023 20:10:14' prior: 50652970!
+createAccountSummary
+	transactions size ~= 0 ifTrue: [^'deposito por 100'].! !
+
+!testRun: #TransferenceTest #test01transferenceShouldAffectBalanceOfSenderAndReceiver stamp: 'mmuu 10/22/2023 20:10:17'!
+PASSED!
+
+!testRun: #TransferenceTest #test02transferenceShouldAffectRegisteredTransactionsOfBothParts stamp: 'mmuu 10/22/2023 20:10:17'!
+PASSED!
+
+!testRun: #TransferenceTest #test03withdrawLegCanGetTransference stamp: 'mmuu 10/22/2023 20:10:17'!
+PASSED!
+
+!testRun: #TransferenceTest #test04depositLegCanGetTransference stamp: 'mmuu 10/22/2023 20:10:17'!
+PASSED!
+
+!testRun: #TransferenceTest #test05depositLegCanGetWithdrawLeg stamp: 'mmuu 10/22/2023 20:10:17'!
+PASSED!
+
+!testRun: #TransferenceTest #test06withdrawLegCanGetDepositLeg stamp: 'mmuu 10/22/2023 20:10:17'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mmuu 10/22/2023 20:10:20'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mmuu 10/22/2023 20:10:20'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mmuu 10/22/2023 20:10:20'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mmuu 10/22/2023 20:10:20'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mmuu 10/22/2023 20:10:20'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mmuu 10/22/2023 20:10:20'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mmuu 10/22/2023 20:10:20'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 20:10:23'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/22/2023 20:10:23'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 20:10:25'!
+ERROR!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/22/2023 20:10:57' prior: 50653057!
+createAccountSummary
+	transactions size ~= 0 ifTrue: [OrderedCollection with: 'deposito por 100'].! !
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/22/2023 20:11:07' prior: 50653119!
+createAccountSummary
+	transactions size ~= 0 ifTrue: [^OrderedCollection with: 'deposito por 100'].
+	! !
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/22/2023 20:11:19' prior: 50653126!
+createAccountSummary
+	transactions size ~= 0 ifTrue: [^OrderedCollection with: 'deposito por 100'].
+	^OrderedCollection new.! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/22/2023 20:11:23'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/22/2023 20:11:23'!
+PASSED!
+
+----SNAPSHOT----(22 October 2023 20:13:00) CuisUniversity-5981.image priorSource: 10272813!
+
+----SNAPSHOT----(22 October 2023 20:13:26) CuisUniversity-5981.image priorSource: 10287811!
+
+----STARTUP---- (23 October 2023 15:22:06) as C:\Users\Manuel Urkovich\Facu\Inge1\cuisPortfolio2\windows64\CuisUniversity-5981.image!
+
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/23/2023 15:25:29'!
+PASSED!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 15:25:52' prior: 50652908!
+test02
+	|account accountSummary|
+	
+	account := ReceptiveAccount new.
+	accountSummary := AccountSummary for: account .
+	
+	Deposit register: 100 on: account.
+	Transference register: 300 on: account.
+	
+	self assert: accountSummary entries size equals: 2.
+	self assert: accountSummary entries first equals: 'deposito por 100'.
+	self assert: accountSummary entries last equals: 'balance = 100'! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/22/2023 19:04:42' prior: 50653159!
+test02
+	|account accountSummary|
+	
+	account := ReceptiveAccount new.
+	accountSummary := AccountSummary for: account .
+	
+	Deposit register: 100 on: account.
+	
+	self assert: accountSummary entries size equals: 2.
+	self assert: accountSummary entries first equals: 'deposito por 100'.
+	self assert: accountSummary entries last equals: 'balance = 100'! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 15:26:04'!
+test03
+	|account accountSummary|
+	
+	account := ReceptiveAccount new.
+	accountSummary := AccountSummary for: account .
+	
+	Deposit register: 100 on: account.
+	Transference register: 300 on: account.
+	
+	self assert: accountSummary entries size equals: 2.
+	self assert: accountSummary entries first equals: 'deposito por 100'.
+	self assert: accountSummary entries last equals: 'balance = 100'! !
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:26:05'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:26:05'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:26:16'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:26:16'!
+ERROR!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 15:26:29' prior: 50653189!
+test03
+	|account accountSummary|
+	
+	account := ReceptiveAccount new.
+	accountSummary := AccountSummary for: account .
+	
+	Deposit register: 100 on: account.
+	Withdraw register: 300 on: account.
+	
+	self assert: accountSummary entries size equals: 2.
+	self assert: accountSummary entries first equals: 'deposito por 100'.
+	self assert: accountSummary entries last equals: 'balance = 100'! !
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:26:30'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:26:30'!
+FAILURE!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 15:26:52' prior: 50653215!
+test03
+	|account accountSummary|
+	
+	account := ReceptiveAccount new.
+	accountSummary := AccountSummary for: account .
+	
+	Withdraw register: 300 on: account.
+	
+	self assert: accountSummary entries size equals: 2.
+	self assert: accountSummary entries first equals: 'extraccion por 100'.
+	self assert: accountSummary entries last equals: 'balance = 100'! !
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:26:54'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:26:54'!
+FAILURE!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 15:27:01' prior: 50653236!
+test03
+	|account accountSummary|
+	
+	account := ReceptiveAccount new.
+	accountSummary := AccountSummary for: account .
+	
+	Withdraw register: 300 on: account.
+	
+	self assert: accountSummary entries size equals: 2.
+	self assert: accountSummary entries first equals: 'extraccion por 100'.
+	self assert: accountSummary entries last equals: 'balance = -300'! !
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:27:02'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:27:02'!
+FAILURE!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 15:27:29' prior: 50653256!
+test03
+	|account accountSummary|
+	
+	account := ReceptiveAccount new.
+	accountSummary := AccountSummary for: account .
+	
+	Withdraw register: 300 on: account.
+	Deposit register: 100 on: account.
+	
+	self assert: accountSummary entries size equals: 3.
+	self assert: accountSummary entries first equals: 'extraccion por 300'.
+	self assert: accountSummary entries last equals: 'balance = -200'! !
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:27:31'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:27:31'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 15:28:44' prior: 50653133!
+createAccountSummary
+	|accountSummary|
+	accountSummary := OrderedCollection new.
+	transactions size ~= 0 ifTrue: [^OrderedCollection with: 'deposito por 100'].
+	transactions do: [:aTransaction | aTransaction ]! !
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 15:31:03' prior: 50653297!
+createAccountSummary
+	|accountSummary|
+	accountSummary := OrderedCollection new.
+	transactions do: [:aTransaction | accountSummary add: (aTransaction accountSummaryInfo)]! !
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:31:12'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:31:12'!
+ERROR!
+!Withdraw methodsFor: 'account summary' stamp: 'mmuu 10/23/2023 15:31:22'!
+accountSummaryInfo
+	self shouldBeImplemented.! !
+!Withdraw methodsFor: 'account summary' stamp: 'mmuu 10/23/2023 15:31:40' prior: 50653320!
+accountSummaryInfo
+	^'deposito = ', value ! !
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:31:44'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:31:44'!
+ERROR!
+!Withdraw methodsFor: 'account summary' stamp: 'mmuu 10/23/2023 15:32:03' prior: 50653325!
+accountSummaryInfo
+	^'deposito = ', value asString ! !
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:32:07'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:32:07'!
+ERROR!
+!Deposit methodsFor: 'account summary' stamp: 'mmuu 10/23/2023 15:32:16'!
+accountSummaryInfo
+	self shouldBeImplemented.! !
+!Deposit methodsFor: 'account summary' stamp: 'mmuu 10/23/2023 15:32:29' prior: 50653345!
+accountSummaryInfo
+	^'extraccion por ', value asString ! !
+!Deposit methodsFor: 'account summary' stamp: 'mmuu 10/23/2023 15:33:16' prior: 50653350!
+accountSummaryInfo
+	^'deposito por ', value asString ! !
+!Withdraw methodsFor: 'account summary' stamp: 'mmuu 10/23/2023 15:33:22' prior: 50653335!
+accountSummaryInfo
+	^'extraccion por ', value asString ! !
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:33:32'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:33:32'!
+ERROR!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 15:33:55' prior: 50653307!
+createAccountSummary
+	|accountSummary|
+	accountSummary := OrderedCollection new.
+	transactions do: [:aTransaction | accountSummary add: (aTransaction accountSummaryInfo)].
+	^accountSummary.! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/23/2023 15:33:58'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/23/2023 15:33:58'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:33:58'!
+PASSED!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 15:36:08'!
+test04
+	|senderAccount receiverAccount accountSummary|
+	
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	accountSummary := AccountSummary for: senderAccount .
+	
+	Transference with: 300 from: senderAccount to: receiverAccount.
+	
+	self assert: accountSummary entries first equals: 'salida por transferencia de 300'.
+	self assert: accountSummary entries last equals: 'balance = -300'! !
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/23/2023 15:36:12'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/23/2023 15:36:12'!
+ERROR!
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 15:36:18'!
+accountSummaryInfo
+	self shouldBeImplemented.! !
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 15:36:40' prior: 50653408!
+accountSummaryInfo
+	^'salida por transferencia de ', value ! !
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 15:36:45' prior: 50653413!
+accountSummaryInfo
+	^'salida por transferencia de ', value asString! !
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/23/2023 15:37:47'!
+PASSED!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 15:38:01' prior: 50653387!
+test04
+	|senderAccount receiverAccount accountSummary|
+	
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	accountSummary := AccountSummary for: receiverAccount .
+	
+	Transference with: 300 from: senderAccount to: receiverAccount.
+	
+	self assert: accountSummary entries first equals: 'entrada por transferencia de 300'.
+	self assert: accountSummary entries last equals: 'balance = 300'! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 15:36:08' prior: 50653428!
+test04
+	|senderAccount receiverAccount accountSummary|
+	
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	accountSummary := AccountSummary for: senderAccount .
+	
+	Transference with: 300 from: senderAccount to: receiverAccount.
+	
+	self assert: accountSummary entries first equals: 'salida por transferencia de 300'.
+	self assert: accountSummary entries last equals: 'balance = -300'! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 15:38:17'!
+test05
+	|senderAccount receiverAccount accountSummary|
+	
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	accountSummary := AccountSummary for: receiverAccount .
+	
+	Transference with: 300 from: senderAccount to: receiverAccount.
+	
+	self assert: accountSummary entries first equals: 'entrada por transferencia de 300'.
+	self assert: accountSummary entries last equals: 'balance = 300'! !
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/23/2023 15:38:19'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/23/2023 15:38:19'!
+ERROR!
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 15:38:24'!
+accountSummaryInfo
+	self shouldBeImplemented.! !
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 15:41:11' prior: 50653482!
+accountSummaryInfo
+	^'entrada por ', value asString ! !
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/23/2023 15:41:14'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/23/2023 15:41:14'!
+FAILURE!
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 15:41:32' prior: 50653487!
+accountSummaryInfo
+	^'entrada de transferencia por ', value asString ! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/23/2023 15:41:36'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/23/2023 15:41:36'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:41:36'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/23/2023 15:41:36'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/23/2023 15:41:36'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/23/2023 15:41:36'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/23/2023 15:41:43'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/23/2023 15:41:43'!
+FAILURE!
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 15:42:03' prior: 50653497!
+accountSummaryInfo
+	^'entrada por transferencia de ', value asString ! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/23/2023 15:42:05'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/23/2023 15:42:05'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 15:42:05'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/23/2023 15:42:05'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/23/2023 15:42:05'!
+PASSED!
+
+----SNAPSHOT----(23 October 2023 15:49:11) CuisUniversity-5981.image priorSource: 10287904!
+
+----SNAPSHOT----(23 October 2023 15:49:15) CuisUniversity-5981.image priorSource: 10300482!
+
+----STARTUP---- (23 October 2023 19:45:09) as C:\Users\Manuel Urkovich\Facu\Inge1\cuisPortfolio2\windows64\CuisUniversity-5981.image!
+
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/23/2023 19:46:45'!
+depositLeg
+	^deposit! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 19:46:45' prior: 50652608!
+test06withdrawLegCanGetDepositLeg
+	|transference|
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference getWithdrawLeg getDepositLeg) equals: transference depositLeg.! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 19:46:45' prior: 50652587!
+test05depositLegCanGetWithdrawLeg
+	|transference|
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference depositLeg getWithdrawLeg) equals: transference getWithdrawLeg.! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 19:46:45' prior: 50652506!
+test02transferenceShouldAffectRegisteredTransactionsOfBothParts
+	|transference|
+	Deposit register: 100 on: senderAccount.
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (senderAccount hasRegistered: transference getWithdrawLeg).
+	self assert: (receiverAccount hasRegistered: transference depositLeg)! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 19:46:45' prior: 50652550!
+test04depositLegCanGetTransference
+	|transference|
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference depositLeg getTransference) equals: transference.! !
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 19:46:45' prior: 50652187!
+getDepositLeg
+	^transference depositLeg ! !
+
+!methodRemoval: Transference #getDepositLeg stamp: 'mmuu 10/23/2023 19:46:45'!
+getDepositLeg
+	^deposit!
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/23/2023 19:46:56'!
+withdrawLeg
+	^withdraw! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 19:46:56' prior: 50652532!
+test03withdrawLegCanGetTransference
+	|transference|
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference withdrawLeg getTransference) equals: transference.! !
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 19:46:56' prior: 50652108!
+getWithdrawLeg
+	^transference withdrawLeg ! !
+
+!methodRemoval: Transference #getWithdrawLeg stamp: 'mmuu 10/23/2023 19:46:56'!
+getWithdrawLeg
+	^withdraw!
+
+!testRun: #TransferenceTest #test01transferenceShouldAffectBalanceOfSenderAndReceiver stamp: 'mmuu 10/23/2023 19:47:00'!
+PASSED!
+
+!testRun: #TransferenceTest #test02transferenceShouldAffectRegisteredTransactionsOfBothParts stamp: 'mmuu 10/23/2023 19:47:00'!
+ERROR!
+
+!testRun: #TransferenceTest #test03withdrawLegCanGetTransference stamp: 'mmuu 10/23/2023 19:47:00'!
+PASSED!
+
+!testRun: #TransferenceTest #test04depositLegCanGetTransference stamp: 'mmuu 10/23/2023 19:47:00'!
+PASSED!
+
+!testRun: #TransferenceTest #test05depositLegCanGetWithdrawLeg stamp: 'mmuu 10/23/2023 19:47:00'!
+ERROR!
+
+!testRun: #TransferenceTest #test06withdrawLegCanGetDepositLeg stamp: 'mmuu 10/23/2023 19:47:00'!
+ERROR!
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/23/2023 19:47:10' prior: 50653566!
+test05depositLegCanGetWithdrawLeg
+	|transference|
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference depositLeg withdrawLeg) equals: transference getWithdrawLeg.! !
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/23/2023 19:47:14' prior: 50653555!
+test06withdrawLegCanGetDepositLeg
+	|transference|
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference withdrawLeg getDepositLeg) equals: transference depositLeg.! !
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/23/2023 19:47:18' prior: 50653577!
+test02transferenceShouldAffectRegisteredTransactionsOfBothParts
+	|transference|
+	Deposit register: 100 on: senderAccount.
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (senderAccount hasRegistered: transference withdrawLeg).
+	self assert: (receiverAccount hasRegistered: transference depositLeg)! !
+
+!testRun: #TransferenceTest #test01transferenceShouldAffectBalanceOfSenderAndReceiver stamp: 'mmuu 10/23/2023 19:47:22'!
+PASSED!
+
+!testRun: #TransferenceTest #test02transferenceShouldAffectRegisteredTransactionsOfBothParts stamp: 'mmuu 10/23/2023 19:47:22'!
+PASSED!
+
+!testRun: #TransferenceTest #test03withdrawLegCanGetTransference stamp: 'mmuu 10/23/2023 19:47:22'!
+PASSED!
+
+!testRun: #TransferenceTest #test04depositLegCanGetTransference stamp: 'mmuu 10/23/2023 19:47:22'!
+PASSED!
+
+!testRun: #TransferenceTest #test05depositLegCanGetWithdrawLeg stamp: 'mmuu 10/23/2023 19:47:22'!
+ERROR!
+
+!testRun: #TransferenceTest #test06withdrawLegCanGetDepositLeg stamp: 'mmuu 10/23/2023 19:47:22'!
+PASSED!
+
+!testRun: #TransferenceTest #test05depositLegCanGetWithdrawLeg stamp: 'mmuu 10/23/2023 19:47:22'!
+ERROR!
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/23/2023 19:47:45' prior: 50653655!
+test05depositLegCanGetWithdrawLeg
+	|transference|
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference depositLeg withdrawLeg) equals: transference withdrawLeg.! !
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/23/2023 19:47:57' prior: 50653665!
+test06withdrawLegCanGetDepositLeg
+	|transference|
+	
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference withdrawLeg depositLeg) equals: transference depositLeg.! !
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 19:48:37'!
+withdrawLeg
+	^transference withdrawLeg ! !
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 19:48:42'!
+depositLeg
+	^transference depositLeg ! !
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mmuu 10/23/2023 19:48:44'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mmuu 10/23/2023 19:48:44'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mmuu 10/23/2023 19:48:44'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mmuu 10/23/2023 19:48:44'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mmuu 10/23/2023 19:48:44'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mmuu 10/23/2023 19:48:44'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mmuu 10/23/2023 19:48:44'!
+PASSED!
+
+!testRun: #TransferenceTest #test01transferenceShouldAffectBalanceOfSenderAndReceiver stamp: 'mmuu 10/23/2023 19:48:48'!
+PASSED!
+
+!testRun: #TransferenceTest #test02transferenceShouldAffectRegisteredTransactionsOfBothParts stamp: 'mmuu 10/23/2023 19:48:48'!
+PASSED!
+
+!testRun: #TransferenceTest #test03withdrawLegCanGetTransference stamp: 'mmuu 10/23/2023 19:48:48'!
+PASSED!
+
+!testRun: #TransferenceTest #test04depositLegCanGetTransference stamp: 'mmuu 10/23/2023 19:48:48'!
+PASSED!
+
+!testRun: #TransferenceTest #test05depositLegCanGetWithdrawLeg stamp: 'mmuu 10/23/2023 19:48:48'!
+PASSED!
+
+!testRun: #TransferenceTest #test06withdrawLegCanGetDepositLeg stamp: 'mmuu 10/23/2023 19:48:48'!
+PASSED!
+
+!methodRemoval: WithdrawLeg #getDepositLeg stamp: 'mmuu 10/23/2023 19:48:53'!
+getDepositLeg
+	^transference depositLeg !
+
+!methodRemoval: DepositLeg #getWithdrawLeg stamp: 'mmuu 10/23/2023 19:48:58'!
+getWithdrawLeg
+	^transference withdrawLeg !
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 19:49:37'!
+transference
+	^transference! !
+
+!methodRemoval: WithdrawLeg #getTransference stamp: 'mmuu 10/23/2023 19:49:37'!
+getTransference
+	^transference!
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 19:49:51'!
+transference
+	^transference ! !
+
+!methodRemoval: DepositLeg #getTransference stamp: 'mmuu 10/23/2023 19:49:51'!
+getTransference
+	^transference !
+
+!testRun: #TransferenceTest #test01transferenceShouldAffectBalanceOfSenderAndReceiver stamp: 'mmuu 10/23/2023 19:49:57'!
+PASSED!
+
+!testRun: #TransferenceTest #test02transferenceShouldAffectRegisteredTransactionsOfBothParts stamp: 'mmuu 10/23/2023 19:49:57'!
+PASSED!
+
+!testRun: #TransferenceTest #test03withdrawLegCanGetTransference stamp: 'mmuu 10/23/2023 19:49:57'!
+ERROR!
+
+!testRun: #TransferenceTest #test04depositLegCanGetTransference stamp: 'mmuu 10/23/2023 19:49:57'!
+ERROR!
+
+!testRun: #TransferenceTest #test05depositLegCanGetWithdrawLeg stamp: 'mmuu 10/23/2023 19:49:57'!
+PASSED!
+
+!testRun: #TransferenceTest #test06withdrawLegCanGetDepositLeg stamp: 'mmuu 10/23/2023 19:49:57'!
+PASSED!
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/23/2023 19:50:02' prior: 50653615!
+test03withdrawLegCanGetTransference
+	|transference|
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference withdrawLeg transference) equals: transference.! !
+!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/23/2023 19:50:06' prior: 50653592!
+test04depositLegCanGetTransference
+	|transference|
+	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	
+	self assert: (transference depositLeg transference) equals: transference.! !
+
+!testRun: #TransferenceTest #test01transferenceShouldAffectBalanceOfSenderAndReceiver stamp: 'mmuu 10/23/2023 19:50:07'!
+PASSED!
+
+!testRun: #TransferenceTest #test02transferenceShouldAffectRegisteredTransactionsOfBothParts stamp: 'mmuu 10/23/2023 19:50:07'!
+PASSED!
+
+!testRun: #TransferenceTest #test05depositLegCanGetWithdrawLeg stamp: 'mmuu 10/23/2023 19:50:07'!
+PASSED!
+
+!testRun: #TransferenceTest #test06withdrawLegCanGetDepositLeg stamp: 'mmuu 10/23/2023 19:50:07'!
+PASSED!
+
+!testRun: #TransferenceTest #test03withdrawLegCanGetTransference stamp: 'mmuu 10/23/2023 19:50:07'!
+PASSED!
+
+!testRun: #TransferenceTest #test04depositLegCanGetTransference stamp: 'mmuu 10/23/2023 19:50:07'!
+PASSED!
+
+!testRun: #TransferenceTest #test01transferenceShouldAffectBalanceOfSenderAndReceiver stamp: 'mmuu 10/23/2023 19:50:10'!
+PASSED!
+
+!testRun: #TransferenceTest #test02transferenceShouldAffectRegisteredTransactionsOfBothParts stamp: 'mmuu 10/23/2023 19:50:10'!
+PASSED!
+
+!testRun: #TransferenceTest #test03withdrawLegCanGetTransference stamp: 'mmuu 10/23/2023 19:50:10'!
+PASSED!
+
+!testRun: #TransferenceTest #test04depositLegCanGetTransference stamp: 'mmuu 10/23/2023 19:50:10'!
+PASSED!
+
+!testRun: #TransferenceTest #test05depositLegCanGetWithdrawLeg stamp: 'mmuu 10/23/2023 19:50:10'!
+PASSED!
+
+!testRun: #TransferenceTest #test06withdrawLegCanGetDepositLeg stamp: 'mmuu 10/23/2023 19:50:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mmuu 10/23/2023 19:50:13'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mmuu 10/23/2023 19:50:13'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mmuu 10/23/2023 19:50:13'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mmuu 10/23/2023 19:50:13'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mmuu 10/23/2023 19:50:13'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mmuu 10/23/2023 19:50:13'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mmuu 10/23/2023 19:50:13'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/23/2023 19:50:16'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/23/2023 19:50:16'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 19:50:16'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/23/2023 19:50:16'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/23/2023 19:50:16'!
+PASSED!
+
+TransferLegs subclass: #DepositLeg
+	instanceVariableNames: 'transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #DepositLeg category: 'Portfolio-Solucion' stamp: 'mmuu 10/23/2023 19:56:35'!
+TransferLegs subclass: #DepositLeg
+	instanceVariableNames: 'transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+TransferLegs subclass: #WithdrawLeg
+	instanceVariableNames: 'transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #WithdrawLeg category: 'Portfolio-Solucion' stamp: 'mmuu 10/23/2023 19:56:41'!
+TransferLegs subclass: #WithdrawLeg
+	instanceVariableNames: 'transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 19:56:50' prior: 50653419!
+accountSummaryInfo
+	^'salida por transferencia de ', transference value asString! !
+
+TransferLegs subclass: #WithdrawLeg
+	instanceVariableNames: 'value transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #WithdrawLeg category: 'Portfolio-Solucion' stamp: 'mmuu 10/23/2023 19:57:42'!
+TransferLegs subclass: #WithdrawLeg
+	instanceVariableNames: 'value transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+TransferLegs subclass: #DepositLeg
+	instanceVariableNames: 'value transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #DepositLeg category: 'Portfolio-Solucion' stamp: 'mmuu 10/23/2023 19:57:46'!
+TransferLegs subclass: #DepositLeg
+	instanceVariableNames: 'value transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/23/2023 19:59:00' prior: 50651902!
+with: anAmount from: aSenderAccount to: aReceiverAccount
+	deposit := DepositLeg for: self of: anAmount.
+	withdraw := WithdrawLeg for: self of: anAmount.
+	aSenderAccount register: withdraw.
+	aReceiverAccount register: deposit.! !
+
+Object subclass: #Transference
+	instanceVariableNames: 'senderAccount receiverAccount value deposit withdraw'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #Transference category: 'Portfolio-Solucion' stamp: 'mmuu 10/23/2023 19:59:13'!
+Object subclass: #Transference
+	instanceVariableNames: 'senderAccount receiverAccount value deposit withdraw'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/23/2023 19:59:29' prior: 50653998!
+with: anAmount from: aSenderAccount to: aReceiverAccount
+	value := anAmount.
+	deposit := DepositLeg for: self of: anAmount.
+	withdraw := WithdrawLeg for: self of: anAmount.
+	aSenderAccount register: withdraw.
+	aReceiverAccount register: deposit.! !
+!Transference methodsFor: 'initialization' stamp: 'mmuu 10/23/2023 19:59:37' overrides: 16902254!
+value
+	^value! !
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 19:59:44' prior: 50651855 overrides: 50650943!
+affectBalance: aBalance
+
+	^aBalance + transference value! !
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 19:59:52' prior: 50651680 overrides: 50650943!
+affectBalance: aBalance
+
+	^aBalance - transference value! !
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mmuu 10/23/2023 19:59:54'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mmuu 10/23/2023 19:59:54'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mmuu 10/23/2023 19:59:54'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mmuu 10/23/2023 19:59:54'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mmuu 10/23/2023 19:59:54'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mmuu 10/23/2023 19:59:54'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mmuu 10/23/2023 19:59:54'!
+PASSED!
+
+!testRun: #TransferenceTest #test01transferenceShouldAffectBalanceOfSenderAndReceiver stamp: 'mmuu 10/23/2023 19:59:56'!
+PASSED!
+
+!testRun: #TransferenceTest #test02transferenceShouldAffectRegisteredTransactionsOfBothParts stamp: 'mmuu 10/23/2023 19:59:56'!
+PASSED!
+
+!testRun: #TransferenceTest #test03withdrawLegCanGetTransference stamp: 'mmuu 10/23/2023 19:59:56'!
+PASSED!
+
+!testRun: #TransferenceTest #test04depositLegCanGetTransference stamp: 'mmuu 10/23/2023 19:59:56'!
+PASSED!
+
+!testRun: #TransferenceTest #test05depositLegCanGetWithdrawLeg stamp: 'mmuu 10/23/2023 19:59:56'!
+PASSED!
+
+!testRun: #TransferenceTest #test06withdrawLegCanGetDepositLeg stamp: 'mmuu 10/23/2023 19:59:56'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/23/2023 19:59:59'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/23/2023 19:59:59'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 19:59:59'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/23/2023 19:59:59'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/23/2023 19:59:59'!
+PASSED!
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 20:00:11' prior: 50653523!
+accountSummaryInfo
+	^'entrada por transferencia de ', transference value asString ! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/23/2023 20:00:25'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/23/2023 20:00:25'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 20:00:25'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/23/2023 20:00:25'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/23/2023 20:00:25'!
+PASSED!
+
+TransferLegs subclass: #DepositLeg
+	instanceVariableNames: 'transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #DepositLeg category: 'Portfolio-Solucion' stamp: 'mmuu 10/23/2023 20:01:03'!
+TransferLegs subclass: #DepositLeg
+	instanceVariableNames: 'transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+TransferLegs subclass: #WithdrawLeg
+	instanceVariableNames: 'transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #WithdrawLeg category: 'Portfolio-Solucion' stamp: 'mmuu 10/23/2023 20:01:07'!
+TransferLegs subclass: #WithdrawLeg
+	instanceVariableNames: 'transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!testRun: #TransferenceTest #test01transferenceShouldAffectBalanceOfSenderAndReceiver stamp: 'mmuu 10/23/2023 20:01:09'!
+PASSED!
+
+!testRun: #TransferenceTest #test02transferenceShouldAffectRegisteredTransactionsOfBothParts stamp: 'mmuu 10/23/2023 20:01:09'!
+PASSED!
+
+!testRun: #TransferenceTest #test03withdrawLegCanGetTransference stamp: 'mmuu 10/23/2023 20:01:09'!
+PASSED!
+
+!testRun: #TransferenceTest #test04depositLegCanGetTransference stamp: 'mmuu 10/23/2023 20:01:09'!
+PASSED!
+
+!testRun: #TransferenceTest #test05depositLegCanGetWithdrawLeg stamp: 'mmuu 10/23/2023 20:01:09'!
+PASSED!
+
+!testRun: #TransferenceTest #test06withdrawLegCanGetDepositLeg stamp: 'mmuu 10/23/2023 20:01:09'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mmuu 10/23/2023 20:01:10'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mmuu 10/23/2023 20:01:10'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mmuu 10/23/2023 20:01:10'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mmuu 10/23/2023 20:01:10'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mmuu 10/23/2023 20:01:10'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mmuu 10/23/2023 20:01:10'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mmuu 10/23/2023 20:01:10'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/23/2023 20:01:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/23/2023 20:01:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 20:01:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/23/2023 20:01:13'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/23/2023 20:01:13'!
+PASSED!
+
+TestCase subclass: #TransferNetTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #TransferNetTest category: 'Portfolio-Solucion' stamp: 'mmuu 10/23/2023 20:15:26'!
+TestCase subclass: #TransferNetTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!TransferNetTest methodsFor: 'no messages' stamp: 'mmuu 10/23/2023 20:15:44'!
+test01
+	|account|
+	account := ReceptiveAccount new.
+	! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 20:16:11' prior: 50654230!
+test01
+	|account|
+	account := ReceptiveAccount new.
+	self assert: account transferNet equals: 0.	! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 20:16:16'!
+ERROR!
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 20:16:16'!
+ERROR!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 20:16:23'!
+transferNet
+	self shouldBeImplemented.! !
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 20:16:28' prior: 50654246!
+transferNet
+	^0! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 20:16:32'!
+PASSED!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 20:17:23'!
+test02
+	|senderAccount receptiveAccount|
+	senderAccount := ReceptiveAccount new.
+	
+	Transference with: 2 from: senderAccount to: receptiveAccount.
+	
+	self assert: senderAccount transferNet equals: -2.	! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 20:17:33' prior: 50654257!
+test02
+	|senderAccount receptiveAccount|
+	senderAccount := ReceptiveAccount new.
+	receptiveAccount := ReceptiveAccount new.
+	
+	Transference with: 2 from: senderAccount to: receptiveAccount.
+	
+	self assert: senderAccount transferNet equals: -2.	! !
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 20:17:34'!
+FAILURE!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 20:17:34'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 20:19:28' prior: 50654251!
+transferNet
+	(transactions first isKindOf: DepositLeg) ifTrue: [^transactions first value].
+	^0! !
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 20:20:34' overrides: 50650939!
+value
+	^transference value! !
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 20:20:50' overrides: 50650939!
+value
+	transference value.! !
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 20:21:08' prior: 50651730!
+initializeFor: aTransference of: anAmount 
+	transference := aTransference.! !
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 20:21:28'!
+FAILURE!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 20:21:28'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 20:22:07' prior: 50654283!
+transferNet
+	(transactions first isKindOf: WithdrawLeg) ifTrue: [^transactions first value negated].
+	^0! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 20:22:15'!
+ERROR!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 20:22:15'!
+ERROR!
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 20:22:17'!
+ERROR!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 20:22:25'!
+ERROR!
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 20:22:43' prior: 50654295 overrides: 50650939!
+value
+	^transference value.! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 20:22:49'!
+ERROR!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 20:22:49'!
+PASSED!
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 20:22:49'!
+ERROR!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 20:22:53'!
+PASSED!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 20:23:35' prior: 50654310!
+transferNet
+	transactions isEmpty ifTrue: [^0].
+	(transactions first isKindOf: WithdrawLeg) ifTrue: [^transactions first value negated].! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 20:23:46'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 20:23:46'!
+PASSED!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 20:24:01'!
+test03
+	|senderAccount receptiveAccount|
+	senderAccount := ReceptiveAccount new.
+	receptiveAccount := ReceptiveAccount new.
+	
+	Transference with: 2 from: senderAccount to: receptiveAccount.
+	
+	self assert: receptiveAccount transferNet equals: 2.	! !
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 20:24:17'!
+FAILURE!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 20:24:17'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 20:24:44' prior: 50654341!
+transferNet
+	transactions isEmpty ifTrue: [^0].
+	(transactions first isKindOf: WithdrawLeg) ifTrue: [^transactions first value negated].
+	(transactions first isKindOf: DepositLeg) ifTrue: [^transactions first value].! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 20:24:51'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 20:24:51'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 20:24:51'!
+PASSED!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 20:25:33'!
+test04
+	|senderAccount receptiveAccount|
+	senderAccount := ReceptiveAccount new.
+	receptiveAccount := ReceptiveAccount new.
+	
+	Transference with: 2 from: senderAccount to: receptiveAccount.
+	Transference with: 8 from: receptiveAccount to: senderAccount.
+	
+	self assert: senderAccount transferNet equals: 5.	! !
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 20:26:01'!
+FAILURE!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 20:26:01'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 20:31:05' prior: 50654369!
+transferNet
+	|transferNet|
+	transferNet := 0.
+	transactions isEmpty ifTrue: [^transferNet].
+	transactions do: [:aTransaction |
+		(aTransaction isKindOf: WithdrawLeg) ifTrue: [transferNet - transactions first value].
+		(aTransaction isKindOf: DepositLeg) ifTrue: [transferNet + transactions first value].
+	].
+	^transferNet.! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 20:31:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 20:31:14'!
+FAILURE!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 20:31:14'!
+FAILURE!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 20:31:14'!
+FAILURE!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 20:31:20'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 20:32:44' prior: 50654404!
+transferNet
+	|transferNet|
+	transferNet := 0.
+	transactions isEmpty ifTrue: [^transferNet].
+	transactions do: [:aTransaction |
+		(aTransaction isKindOf: WithdrawLeg) ifTrue: [transferNet - (transactions first value)].
+		(aTransaction isKindOf: DepositLeg) ifTrue: [transferNet + (transactions first value)].
+	].
+	^transferNet.! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 20:32:50'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 20:32:50'!
+FAILURE!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 20:32:50'!
+FAILURE!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 20:32:50'!
+FAILURE!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 20:32:53'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 20:33:34' prior: 50654430!
+transferNet
+	|transferNet|
+	transferNet := 0.
+	transactions isEmpty ifTrue: [^transferNet].
+	transactions do: [:aTransaction |
+		(aTransaction isKindOf: WithdrawLeg) ifTrue: [transferNet := transferNet - (transactions first value)].
+		(aTransaction isKindOf: DepositLeg) ifTrue: [transferNet := transferNet + (transactions first value)].
+	].
+	^transferNet.! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 20:33:37'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 20:33:37'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 20:33:37'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 20:33:37'!
+FAILURE!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 20:33:37'!
+FAILURE!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 20:33:55' prior: 50654386!
+test04
+	|senderAccount receptiveAccount|
+	senderAccount := ReceptiveAccount new.
+	receptiveAccount := ReceptiveAccount new.
+	
+	Transference with: 2 from: senderAccount to: receptiveAccount.
+	Transference with: 8 from: receptiveAccount to: senderAccount.
+	
+	self assert: senderAccount transferNet equals: 6.	! !
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 20:34:00'!
+FAILURE!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 20:34:00'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 20:36:10' prior: 50654456!
+transferNet
+	|transferNet|
+	transferNet := 0.
+	transactions isEmpty ifTrue: [^transferNet].
+	transactions do: [:aTransaction |
+		(aTransaction isKindOf: WithdrawLeg) ifTrue: [transferNet := transferNet - (aTransaction value)].
+		(aTransaction isKindOf: DepositLeg) ifTrue: [transferNet := transferNet + (aTransaction value)].
+	].
+	^transferNet.! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 20:36:13'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 20:36:13'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 20:36:13'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 20:36:13'!
+PASSED!
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 20:38:12'!
+modifyTransferNet: aTransferNet
+	^aTransferNet + transference value! !
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 20:38:22'!
+modifyTransferNet: aTransferNet
+	^aTransferNet - transference value! !
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 20:38:49' prior: 50654501!
+transferNet
+	|transferNet|
+	transferNet := 0.
+	transactions isEmpty ifTrue: [^transferNet].
+	transactions do: [:aTransaction |
+		transferNet := aTransaction modifyTransferNet: transferNet
+	].
+	^transferNet.! !
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mmuu 10/23/2023 20:40:08'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mmuu 10/23/2023 20:40:08'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mmuu 10/23/2023 20:40:08'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mmuu 10/23/2023 20:40:08'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mmuu 10/23/2023 20:40:08'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mmuu 10/23/2023 20:40:08'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mmuu 10/23/2023 20:40:08'!
+PASSED!
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 20:40:16'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 20:40:16'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 20:40:16'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 20:40:16'!
+PASSED!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 20:41:06' prior: 50654536!
+transferNet
+	"|transferNet|
+	transferNet := 0.
+	transactions isEmpty ifTrue: [^transferNet].
+	transactions do: [:aTransaction |
+		transferNet := aTransaction modifyTransferNet: transferNet
+	].
+	^transferNet."
+	^transactions inject: 0 into: [:transferNet :aTransaction | ^aTransaction modifyTransferNet: transferNet]! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 20:41:10'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 20:41:10'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 20:41:10'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 20:41:10'!
+FAILURE!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 20:41:10'!
+FAILURE!
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 20:41:52'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 20:41:52'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 20:41:52'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 20:41:52'!
+FAILURE!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 20:41:52'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 20:42:00' prior: 50654583!
+transferNet
+	"|transferNet|
+	transferNet := 0.
+	transactions isEmpty ifTrue: [^transferNet].
+	transactions do: [:aTransaction |
+		transferNet := aTransaction modifyTransferNet: transferNet
+	].
+	^transferNet."
+	^transactions inject: 0 into: [:transferNet :aTransaction | aTransaction modifyTransferNet: transferNet]! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 20:42:04'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 20:42:04'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 20:42:04'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 20:42:04'!
+PASSED!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 20:42:13' prior: 50654621!
+transferNet
+	^transactions inject: 0 into: [:transferNet :aTransaction | aTransaction modifyTransferNet: transferNet]! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/23/2023 21:25:08'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/23/2023 21:25:08'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/23/2023 21:25:08'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/23/2023 21:25:09'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/23/2023 21:25:09'!
+PASSED!
+
+Object subclass: #TransferNet
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #TransferNet category: 'Portfolio-Solucion' stamp: 'mmuu 10/23/2023 21:26:22'!
+Object subclass: #TransferNet
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: 'TransferNet class' category: 'Portfolio-Solucion' stamp: 'mmuu 10/23/2023 21:26:39'!
+TransferNet class
+	instanceVariableNames: 'account'!
+!TransferNet class methodsFor: 'no messages' stamp: 'mmuu 10/23/2023 21:26:37'!
+for: anAccount
+	account := anAccount ! !
+
+!classDefinition: #TransferNet category: 'Portfolio-Solucion' stamp: 'mmuu 10/23/2023 21:27:06'!
+Object subclass: #TransferNet
+	instanceVariableNames: 'account'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!TransferNet methodsFor: 'no messages' stamp: 'mmuu 10/23/2023 21:27:05'!
+initializeFor: anAccount
+	account := anAccount.! !
+!TransferNet class methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:27:18' prior: 50654680!
+for: anAccount
+	self new initializeFor: anAccount.! !
+
+TransferNet class
+	instanceVariableNames: ''!
+
+!classDefinition: 'TransferNet class' category: 'Portfolio-Solucion' stamp: 'mmuu 10/23/2023 21:27:25'!
+TransferNet class
+	instanceVariableNames: ''!
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:29:02'!
+transferNet
+! !
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:29:22' prior: 50654708!
+transferNet
+	^account transferNet.! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 21:29:24'!
+PASSED!
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 21:29:27'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 21:29:27'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 21:29:27'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 21:29:27'!
+PASSED!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:29:56' prior: 50654235!
+test01
+	|account transferNet|
+	account := ReceptiveAccount new.
+	transferNet := TransferNet for: account.
+	self assert: transferNet transferNet equals: 0.	! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 21:29:58'!
+ERROR!
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 21:29:58'!
+ERROR!
+!TransferNet class methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:33:25' prior: 50654697!
+for: anAccount
+	^self new initializeFor: anAccount.! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 21:33:28'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 21:33:28'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 21:33:28'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 21:33:28'!
+PASSED!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:33:56' prior: 50654267!
+test02
+	|senderAccount receptiveAccount transferNet|
+	senderAccount := ReceptiveAccount new.
+	receptiveAccount := ReceptiveAccount new.
+	transferNet := TransferNet for: senderAccount.
+	
+	Transference with: 2 from: senderAccount to: receptiveAccount.
+	
+	self assert: transferNet transferNet equals: -2.	! !
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 21:33:57'!
+PASSED!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:34:39' prior: 50654353!
+test03
+	|senderAccount receptiveAccount transferenceNet|
+	senderAccount := ReceptiveAccount new.
+	receptiveAccount := ReceptiveAccount new.
+	transferenceNet := TransferNet for: receptiveAccount .
+	Transference with: 2 from: senderAccount to: receptiveAccount.
+	
+	self assert: transferenceNet transferNet equals: 2.	! !
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 21:34:40'!
+PASSED!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:35:01' prior: 50654483!
+test04
+	|senderAccount receptiveAccount transferNet|
+	senderAccount := ReceptiveAccount new.
+	receptiveAccount := ReceptiveAccount new.
+	transferNet := TransferNet for: senderAccount .
+	Transference with: 2 from: senderAccount to: receptiveAccount.
+	Transference with: 8 from: receptiveAccount to: senderAccount.
+	
+	self assert: transferNet transferNet equals: 6.	! !
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 21:35:02'!
+PASSED!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 21:36:15' prior: 50654644!
+transferNet
+	^transactions do: [ :aTransaction |
+		aTransaction transferNet
+	].
+	"^transactions inject: 0 into: [:transferNet :aTransaction | aTransaction modifyTransferNet: transferNet]"! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 21:36:20'!
+FAILURE!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 21:36:20'!
+ERROR!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 21:36:20'!
+ERROR!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 21:36:20'!
+ERROR!
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 21:36:23'!
+FAILURE!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 21:36:28'!
+ERROR!
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:36:35'!
+transferNet
+	self shouldBeImplemented.! !
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:37:44'!
+transferNet: aTransferNetCalculator
+	aTransferNetCalculator affectTransferNetForWithdrawLeg.! !
+
+!methodRemoval: WithdrawLeg #transferNet stamp: 'mmuu 10/23/2023 21:37:52'!
+transferNet
+	self shouldBeImplemented.!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 21:38:17'!
+transferNet: aTransferNetCalculator
+	^transactions do: [ :aTransaction |
+		aTransaction transferNet: aTransferNetCalculator 
+	].
+	"^transactions inject: 0 into: [:transferNet :aTransaction | aTransaction modifyTransferNet: transferNet]"! !
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 21:38:27'!
+ERROR!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 21:38:27'!
+ERROR!
+
+!methodRemoval: ReceptiveAccount #transferNet stamp: 'mmuu 10/23/2023 21:38:59'!
+transferNet
+	^transactions do: [ :aTransaction |
+		aTransaction transferNet
+	].
+	"^transactions inject: 0 into: [:transferNet :aTransaction | aTransaction modifyTransferNet: transferNet]"!
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:39:12' prior: 50654712!
+transferNet
+	^account transferNet: self.! !
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 21:39:15'!
+ERROR!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 21:39:15'!
+ERROR!
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:39:53'!
+affectTransferNetForWithdrawLeg
+	self shouldBeImplemented.! !
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 21:42:05'!
+ERROR!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 21:42:05'!
+ERROR!
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:42:53' prior: 50654835!
+transferNet: aTransferNetCalculator
+	aTransferNetCalculator affectTransferNetForWithdrawLeg: self.! !
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 21:43:00'!
+ERROR!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 21:43:00'!
+ERROR!
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:43:06'!
+affectTransferNetForWithdrawLeg: aWithdrawLeg 
+	self shouldBeImplemented.! !
+
+!classDefinition: #TransferNet category: 'Portfolio-Solucion' stamp: 'mmuu 10/23/2023 21:43:25'!
+Object subclass: #TransferNet
+	instanceVariableNames: 'account transferNet'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:43:24' prior: 50654898!
+affectTransferNetForWithdrawLeg: aWithdrawLeg 
+	transferNet := transferNet - aWithdrawLeg value! !
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 21:43:29'!
+ERROR!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 21:43:29'!
+ERROR!
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:43:56' prior: 50654692!
+initializeFor: anAccount
+	account := anAccount.
+	transferNet := 0.! !
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 21:43:59'!
+FAILURE!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 21:43:59'!
+FAILURE!
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:45:27' prior: 50654868!
+transferNet
+	account transferNet: self.
+	^transferNet! !
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 21:45:29'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 21:45:31'!
+ERROR!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 21:45:31'!
+ERROR!
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:45:39'!
+transferNet: aTransferNetCalculator 
+	self shouldBeImplemented.! !
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:45:52' prior: 50654947!
+transferNet: aTransferNetCalculator 
+	^aTransferNetCalculator! !
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:46:16' prior: 50654953!
+transferNet: aTransferNetCalculator 
+	^aTransferNetCalculator affectTransferNetForDepositLeg: self.! !
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 21:46:21'!
+ERROR!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 21:46:21'!
+ERROR!
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:46:26'!
+affectTransferNetForDepositLeg: aDepositLeg 
+	self shouldBeImplemented.! !
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:46:40' prior: 50654970!
+affectTransferNetForDepositLeg: aDepositLeg 
+	transferNet + aDepositLeg value! !
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 21:46:44'!
+FAILURE!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 21:46:44'!
+FAILURE!
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:47:12' prior: 50654959!
+transferNet: aTransferNetCalculator 
+	aTransferNetCalculator affectTransferNetForDepositLeg: self.! !
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 21:47:14'!
+FAILURE!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 21:47:14'!
+FAILURE!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 21:47:18'!
+PASSED!
+
+!methodRemoval: WithdrawLeg #modifyTransferNet: stamp: 'mmuu 10/23/2023 21:48:35'!
+modifyTransferNet: aTransferNet
+	^aTransferNet - transference value!
+
+!methodRemoval: DepositLeg #modifyTransferNet: stamp: 'mmuu 10/23/2023 21:48:39'!
+modifyTransferNet: aTransferNet
+	^aTransferNet + transference value!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/23/2023 21:48:42'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 21:48:44'!
+FAILURE!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 21:48:44'!
+FAILURE!
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:49:21' prior: 50654976!
+affectTransferNetForDepositLeg: aDepositLeg 
+	transferNet := transferNet + aDepositLeg value! !
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 21:49:24'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 21:49:26'!
+PASSED!
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/23/2023 21:49:29'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/23/2023 21:49:38'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/23/2023 21:49:38'!
+PASSED!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 21:52:07'!
+createAccountSummary: accountSummaryCalc
+	|accountSummary|
+	accountSummary := OrderedCollection new.
+	transactions do: [:aTransaction | 
+		aTransaction accountSummaryString for: accountSummaryCalc.
+		accountSummary add: (aTransaction accountSummaryInfo)
+	].
+	^accountSummary.! !
+
+!methodRemoval: ReceptiveAccount #createAccountSummary stamp: 'mmuu 10/23/2023 21:52:11'!
+createAccountSummary
+	|accountSummary|
+	accountSummary := OrderedCollection new.
+	transactions do: [:aTransaction | accountSummary add: (aTransaction accountSummaryInfo)].
+	^accountSummary.!
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/23/2023 21:52:18' prior: 50652986!
+entries
+	|summary|
+	summary := account createAccountSummary: self.
+	summary add: 'balance = ', account balance asString.
+	^summary ! !
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/23/2023 21:52:24'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/23/2023 21:52:24'!
+ERROR!
+!Deposit methodsFor: 'account summary' stamp: 'mmuu 10/23/2023 21:52:33'!
+accountSummaryString
+	self shouldBeImplemented.! !
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/23/2023 21:53:16'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/23/2023 21:53:16'!
+ERROR!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/23/2023 21:53:27' prior: 50655036!
+createAccountSummary: accountSummaryCalc
+	|accountSummary|
+	accountSummary := OrderedCollection new.
+	transactions do: [:aTransaction | 
+		aTransaction accountSummaryString: accountSummaryCalc.
+		accountSummary add: (aTransaction accountSummaryInfo)
+	].
+	^accountSummary.! !
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/23/2023 21:53:30'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/23/2023 21:53:30'!
+ERROR!
+!Deposit methodsFor: 'account summary' stamp: 'mmuu 10/23/2023 21:53:35'!
+accountSummaryString: accountSummaryCalc 
+	self shouldBeImplemented.! !
+!Deposit methodsFor: 'account summary' stamp: 'mmuu 10/23/2023 21:53:55' prior: 50655095!
+accountSummaryString: accountSummaryCalc 
+	accountSummaryCalc addToAccountSummaryDeposit: self.! !
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/23/2023 21:53:59'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/23/2023 21:53:59'!
+ERROR!
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/23/2023 21:54:10'!
+addToAccountSummaryDeposit: aDeposit 
+	self shouldBeImplemented.! !
+
+!classDefinition: #AccountSummary category: 'Portfolio-Solucion' stamp: 'mmuu 10/23/2023 21:54:43'!
+Object subclass: #AccountSummary
+	instanceVariableNames: 'account accountSummary'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/23/2023 21:54:42' prior: 50655112!
+addToAccountSummaryDeposit: aDeposit 
+	accountSummary add: ('deposito por ', aDeposit value)! !
+!AccountSummary methodsFor: 'initialization' stamp: 'mmuu 10/23/2023 21:55:10' prior: 50652787!
+initializeFor: anAccount 
+	account := anAccount.
+	accountSummary := OrderedCollection new! !
+
+----SNAPSHOT----(23 October 2023 21:57:53) CuisUniversity-5981.image priorSource: 10300575!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/23/2023 21:57:57'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/23/2023 21:57:57'!
+ERROR!
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/23/2023 21:58:20' prior: 50655126!
+addToAccountSummaryDeposit: aDeposit 
+	accountSummary add: ('deposito por ', aDeposit value asString)! !
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/23/2023 21:58:22'!
+PASSED!
+
+----SNAPSHOT----(23 October 2023 21:58:29) CuisUniversity-5981.image priorSource: 10351580!
+
+----SNAPSHOT----(23 October 2023 21:59:00) CuisUniversity-5981.image priorSource: 10352122!
+
+----STARTUP---- (24 October 2023 19:21:13) as C:\Users\Manuel Urkovich\Facu\Inge1\cuisPortfolio2\windows64\CuisUniversity-5981.image!
+
+
+!testRun: #TransferenceTest #test01transferenceShouldAffectBalanceOfSenderAndReceiver stamp: 'mmuu 10/24/2023 19:22:48'!
+PASSED!
+
+!testRun: #TransferenceTest #test02transferenceShouldAffectRegisteredTransactionsOfBothParts stamp: 'mmuu 10/24/2023 19:22:48'!
+PASSED!
+
+!testRun: #TransferenceTest #test03withdrawLegCanGetTransference stamp: 'mmuu 10/24/2023 19:22:48'!
+PASSED!
+
+!testRun: #TransferenceTest #test04depositLegCanGetTransference stamp: 'mmuu 10/24/2023 19:22:48'!
+PASSED!
+
+!testRun: #TransferenceTest #test05depositLegCanGetWithdrawLeg stamp: 'mmuu 10/24/2023 19:22:48'!
+PASSED!
+
+!testRun: #TransferenceTest #test06withdrawLegCanGetDepositLeg stamp: 'mmuu 10/24/2023 19:22:48'!
+PASSED!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 19:29:49'!
+test06
+	|portfolio accountSummary|
+	portfolio := Portfolio new.
+	
+	accountSummary := AccountSummary for: portfolio .
+	
+	self assert: accountSummary size equals: 1.
+	self assert: accountSummary entries first equals: 'balance = 0'! !
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 19:29:51'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 19:29:51'!
+ERROR!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 19:30:06' prior: 50655187!
+test06
+	|portfolio accountSummary|
+	portfolio := Portfolio new.
+	
+	accountSummary := AccountSummary for: portfolio .
+	
+	self assert: accountSummary entries size equals: 1.
+	self assert: accountSummary entries first equals: 'balance = 0'! !
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 19:30:08'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 19:30:08'!
+ERROR!
+!Portfolio methodsFor: 'reports' stamp: 'mmuu 10/24/2023 19:30:20'!
+createAccountSummary: anAccountSummary 
+	self shouldBeImplemented.! !
+!Portfolio methodsFor: 'reports' stamp: 'mmuu 10/24/2023 19:32:41' prior: 50655218!
+createAccountSummary: anAccountSummary ! !
+!Portfolio methodsFor: 'reports' stamp: 'mmuu 10/24/2023 19:34:24' prior: 50655223!
+createAccountSummary: anAccountSummary 
+	accounts ifEmpty: [^OrderedCollection new].
+	^accounts first createAccountSummary: anAccountSummary ! !
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 19:34:31'!
+PASSED!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 19:35:59'!
+test07
+	|portfolio account accountSummary|
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	Deposit register: 200 on: account.
+		
+	accountSummary := AccountSummary for: portfolio .
+	
+	self assert: accountSummary entries size equals: 2.
+	self assert: accountSummary entries first equals: 'deposito por 200'.
+	self assert: accountSummary entries last equals: 'balance = 200'! !
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 19:36:01'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 19:36:01'!
+FAILURE!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 19:36:56' prior: 50655237!
+test07
+	|portfolio account accountSummary|
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	Deposit register: 200 on: account.
+		
+	accountSummary := AccountSummary for: portfolio .
+	portfolio add: account.
+	
+	self assert: accountSummary entries size equals: 2.
+	self assert: accountSummary entries first equals: 'deposito por 200'.
+	self assert: accountSummary entries last equals: 'balance = 200'! !
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 19:36:58'!
+PASSED!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 19:38:10' prior: 50655258!
+test07
+	|portfolio account1 account2 accountSummary|
+	portfolio := Portfolio new.
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	
+	Deposit register: 200 on: account1.
+	Withdraw register: 100 on: account2.
+		
+	accountSummary := AccountSummary for: portfolio .
+	portfolio add: account1.
+	portfolio add: account2.
+	
+	self assert: accountSummary entries size equals: 3.
+	self assert: accountSummary entries first equals: 'deposito por 200'.
+	self assert: accountSummary entries second equals: 'retiro por 100'.
+	self assert: accountSummary entries last equals: 'balance = 100'! !
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 19:38:11'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 19:38:11'!
+FAILURE!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 19:36:56' prior: 50655277!
+test07
+	|portfolio account accountSummary|
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	Deposit register: 200 on: account.
+		
+	accountSummary := AccountSummary for: portfolio .
+	portfolio add: account.
+	
+	self assert: accountSummary entries size equals: 2.
+	self assert: accountSummary entries first equals: 'deposito por 200'.
+	self assert: accountSummary entries last equals: 'balance = 200'! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 19:38:30'!
+test08
+	|portfolio account1 account2 accountSummary|
+	portfolio := Portfolio new.
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	
+	Deposit register: 200 on: account1.
+	Withdraw register: 100 on: account2.
+		
+	accountSummary := AccountSummary for: portfolio .
+	portfolio add: account1.
+	portfolio add: account2.
+	
+	self assert: accountSummary entries size equals: 3.
+	self assert: accountSummary entries first equals: 'deposito por 200'.
+	self assert: accountSummary entries second equals: 'retiro por 100'.
+	self assert: accountSummary entries last equals: 'balance = 100'! !
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 19:38:31'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 19:38:31'!
+FAILURE!
+!Portfolio methodsFor: 'reports' stamp: 'mmuu 10/24/2023 19:39:54' prior: 50655227!
+createAccountSummary: anAccountSummary 
+	|accountSummary|
+	accountSummary := OrderedCollection new.
+	accounts do: [:anAccount | 
+		accountSummary add: (anAccount createAccountSummary: anAccountSummary) ].
+	^accountSummary ! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 19:40:01'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/24/2023 19:40:01'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 19:40:01'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 19:40:01'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 19:40:01'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 19:40:01'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 19:40:01'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 19:40:01'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 19:40:03'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 19:40:32'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 19:40:32'!
+ERROR!
+!Portfolio methodsFor: 'reports' stamp: 'mmuu 10/24/2023 19:34:24' prior: 50655348!
+createAccountSummary: anAccountSummary 
+	accounts ifEmpty: [^OrderedCollection new].
+	^accounts first createAccountSummary: anAccountSummary ! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 19:41:09'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/24/2023 19:41:09'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 19:41:09'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 19:41:09'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 19:41:09'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 19:41:09'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 19:41:09'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 19:41:09'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 19:41:17'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 19:42:17'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/24/2023 19:42:17'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 19:42:17'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 19:42:17'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 19:42:17'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 19:42:17'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 19:42:17'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 19:42:17'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 19:42:22'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 19:42:23'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 19:42:23'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 19:42:26'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 19:42:27'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 19:42:27'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 19:42:54'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 19:42:54'!
+FAILURE!
+!Portfolio methodsFor: 'reports' stamp: 'mmuu 10/24/2023 19:39:54' prior: 50655386!
+createAccountSummary: anAccountSummary 
+	|accountSummary|
+	accountSummary := OrderedCollection new.
+	accounts do: [:anAccount | 
+		accountSummary add: (anAccount createAccountSummary: anAccountSummary) ].
+	^accountSummary ! !
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 19:43:14'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 19:43:14'!
+ERROR!
+!Withdraw methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 19:43:54'!
+accountSummaryString: accountSummaryCalc 
+	accountSummaryCalc addToAccountSummaryWithdraw: self.! !
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 19:44:01'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 19:44:01'!
+ERROR!
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 19:44:06'!
+addToAccountSummaryWithdraw: aWithdraw 
+	self shouldBeImplemented.! !
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 19:44:18' prior: 50655484!
+addToAccountSummaryWithdraw: aWithdraw 
+	accountSummary add: ''! !
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 19:44:52' prior: 50655490!
+addToAccountSummaryWithdraw: aWithdraw 
+	accountSummary add: ('retiro por ', aWithdraw value asString)! !
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 19:44:56'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 19:44:56'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 19:45:10'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/24/2023 19:45:10'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 19:45:10'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 19:45:10'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 19:45:10'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 19:45:10'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 19:45:10'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 19:45:10'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 19:45:13'!
+ERROR!
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 19:45:19'!
+accountSummaryString: accountSummaryCalc 
+	self shouldBeImplemented.! !
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 19:45:24' prior: 50655531!
+accountSummaryString: accountSummaryCalc 
+	accountSummaryCalc.! !
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 19:45:47' prior: 50655537!
+accountSummaryString: accountSummaryCalc 
+	accountSummaryCalc addToAccountSummaryWithdrawLeg: self.! !
+
+!methodRemoval: Deposit #accountSummaryString stamp: 'mmuu 10/24/2023 19:45:54'!
+accountSummaryString
+	self shouldBeImplemented.!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 19:46:10'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/24/2023 19:46:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 19:46:13'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 19:46:14'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 19:46:14'!
+ERROR!
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 19:46:19'!
+addToAccountSummaryWithdrawLeg: aWithdrawLeg 
+	self shouldBeImplemented.! !
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 19:46:54' prior: 50655566!
+addToAccountSummaryWithdrawLeg: aWithdrawLeg 
+	accountSummary add: ('retiro por transferencia de ', aWithdrawLeg value asString)! !
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 19:46:58'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 19:47:00'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 19:47:00'!
+ERROR!
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 19:47:04'!
+accountSummaryString: accountSummaryCalc 
+	self shouldBeImplemented.! !
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 19:47:23' prior: 50655587!
+accountSummaryString: accountSummaryCalc 
+	accountSummaryCalc addToAccountSummaryDepositLeg: self! !
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 19:47:29'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 19:47:29'!
+ERROR!
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 19:47:33'!
+addToAccountSummaryDepositLeg: aDepositLeg 
+	self shouldBeImplemented.! !
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 19:47:56' prior: 50655604!
+addToAccountSummaryDepositLeg: aDepositLeg 
+	accountSummary add: ('deposito por transferencia de ', aDepositLeg value asString)! !
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 19:47:59'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 19:48:00'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 19:48:02'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 19:48:02'!
+FAILURE!
+
+----End fileIn of C:\Users\Manuel Urkovich\Facu\Inge1\cuisPortfolio2\windows64\Packages\TerseGuide.pck.st----!
+!Portfolio methodsFor: 'reports' stamp: 'mmuu 10/24/2023 19:52:07' prior: 50655458!
+createAccountSummary: anAccountSummary 
+	|accountSummary|
+	accountSummary := OrderedCollection new.
+	accounts do: [:anAccount | 
+		accountSummary addAll: (anAccount createAccountSummary: anAccountSummary) ].
+	^accountSummary ! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 19:52:18'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/24/2023 19:52:18'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 19:52:18'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 19:52:18'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 19:52:18'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 19:52:18'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 19:52:18'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 19:52:18'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 19:52:18'!
+FAILURE!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 19:52:31' prior: 50655321!
+test08
+	|portfolio account1 account2 accountSummary|
+	portfolio := Portfolio new.
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	
+	Deposit register: 200 on: account1.
+	Withdraw register: 100 on: account2.
+		
+	accountSummary := AccountSummary for: portfolio .
+	portfolio add: account1.
+	portfolio add: account2.
+	
+	self assert: accountSummary entries size equals: 3.
+	self assert: accountSummary entries first equals: 'deposito por 200'.
+	self assert: accountSummary entries second equals: 'extraccion por 100'.
+	self assert: accountSummary entries last equals: 'balance = 100'! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 19:52:33'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/24/2023 19:52:33'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 19:52:33'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 19:52:33'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 19:52:33'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 19:52:33'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 19:52:33'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 19:52:33'!
+PASSED!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 19:54:01'!
+test09
+	|portfolio portfolio2 account accountSummary|
+	portfolio := Portfolio new.
+	portfolio2 := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	Deposit register: 200 on: account.
+		
+	accountSummary := AccountSummary for: portfolio .
+	portfolio add: account.
+	
+	self assert: accountSummary entries size equals: 2.
+	self assert: accountSummary entries first equals: 'deposito por 200'.
+	self assert: accountSummary entries last equals: 'balance = 200'! !
+
+!testRun: #AccountSummaryTest #test09 stamp: 'mmuu 10/24/2023 19:54:03'!
+PASSED!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 19:55:48' prior: 50658625!
+test09
+	|portfolio portfolio2 account account2 accountSummary|
+	portfolio := Portfolio new.
+	portfolio2 := Portfolio new.
+	account := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	
+	Deposit register: 200 on: account.
+	Withdraw register: 500 on: account2.
+	
+	accountSummary := AccountSummary for: portfolio .
+	portfolio2 add: account2.
+	portfolio add: account.
+	portfolio add: portfolio2.
+	
+	self assert: accountSummary entries size equals: 2.
+	self assert: accountSummary entries first equals: 'deposito por 200'.
+	self assert: accountSummary entries last equals: 'balance = 200'! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 19:56:17' prior: 50658646!
+test09
+	|portfolio portfolio2 account account2 accountSummary|
+	portfolio := Portfolio new.
+	portfolio2 := Portfolio new.
+	account := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	
+	Deposit register: 200 on: account.
+	Withdraw register: 500 on: account2.
+	
+	accountSummary := AccountSummary for: portfolio .
+	portfolio2 add: account2.
+	portfolio add: account.
+	portfolio add: portfolio2.
+	
+	self assert: accountSummary entries size equals: 3.
+	self assert: accountSummary entries first equals: 'deposito por 200'.
+	self assert: accountSummary entries second equals: 'extraccion por 500'.
+	self assert: accountSummary entries last equals: 'balance = -300'! !
+
+!testRun: #AccountSummaryTest #test09 stamp: 'mmuu 10/24/2023 19:56:19'!
+PASSED!
+
+!methodRemoval: AccountSummaryTest #test09 stamp: 'mmuu 10/24/2023 19:56:29'!
+test09
+	|portfolio portfolio2 account account2 accountSummary|
+	portfolio := Portfolio new.
+	portfolio2 := Portfolio new.
+	account := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	
+	Deposit register: 200 on: account.
+	Withdraw register: 500 on: account2.
+	
+	accountSummary := AccountSummary for: portfolio .
+	portfolio2 add: account2.
+	portfolio add: account.
+	portfolio add: portfolio2.
+	
+	self assert: accountSummary entries size equals: 3.
+	self assert: accountSummary entries first equals: 'deposito por 200'.
+	self assert: accountSummary entries second equals: 'extraccion por 500'.
+	self assert: accountSummary entries last equals: 'balance = -300'!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 20:10:36'!
+test06
+	|portfolio senderAccount receptiveAccount transferNet|
+	portfolio := Portfolio new.
+	senderAccount := ReceptiveAccount new.
+	receptiveAccount := ReceptiveAccount new.
+	
+	portfolio add: senderAccount .
+	transferNet := TransferNet for: portfolio.
+	Transference with: 2 from: senderAccount to: receptiveAccount.
+	
+	self assert: transferNet transferNet equals: -2.	! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 20:10:54'!
+test05
+	|portfolio transferNet|
+	portfolio := Portfolio new.
+	
+	transferNet := TransferNet for: portfolio.
+	
+	self assert: transferNet transferNet equals: 0.	! !
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 20:10:57'!
+ERROR!
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 20:10:57'!
+ERROR!
+!Portfolio methodsFor: 'reports' stamp: 'mmuu 10/24/2023 20:11:02'!
+transferNet: aTransferNet 
+	self shouldBeImplemented.! !
+!Portfolio methodsFor: 'reports' stamp: 'mmuu 10/24/2023 20:11:07' prior: 50658746!
+transferNet: aTransferNet 
+	aTransferNet ! !
+
+!methodRemoval: TransferNet #affectTransferNetForWithdrawLeg stamp: 'mmuu 10/24/2023 20:11:33'!
+affectTransferNetForWithdrawLeg
+	self shouldBeImplemented.!
+!Portfolio methodsFor: 'account management - private' stamp: 'mmuu 10/24/2023 20:13:08' prior: 50658751!
+transferNet: aTransferNetCalculator
+	^accounts do: [ :aTransaction |
+		aTransaction transferNet: aTransferNetCalculator 
+	].
+	"^transactions inject: 0 into: [:transferNet :aTransaction | aTransaction modifyTransferNet: transferNet]"! !
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 20:13:12'!
+PASSED!
+
+!testRun: #TransferNetTest #test06 stamp: 'mmuu 10/24/2023 20:13:16'!
+PASSED!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 20:13:40'!
+test07
+	|portfolio senderAccount receptiveAccount transferNet|
+	portfolio := Portfolio new.
+	senderAccount := ReceptiveAccount new.
+	receptiveAccount := ReceptiveAccount new.
+	
+	portfolio add: receptiveAccount .
+	transferNet := TransferNet for: portfolio.
+	Transference with: 2 from: senderAccount to: receptiveAccount.
+	
+	self assert: transferNet transferNet equals: 2.	! !
+
+!testRun: #TransferNetTest #test07 stamp: 'mmuu 10/24/2023 20:13:41'!
+PASSED!
+!Portfolio methodsFor: 'account management - private' stamp: 'mmuu 10/24/2023 20:14:11' prior: 50658761!
+transferNet: aTransferNetCalculator
+	^accounts do: [ :aTransaction |
+		aTransaction transferNet: aTransferNetCalculator 
+	].! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/24/2023 20:14:15'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/24/2023 20:14:15'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/24/2023 20:14:15'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/24/2023 20:14:15'!
+PASSED!
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 20:14:15'!
+PASSED!
+
+!testRun: #TransferNetTest #test06 stamp: 'mmuu 10/24/2023 20:14:15'!
+PASSED!
+
+!testRun: #TransferNetTest #test07 stamp: 'mmuu 10/24/2023 20:14:15'!
+PASSED!
+
+!testRun: #TransferenceTest #test01transferenceShouldAffectBalanceOfSenderAndReceiver stamp: 'mmuu 10/24/2023 20:14:16'!
+PASSED!
+
+!testRun: #TransferenceTest #test02transferenceShouldAffectRegisteredTransactionsOfBothParts stamp: 'mmuu 10/24/2023 20:14:16'!
+PASSED!
+
+!testRun: #TransferenceTest #test03withdrawLegCanGetTransference stamp: 'mmuu 10/24/2023 20:14:16'!
+PASSED!
+
+!testRun: #TransferenceTest #test04depositLegCanGetTransference stamp: 'mmuu 10/24/2023 20:14:16'!
+PASSED!
+
+!testRun: #TransferenceTest #test05depositLegCanGetWithdrawLeg stamp: 'mmuu 10/24/2023 20:14:16'!
+PASSED!
+
+!testRun: #TransferenceTest #test06withdrawLegCanGetDepositLeg stamp: 'mmuu 10/24/2023 20:14:16'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mmuu 10/24/2023 20:14:18'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mmuu 10/24/2023 20:14:18'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mmuu 10/24/2023 20:14:18'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mmuu 10/24/2023 20:14:18'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mmuu 10/24/2023 20:14:18'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mmuu 10/24/2023 20:14:18'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mmuu 10/24/2023 20:14:18'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 20:14:20'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/24/2023 20:14:20'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 20:14:21'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 20:14:21'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 20:14:21'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 20:14:21'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 20:14:21'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 20:14:21'!
+PASSED!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/24/2023 20:17:47' prior: 50654844!
+transferNet: aTransferNetCalculator
+	^transactions do: [ :aTransaction |
+		aTransaction transferNet: aTransferNetCalculator 
+	].! !
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/24/2023 20:18:08' prior: 50655079!
+createAccountSummary: accountSummaryCalc
+	transactions do: [:aTransaction | 
+		aTransaction accountSummaryString: accountSummaryCalc.
+	].! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 20:18:11'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/24/2023 20:18:11'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 20:18:11'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 20:18:11'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 20:18:11'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 20:18:11'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 20:18:11'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 20:18:11'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 20:18:12'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 20:19:07'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/24/2023 20:19:07'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 20:19:07'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 20:19:07'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 20:19:07'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 20:19:07'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 20:19:07'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 20:19:07'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 20:19:09'!
+ERROR!
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 20:19:48' prior: 50655057!
+entries
+	account createAccountSummary: self.
+	accountSummary add: 'balance = ', account balance asString.
+	^accountSummary ! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 20:19:50'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/24/2023 20:19:50'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 20:19:50'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 20:19:50'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 20:19:50'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 20:19:50'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 20:19:50'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 20:19:50'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 20:19:52'!
+FAILURE!
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 20:20:21' prior: 50655496!
+addToAccountSummaryWithdraw: aWithdraw 
+	accountSummary add: ('extraccion por ', aWithdraw value asString)! !
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 20:20:25' prior: 50655572!
+addToAccountSummaryWithdrawLeg: aWithdrawLeg 
+	accountSummary add: ('extraccion por transferencia de ', aWithdrawLeg value asString)! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 20:20:28'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/24/2023 20:20:28'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 20:20:28'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 20:20:28'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 20:20:28'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 20:20:28'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 20:20:28'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 20:20:28'!
+ERROR!
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 20:20:40' prior: 50658987!
+addToAccountSummaryWithdrawLeg: aWithdrawLeg 
+	accountSummary add: ('salida por transferencia de ', aWithdrawLeg value asString)! !
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 20:20:48' prior: 50655610!
+addToAccountSummaryDepositLeg: aDepositLeg 
+	accountSummary add: ('entrada por transferencia de ', aDepositLeg value asString)! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 20:20:50'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/24/2023 20:20:50'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 20:20:50'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 20:20:50'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 20:20:50'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 20:20:50'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 20:20:50'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 20:20:50'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 20:20:51'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 20:21:38'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 20:21:38'!
+ERROR!
+!Portfolio methodsFor: 'reports' stamp: 'mmuu 10/24/2023 20:22:14' prior: 50658548!
+createAccountSummary: anAccountSummary 
+	accounts do: [:anAccount | (anAccount createAccountSummary: anAccountSummary) ].! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 20:22:25'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/24/2023 20:22:25'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 20:22:25'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 20:22:25'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 20:22:25'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 20:22:25'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 20:22:25'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 20:22:25'!
+PASSED!
+!Portfolio methodsFor: 'reports' stamp: 'mmuu 10/24/2023 20:22:32' prior: 50659058!
+createAccountSummary: anAccountSummary 
+	accounts do: [:anAccount | anAccount createAccountSummary: anAccountSummary ].! !
+!Portfolio methodsFor: 'reports' stamp: 'mmuu 10/24/2023 20:22:36' prior: 50659086!
+createAccountSummary: anAccountSummary 
+	accounts do: [:anAccount | 
+		anAccount createAccountSummary: anAccountSummary 
+	].! !
+!Portfolio methodsFor: 'account management - private' stamp: 'mmuu 10/24/2023 20:22:54' prior: 50658794!
+transferNet: aTransferNetCalculator
+	accounts do: [ :aTransaction |
+		aTransaction transferNet: aTransferNetCalculator 
+	].! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/24/2023 20:22:57'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/24/2023 20:22:57'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/24/2023 20:22:57'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/24/2023 20:22:57'!
+PASSED!
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 20:22:57'!
+PASSED!
+
+!testRun: #TransferNetTest #test06 stamp: 'mmuu 10/24/2023 20:22:57'!
+PASSED!
+
+!testRun: #TransferNetTest #test07 stamp: 'mmuu 10/24/2023 20:22:57'!
+PASSED!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/24/2023 20:23:14' prior: 50658888!
+transferNet: aTransferNetCalculator
+	transactions do: [ :aTransaction |
+		aTransaction transferNet: aTransferNetCalculator 
+	].! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/24/2023 20:23:16'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/24/2023 20:23:16'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/24/2023 20:23:16'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/24/2023 20:23:16'!
+PASSED!
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 20:23:16'!
+PASSED!
+
+!testRun: #TransferNetTest #test06 stamp: 'mmuu 10/24/2023 20:23:16'!
+PASSED!
+
+!testRun: #TransferNetTest #test07 stamp: 'mmuu 10/24/2023 20:23:16'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 20:23:17'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/24/2023 20:23:17'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 20:23:17'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 20:23:17'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 20:23:17'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 20:23:17'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 20:23:17'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 20:23:17'!
+PASSED!
+
+!testRun: #TransferenceTest #test01transferenceShouldAffectBalanceOfSenderAndReceiver stamp: 'mmuu 10/24/2023 20:23:19'!
+PASSED!
+
+!testRun: #TransferenceTest #test02transferenceShouldAffectRegisteredTransactionsOfBothParts stamp: 'mmuu 10/24/2023 20:23:19'!
+PASSED!
+
+!testRun: #TransferenceTest #test03withdrawLegCanGetTransference stamp: 'mmuu 10/24/2023 20:23:19'!
+PASSED!
+
+!testRun: #TransferenceTest #test04depositLegCanGetTransference stamp: 'mmuu 10/24/2023 20:23:19'!
+PASSED!
+
+!testRun: #TransferenceTest #test05depositLegCanGetWithdrawLeg stamp: 'mmuu 10/24/2023 20:23:19'!
+PASSED!
+
+!testRun: #TransferenceTest #test06withdrawLegCanGetDepositLeg stamp: 'mmuu 10/24/2023 20:23:19'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mmuu 10/24/2023 20:23:21'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mmuu 10/24/2023 20:23:21'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mmuu 10/24/2023 20:23:21'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mmuu 10/24/2023 20:23:21'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mmuu 10/24/2023 20:23:21'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mmuu 10/24/2023 20:23:21'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mmuu 10/24/2023 20:23:21'!
+PASSED!
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'mmuu 10/24/2023 20:23:22'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithAccountsIsSumOfAccountsBalance stamp: 'mmuu 10/24/2023 20:23:22'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'mmuu 10/24/2023 20:23:22'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'mmuu 10/24/2023 20:23:22'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'mmuu 10/24/2023 20:23:22'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'mmuu 10/24/2023 20:23:22'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'mmuu 10/24/2023 20:23:22'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'mmuu 10/24/2023 20:23:22'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'mmuu 10/24/2023 20:23:22'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'mmuu 10/24/2023 20:23:22'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'mmuu 10/24/2023 20:23:22'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'mmuu 10/24/2023 20:23:22'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'mmuu 10/24/2023 20:23:22'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'mmuu 10/24/2023 20:23:22'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'mmuu 10/24/2023 20:23:22'!
+PASSED!
+!Portfolio methodsFor: 'reports' stamp: 'mmuu 10/24/2023 21:43:11'!
+makeOperation: anOperator
+	accounts do: [ :anAccount |
+		anAccount transferNet: anOperator 
+	].! !
+!Portfolio methodsFor: 'reports' stamp: 'mmuu 10/24/2023 21:48:21'!
+makeReportFor: aReport
+	accounts do: [ :anAccount |
+		anAccount handleReport: aReport 
+	].! !
+
+!methodRemoval: Portfolio #makeOperation: stamp: 'mmuu 10/24/2023 21:48:24'!
+makeOperation: anOperator
+	accounts do: [ :anAccount |
+		anAccount transferNet: anOperator 
+	].!
+!Deposit methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:49:48'!
+handleReport: aReport 
+	aReport handleReportForDeposit: self.! !
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:50:09'!
+handleReportForDeposit: aDeposit 
+	accountSummary add: ('deposito por ', aDeposit value asString)! !
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:50:25' prior: 50658949!
+entries
+	account handleReport: self.
+	accountSummary add: 'balance = ', account balance asString.
+	^accountSummary ! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 21:50:32'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 21:50:32'!
+ERROR!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/24/2023 21:51:28'!
+makeReportFor: aReport
+	transactions do: [ :anAccount |
+		anAccount handleReport: aReport 
+	].! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 21:51:32'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 21:51:32'!
+ERROR!
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:51:50' prior: 50659307!
+entries
+	account makeReportFor: self.
+	accountSummary add: 'balance = ', account balance asString.
+	^accountSummary ! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 21:51:52'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/24/2023 21:51:54'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 21:51:57'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 21:51:57'!
+ERROR!
+!Withdraw methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:52:04'!
+handleReport: aReport 
+	self shouldBeImplemented.! !
+!Withdraw methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:52:12' prior: 50659348!
+handleReport: aReport 
+	aReport! !
+!Withdraw methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:52:31' prior: 50659353!
+handleReport: aReport 
+	aReport handleReportForWithdraw: self.! !
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:52:52'!
+handleReportForWithdraw: aWithdraw 
+	accountSummary add: ('extraccion por ', aWithdraw value asString)! !
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 21:52:56'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 21:52:57'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 21:52:57'!
+ERROR!
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 21:53:01'!
+handleReport: aReport 
+	self shouldBeImplemented.! !
+!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 21:53:10' prior: 50659376!
+handleReport: aReport 
+	aReport handleReportForWithdrawLeg: self! !
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 21:53:16'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 21:53:16'!
+ERROR!
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:53:22'!
+handleReportForWithdrawLeg: aWithdrawLeg 
+	self shouldBeImplemented.! !
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:53:36' prior: 50659391!
+handleReportForWithdrawLeg: aWithdrawLeg 
+	accountSummary add: ('salida por transferencia de ', aWithdrawLeg value asString)! !
+!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:53:50'!
+handleReportForDepositLeg: aDepositLeg 
+	accountSummary add: ('entrada por transferencia de ', aDepositLeg value asString)! !
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 21:53:54'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 21:53:55'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 21:53:55'!
+ERROR!
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 21:53:58'!
+handleReport: aReport 
+	self shouldBeImplemented.! !
+!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 21:54:07' prior: 50659419!
+handleReport: aReport 
+	aReport handleReportForDepositLeg: self! !
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 21:54:10'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 21:54:11'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 21:54:12'!
+ERROR!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 21:54:12'!
+ERROR!
+!Portfolio methodsFor: 'reports' stamp: 'mmuu 10/24/2023 21:55:28' prior: 50659284!
+makeReportFor: aReport
+	accounts do: [ :anAccount |
+		anAccount makeReportFor: aReport 
+	].! !
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 21:55:52'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 21:55:53'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 21:56:21'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/24/2023 21:56:21'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 21:56:21'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 21:56:21'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 21:56:21'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 21:56:21'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 21:56:21'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 21:56:21'!
+PASSED!
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/24/2023 21:56:23'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/24/2023 21:56:23'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/24/2023 21:56:23'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/24/2023 21:56:23'!
+PASSED!
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 21:56:23'!
+PASSED!
+
+!testRun: #TransferNetTest #test06 stamp: 'mmuu 10/24/2023 21:56:23'!
+PASSED!
+
+!testRun: #TransferNetTest #test07 stamp: 'mmuu 10/24/2023 21:56:23'!
+PASSED!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 21:57:09'!
+test08
+	|portfolio senderAccount receptiveAccount transferNet|
+	portfolio := Portfolio new.
+	senderAccount := ReceptiveAccount new.
+	receptiveAccount := ReceptiveAccount new.
+	
+	portfolio add: receptiveAccount .
+	transferNet := TransferNet for: portfolio.
+	Transference with: 2 from: senderAccount to: receptiveAccount.
+	
+	self assert: transferNet transferNet equals: 2.	! !
+
+!methodRemoval: TransferNetTest #test07 stamp: 'mmuu 10/24/2023 21:57:09'!
+test07
+	|portfolio senderAccount receptiveAccount transferNet|
+	portfolio := Portfolio new.
+	senderAccount := ReceptiveAccount new.
+	receptiveAccount := ReceptiveAccount new.
+	
+	portfolio add: receptiveAccount .
+	transferNet := TransferNet for: portfolio.
+	Transference with: 2 from: senderAccount to: receptiveAccount.
+	
+	self assert: transferNet transferNet equals: 2.	!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 21:57:14'!
+test07
+	|portfolio senderAccount receptiveAccount transferNet|
+	portfolio := Portfolio new.
+	senderAccount := ReceptiveAccount new.
+	receptiveAccount := ReceptiveAccount new.
+	
+	portfolio add: senderAccount .
+	transferNet := TransferNet for: portfolio.
+	Transference with: 2 from: senderAccount to: receptiveAccount.
+	
+	self assert: transferNet transferNet equals: -2.	! !
+
+!methodRemoval: TransferNetTest #test06 stamp: 'mmuu 10/24/2023 21:57:15'!
+test06
+	|portfolio senderAccount receptiveAccount transferNet|
+	portfolio := Portfolio new.
+	senderAccount := ReceptiveAccount new.
+	receptiveAccount := ReceptiveAccount new.
+	
+	portfolio add: senderAccount .
+	transferNet := TransferNet for: portfolio.
+	Transference with: 2 from: senderAccount to: receptiveAccount.
+	
+	self assert: transferNet transferNet equals: -2.	!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 21:57:19'!
+test06
+	|portfolio transferNet|
+	portfolio := Portfolio new.
+	
+	transferNet := TransferNet for: portfolio.
+	
+	self assert: transferNet transferNet equals: 0.	! !
+
+!methodRemoval: TransferNetTest #test05 stamp: 'mmuu 10/24/2023 21:57:19'!
+test05
+	|portfolio transferNet|
+	portfolio := Portfolio new.
+	
+	transferNet := TransferNet for: portfolio.
+	
+	self assert: transferNet transferNet equals: 0.	!
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/24/2023 21:57:21'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/24/2023 21:57:21'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/24/2023 21:57:21'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/24/2023 21:57:21'!
+PASSED!
+
+!testRun: #TransferNetTest #test06 stamp: 'mmuu 10/24/2023 21:57:21'!
+PASSED!
+
+!testRun: #TransferNetTest #test07 stamp: 'mmuu 10/24/2023 21:57:21'!
+PASSED!
+
+!testRun: #TransferNetTest #test08 stamp: 'mmuu 10/24/2023 21:57:21'!
+PASSED!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 21:58:02'!
+test05
+	|senderAccount receptiveAccount transferNet|
+	senderAccount := ReceptiveAccount new.
+	receptiveAccount := ReceptiveAccount new.
+	transferNet := TransferNet for: senderAccount .
+	
+	Transference with: 2 from: senderAccount to: receptiveAccount.
+	Deposit register: 100 on: senderAccount .
+	
+	self assert: transferNet transferNet equals: 6.	! !
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 21:58:03'!
+ERROR!
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 21:58:03'!
+ERROR!
+!Deposit methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:58:11'!
+transferNet: aTransferNetCalculator 
+	self shouldBeImplemented.! !
+!Deposit methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:58:13' prior: 50659598!
+transferNet: aTransferNetCalculator 
+	^0! !
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 21:58:16'!
+FAILURE!
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 21:58:16'!
+FAILURE!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 21:58:34' prior: 50659579!
+test05
+	|senderAccount receptiveAccount transferNet|
+	senderAccount := ReceptiveAccount new.
+	receptiveAccount := ReceptiveAccount new.
+	transferNet := TransferNet for: senderAccount .
+	
+	Transference with: 2 from: senderAccount to: receptiveAccount.
+	Deposit register: 100 on: senderAccount .
+	Withdraw register: 100 on: senderAccount .
+	
+	self assert: transferNet transferNet equals: -2.	! !
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 21:58:36'!
+ERROR!
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 21:58:36'!
+ERROR!
+!Withdraw methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:58:39'!
+transferNet: aTransferNetCalculator 
+	self shouldBeImplemented.! !
+!Withdraw methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:58:41' prior: 50659633!
+transferNet: aTransferNetCalculator 
+	^0! !
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 21:58:44'!
+PASSED!
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/24/2023 21:58:48'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/24/2023 21:58:48'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/24/2023 21:58:48'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/24/2023 21:58:48'!
+PASSED!
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 21:58:48'!
+PASSED!
+
+!testRun: #TransferNetTest #test06 stamp: 'mmuu 10/24/2023 21:58:48'!
+PASSED!
+
+!testRun: #TransferNetTest #test07 stamp: 'mmuu 10/24/2023 21:58:48'!
+PASSED!
+
+!testRun: #TransferNetTest #test08 stamp: 'mmuu 10/24/2023 21:58:48'!
+PASSED!
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 22:00:00' prior: 50654935!
+transferNet
+	account handleReportFor: self.
+	^transferNet! !
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 22:00:15' prior: 50659665!
+transferNet
+	account makeReportFor: self.
+	^transferNet! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/24/2023 22:00:18'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/24/2023 22:00:18'!
+ERROR!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/24/2023 22:00:18'!
+ERROR!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/24/2023 22:00:18'!
+ERROR!
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 22:00:18'!
+ERROR!
+
+!testRun: #TransferNetTest #test06 stamp: 'mmuu 10/24/2023 22:00:18'!
+PASSED!
+
+!testRun: #TransferNetTest #test07 stamp: 'mmuu 10/24/2023 22:00:18'!
+ERROR!
+
+!testRun: #TransferNetTest #test08 stamp: 'mmuu 10/24/2023 22:00:18'!
+ERROR!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/24/2023 22:00:20'!
+ERROR!
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 22:00:31'!
+handleReportForWithdrawLeg: aWithdrawLeg 
+	self shouldBeImplemented.! !
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 22:00:56' prior: 50659697!
+handleReportForWithdrawLeg: aWithdrawLeg 
+	transferNet := transferNet - aWithdrawLeg value! !
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/24/2023 22:01:02'!
+PASSED!
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/24/2023 22:01:04'!
+PASSED!
+
+!testRun: #TransferNetTest #test06 stamp: 'mmuu 10/24/2023 22:01:04'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/24/2023 22:01:04'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/24/2023 22:01:04'!
+ERROR!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/24/2023 22:01:04'!
+ERROR!
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 22:01:04'!
+ERROR!
+
+!testRun: #TransferNetTest #test07 stamp: 'mmuu 10/24/2023 22:01:04'!
+PASSED!
+
+!testRun: #TransferNetTest #test08 stamp: 'mmuu 10/24/2023 22:01:04'!
+ERROR!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/24/2023 22:01:05'!
+ERROR!
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 22:01:10'!
+handleReportForDepositLeg: aDepositLeg 
+	self shouldBeImplemented.! !
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 22:01:38' prior: 50659734!
+handleReportForDepositLeg: aDepositLeg 
+	transferNet := transferNet + aDepositLeg ! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/24/2023 22:01:41'!
+PASSED!
+
+!testRun: #TransferNetTest #test06 stamp: 'mmuu 10/24/2023 22:01:41'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/24/2023 22:01:41'!
+PASSED!
+
+!testRun: #TransferNetTest #test07 stamp: 'mmuu 10/24/2023 22:01:41'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/24/2023 22:01:41'!
+ERROR!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/24/2023 22:01:41'!
+ERROR!
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 22:01:41'!
+ERROR!
+
+!testRun: #TransferNetTest #test08 stamp: 'mmuu 10/24/2023 22:01:41'!
+ERROR!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/24/2023 22:01:43'!
+ERROR!
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 22:01:53' prior: 50659740!
+handleReportForDepositLeg: aDepositLeg 
+	transferNet := transferNet + aDepositLeg value! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/24/2023 22:01:55'!
+PASSED!
+
+!testRun: #TransferNetTest #test06 stamp: 'mmuu 10/24/2023 22:01:55'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/24/2023 22:01:55'!
+PASSED!
+
+!testRun: #TransferNetTest #test07 stamp: 'mmuu 10/24/2023 22:01:55'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/24/2023 22:01:55'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/24/2023 22:01:55'!
+PASSED!
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 22:01:55'!
+ERROR!
+
+!testRun: #TransferNetTest #test08 stamp: 'mmuu 10/24/2023 22:01:55'!
+PASSED!
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 22:01:55'!
+ERROR!
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 22:02:08'!
+handleReportForDeposit: aDeposit 
+	self shouldBeImplemented.! !
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 22:02:25' prior: 50659796!
+handleReportForDeposit: aDeposit ! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/24/2023 22:02:29'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/24/2023 22:02:29'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/24/2023 22:02:29'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/24/2023 22:02:29'!
+PASSED!
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 22:02:29'!
+ERROR!
+
+!testRun: #TransferNetTest #test06 stamp: 'mmuu 10/24/2023 22:02:29'!
+PASSED!
+
+!testRun: #TransferNetTest #test07 stamp: 'mmuu 10/24/2023 22:02:29'!
+PASSED!
+
+!testRun: #TransferNetTest #test08 stamp: 'mmuu 10/24/2023 22:02:29'!
+PASSED!
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 22:02:29'!
+ERROR!
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 22:02:33'!
+handleReportForWithdraw: aWithdraw 
+	self shouldBeImplemented.! !
+!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 22:02:35' prior: 50659828!
+handleReportForWithdraw: aWithdraw ! !
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/24/2023 22:02:38'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/24/2023 22:02:38'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/24/2023 22:02:38'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/24/2023 22:02:38'!
+PASSED!
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 22:02:38'!
+PASSED!
+
+!testRun: #TransferNetTest #test06 stamp: 'mmuu 10/24/2023 22:02:38'!
+PASSED!
+
+!testRun: #TransferNetTest #test07 stamp: 'mmuu 10/24/2023 22:02:38'!
+PASSED!
+
+!testRun: #TransferNetTest #test08 stamp: 'mmuu 10/24/2023 22:02:38'!
+PASSED!
+
+!methodRemoval: TransferNet #affectTransferNetForDepositLeg: stamp: 'mmuu 10/24/2023 22:02:46'!
+affectTransferNetForDepositLeg: aDepositLeg 
+	transferNet := transferNet + aDepositLeg value!
+
+!methodRemoval: TransferNet #affectTransferNetForWithdrawLeg: stamp: 'mmuu 10/24/2023 22:02:48'!
+affectTransferNetForWithdrawLeg: aWithdrawLeg 
+	transferNet := transferNet - aWithdrawLeg value!
+
+!methodRemoval: AccountSummary #addToAccountSummaryDeposit: stamp: 'mmuu 10/24/2023 22:03:00'!
+addToAccountSummaryDeposit: aDeposit 
+	accountSummary add: ('deposito por ', aDeposit value asString)!
+
+!methodRemoval: AccountSummary #addToAccountSummaryDepositLeg: stamp: 'mmuu 10/24/2023 22:03:02'!
+addToAccountSummaryDepositLeg: aDepositLeg 
+	accountSummary add: ('entrada por transferencia de ', aDepositLeg value asString)!
+
+!methodRemoval: AccountSummary #addToAccountSummaryWithdraw: stamp: 'mmuu 10/24/2023 22:03:03'!
+addToAccountSummaryWithdraw: aWithdraw 
+	accountSummary add: ('extraccion por ', aWithdraw value asString)!
+
+!methodRemoval: AccountSummary #addToAccountSummaryWithdrawLeg: stamp: 'mmuu 10/24/2023 22:03:05'!
+addToAccountSummaryWithdrawLeg: aWithdrawLeg 
+	accountSummary add: ('salida por transferencia de ', aWithdrawLeg value asString)!
+
+!methodRemoval: Deposit #accountSummaryInfo stamp: 'mmuu 10/24/2023 22:03:13'!
+accountSummaryInfo
+	^'deposito por ', value asString !
+
+!methodRemoval: Deposit #accountSummaryString: stamp: 'mmuu 10/24/2023 22:03:17'!
+accountSummaryString: accountSummaryCalc 
+	accountSummaryCalc addToAccountSummaryDeposit: self.!
+
+!methodRemoval: Deposit #transferNet: stamp: 'mmuu 10/24/2023 22:03:22'!
+transferNet: aTransferNetCalculator 
+	^0!
+
+!methodRemoval: DepositLeg #accountSummaryInfo stamp: 'mmuu 10/24/2023 22:03:27'!
+accountSummaryInfo
+	^'entrada por transferencia de ', transference value asString !
+
+!methodRemoval: DepositLeg #accountSummaryString: stamp: 'mmuu 10/24/2023 22:03:30'!
+accountSummaryString: accountSummaryCalc 
+	accountSummaryCalc addToAccountSummaryDepositLeg: self!
+
+!methodRemoval: DepositLeg #transferNet: stamp: 'mmuu 10/24/2023 22:03:43'!
+transferNet: aTransferNetCalculator 
+	aTransferNetCalculator affectTransferNetForDepositLeg: self.!
+
+!methodRemoval: WithdrawLeg #accountSummaryInfo stamp: 'mmuu 10/24/2023 22:03:50'!
+accountSummaryInfo
+	^'salida por transferencia de ', transference value asString!
+
+!methodRemoval: WithdrawLeg #accountSummaryString: stamp: 'mmuu 10/24/2023 22:03:51'!
+accountSummaryString: accountSummaryCalc 
+	accountSummaryCalc addToAccountSummaryWithdrawLeg: self.!
+
+!methodRemoval: WithdrawLeg #transferNet: stamp: 'mmuu 10/24/2023 22:03:57'!
+transferNet: aTransferNetCalculator
+	aTransferNetCalculator affectTransferNetForWithdrawLeg: self.!
+
+!methodRemoval: Withdraw #accountSummaryInfo stamp: 'mmuu 10/24/2023 22:04:01'!
+accountSummaryInfo
+	^'extraccion por ', value asString !
+
+!methodRemoval: Withdraw #accountSummaryString: stamp: 'mmuu 10/24/2023 22:04:02'!
+accountSummaryString: accountSummaryCalc 
+	accountSummaryCalc addToAccountSummaryWithdraw: self.!
+
+!methodRemoval: Withdraw #transferNet: stamp: 'mmuu 10/24/2023 22:04:09'!
+transferNet: aTransferNetCalculator 
+	^0!
+
+!testRun: #TransferenceTest #test01transferenceShouldAffectBalanceOfSenderAndReceiver stamp: 'mmuu 10/24/2023 22:04:13'!
+PASSED!
+
+!testRun: #TransferenceTest #test02transferenceShouldAffectRegisteredTransactionsOfBothParts stamp: 'mmuu 10/24/2023 22:04:13'!
+PASSED!
+
+!testRun: #TransferenceTest #test03withdrawLegCanGetTransference stamp: 'mmuu 10/24/2023 22:04:13'!
+PASSED!
+
+!testRun: #TransferenceTest #test04depositLegCanGetTransference stamp: 'mmuu 10/24/2023 22:04:13'!
+PASSED!
+
+!testRun: #TransferenceTest #test05depositLegCanGetWithdrawLeg stamp: 'mmuu 10/24/2023 22:04:13'!
+PASSED!
+
+!testRun: #TransferenceTest #test06withdrawLegCanGetDepositLeg stamp: 'mmuu 10/24/2023 22:04:13'!
+PASSED!
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/24/2023 22:04:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/24/2023 22:04:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/24/2023 22:04:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/24/2023 22:04:15'!
+PASSED!
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 22:04:15'!
+PASSED!
+
+!testRun: #TransferNetTest #test06 stamp: 'mmuu 10/24/2023 22:04:15'!
+PASSED!
+
+!testRun: #TransferNetTest #test07 stamp: 'mmuu 10/24/2023 22:04:15'!
+PASSED!
+
+!testRun: #TransferNetTest #test08 stamp: 'mmuu 10/24/2023 22:04:15'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mmuu 10/24/2023 22:04:16'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mmuu 10/24/2023 22:04:16'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mmuu 10/24/2023 22:04:16'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mmuu 10/24/2023 22:04:16'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mmuu 10/24/2023 22:04:16'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mmuu 10/24/2023 22:04:16'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mmuu 10/24/2023 22:04:16'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 22:04:19'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/24/2023 22:04:19'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 22:04:19'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 22:04:19'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 22:04:20'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 22:04:20'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 22:04:20'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 22:04:20'!
+PASSED!
+
+Object subclass: #Reports
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #Reports category: 'Portfolio-Solucion' stamp: 'mmuu 10/24/2023 22:04:43'!
+Object subclass: #Reports
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+Reports subclass: #AccountSummary
+	instanceVariableNames: 'account accountSummary'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #AccountSummary category: 'Portfolio-Solucion' stamp: 'mmuu 10/24/2023 22:04:53'!
+Reports subclass: #AccountSummary
+	instanceVariableNames: 'account accountSummary'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+Reports subclass: #TransferNet
+	instanceVariableNames: 'account transferNet'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #TransferNet category: 'Portfolio-Solucion' stamp: 'mmuu 10/24/2023 22:05:00'!
+Reports subclass: #TransferNet
+	instanceVariableNames: 'account transferNet'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!Reports methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 22:05:32'!
+handleReportForDeposit: aDeposit
+
+	self subclassResponsibility! !
+!Reports methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 22:06:05'!
+handleReportForDepositLeg: aDepositLeg
+
+	self subclassResponsibility! !
+!Reports methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 22:06:10'!
+handleReportForWithdraw: aWithdraw
+
+	self subclassResponsibility! !
+!Reports methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 22:06:15'!
+handleReportForWithdrawLeg: aWithdrawLeg
+
+	self subclassResponsibility! !
+
+!methodRemoval: ReceptiveAccount #transferNet: stamp: 'mmuu 10/24/2023 22:06:39'!
+transferNet: aTransferNetCalculator
+	transactions do: [ :aTransaction |
+		aTransaction transferNet: aTransferNetCalculator 
+	].!
+
+!methodRemoval: ReceptiveAccount #createAccountSummary: stamp: 'mmuu 10/24/2023 22:06:44'!
+createAccountSummary: accountSummaryCalc
+	transactions do: [:aTransaction | 
+		aTransaction accountSummaryString: accountSummaryCalc.
+	].!
+
+!methodRemoval: Portfolio #transferNet: stamp: 'mmuu 10/24/2023 22:06:55'!
+transferNet: aTransferNetCalculator
+	accounts do: [ :aTransaction |
+		aTransaction transferNet: aTransferNetCalculator 
+	].!
+
+!methodRemoval: Portfolio #createAccountSummary: stamp: 'mmuu 10/24/2023 22:06:57'!
+createAccountSummary: anAccountSummary 
+	accounts do: [:anAccount | 
+		anAccount createAccountSummary: anAccountSummary 
+	].!
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/24/2023 22:07:02'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/24/2023 22:07:02'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/24/2023 22:07:02'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/24/2023 22:07:02'!
+PASSED!
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 22:07:02'!
+PASSED!
+
+!testRun: #TransferNetTest #test06 stamp: 'mmuu 10/24/2023 22:07:02'!
+PASSED!
+
+!testRun: #TransferNetTest #test07 stamp: 'mmuu 10/24/2023 22:07:02'!
+PASSED!
+
+!testRun: #TransferNetTest #test08 stamp: 'mmuu 10/24/2023 22:07:02'!
+PASSED!
+
+!testRun: #TransferenceTest #test01transferenceShouldAffectBalanceOfSenderAndReceiver stamp: 'mmuu 10/24/2023 22:07:03'!
+PASSED!
+
+!testRun: #TransferenceTest #test02transferenceShouldAffectRegisteredTransactionsOfBothParts stamp: 'mmuu 10/24/2023 22:07:03'!
+PASSED!
+
+!testRun: #TransferenceTest #test03withdrawLegCanGetTransference stamp: 'mmuu 10/24/2023 22:07:04'!
+PASSED!
+
+!testRun: #TransferenceTest #test04depositLegCanGetTransference stamp: 'mmuu 10/24/2023 22:07:04'!
+PASSED!
+
+!testRun: #TransferenceTest #test05depositLegCanGetWithdrawLeg stamp: 'mmuu 10/24/2023 22:07:04'!
+PASSED!
+
+!testRun: #TransferenceTest #test06withdrawLegCanGetDepositLeg stamp: 'mmuu 10/24/2023 22:07:04'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mmuu 10/24/2023 22:07:06'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mmuu 10/24/2023 22:07:06'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mmuu 10/24/2023 22:07:06'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mmuu 10/24/2023 22:07:06'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mmuu 10/24/2023 22:07:06'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mmuu 10/24/2023 22:07:06'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mmuu 10/24/2023 22:07:06'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'mmuu 10/24/2023 22:07:08'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'mmuu 10/24/2023 22:07:08'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'mmuu 10/24/2023 22:07:08'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'mmuu 10/24/2023 22:07:08'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'mmuu 10/24/2023 22:07:08'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'mmuu 10/24/2023 22:07:08'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'mmuu 10/24/2023 22:07:08'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'mmuu 10/24/2023 22:07:08'!
+PASSED!
+
+!testRun: #TransferNetTest #test01 stamp: 'mmuu 10/24/2023 22:07:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'mmuu 10/24/2023 22:07:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'mmuu 10/24/2023 22:07:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'mmuu 10/24/2023 22:07:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test05 stamp: 'mmuu 10/24/2023 22:07:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test06 stamp: 'mmuu 10/24/2023 22:07:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test07 stamp: 'mmuu 10/24/2023 22:07:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test08 stamp: 'mmuu 10/24/2023 22:07:14'!
+PASSED!
+
+----SNAPSHOT----(24 October 2023 22:07:18) CuisUniversity-5981.image priorSource: 10352215!
+
+----SNAPSHOT----(24 October 2023 22:07:21) CuisUniversity-5981.image priorSource: 10514840!
