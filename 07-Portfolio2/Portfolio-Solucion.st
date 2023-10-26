@@ -5,112 +5,226 @@ TestCase subclass: #AccountSummaryTest
 	poolDictionaries: ''
 	category: 'Portfolio-Solucion'!
 
-!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/22/2023 18:40:42'!
-test01
-	|account accountSummary|
-	
-	account := ReceptiveAccount new.
-	accountSummary := AccountSummary for: account.
-	
-	self assert: accountSummary entries size equals: 1.
-	self assert: accountSummary entries first equals: 'balance = 0'! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 01:59:09'!
+test01AccountSummaryWithNoTransactionsHasCeroAsBalance
 
-!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/22/2023 19:04:42'!
-test02
-	|account accountSummary|
+	|anAccount accountSummary|
 	
-	account := ReceptiveAccount new.
-	accountSummary := AccountSummary for: account .
+	anAccount := ReceptiveAccount new.
+	accountSummary := AccountSummary for: anAccount.
 	
-	Deposit register: 100 on: account.
-	
-	self assert: accountSummary entries size equals: 2.
-	self assert: accountSummary entries first equals: 'deposito por 100'.
-	self assert: accountSummary entries last equals: 'balance = 100'! !
+	self assert: accountSummary makeReport equals: (OrderedCollection new add: 'Balance = 0';yourself).! !
 
-!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 15:27:29'!
-test03
-	|account accountSummary|
-	
-	account := ReceptiveAccount new.
-	accountSummary := AccountSummary for: account .
-	
-	Withdraw register: 300 on: account.
-	Deposit register: 100 on: account.
-	
-	self assert: accountSummary entries size equals: 3.
-	self assert: accountSummary entries first equals: 'extraccion por 300'.
-	self assert: accountSummary entries last equals: 'balance = -200'! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 01:59:09'!
+test02AccountSummaryProcessDepositsCorrectlyAndModifiesBalance
 
-!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 15:36:08'!
-test04
-	|senderAccount receiverAccount accountSummary|
+	|anAccount accountSummary|
 	
-	senderAccount := ReceptiveAccount new.
-	receiverAccount := ReceptiveAccount new.
-	accountSummary := AccountSummary for: senderAccount .
+	anAccount := ReceptiveAccount new.
+	Deposit register: 100 on: anAccount .
+	accountSummary := AccountSummary for: anAccount.
 	
-	Transference with: 300 from: senderAccount to: receiverAccount.
-	
-	self assert: accountSummary entries first equals: 'salida por transferencia de 300'.
-	self assert: accountSummary entries last equals: 'balance = -300'! !
+	self assert: accountSummary makeReport first equals: 'Deposit for 100'.
+	self assert: accountSummary makeReport second equals: 'Balance = 100'.! !
 
-!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 15:38:17'!
-test05
-	|senderAccount receiverAccount accountSummary|
-	
-	senderAccount := ReceptiveAccount new.
-	receiverAccount := ReceptiveAccount new.
-	accountSummary := AccountSummary for: receiverAccount .
-	
-	Transference with: 300 from: senderAccount to: receiverAccount.
-	
-	self assert: accountSummary entries first equals: 'entrada por transferencia de 300'.
-	self assert: accountSummary entries last equals: 'balance = 300'! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 01:59:09'!
+test03AccountSummaryProcessWithdrawCorrectlyAndModifiesBalance
 
-!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 19:30:06'!
-test06
+	|anAccount accountSummary|
+	
+	anAccount := ReceptiveAccount new.
+	Withdraw register: 50 on: anAccount .
+	accountSummary := AccountSummary for: anAccount.
+	
+	self assert: accountSummary makeReport first equals: 'Withdraw for 50'.
+	self assert: accountSummary makeReport second equals: 'Balance = -50'.! !
+
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 01:59:09'!
+test04AccountSummaryProcessWithdrawLegCorrectlyAndModifiesBalance
+
+	|anAccount accountSummary|
+	
+	anAccount := ReceptiveAccount new.
+	Transference from: anAccount to: ReceptiveAccount new withValue: 50.
+	accountSummary := AccountSummary for: anAccount.
+	
+	self assert: accountSummary makeReport first equals: 'Exit by transference of 50'.
+	self assert: accountSummary makeReport second equals: 'Balance = -50'.! !
+
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 01:59:09'!
+test05AccountSummaryProcessDepositLegCorrectlyAndModifiesBalance
+
+	|anAccount accountSummary|
+	
+	anAccount := ReceptiveAccount new.
+	Transference from: ReceptiveAccount new to: anAccount withValue: 50.
+	accountSummary := AccountSummary for: anAccount.
+	
+	self assert: accountSummary makeReport first equals: 'Entrance by transference of 50'.
+	self assert: accountSummary makeReport second equals: 'Balance = 50'.! !
+
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 01:59:09'!
+test06AccountSummaryProcessCorrectlyMultipleInstructionsAndReturnsCorrectBalance
+
+	|anAccount accountSummary|
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 100 on: anAccount .
+	Withdraw register: 50 on: anAccount .
+	Transference from: anAccount to: ReceptiveAccount new withValue: 50.
+	Transference from: ReceptiveAccount new to: anAccount withValue: 50.
+	accountSummary := AccountSummary for: anAccount.
+	
+	self assert: accountSummary makeReport first equals: 'Deposit for 100'.
+	self assert: accountSummary makeReport second equals: 'Withdraw for 50'.
+	self assert: accountSummary makeReport third equals: 'Exit by transference of 50'.
+	self assert: accountSummary makeReport fourth equals: 'Entrance by transference of 50'.
+	self assert: accountSummary makeReport fifth equals: 'Balance = 50'.! !
+
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 01:59:09'!
+test07AccountSummaryOfEmptyPortfolioReturnesCeroAsBalance
+
 	|portfolio accountSummary|
-	portfolio := Portfolio new.
 	
+	portfolio := Portfolio new.
 	accountSummary := AccountSummary for: portfolio .
 	
-	self assert: accountSummary entries size equals: 1.
-	self assert: accountSummary entries first equals: 'balance = 0'! !
+	self assert: accountSummary makeReport first equals: 'Balance = 0'.
+	self assert: accountSummary makeReport size equals: 1.! !
 
-!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 19:36:56'!
-test07
-	|portfolio account accountSummary|
-	portfolio := Portfolio new.
-	account := ReceptiveAccount new.
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 01:59:09'!
+test08AccountSummaryProcessCorrectlyPortfolioWithOneAccount
+
+	|portfolio anAccount accountSummary|
 	
-	Deposit register: 200 on: account.
-		
+	portfolio := Portfolio new.
+	anAccount := ReceptiveAccount new.
 	accountSummary := AccountSummary for: portfolio .
+	Deposit register: 50 on: anAccount.
+	portfolio add: anAccount .
+	
+	
+	self assert: accountSummary makeReport first equals: 'Deposit for 50'.
+	self assert: accountSummary makeReport second equals: 'Balance = 50'.
+	self assert: accountSummary makeReport size equals: 2! !
+
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 01:59:09'!
+test09AccountSummaryProcessCorrectlyPortfolioWithMultipleAccounts
+
+	|composedPortfolio includedPortfolio includedAccount secondIncludedAccount accountSummary|
+	
+	composedPortfolio := Portfolio new.
+	includedPortfolio := Portfolio new.
+	includedAccount := ReceptiveAccount new.
+	secondIncludedAccount := ReceptiveAccount new.
+	accountSummary := AccountSummary for: composedPortfolio .
+	Deposit register: 50 on: includedAccount.
+	Withdraw register: 50 on: secondIncludedAccount.
+	composedPortfolio add: includedPortfolio .
+	includedPortfolio add: includedAccount .
+	composedPortfolio add: secondIncludedAccount .
+	
+	self assert: accountSummary makeReport first equals: 'Deposit for 50'.
+	self assert: accountSummary makeReport second equals: 'Withdraw for 50'.
+	self assert: accountSummary makeReport third equals: 'Balance = 0'.
+	self assert: accountSummary makeReport size equals: 3! !
+
+
+!classDefinition: #PortfolioSpecialTreeStructureTest category: 'Portfolio-Solucion'!
+TestCase subclass: #PortfolioSpecialTreeStructureTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!PortfolioSpecialTreeStructureTest methodsFor: 'as yet unclassified' stamp: 'mm uu 10/26/2023 16:08:53'!
+test01TreeStructureOfEmptyPortfolioOnlyHasItsName
+
+	|portfolio treeStructure|
+	
+	portfolio := Portfolio named: 'mio'.
+	treeStructure := PortfolioSpecialTreeStructure for: portfolio .
+	
+	self assert: treeStructure makeReport first equals: 'mio'.
+	self assert: treeStructure makeReport second equals: '    Balance = 0'.
+	self assert: treeStructure makeReport size equals: 2.! !
+
+!PortfolioSpecialTreeStructureTest methodsFor: 'as yet unclassified' stamp: 'mm uu 10/26/2023 16:09:30'!
+test02SpecialReportOfPortfolioWithAccount
+
+	|portfolio account treeStructure |
+	
+	portfolio := Portfolio named: 'mio'.
+	account := ReceptiveAccount named: 'ac'.
+	treeStructure := PortfolioSpecialTreeStructure for: portfolio .
+	
 	portfolio add: account.
 	
-	self assert: accountSummary entries size equals: 2.
-	self assert: accountSummary entries first equals: 'deposito por 200'.
-	self assert: accountSummary entries last equals: 'balance = 200'! !
+	self assert: treeStructure makeReport first equals: 'mio'.
+	self assert: treeStructure makeReport second equals: '    ac'.
+	self assert: treeStructure makeReport third equals: '        Balance = 0'.
+	self assert: treeStructure makeReport fourth equals: '    Balance = 0'.
+	self assert: treeStructure makeReport size equals: 4.! !
 
-!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 19:52:31'!
-test08
-	|portfolio account1 account2 accountSummary|
-	portfolio := Portfolio new.
-	account1 := ReceptiveAccount new.
-	account2 := ReceptiveAccount new.
+!PortfolioSpecialTreeStructureTest methodsFor: 'as yet unclassified' stamp: 'mm uu 10/26/2023 16:09:57'!
+test03SpecialReportForPortfolioWithAccount
+
+	|portfolio account treeStructure |
 	
-	Deposit register: 200 on: account1.
-	Withdraw register: 100 on: account2.
-		
-	accountSummary := AccountSummary for: portfolio .
-	portfolio add: account1.
-	portfolio add: account2.
+	portfolio := Portfolio named: 'mio'.
+	account := ReceptiveAccount named: 'ac'.
+	treeStructure := PortfolioSpecialTreeStructure for: portfolio .
 	
-	self assert: accountSummary entries size equals: 3.
-	self assert: accountSummary entries first equals: 'deposito por 200'.
-	self assert: accountSummary entries second equals: 'extraccion por 100'.
-	self assert: accountSummary entries last equals: 'balance = 100'! !
+	portfolio add: account.
+	Deposit register: 200 on: account.
+	
+	self assert: treeStructure makeReport first equals: 'mio'.
+	self assert: treeStructure makeReport second equals: '    ac'.
+	self assert: treeStructure makeReport third equals: '        Deposit for 200'.
+	self assert: treeStructure makeReport fourth equals: '        Balance = 200'.
+	self assert: (treeStructure makeReport at: 5) equals: '    Balance = 200'.
+	self assert: treeStructure makeReport size equals: 5.! !
+
+!PortfolioSpecialTreeStructureTest methodsFor: 'as yet unclassified' stamp: 'mm uu 10/26/2023 16:10:16'!
+test04SpecialReportForPortfolioWithPortfolio
+
+	|portfolio portfolio2 treeStructure |
+	
+	portfolio := Portfolio named: 'mio'.
+	portfolio2 := Portfolio named: 'hijo'.
+	treeStructure := PortfolioSpecialTreeStructure for: portfolio .
+	
+	portfolio add: portfolio2.
+	
+	self assert: treeStructure makeReport first equals: 'mio'.
+	self assert: treeStructure makeReport second equals: '    hijo'.
+	self assert: treeStructure makeReport third equals: '        Balance = 0'.
+	self assert: treeStructure makeReport fourth equals: '    Balance = 0'.
+	self assert: treeStructure makeReport size equals: 4.! !
+
+!PortfolioSpecialTreeStructureTest methodsFor: 'as yet unclassified' stamp: 'mm uu 10/26/2023 16:10:31'!
+test05SpecialReportForPortfolioWithReportWithAccount
+
+	|portfolio portfolio2 account treeStructure |
+	
+	portfolio := Portfolio named: 'mio'.
+	portfolio2 := Portfolio named: 'hijo'.
+	account := ReceptiveAccount named: 'cuentaHijo'.
+	treeStructure := PortfolioSpecialTreeStructure for: portfolio .
+	
+	Deposit register: 200 on: account.
+	
+	portfolio2 add: account.
+	portfolio add: portfolio2.
+	
+	self assert: treeStructure makeReport first equals: 'mio'.
+	self assert: treeStructure makeReport second equals: '    hijo'.
+	self assert: treeStructure makeReport third equals: '        cuentaHijo'.
+	self assert: treeStructure makeReport fourth equals: '            Deposit for 200'.
+	self assert:(treeStructure makeReport at: 5) equals: '            Balance = 200'.
+	self assert:(treeStructure makeReport at: 6) equals: '        Balance = 200'.
+	self assert:(treeStructure makeReport at: 7) equals: '    Balance = 200'.
+	self assert: treeStructure makeReport size equals: 7.! !
 
 
 !classDefinition: #PortfolioTest category: 'Portfolio-Solucion'!
@@ -329,6 +443,101 @@ test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd
 			self assert: portfolioToModify accountsIsEmpty ]! !
 
 
+!classDefinition: #PortfolioTreeStructureTest category: 'Portfolio-Solucion'!
+TestCase subclass: #PortfolioTreeStructureTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!PortfolioTreeStructureTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 03:48:43'!
+test01TreeStructureOfEmptyPortfolioOnlyHasItsName
+
+	|portfolio treeStructure|
+	
+	portfolio := Portfolio named: 'mio'.
+	treeStructure := PortfolioTreeStructure for: portfolio .
+	
+	self assert: treeStructure makeReport first equals: 'mio'.
+	self assert: treeStructure makeReport size equals: 1.! !
+
+!PortfolioTreeStructureTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 03:51:08'!
+test02TreeStructureOfPortfolioWithOneAccountIsCorrect
+
+	|composedPortfolio1 composedPortfolio2 includedAccount includedPortfolio treeStructure|
+	
+	composedPortfolio1 := Portfolio named: 'cp1'.
+	composedPortfolio2 := Portfolio named: 'cp2'.
+	includedPortfolio := Portfolio named: 'p1'.
+	includedAccount := ReceptiveAccount named: 'a1'.
+	
+	composedPortfolio1 add: includedAccount .
+	composedPortfolio2 add: includedPortfolio .
+	
+	treeStructure := PortfolioTreeStructure for: composedPortfolio1 .
+	self assert: treeStructure makeReport  first equals: 'cp1'.
+	self assert: treeStructure makeReport second equals: '    a1'.
+	self assert: treeStructure makeReport size equals: 2.
+	
+	treeStructure := PortfolioTreeStructure for: composedPortfolio2 .
+	
+	self assert: treeStructure makeReport first equals: 'cp2'.
+	self assert: treeStructure makeReport second equals: '    p1'.
+	self assert: treeStructure makeReport size equals: 2.! !
+
+!PortfolioTreeStructureTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 03:55:57'!
+test03AccountsWithNoNameHaveUnnamedAsName
+
+	|portfolio treeStructure|
+	
+	portfolio := Portfolio new.
+	portfolio add: ReceptiveAccount new.
+	treeStructure := PortfolioTreeStructure for: portfolio .
+	
+	self assert: treeStructure makeReport first equals: 'Unnamed'.
+	self assert: treeStructure makeReport second equals: '    Unnamed'.
+	self assert: treeStructure makeReport size equals: 2.! !
+
+!PortfolioTreeStructureTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 03:52:23'!
+test04TreeStructureOfPortfolioWithMultipleAccountsIsCorrect
+
+	|composedPortfolio includedAccount includedPortfolio treeStructure|
+	
+	composedPortfolio := Portfolio named: 'cp1'.
+	includedPortfolio := Portfolio named: 'p1'.
+	includedAccount := ReceptiveAccount named: 'a1'.
+	treeStructure := PortfolioTreeStructure for: composedPortfolio .
+	
+	composedPortfolio add: includedAccount .
+	composedPortfolio add: includedPortfolio .
+	
+	self assert: treeStructure makeReport first equals: 'cp1'.
+	self assert: treeStructure makeReport second equals: '    a1'.
+	self assert: treeStructure makeReport third equals: '    p1'.
+	self assert: treeStructure makeReport size equals: 3.! !
+
+!PortfolioTreeStructureTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 03:52:51'!
+test05TreeStructureOfPortfolioWithAccountAndWithPortfolioWithAccountsIsIndentedCorrectly
+
+	|composedPortfolio includedAccount includedPortfolio secondIncludedAccount treeStructure|
+	
+	composedPortfolio := Portfolio named: 'cp1'.
+	includedPortfolio := Portfolio named: 'p1'.
+	secondIncludedAccount := ReceptiveAccount named: 'a2'.
+	includedAccount := ReceptiveAccount named: 'a1'.
+	treeStructure := PortfolioTreeStructure for: composedPortfolio .
+	
+	composedPortfolio add: includedPortfolio .
+	composedPortfolio add: secondIncludedAccount .
+	includedPortfolio add: includedAccount .
+	
+	self assert: treeStructure makeReport first equals: 'cp1'.
+	self assert: treeStructure makeReport second equals: '    p1'.
+	self assert: treeStructure makeReport third equals: '        a1'.
+	self assert: treeStructure makeReport fourth equals: '    a2'.
+	self assert: treeStructure makeReport size equals: 4.! !
+
+
 !classDefinition: #ReceptiveAccountTest category: 'Portfolio-Solucion'!
 TestCase subclass: #ReceptiveAccountTest
 	instanceVariableNames: ''
@@ -427,153 +636,218 @@ TestCase subclass: #TransferNetTest
 	poolDictionaries: ''
 	category: 'Portfolio-Solucion'!
 
-!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:29:56'!
-test01
-	|account transferNet|
-	account := ReceptiveAccount new.
-	transferNet := TransferNet for: account.
-	self assert: transferNet transferNet equals: 0.	! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 01:59:09'!
+test01TransferNetWithNoTransactionsEqualsCero
 
-!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:33:56'!
-test02
-	|senderAccount receptiveAccount transferNet|
-	senderAccount := ReceptiveAccount new.
-	receptiveAccount := ReceptiveAccount new.
-	transferNet := TransferNet for: senderAccount.
+	|anAccount transferNet|
 	
-	Transference with: 2 from: senderAccount to: receptiveAccount.
+	anAccount := ReceptiveAccount new.
+	transferNet := TransferNet for: anAccount .
 	
-	self assert: transferNet transferNet equals: -2.	! !
+	self assert: transferNet makeReport equals: 0.! !
 
-!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:34:39'!
-test03
-	|senderAccount receptiveAccount transferenceNet|
-	senderAccount := ReceptiveAccount new.
-	receptiveAccount := ReceptiveAccount new.
-	transferenceNet := TransferNet for: receptiveAccount .
-	Transference with: 2 from: senderAccount to: receptiveAccount.
-	
-	self assert: transferenceNet transferNet equals: 2.	! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 01:59:09'!
+test02TransferNetProcessDepositLegCorrectly
 
-!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:35:01'!
-test04
-	|senderAccount receptiveAccount transferNet|
-	senderAccount := ReceptiveAccount new.
-	receptiveAccount := ReceptiveAccount new.
-	transferNet := TransferNet for: senderAccount .
-	Transference with: 2 from: senderAccount to: receptiveAccount.
-	Transference with: 8 from: receptiveAccount to: senderAccount.
+	|anAccount transferNet|
 	
-	self assert: transferNet transferNet equals: 6.	! !
+	anAccount := ReceptiveAccount new.
+	transferNet := TransferNet for: anAccount .
+	
+	Transference from: anAccount to: ReceptiveAccount new withValue: 50.
+	
+	self assert: transferNet makeReport equals: -50.! !
 
-!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 21:58:34'!
-test05
-	|senderAccount receptiveAccount transferNet|
-	senderAccount := ReceptiveAccount new.
-	receptiveAccount := ReceptiveAccount new.
-	transferNet := TransferNet for: senderAccount .
-	
-	Transference with: 2 from: senderAccount to: receptiveAccount.
-	Deposit register: 100 on: senderAccount .
-	Withdraw register: 100 on: senderAccount .
-	
-	self assert: transferNet transferNet equals: -2.	! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 01:59:09'!
+test03TransferNetProcessWithdrawLegCorrectly
 
-!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 21:57:19'!
-test06
+	|anAccount transferNet|
+	
+	anAccount := ReceptiveAccount new.
+	transferNet := TransferNet for: anAccount .
+	
+	Transference from: ReceptiveAccount new to: anAccount withValue: 50.
+	
+	self assert: transferNet makeReport equals: 50.! !
+
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 01:59:09'!
+test04TransferNetGivesCorrectTransferNetForMultipleTransferences
+
+	|anAccount transferNet|
+	
+	anAccount := ReceptiveAccount new.
+	transferNet := TransferNet for: anAccount .
+	
+	Transference from: ReceptiveAccount new to: anAccount withValue: 50.
+	Transference from: anAccount to: ReceptiveAccount new withValue: 20.
+	Transference from: ReceptiveAccount new to: anAccount withValue: 10.
+	
+	self assert: transferNet makeReport equals: 40.! !
+
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 01:59:09'!
+test05TransactionsOtherThanTransferencesDoNotAffectTransferNet
+
+	|anAccount transferNet|
+	
+	anAccount := ReceptiveAccount new.
+	transferNet := TransferNet for: anAccount.
+	Deposit register: 50 on: anAccount .
+	Withdraw register: 20 on: anAccount.
+	
+	Transference from: ReceptiveAccount new to: anAccount withValue: 50.
+	
+	self assert: transferNet makeReport equals: 50.! !
+
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 01:59:09'!
+test06TransferNetOfEmptyPortfoloEqualsCero
+
 	|portfolio transferNet|
-	portfolio := Portfolio new.
 	
+	portfolio := ReceptiveAccount new.
 	transferNet := TransferNet for: portfolio.
 	
-	self assert: transferNet transferNet equals: 0.	! !
+	self assert: transferNet makeReport equals: 0.! !
 
-!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 21:57:14'!
-test07
-	|portfolio senderAccount receptiveAccount transferNet|
-	portfolio := Portfolio new.
-	senderAccount := ReceptiveAccount new.
-	receptiveAccount := ReceptiveAccount new.
-	
-	portfolio add: senderAccount .
-	transferNet := TransferNet for: portfolio.
-	Transference with: 2 from: senderAccount to: receptiveAccount.
-	
-	self assert: transferNet transferNet equals: -2.	! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 01:59:09'!
+test07CorrectTransferNetForPortfolioWithOneAccount
 
-!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 21:57:09'!
-test08
-	|portfolio senderAccount receptiveAccount transferNet|
+	|portfolio anAccount transferNet|
 	portfolio := Portfolio new.
-	senderAccount := ReceptiveAccount new.
-	receptiveAccount := ReceptiveAccount new.
+	anAccount := ReceptiveAccount new.
 	
-	portfolio add: receptiveAccount .
+	portfolio add: anAccount .
 	transferNet := TransferNet for: portfolio.
-	Transference with: 2 from: senderAccount to: receptiveAccount.
+	Transference from: ReceptiveAccount new to: anAccount withValue: 50.
 	
-	self assert: transferNet transferNet equals: 2.	! !
+	self assert: transferNet makeReport equals: 50.	! !
+
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 01:59:08'!
+test08CorrectTransferNetForPortfolioWithMultipleAccount
+
+	|composedPortfolio includedAccount includedPortfolio secondIncludedAccount transferNet|
+	
+	composedPortfolio := Portfolio new.
+	includedPortfolio := Portfolio new.
+	includedAccount := ReceptiveAccount new.
+	secondIncludedAccount := ReceptiveAccount new.
+	
+	composedPortfolio add: includedAccount .
+	composedPortfolio add: includedPortfolio .
+	includedPortfolio add: secondIncludedAccount .
+	
+	transferNet := TransferNet for: composedPortfolio.
+	Transference  from: ReceptiveAccount new to: secondIncludedAccount withValue: 30.
+	Transference  from: includedAccount to: ReceptiveAccount new withValue: 10.
+	
+	self assert: transferNet makeReport equals: 20.	! !
 
 
 !classDefinition: #TransferenceTest category: 'Portfolio-Solucion'!
 TestCase subclass: #TransferenceTest
-	instanceVariableNames: 'senderAccount receiverAccount'
+	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Portfolio-Solucion'!
 
-!TransferenceTest methodsFor: 'setup' stamp: 'mmuu 10/20/2023 16:47:04'!
-setUp
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'hh 10/22/2023 19:09:15'!
+test01TransferenceChangesAccountsBalance
+
+	|senderAccount receiverAccount|
+	
 	senderAccount := ReceptiveAccount new.
-	receiverAccount := ReceptiveAccount new.! !
+	receiverAccount := ReceptiveAccount new.
+	Deposit register: 100 on: senderAccount .
+	
+	Transference from: senderAccount to: receiverAccount withValue: 100.
+	
+	self assert: senderAccount balance equals: 0.
+	self assert: receiverAccount balance equals: 100.! !
 
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'hh 10/22/2023 23:31:26'!
+test02TransferenceAccountsHaveTransferenceLegRegistered
 
-!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/20/2023 16:47:31'!
-test01transferenceShouldAffectBalanceOfSenderAndReceiver
-	Deposit register: 100 on: senderAccount.
-	Transference with: 100 from: senderAccount to: receiverAccount.
+	|senderAccount receiverAccount transference|
 	
-	self assert: receiverAccount balance equals: 100.
-	self assert: senderAccount balance equals: 0.! !
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	Deposit register: 100 on: senderAccount .
+	
+	transference := Transference from: senderAccount to: receiverAccount withValue: 100.
+	
+	self assert: (transference accountHasWithdrawLegRegistered: senderAccount ).
+	self assert: (transference accountHasDepositLegRegistered: receiverAccount ).! !
 
-!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/23/2023 19:47:18'!
-test02transferenceShouldAffectRegisteredTransactionsOfBothParts
-	|transference|
-	Deposit register: 100 on: senderAccount.
-	transference := Transference with: 100 from: senderAccount to: receiverAccount.
-	
-	self assert: (senderAccount hasRegistered: transference withdrawLeg).
-	self assert: (receiverAccount hasRegistered: transference depositLeg)! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'hh 10/22/2023 23:25:02'!
+test03WithdrawLegCanNagivateToTransference
 
-!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/23/2023 19:50:02'!
-test03withdrawLegCanGetTransference
-	|transference|
-	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	|senderAccount receiverAccount transference|
 	
-	self assert: (transference withdrawLeg transference) equals: transference.! !
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	transference := Transference from: senderAccount to: receiverAccount withValue: 100.
+	
+	self assert: (transference withdrawLeg transference ) equals: transference .! !
 
-!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/23/2023 19:50:06'!
-test04depositLegCanGetTransference
-	|transference|
-	transference := Transference with: 100 from: senderAccount to: receiverAccount.
-	
-	self assert: (transference depositLeg transference) equals: transference.! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'hh 10/22/2023 23:26:10'!
+test04DepositLegCanNagivateToTransference
 
-!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/23/2023 19:47:45'!
-test05depositLegCanGetWithdrawLeg
-	|transference|
+	|senderAccount receiverAccount transference|
 	
-	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
 	
-	self assert: (transference depositLeg withdrawLeg) equals: transference withdrawLeg.! !
+	transference := Transference from: senderAccount to: receiverAccount withValue: 100.
+	
+	self assert: (transference depositLeg transference ) equals: transference .! !
 
-!TransferenceTest methodsFor: 'tests' stamp: 'mmuu 10/23/2023 19:47:57'!
-test06withdrawLegCanGetDepositLeg
-	|transference|
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'hh 10/22/2023 23:28:53'!
+test05DepositLegCanNagivateToWithdrawLeg
+
+	|senderAccount receiverAccount transference|
 	
-	transference := Transference with: 100 from: senderAccount to: receiverAccount.
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
 	
-	self assert: (transference withdrawLeg depositLeg) equals: transference depositLeg.! !
+	transference := Transference from: senderAccount to: receiverAccount withValue: 100.
+	
+	self assert: (transference depositLeg withdrawLeg ) equals: transference withdrawLeg .! !
+
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'hh 10/22/2023 23:29:25'!
+test06WithdrawLegCanNagivateToDepositLeg
+
+	|senderAccount receiverAccount transference|
+	
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	transference := Transference from: senderAccount to: receiverAccount withValue: 100.
+	
+	self assert: (transference withdrawLeg depositLeg ) equals: transference depositLeg .! !
+
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'hh 10/22/2023 23:33:59'!
+test07WithdrawLegKnowsTransferenceValue
+
+	|senderAccount receiverAccount transference|
+	
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	transference := Transference from: senderAccount to: receiverAccount withValue: 100.
+	
+	self assert: (transference withdrawLeg value ) equals: transference value .! !
+
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'hh 10/22/2023 23:34:30'!
+test08DepositLegKnowsTransferenceValue
+
+	|senderAccount receiverAccount transference|
+	
+	senderAccount := ReceptiveAccount new.
+	receiverAccount := ReceptiveAccount new.
+	
+	transference := Transference from: senderAccount to: receiverAccount withValue: 100.
+	
+	self assert: (transference depositLeg value ) equals: transference value .! !
 
 
 !classDefinition: #Account category: 'Portfolio-Solucion'!
@@ -619,7 +893,7 @@ addedTo: aPortfolio
 
 !classDefinition: #Portfolio category: 'Portfolio-Solucion'!
 Account subclass: #Portfolio
-	instanceVariableNames: 'accounts parents'
+	instanceVariableNames: 'accounts parents name'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Portfolio-Solucion'!
@@ -659,11 +933,19 @@ rootParents
 	^ rootParents! !
 
 
-!Portfolio methodsFor: 'initialization' stamp: 'HAW 5/25/2019 12:03:18'!
+!Portfolio methodsFor: 'initialization' stamp: 'hh 10/26/2023 03:55:23'!
 initialize
 
 	accounts := OrderedCollection new.
-	parents := OrderedCollection new.! !
+	parents := OrderedCollection new.
+	name := 'Unnamed'.! !
+
+!Portfolio methodsFor: 'initialization' stamp: 'hh 10/26/2023 02:27:51'!
+initializeNamed: portfolioName
+
+	accounts := OrderedCollection new.
+	parents := OrderedCollection new.
+	name := portfolioName .! !
 
 
 !Portfolio methodsFor: 'balance' stamp: 'HAW 5/25/2019 11:19:36'!
@@ -729,11 +1011,23 @@ signalCanNotAddAccount
 	self error: self class canNotAddAccountErrorMessage! !
 
 
-!Portfolio methodsFor: 'reports' stamp: 'mmuu 10/24/2023 21:55:28'!
+!Portfolio methodsFor: 'name' stamp: 'hh 10/26/2023 02:46:17'!
+name
+
+	^name! !
+
+
+!Portfolio methodsFor: 'reports' stamp: 'hh 10/26/2023 03:42:13'!
+handleReportFor: aPortfolioOnlyReport
+	
+	aPortfolioOnlyReport portfolioReportOperation: self! !
+
+!Portfolio methodsFor: 'reports' stamp: 'hh 10/26/2023 14:48:31'!
 makeReportFor: aReport
-	accounts do: [ :anAccount |
-		anAccount makeReportFor: aReport 
-	].! !
+	
+	accounts do: [:anAccount |
+		anAccount handleReportFor: aReport
+		].! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -745,6 +1039,11 @@ Portfolio class
 canNotAddAccountErrorMessage
 	
 	^'Can not add repeated account to a portfolio'! !
+
+!Portfolio class methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 02:27:26'!
+named: accountName
+	
+	^self new initializeNamed: accountName! !
 
 !Portfolio class methodsFor: 'as yet unclassified' stamp: 'HAW 5/25/2019 11:18:21'!
 with: anAccount
@@ -761,19 +1060,27 @@ with: anAccount with: anotherAccount
 		add: anotherAccount;
 		yourself! !
 
+
 
 !classDefinition: #ReceptiveAccount category: 'Portfolio-Solucion'!
 Account subclass: #ReceptiveAccount
-	instanceVariableNames: 'transactions'
+	instanceVariableNames: 'transactions name'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Portfolio-Solucion'!
 
-!ReceptiveAccount methodsFor: 'initialization' stamp: 'HernanWilkinson 7/13/2011 18:35'!
+!ReceptiveAccount methodsFor: 'initialization' stamp: 'hh 10/26/2023 03:55:30'!
 initialize
 
 	super initialize.
-	transactions := OrderedCollection new.! !
+	transactions := OrderedCollection new.
+	name := 'Unnamed'.! !
+
+!ReceptiveAccount methodsFor: 'initialization' stamp: 'hh 10/26/2023 02:40:34'!
+initializeNamed: accountName
+
+	transactions := OrderedCollection new.
+	name := accountName .! !
 
 
 !ReceptiveAccount methodsFor: 'transactions' stamp: 'HAW 5/25/2019 11:38:52'!
@@ -819,11 +1126,34 @@ addedTo: aPortfolio
 	! !
 
 
-!ReceptiveAccount methodsFor: 'reports' stamp: 'mmuu 10/24/2023 21:51:28'!
+!ReceptiveAccount methodsFor: 'reports' stamp: 'hh 10/26/2023 03:41:46'!
+handleReportFor: aPortfolioOnlyReport
+	
+	aPortfolioOnlyReport receptiveAccountReportOperation: self.! !
+
+!ReceptiveAccount methodsFor: 'reports' stamp: 'hh 10/26/2023 01:18:53'!
 makeReportFor: aReport
-	transactions do: [ :anAccount |
-		anAccount handleReport: aReport 
-	].! !
+	
+	transactions do: [:aTransaction |
+			aTransaction handleReportFor: aReport 
+		].! !
+
+
+!ReceptiveAccount methodsFor: 'name' stamp: 'hh 10/26/2023 02:45:44'!
+name
+
+	^name.! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'ReceptiveAccount class' category: 'Portfolio-Solucion'!
+ReceptiveAccount class
+	instanceVariableNames: ''!
+
+!ReceptiveAccount class methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 02:40:04'!
+named: accountName
+	
+	^self new initializeNamed: accountName! !
 
 
 !classDefinition: #AccountTransaction category: 'Portfolio-Solucion'!
@@ -843,6 +1173,12 @@ value
 affectBalance: aBalance
 
 	self subclassResponsibility ! !
+
+
+!AccountTransaction methodsFor: 'reportOperation' stamp: 'hh 10/26/2023 01:17:55'!
+handleReportFor: aReport
+
+	self subclassResponsibility! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -886,9 +1222,11 @@ affectBalance: aBalance
 	^aBalance + value ! !
 
 
-!Deposit methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:49:48'!
-handleReport: aReport 
-	aReport handleReportForDeposit: self.! !
+
+!Deposit methodsFor: 'reportOperation' stamp: 'hh 10/26/2023 01:18:08'!
+handleReportFor: aReport
+
+	aReport depositOperation: self.! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -902,101 +1240,112 @@ for: aValue
 	^ self new initializeFor: aValue ! !
 
 
-!classDefinition: #TransferLegs category: 'Portfolio-Solucion'!
-AccountTransaction subclass: #TransferLegs
+!classDefinition: #TransferenceLegs category: 'Portfolio-Solucion'!
+AccountTransaction subclass: #TransferenceLegs
+	instanceVariableNames: 'transference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!TransferenceLegs methodsFor: 'initialize' stamp: 'hh 10/22/2023 19:17:35'!
+initializeFor: aTransference
+
+	transference := aTransference .! !
+
+
+
+
+!TransferenceLegs methodsFor: 'reportOperation' stamp: 'hh 10/26/2023 01:18:14'!
+handleReportFor: aReport
+
+	self subclassResponsibility! !
+
+
+!TransferenceLegs methodsFor: 'transference' stamp: 'mm uu 10/26/2023 16:10:51'!
+transference
+	^transference ! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'TransferenceLegs class' category: 'Portfolio-Solucion'!
+TransferenceLegs class
+	instanceVariableNames: ''!
+
+!TransferenceLegs class methodsFor: 'as yet unclassified' stamp: 'hh 10/22/2023 19:16:09'!
+for: transference
+
+	^self new initializeFor: transference .! !
+
+
+!classDefinition: #DepositLeg category: 'Portfolio-Solucion'!
+TransferenceLegs subclass: #DepositLeg
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Portfolio-Solucion'!
 
-
-!classDefinition: #DepositLeg category: 'Portfolio-Solucion'!
-TransferLegs subclass: #DepositLeg
-	instanceVariableNames: 'transference'
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Portfolio-Solucion'!
+!DepositLeg methodsFor: 'affectBalance' stamp: 'hh 10/22/2023 19:20:48'!
+affectBalance: currentBalance
 
-!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 19:59:44'!
-affectBalance: aBalance
+	^currentBalance + transference value! !
 
-	^aBalance + transference value! !
 
-!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 21:54:07'!
-handleReport: aReport 
-	aReport handleReportForDepositLeg: self! !
 
-!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:11:12'!
-initializeFor: aTransference of: anAmount 
-	transference := aTransference.
-	value := anAmount! !
-
-!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 19:49:51'!
-transference
-	^transference ! !
-
-!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 20:20:34'!
-value
-	^transference value! !
-
-!DepositLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 19:48:37'!
+!DepositLeg methodsFor: 'withdrawLeg' stamp: 'hh 10/22/2023 23:28:24'!
 withdrawLeg
+	
 	^transference withdrawLeg ! !
 
-"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'DepositLeg class' category: 'Portfolio-Solucion'!
-DepositLeg class
-	instanceVariableNames: ''!
+!DepositLeg methodsFor: 'value' stamp: 'hh 10/22/2023 23:34:41'!
+value
+	
+	^transference value! !
 
-!DepositLeg class methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:10:54'!
-for: aTransference of: anAmount
 
-	^ self new initializeFor: aTransference of: anAmount ! !
+
+!DepositLeg methodsFor: 'reportOperation' stamp: 'hh 10/26/2023 01:18:22'!
+handleReportFor: aReport
+
+	aReport depositLegOperation: self! !
 
 
 !classDefinition: #WithdrawLeg category: 'Portfolio-Solucion'!
-TransferLegs subclass: #WithdrawLeg
-	instanceVariableNames: 'transference'
+TransferenceLegs subclass: #WithdrawLeg
+	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Portfolio-Solucion'!
 
-!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 19:59:52'!
-affectBalance: aBalance
+!WithdrawLeg methodsFor: 'affectBalance' stamp: 'hh 10/22/2023 19:21:01'!
+affectBalance: currentBalance
 
-	^aBalance - transference value! !
+	^currentBalance + transference value negated! !
 
-!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 19:48:42'!
-depositLeg
-	^transference depositLeg ! !
 
-!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 21:53:10'!
-handleReport: aReport 
-	aReport handleReportForWithdrawLeg: self! !
-
-!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 20:21:08'!
-initializeFor: aTransference of: anAmount 
-	transference := aTransference.! !
-
-!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 19:49:37'!
+!WithdrawLeg methodsFor: 'transference' stamp: 'hh 10/22/2023 23:25:51'!
 transference
+	
 	^transference! !
 
-!WithdrawLeg methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 20:22:43'!
+
+!WithdrawLeg methodsFor: 'depositLeg' stamp: 'hh 10/22/2023 23:29:44'!
+depositLeg
+	
+	^transference depositLeg ! !
+
+
+!WithdrawLeg methodsFor: 'value' stamp: 'hh 10/22/2023 23:34:15'!
 value
-	^transference value.! !
+	
+	^transference value! !
 
-"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'WithdrawLeg class' category: 'Portfolio-Solucion'!
-WithdrawLeg class
-	instanceVariableNames: ''!
 
-!WithdrawLeg class methodsFor: 'as yet unclassified' stamp: 'mmuu 10/20/2023 13:08:58'!
-for: aTransference of: anAmount
+!WithdrawLeg methodsFor: 'reportOperation' stamp: 'hh 10/26/2023 01:18:31'!
+handleReportFor: aReport
 
-	^ self new initializeFor: aTransference of: anAmount ! !
+	aReport withdrawLegOperation: self! !
 
 
 !classDefinition: #Withdraw category: 'Portfolio-Solucion'!
@@ -1018,15 +1367,16 @@ value
 	^ value! !
 
 
-!Withdraw methodsFor: 'balance' stamp: 'HAW 5/25/2019 11:25:15'!
+!Withdraw methodsFor: 'reportOperation' stamp: 'hh 10/26/2023 01:18:40'!
+handleReportFor: aReport
+
+	aReport withdrawOperation: self! !
+
+
+!Withdraw methodsFor: 'affectBalance' stamp: 'HAW 5/25/2019 11:25:15'!
 affectBalance: aBalance
 
 	^aBalance - value! !
-
-
-!Withdraw methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:52:31'!
-handleReport: aReport 
-	aReport handleReportForWithdraw: self.! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -1040,69 +1390,272 @@ for: aValue
 	^ self new initializeFor: aValue ! !
 
 
-!classDefinition: #Reports category: 'Portfolio-Solucion'!
-Object subclass: #Reports
+!classDefinition: #Report category: 'Portfolio-Solucion'!
+Object subclass: #Report
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Portfolio-Solucion'!
 
-!Reports methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 22:05:32'!
-handleReportForDeposit: aDeposit
+!Report methodsFor: 'compute' stamp: 'hh 10/26/2023 01:58:35'!
+makeReport
 
 	self subclassResponsibility! !
 
 
-!Reports methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 22:06:05'!
-handleReportForDepositLeg: aDepositLeg
+!Report methodsFor: 'operations' stamp: 'hh 10/25/2023 16:16:32'!
+depositLegOperation: aDepositLeg
 
 	self subclassResponsibility! !
 
-!Reports methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 22:06:10'!
-handleReportForWithdraw: aWithdraw
+!Report methodsFor: 'operations' stamp: 'hh 10/25/2023 16:16:35'!
+depositOperation: aDeposit
 
 	self subclassResponsibility! !
 
-!Reports methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 22:06:15'!
-handleReportForWithdrawLeg: aWithdrawLeg
+!Report methodsFor: 'operations' stamp: 'hh 10/25/2023 16:16:38'!
+withdrawLegOperation: aWithdrawLeg
+
+	self subclassResponsibility! !
+
+!Report methodsFor: 'operations' stamp: 'hh 10/25/2023 16:16:40'!
+withdrawOperation: aWithdraw
+
+	self subclassResponsibility! !
+
+
+!classDefinition: #AccountRelatedReport category: 'Portfolio-Solucion'!
+Report subclass: #AccountRelatedReport
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!AccountRelatedReport methodsFor: 'as yet unclassified' stamp: 'mm uu 10/26/2023 16:14:16'!
+initializeFor: aPortfolio
+
+	self subclassResponsibility! !
+
+!AccountRelatedReport methodsFor: 'as yet unclassified' stamp: 'mm uu 10/26/2023 16:13:18'!
+makeReport
+
+	self subclassResponsibility! !
+
+!AccountRelatedReport methodsFor: 'as yet unclassified' stamp: 'mm uu 10/26/2023 16:13:22'!
+portfolioReportOperation: aPortfolio
+
+	self subclassResponsibility! !
+
+!AccountRelatedReport methodsFor: 'as yet unclassified' stamp: 'mm uu 10/26/2023 16:13:25'!
+receptiveAccountReportOperation: aReceptiveAccount
+
+	self subclassResponsibility! !
+
+
+!classDefinition: #PortfolioSpecialTreeStructure category: 'Portfolio-Solucion'!
+AccountRelatedReport subclass: #PortfolioSpecialTreeStructure
+	instanceVariableNames: 'portfolio treeStructure report'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!PortfolioSpecialTreeStructure methodsFor: 'as yet unclassified' stamp: 'mm uu 10/26/2023 15:43:48'!
+initializeFor: aPortfolio
+	portfolio := aPortfolio .
+	report := OrderedCollection new.! !
+
+!PortfolioSpecialTreeStructure methodsFor: 'as yet unclassified' stamp: 'mm uu 10/26/2023 15:59:54'!
+makeReport
+	report := OrderedCollection new.
+	report add: portfolio name.
+	portfolio makeReportFor: self.
+	report add: '    Balance = ', portfolio balance asString.
+	^report ! !
+
+!PortfolioSpecialTreeStructure methodsFor: 'as yet unclassified' stamp: 'mm uu 10/26/2023 16:03:54'!
+portfolioReportOperation: aPortfolio 
+	|portfolioTree|
+	
+	portfolioTree := PortfolioSpecialTreeStructure for: aPortfolio.
+	
+	report addAll: (portfolioTree makeReport collect: [:portfolioSpecialSummary | '    ',portfolioSpecialSummary])! !
+
+!PortfolioSpecialTreeStructure methodsFor: 'as yet unclassified' stamp: 'mm uu 10/26/2023 15:52:31'!
+receptiveAccountReportOperation: aReceptiveAccount 
+	|accountSummary|
+	report add: ('    ', aReceptiveAccount name).
+	accountSummary := AccountSummary for: aReceptiveAccount .
+	accountSummary makeReport do: [:transactionSummary |
+		report add: '        ', transactionSummary
+	].! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'PortfolioSpecialTreeStructure class' category: 'Portfolio-Solucion'!
+PortfolioSpecialTreeStructure class
+	instanceVariableNames: ''!
+
+!PortfolioSpecialTreeStructure class methodsFor: 'instance creation' stamp: 'mm uu 10/26/2023 15:19:52'!
+for: aPortfolio
+	^self new initializeFor: aPortfolio ! !
+
+
+!classDefinition: #PortfolioTreeStructure category: 'Portfolio-Solucion'!
+AccountRelatedReport subclass: #PortfolioTreeStructure
+	instanceVariableNames: 'portfolio treeStructure'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!PortfolioTreeStructure methodsFor: 'makeReport' stamp: 'hh 10/26/2023 14:59:30'!
+makeReport
+
+	treeStructure := OrderedCollection new.
+
+	treeStructure add: portfolio name.
+	portfolio makeReportFor: self.
+	
+	^treeStructure! !
+
+
+!PortfolioTreeStructure methodsFor: 'initialize' stamp: 'hh 10/26/2023 03:22:39'!
+initializeWith: aPortfolio 
+
+	portfolio := aPortfolio .
+	treeStructure := OrderedCollection new.! !
+
+
+!PortfolioTreeStructure methodsFor: 'reportOperations' stamp: 'hh 10/26/2023 03:46:00'!
+portfolioReportOperation: aPortfolio
+	
+	|portfolioTree|
+	
+	portfolioTree := PortfolioTreeStructure for: aPortfolio.
+	
+	treeStructure addAll: (portfolioTree makeReport collect: [:accountName | '    ',accountName])! !
+
+!PortfolioTreeStructure methodsFor: 'reportOperations' stamp: 'hh 10/26/2023 03:43:19'!
+receptiveAccountReportOperation: aReceptiveAccount
+
+	treeStructure add: '    ',aReceptiveAccount name! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'PortfolioTreeStructure class' category: 'Portfolio-Solucion'!
+PortfolioTreeStructure class
+	instanceVariableNames: ''!
+
+!PortfolioTreeStructure class methodsFor: 'as yet unclassified' stamp: 'hh 10/26/2023 03:21:16'!
+for: aPortfolio
+
+	^self new initializeWith: aPortfolio .! !
+
+
+!classDefinition: #TransactionsRelatedReport category: 'Portfolio-Solucion'!
+Report subclass: #TransactionsRelatedReport
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!TransactionsRelatedReport methodsFor: 'operations' stamp: 'mm uu 10/26/2023 16:13:38'!
+depositLegOperation: aDepositLeg
+
+	self subclassResponsibility! !
+
+!TransactionsRelatedReport methodsFor: 'operations' stamp: 'mm uu 10/26/2023 16:13:42'!
+depositOperation: aDeposit
+
+	self subclassResponsibility! !
+
+!TransactionsRelatedReport methodsFor: 'operations' stamp: 'mm uu 10/26/2023 16:14:08'!
+portfolioReportOperation: aPortfolio
+
+	self subclassResponsibility! !
+
+!TransactionsRelatedReport methodsFor: 'operations' stamp: 'mm uu 10/26/2023 16:13:52'!
+receptiveAccountReportOperation: aReceptiveAccount
+
+	self subclassResponsibility! !
+
+!TransactionsRelatedReport methodsFor: 'operations' stamp: 'mm uu 10/26/2023 16:13:59'!
+withdrawLegOperation: aWithdrawLeg
+
+	self subclassResponsibility! !
+
+!TransactionsRelatedReport methodsFor: 'operations' stamp: 'mm uu 10/26/2023 16:14:01'!
+withdrawOperation: aWithdraw
+
+	self subclassResponsibility! !
+
+
+!TransactionsRelatedReport methodsFor: 'initialize' stamp: 'mm uu 10/26/2023 16:13:45'!
+initializeFor: anAccount
+
+	self subclassResponsibility! !
+
+
+!TransactionsRelatedReport methodsFor: 'compute' stamp: 'mm uu 10/26/2023 16:13:49'!
+makeReport
 
 	self subclassResponsibility! !
 
 
 !classDefinition: #AccountSummary category: 'Portfolio-Solucion'!
-Reports subclass: #AccountSummary
-	instanceVariableNames: 'account accountSummary'
+TransactionsRelatedReport subclass: #AccountSummary
+	instanceVariableNames: 'account summary'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Portfolio-Solucion'!
 
-!AccountSummary methodsFor: 'initialization' stamp: 'mmuu 10/23/2023 21:55:10'!
+!AccountSummary methodsFor: 'initialize' stamp: 'hh 10/25/2023 15:15:50'!
 initializeFor: anAccount 
+	
 	account := anAccount.
-	accountSummary := OrderedCollection new! !
+	summary := OrderedCollection new.! !
 
 
-!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:51:50'!
-entries
+!AccountSummary methodsFor: 'compute' stamp: 'hh 10/26/2023 01:58:35'!
+makeReport
+
+	summary := OrderedCollection new.
+	
 	account makeReportFor: self.
-	accountSummary add: 'balance = ', account balance asString.
-	^accountSummary ! !
+	
+	summary add: 'Balance = ',account balance asString.
+	
+	^summary! !
 
-!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:50:09'!
-handleReportForDeposit: aDeposit 
-	accountSummary add: ('deposito por ', aDeposit value asString)! !
 
-!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:53:50'!
-handleReportForDepositLeg: aDepositLeg 
-	accountSummary add: ('entrada por transferencia de ', aDepositLeg value asString)! !
+!AccountSummary methodsFor: 'operations' stamp: 'hh 10/25/2023 16:06:57'!
+depositLegOperation: aDepositLeg
 
-!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:52:52'!
-handleReportForWithdraw: aWithdraw 
-	accountSummary add: ('extraccion por ', aWithdraw value asString)! !
+	^summary add: 'Entrance by transference of ',aDepositLeg value asString.! !
 
-!AccountSummary methodsFor: 'account summary' stamp: 'mmuu 10/24/2023 21:53:36'!
-handleReportForWithdrawLeg: aWithdrawLeg 
-	accountSummary add: ('salida por transferencia de ', aWithdrawLeg value asString)! !
+!AccountSummary methodsFor: 'operations' stamp: 'hh 10/25/2023 16:02:32'!
+depositOperation: aDeposit
+
+	^summary add: 'Deposit for ', aDeposit value asString! !
+
+!AccountSummary methodsFor: 'operations' stamp: 'hh 10/26/2023 14:56:41'!
+portfolioReportOperation: aPortfolio
+
+	aPortfolio makeReportFor: self! !
+
+!AccountSummary methodsFor: 'operations' stamp: 'hh 10/26/2023 14:54:46'!
+receptiveAccountReportOperation: aReceptiveAccount
+
+	aReceptiveAccount makeReportFor: self.! !
+
+!AccountSummary methodsFor: 'operations' stamp: 'hh 10/25/2023 16:04:09'!
+withdrawLegOperation: aWithdrawLeg
+
+	^summary add: 'Exit by transference of ', aWithdrawLeg value asString! !
+
+!AccountSummary methodsFor: 'operations' stamp: 'hh 10/25/2023 16:02:39'!
+withdrawOperation: aWithdraw
+
+	^summary add: 'Withdraw for ', aWithdraw value asString! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -1110,41 +1663,71 @@ handleReportForWithdrawLeg: aWithdrawLeg
 AccountSummary class
 	instanceVariableNames: ''!
 
-!AccountSummary class methodsFor: 'instance creation' stamp: 'mmuu 10/22/2023 18:37:58'!
+!AccountSummary class methodsFor: 'instance creation' stamp: 'hh 10/25/2023 14:26:56'!
 for: anAccount 
-	^self new initializeFor: anAccount ! !
+
+	^self new initializeFor: anAccount.! !
 
 
 !classDefinition: #TransferNet category: 'Portfolio-Solucion'!
-Reports subclass: #TransferNet
+TransactionsRelatedReport subclass: #TransferNet
 	instanceVariableNames: 'account transferNet'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Portfolio-Solucion'!
 
-!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 22:02:25'!
-handleReportForDeposit: aDeposit ! !
-
-!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 22:01:53'!
-handleReportForDepositLeg: aDepositLeg 
-	transferNet := transferNet + aDepositLeg value! !
-
-!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 22:02:35'!
-handleReportForWithdraw: aWithdraw ! !
-
-!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 22:00:56'!
-handleReportForWithdrawLeg: aWithdrawLeg 
-	transferNet := transferNet - aWithdrawLeg value! !
-
-!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:43:56'!
-initializeFor: anAccount
+!TransferNet methodsFor: 'initialize' stamp: 'hh 10/25/2023 15:37:49'!
+initializeFor: anAccount 
+	
 	account := anAccount.
 	transferNet := 0.! !
 
-!TransferNet methodsFor: 'as yet unclassified' stamp: 'mmuu 10/24/2023 22:00:15'!
-transferNet
+
+!TransferNet methodsFor: 'compute' stamp: 'hh 10/26/2023 01:58:35'!
+makeReport
+	
+	transferNet := 0.
+	
 	account makeReportFor: self.
-	^transferNet! !
+	
+	^transferNet .! !
+
+
+!TransferNet methodsFor: 'operations' stamp: 'hh 10/25/2023 16:11:28'!
+depositLegOperation: aDepositLeg
+
+	transferNet := transferNet + aDepositLeg value.
+	
+! !
+
+!TransferNet methodsFor: 'operations' stamp: 'hh 10/25/2023 16:11:33'!
+depositOperation: aDeposit! !
+
+!TransferNet methodsFor: 'operations' stamp: 'hh 10/26/2023 14:57:30'!
+portfolioReportOperation: aPortfolio
+
+	aPortfolio makeReportFor: self
+	
+! !
+
+!TransferNet methodsFor: 'operations' stamp: 'hh 10/26/2023 14:57:16'!
+receptiveAccountReportOperation: aReceptiveAccount
+
+	aReceptiveAccount makeReportFor: self
+	
+! !
+
+!TransferNet methodsFor: 'operations' stamp: 'hh 10/25/2023 16:11:11'!
+withdrawLegOperation: aWithdrawLeg
+
+	transferNet := transferNet - aWithdrawLeg value.
+	
+! !
+
+!TransferNet methodsFor: 'operations' stamp: 'hh 10/25/2023 16:10:44'!
+withdrawOperation: aWithdraw
+	
+! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -1152,37 +1735,53 @@ transferNet
 TransferNet class
 	instanceVariableNames: ''!
 
-!TransferNet class methodsFor: 'as yet unclassified' stamp: 'mmuu 10/23/2023 21:33:25'!
-for: anAccount
+!TransferNet class methodsFor: 'instance creation' stamp: 'hh 10/25/2023 15:28:01'!
+for: anAccount 
+	
 	^self new initializeFor: anAccount.! !
 
 
 !classDefinition: #Transference category: 'Portfolio-Solucion'!
 Object subclass: #Transference
-	instanceVariableNames: 'senderAccount receiverAccount value deposit withdraw'
+	instanceVariableNames: 'withdrawLeg depositLeg value'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Portfolio-Solucion'!
 
-!Transference methodsFor: 'initialization' stamp: 'mmuu 10/23/2023 19:46:45'!
-depositLeg
-	^deposit! !
+!Transference methodsFor: 'initialize' stamp: 'hh 10/22/2023 19:30:06'!
+with: transferenceValue from: senderAccount to: receiverAccount
 
-!Transference methodsFor: 'initialization' stamp: 'mmuu 10/23/2023 19:59:37'!
+	withdrawLeg := WithdrawLeg register: self on: senderAccount .
+	depositLeg := DepositLeg register: self on: receiverAccount .
+	value := transferenceValue .! !
+
+
+!Transference methodsFor: 'value' stamp: 'hh 10/22/2023 19:21:19'!
 value
+
 	^value! !
 
-!Transference methodsFor: 'initialization' stamp: 'mmuu 10/23/2023 19:59:29'!
-with: anAmount from: aSenderAccount to: aReceiverAccount
-	value := anAmount.
-	deposit := DepositLeg for: self of: anAmount.
-	withdraw := WithdrawLeg for: self of: anAmount.
-	aSenderAccount register: withdraw.
-	aReceiverAccount register: deposit.! !
 
-!Transference methodsFor: 'initialization' stamp: 'mmuu 10/23/2023 19:46:56'!
+!Transference methodsFor: 'tests' stamp: 'hh 10/22/2023 23:31:17'!
+accountHasDepositLegRegistered: anAccount 
+	
+	^anAccount hasRegistered: depositLeg .! !
+
+!Transference methodsFor: 'tests' stamp: 'hh 10/22/2023 23:31:03'!
+accountHasWithdrawLegRegistered: anAccount 
+	
+	^anAccount hasRegistered: withdrawLeg ! !
+
+
+!Transference methodsFor: 'legs' stamp: 'hh 10/22/2023 23:26:18'!
+depositLeg
+	
+	^depositLeg! !
+
+!Transference methodsFor: 'legs' stamp: 'hh 10/22/2023 23:25:21'!
 withdrawLeg
-	^withdraw! !
+	
+	^withdrawLeg! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -1190,7 +1789,7 @@ withdrawLeg
 Transference class
 	instanceVariableNames: ''!
 
-!Transference class methodsFor: 'instance creation' stamp: 'mmuu 10/19/2023 21:37:54'!
-with: anAmount from: aSenderAccount to: aReceiverAccount 
+!Transference class methodsFor: 'instance creation' stamp: 'hh 10/22/2023 19:21:55'!
+from: senderAccount to: receiverAccount withValue: transferenceValue
 	
-	^self new with: anAmount from: aSenderAccount to: aReceiverAccount ! !
+	^self new with: transferenceValue from: senderAccount to: receiverAccount .! !
