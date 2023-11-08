@@ -4753,3 +4753,1005 @@ PASSED!
 ----SNAPSHOT----(5 November 2023 14:25:30) CuisUniversity-5981.image priorSource: 10440873!
 
 ----SNAPSHOT----(5 November 2023 14:25:32) CuisUniversity-5981.image priorSource: 10468658!
+
+----STARTUP---- (6 November 2023 13:59:09) as C:\Users\Intekio\Desktop\windows64\CuisUniversity-5981.image!
+
+!CardTest methodsFor: 'tests' stamp: 'h 11/6/2023 14:00:21'!
+test01CardNumberIdCannotHaveLessThan16Digits
+	self
+		should: [Card withNumber: 0 expiration: GregorianMonthOfYear current cardHolder: 'manu']
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: Card invalidCardNumber ]! !
+
+!methodRemoval: CardTest #test01 stamp: 'h 11/6/2023 14:00:21'!
+test01
+	self
+		should: [Card withNumber: 0 expiration: GregorianMonthOfYear current cardHolder: 'manu']
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: Card invalidCardNumber ]!
+!CardTest methodsFor: 'tests' stamp: 'h 11/6/2023 14:00:37'!
+test02CardNumberIdCannotHaveMoreThan16Digits
+	self
+		should: [Card withNumber: 11111111111111111 expiration: GregorianMonthOfYear current cardHolder: 'manu']
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: Card invalidCardNumber ]! !
+
+!methodRemoval: CardTest #test02 stamp: 'h 11/6/2023 14:00:38'!
+test02
+	self
+		should: [Card withNumber: 11111111111111111 expiration: GregorianMonthOfYear current cardHolder: 'manu']
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: Card invalidCardNumber ]!
+!CardTest methodsFor: 'tests' stamp: 'h 11/6/2023 14:00:53'!
+test03CardNamec
+	self
+		should: [Card withNumber: self validCardNumber expiration: GregorianMonthOfYear current cardHolder: '']
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: Card invalidCardHolder ]! !
+
+!methodRemoval: CardTest #test03 stamp: 'h 11/6/2023 14:00:54'!
+test03
+	self
+		should: [Card withNumber: self validCardNumber expiration: GregorianMonthOfYear current cardHolder: '']
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: Card invalidCardHolder ]!
+!CardTest methodsFor: 'tests' stamp: 'h 11/6/2023 14:01:08'!
+test03CardNameCannotBeEmpty
+	self
+		should: [Card withNumber: self validCardNumber expiration: GregorianMonthOfYear current cardHolder: '']
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: Card invalidCardHolder ]! !
+
+!methodRemoval: CardTest #test03CardNamec stamp: 'h 11/6/2023 14:01:09'!
+test03CardNamec
+	self
+		should: [Card withNumber: self validCardNumber expiration: GregorianMonthOfYear current cardHolder: '']
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: Card invalidCardHolder ]!
+!CashierTest methodsFor: 'support' stamp: 'h 11/6/2023 14:02:36' prior: 50657422!
+onCheckoutWithValidCartWhenMerchantProcessorReturnsErrorShouldReturnSameErrorMessage: anErrorMessage
+
+	|cashier cart catalog card mockedMerchantProcessor|
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	catalog add: #anotherValidBook -> 9.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: [self error: anErrorMessage].
+	card := self createValidCard .
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	cart add: 'anotherValidBook'.
+	cashier := Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor .
+	
+	self 
+		should: [cashier checkout]
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: anErrorMessage].
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'h 11/6/2023 14:03:11' prior: 50657197!
+test01
+	|cart card mockedMerchantProcessor|
+	
+	mockedMerchantProcessor := MockedMerchantProcessor new.
+	card := self createValidCard.
+	cart := Cart acceptingItemsOf: (Dictionary new).
+	
+	self should: [Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor ]
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: Cashier cartIsEmptyErrorMessage ].! !
+
+!testRun: #CashierTest #test01 stamp: 'h 11/6/2023 14:03:11'!
+PASSED!
+
+!testRun: #CashierTest #test01 stamp: 'h 11/6/2023 14:03:11'!
+PASSED!
+
+!testRun: #CashierTest #test02 stamp: 'h 11/6/2023 14:03:11'!
+PASSED!
+
+!testRun: #CashierTest #test03 stamp: 'h 11/6/2023 14:03:11'!
+PASSED!
+
+!testRun: #CashierTest #test04 stamp: 'h 11/6/2023 14:03:11'!
+PASSED!
+
+!testRun: #CashierTest #test05 stamp: 'h 11/6/2023 14:03:12'!
+PASSED!
+
+!testRun: #CashierTest #test06 stamp: 'h 11/6/2023 14:03:12'!
+PASSED!
+
+!testRun: #CashierTest #test01 stamp: 'h 11/6/2023 14:03:32'!
+PASSED!
+
+!testRun: #CashierTest #test01 stamp: 'h 11/6/2023 14:03:37'!
+PASSED!
+
+!testRun: #CashierTest #test01 stamp: 'h 11/6/2023 14:03:37'!
+PASSED!
+
+!testRun: #CashierTest #test02 stamp: 'h 11/6/2023 14:03:37'!
+PASSED!
+
+!testRun: #CashierTest #test03 stamp: 'h 11/6/2023 14:03:37'!
+PASSED!
+
+!testRun: #CashierTest #test04 stamp: 'h 11/6/2023 14:03:37'!
+PASSED!
+
+!testRun: #CashierTest #test05 stamp: 'h 11/6/2023 14:03:37'!
+PASSED!
+
+!testRun: #CashierTest #test06 stamp: 'h 11/6/2023 14:03:37'!
+PASSED!
+!CashierTest methodsFor: 'tests' stamp: 'h 11/6/2023 14:04:43'!
+test01CannotCheckoutAnEmptyCart
+	|cart card mockedMerchantProcessor|
+	
+	mockedMerchantProcessor := MockedMerchantProcessor new.
+	card := self createValidCard.
+	cart := Cart acceptingItemsOf: (Dictionary new).
+	
+	self should: [Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor ]
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: Cashier cartIsEmptyErrorMessage ].! !
+
+!methodRemoval: CashierTest #test01 stamp: 'h 11/6/2023 14:04:43'!
+test01
+	|cart card mockedMerchantProcessor|
+	
+	mockedMerchantProcessor := MockedMerchantProcessor new.
+	card := self createValidCard.
+	cart := Cart acceptingItemsOf: (Dictionary new).
+	
+	self should: [Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor ]
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: Cashier cartIsEmptyErrorMessage ].!
+!CashierTest methodsFor: 'tests' stamp: 'h 11/6/2023 14:05:22' prior: 50658450!
+test02
+	|cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #book -> 3.
+	mockedMerchantProcessor := MockedMerchantProcessor new.
+	card := Card 
+		withNumber: self validCardNumber 
+		expiration: GregorianMonthOfYear current previous
+		cardHolder: 'manucho'.
+		
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'book'.
+	
+	self should: [Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor ]
+		raise: Error
+		withExceptionDo: [:anError | 
+			self assert: anError messageText equals: Cashier cardIsExpiredErrorMessage . ].
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'h 11/6/2023 14:05:46'!
+test02CannotCheckoutACartWithAnExpiredCreditCart
+	|cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #book -> 3.
+	mockedMerchantProcessor := MockedMerchantProcessor new.
+	card := Card 
+		withNumber: self validCardNumber 
+		expiration: GregorianMonthOfYear current previous
+		cardHolder: 'manucho'.
+		
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'book'.
+	
+	self should: [Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor ]
+		raise: Error
+		withExceptionDo: [:anError | 
+			self assert: anError messageText equals: Cashier cardIsExpiredErrorMessage . ].
+	! !
+
+!methodRemoval: CashierTest #test02 stamp: 'h 11/6/2023 14:05:46'!
+test02
+	|cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #book -> 3.
+	mockedMerchantProcessor := MockedMerchantProcessor new.
+	card := Card 
+		withNumber: self validCardNumber 
+		expiration: GregorianMonthOfYear current previous
+		cardHolder: 'manucho'.
+		
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'book'.
+	
+	self should: [Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor ]
+		raise: Error
+		withExceptionDo: [:anError | 
+			self assert: anError messageText equals: Cashier cardIsExpiredErrorMessage . ].
+	!
+!CashierTest methodsFor: 'tests' stamp: 'h 11/6/2023 14:06:23' prior: 50657726!
+test03
+	|cashier cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: ['transactionID'] whenItReceives: [:anAmount | anAmount = 7].
+	card := self createValidCard.
+	cashier := Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor .
+	
+	self assert: cashier checkout equals: 'transactionID'
+	! !
+!MockedMerchantProcessor methodsFor: 'initialization' stamp: 'h 11/6/2023 14:07:56' prior: 50658009!
+debit: anAmount from: aCard
+
+	(conditionBlock value: anAmount) ifTrue: [^returnBlock value].
+	^self error: 'condition for simulation was not met'.! !
+!MockedMerchantProcessor methodsFor: 'initialization' stamp: 'h 11/6/2023 14:08:01' prior: 50659071!
+debit: anAmount from: aCard
+
+	(conditionBlock value: anAmount) ifTrue: [^returnBlock value].
+	
+	^self error: 'condition for simulation was not met'.! !
+!CashierTest methodsFor: 'tests' stamp: 'h 11/6/2023 14:11:02'!
+test03CashierGivesATransactionIdWhenItCheckoutsACart
+	|cashier cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: ['transactionID'] whenItReceives: [:anAmount | anAmount = 7].
+	card := self createValidCard.
+	cashier := Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor .
+	
+	self assert: cashier checkout equals: 'transactionID'
+	! !
+
+!methodRemoval: CashierTest #test03 stamp: 'h 11/6/2023 14:11:02'!
+test03
+	|cashier cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: ['transactionID'] whenItReceives: [:anAmount | anAmount = 7].
+	card := self createValidCard.
+	cashier := Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor .
+	
+	self assert: cashier checkout equals: 'transactionID'
+	!
+!CashierTest methodsFor: 'tests' stamp: 'h 11/6/2023 14:13:12' prior: 50657747!
+test04
+	|cashier cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	catalog add: #anotherValidBook -> 9.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: 'transactionID' whenItReceives: [:anAmount | anAmount = 16].
+	card := self createValidCard.
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	cart add: 'anotherValidBook'.
+	cashier := Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor .
+	
+	self assert: cashier checkout equals: 'transactionID'
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'h 11/6/2023 14:13:26'!
+test04CashierCheckoutsCartWithMultipleItems
+	|cashier cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	catalog add: #anotherValidBook -> 9.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: 'transactionID' whenItReceives: [:anAmount | anAmount = 16].
+	card := self createValidCard.
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	cart add: 'anotherValidBook'.
+	cashier := Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor .
+	
+	self assert: cashier checkout equals: 'transactionID'
+	! !
+
+!methodRemoval: CashierTest #test04 stamp: 'h 11/6/2023 14:13:26'!
+test04
+	|cashier cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	catalog add: #anotherValidBook -> 9.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: 'transactionID' whenItReceives: [:anAmount | anAmount = 16].
+	card := self createValidCard.
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	cart add: 'anotherValidBook'.
+	cashier := Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor .
+	
+	self assert: cashier checkout equals: 'transactionID'
+	!
+!CashierTest methodsFor: 'tests' stamp: 'h 11/6/2023 14:13:39'!
+test03CashierCheckoutsCartWithOneItem
+	|cashier cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: ['transactionID'] whenItReceives: [:anAmount | anAmount = 7].
+	card := self createValidCard.
+	cashier := Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor .
+	
+	self assert: cashier checkout equals: 'transactionID'
+	! !
+
+!methodRemoval: CashierTest #test03CashierGivesATransactionIdWhenItCheckoutsACart stamp: 'h 11/6/2023 14:13:39'!
+test03CashierGivesATransactionIdWhenItCheckoutsACart
+	|cashier cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: ['transactionID'] whenItReceives: [:anAmount | anAmount = 7].
+	card := self createValidCard.
+	cashier := Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor .
+	
+	self assert: cashier checkout equals: 'transactionID'
+	!
+!CashierTest methodsFor: 'tests' stamp: 'h 11/6/2023 14:14:10' prior: 50657450!
+test05
+	
+	self 
+onCheckoutWithValidCartWhenMerchantProcessorReturnsErrorShouldReturnSameErrorMessage: 'insufficient funds'.
+	! !
+!CashierTest methodsFor: 'support' stamp: 'h 11/6/2023 14:15:03'!
+checkoutWithValidCartWhenMerchantProcessorReturnsErrorShouldReturnSameErrorMessage: anErrorMessage
+
+	|cashier cart catalog card mockedMerchantProcessor|
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	catalog add: #anotherValidBook -> 9.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: [self error: anErrorMessage].
+	card := self createValidCard .
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	cart add: 'anotherValidBook'.
+	cashier := Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor .
+	
+	self 
+		should: [cashier checkout]
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: anErrorMessage].
+	! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:15:03' prior: 50657497!
+test06
+	self checkoutWithValidCartWhenMerchantProcessorReturnsErrorShouldReturnSameErrorMessage: 'stolen card'.
+	! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:15:03' prior: 50659225!
+test05
+	
+	self 
+checkoutWithValidCartWhenMerchantProcessorReturnsErrorShouldReturnSameErrorMessage: 'insufficient funds'.
+	! !
+
+!methodRemoval: CashierTest #onCheckoutWithValidCartWhenMerchantProcessorReturnsErrorShouldReturnSameErrorMessage: stamp: 'h 11/6/2023 14:15:03'!
+onCheckoutWithValidCartWhenMerchantProcessorReturnsErrorShouldReturnSameErrorMessage: anErrorMessage
+
+	|cashier cart catalog card mockedMerchantProcessor|
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	catalog add: #anotherValidBook -> 9.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: [self error: anErrorMessage].
+	card := self createValidCard .
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	cart add: 'anotherValidBook'.
+	cashier := Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor .
+	
+	self 
+		should: [cashier checkout]
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: anErrorMessage].
+	!
+!CashierTest methodsFor: 'tests' stamp: 'h 11/6/2023 14:15:16' prior: 50659265!
+test05
+	
+	self 
+	checkoutWithValidCartWhenMerchantProcessorReturnsErrorShouldReturnSameErrorMessage: 'insufficient funds'.
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'h 11/6/2023 14:15:27' prior: 50659258!
+test06
+	self checkoutWithValidCartWhenMerchantProcessorReturnsErrorShouldReturnSameErrorMessage: 'stolen card'.
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'h 11/6/2023 14:15:32' prior: 50659306!
+test06
+
+	self checkoutWithValidCartWhenMerchantProcessorReturnsErrorShouldReturnSameErrorMessage: 'stolen card'.
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'h 11/6/2023 14:17:14'!
+test05CannotChekoutWhenCardHasInsufficientFunds
+	
+	self 
+	checkoutWithValidCartWhenMerchantProcessorReturnsErrorShouldReturnSameErrorMessage: 'insufficient funds'.
+	! !
+
+!methodRemoval: CashierTest #test05 stamp: 'h 11/6/2023 14:17:14'!
+test05
+	
+	self 
+	checkoutWithValidCartWhenMerchantProcessorReturnsErrorShouldReturnSameErrorMessage: 'insufficient funds'.
+	!
+!CashierTest methodsFor: 'tests' stamp: 'h 11/6/2023 14:17:35'!
+test06CannotCheckoutWhitAStolenCard
+
+	self checkoutWithValidCartWhenMerchantProcessorReturnsErrorShouldReturnSameErrorMessage: 'stolen card'.
+	! !
+
+!methodRemoval: CashierTest #test06 stamp: 'h 11/6/2023 14:17:35'!
+test06
+
+	self checkoutWithValidCartWhenMerchantProcessorReturnsErrorShouldReturnSameErrorMessage: 'stolen card'.
+	!
+!Cashier class methodsFor: 'instance creation' stamp: 'h 11/6/2023 14:25:51'!
+for: aCart withCard: aCard forDate: aDate andMerchantProcessor: merchantProcessor
+	self assertCartIsNotEmpty: aCart.
+	self assertCardIsNotExpired: aCard.
+	
+	^self new initializeFor: aCart withCard: aCard andMerchantProcessor: merchantProcessor ! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:25:51' prior: 50658957!
+test01CannotCheckoutAnEmptyCart
+	|cart card mockedMerchantProcessor|
+	
+	mockedMerchantProcessor := MockedMerchantProcessor new.
+	card := self createValidCard.
+	cart := Cart acceptingItemsOf: (Dictionary new).
+	
+	self should: [Cashier for: cart withCard: card forDate: aDate andMerchantProcessor: mockedMerchantProcessor ]
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: Cashier cartIsEmptyErrorMessage ].! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:25:51' prior: 50659232!
+checkoutWithValidCartWhenMerchantProcessorReturnsErrorShouldReturnSameErrorMessage: anErrorMessage
+
+	|cashier cart catalog card mockedMerchantProcessor|
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	catalog add: #anotherValidBook -> 9.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: [self error: anErrorMessage].
+	card := self createValidCard .
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	cart add: 'anotherValidBook'.
+	cashier := Cashier for: cart withCard: card forDate: aDate andMerchantProcessor: mockedMerchantProcessor .
+	
+	self 
+		should: [cashier checkout]
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: anErrorMessage].
+	! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:25:51' prior: 50659144!
+test04CashierCheckoutsCartWithMultipleItems
+	|cashier cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	catalog add: #anotherValidBook -> 9.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: 'transactionID' whenItReceives: [:anAmount | anAmount = 16].
+	card := self createValidCard.
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	cart add: 'anotherValidBook'.
+	cashier := Cashier for: cart withCard: card forDate: aDate andMerchantProcessor: mockedMerchantProcessor .
+	
+	self assert: cashier checkout equals: 'transactionID'
+	! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:25:51' prior: 50659009!
+test02CannotCheckoutACartWithAnExpiredCreditCart
+	|cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #book -> 3.
+	mockedMerchantProcessor := MockedMerchantProcessor new.
+	card := Card 
+		withNumber: self validCardNumber 
+		expiration: GregorianMonthOfYear current previous
+		cardHolder: 'manucho'.
+		
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'book'.
+	
+	self should: [Cashier for: cart withCard: card forDate: aDate andMerchantProcessor: mockedMerchantProcessor ]
+		raise: Error
+		withExceptionDo: [:anError | 
+			self assert: anError messageText equals: Cashier cardIsExpiredErrorMessage . ].
+	! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:25:51' prior: 50659185!
+test03CashierCheckoutsCartWithOneItem
+	|cashier cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: ['transactionID'] whenItReceives: [:anAmount | anAmount = 7].
+	card := self createValidCard.
+	cashier := Cashier for: cart withCard: card forDate: aDate andMerchantProcessor: mockedMerchantProcessor .
+	
+	self assert: cashier checkout equals: 'transactionID'
+	! !
+
+!methodRemoval: Cashier class #for:withCard:andMerchantProcessor: stamp: 'h 11/6/2023 14:25:51'!
+for: aCart withCard: aCard andMerchantProcessor: merchantProcessor
+	self assertCartIsNotEmpty: aCart.
+	self assertCardIsNotExpired: aCard.
+	
+	^self new initializeFor: aCart withCard: aCard andMerchantProcessor: merchantProcessor !
+!Cashier class methodsFor: 'instance creation' stamp: 'h 11/6/2023 14:26:04' prior: 50659346!
+for: aCart withCard: aCard forDate: aDate andMerchantProcessor: merchantProcessor
+	self assertCartIsNotEmpty: aCart.
+	self assertCardIsNotExpired: aCard since: aDate.
+	
+	^self new initializeFor: aCart withCard: aCard andMerchantProcessor: merchantProcessor ! !
+!Cashier class methodsFor: 'instance creation' stamp: 'h 11/6/2023 14:26:34'!
+assertCardIsNotExpired: aCard since: aMonthOfYear
+
+	^ (aCard isExpirationLessThan: aMonthOfYear ) ifTrue: [self error: self cardIsExpiredErrorMessage ]! !
+!Cashier class methodsFor: 'instance creation' stamp: 'h 11/6/2023 14:26:54' prior: 50659478!
+for: aCart withCard: aCard forDate: aMonthOfYear andMerchantProcessor: merchantProcessor
+	self assertCartIsNotEmpty: aCart.
+	self assertCardIsNotExpired: aCard since: aMonthOfYear .
+	
+	^self new initializeFor: aCart withCard: aCard andMerchantProcessor: merchantProcessor ! !
+!Cashier class methodsFor: 'instance creation' stamp: 'h 11/6/2023 14:27:07'!
+for: aCart withCard: aCard forMonthOfYear: aMonthOfYear andMerchantProcessor: merchantProcessor
+	self assertCartIsNotEmpty: aCart.
+	self assertCardIsNotExpired: aCard since: aMonthOfYear .
+	
+	^self new initializeFor: aCart withCard: aCard andMerchantProcessor: merchantProcessor ! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:27:07' prior: 50659357!
+test01CannotCheckoutAnEmptyCart
+	|cart card mockedMerchantProcessor|
+	
+	mockedMerchantProcessor := MockedMerchantProcessor new.
+	card := self createValidCard.
+	cart := Cart acceptingItemsOf: (Dictionary new).
+	
+	self should: [Cashier for: cart withCard: card forMonthOfYear: aDate andMerchantProcessor: mockedMerchantProcessor ]
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: Cashier cartIsEmptyErrorMessage ].! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:27:07' prior: 50659374!
+checkoutWithValidCartWhenMerchantProcessorReturnsErrorShouldReturnSameErrorMessage: anErrorMessage
+
+	|cashier cart catalog card mockedMerchantProcessor|
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	catalog add: #anotherValidBook -> 9.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: [self error: anErrorMessage].
+	card := self createValidCard .
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	cart add: 'anotherValidBook'.
+	cashier := Cashier for: cart withCard: card forMonthOfYear: aDate andMerchantProcessor: mockedMerchantProcessor .
+	
+	self 
+		should: [cashier checkout]
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: anErrorMessage].
+	! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:27:07' prior: 50659423!
+test02CannotCheckoutACartWithAnExpiredCreditCart
+	|cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #book -> 3.
+	mockedMerchantProcessor := MockedMerchantProcessor new.
+	card := Card 
+		withNumber: self validCardNumber 
+		expiration: GregorianMonthOfYear current previous
+		cardHolder: 'manucho'.
+		
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'book'.
+	
+	self should: [Cashier for: cart withCard: card forMonthOfYear: aDate andMerchantProcessor: mockedMerchantProcessor ]
+		raise: Error
+		withExceptionDo: [:anError | 
+			self assert: anError messageText equals: Cashier cardIsExpiredErrorMessage . ].
+	! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:27:07' prior: 50659400!
+test04CashierCheckoutsCartWithMultipleItems
+	|cashier cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	catalog add: #anotherValidBook -> 9.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: 'transactionID' whenItReceives: [:anAmount | anAmount = 16].
+	card := self createValidCard.
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	cart add: 'anotherValidBook'.
+	cashier := Cashier for: cart withCard: card forMonthOfYear: aDate andMerchantProcessor: mockedMerchantProcessor .
+	
+	self assert: cashier checkout equals: 'transactionID'
+	! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:27:07' prior: 50659447!
+test03CashierCheckoutsCartWithOneItem
+	|cashier cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: ['transactionID'] whenItReceives: [:anAmount | anAmount = 7].
+	card := self createValidCard.
+	cashier := Cashier for: cart withCard: card forMonthOfYear: aDate andMerchantProcessor: mockedMerchantProcessor .
+	
+	self assert: cashier checkout equals: 'transactionID'
+	! !
+
+!methodRemoval: Cashier class #for:withCard:forDate:andMerchantProcessor: stamp: 'h 11/6/2023 14:27:07'!
+for: aCart withCard: aCard forDate: aMonthOfYear andMerchantProcessor: merchantProcessor
+	self assertCartIsNotEmpty: aCart.
+	self assertCardIsNotExpired: aCard since: aMonthOfYear .
+	
+	^self new initializeFor: aCart withCard: aCard andMerchantProcessor: merchantProcessor !
+!Cashier class methodsFor: 'instance creation' stamp: 'h 11/6/2023 14:28:05' prior: 50659509!
+for: aCart withCard: aCard forMonthOfYear: aMonthOfYear andMerchantProcessor: merchantProcessor
+	self assertCartIsNotEmpty: aCart.
+	self assertCardIsNotExpired: aCard .
+	
+	^self new initializeFor: aCart withCard: aCard andMerchantProcessor: merchantProcessor ! !
+!Cashier class methodsFor: 'instance creation' stamp: 'h 11/6/2023 14:28:12'!
+for: aCart withCard: aCard andMerchantProcessor: merchantProcessor
+	self assertCartIsNotEmpty: aCart.
+	self assertCardIsNotExpired: aCard .
+	
+	^self new initializeFor: aCart withCard: aCard andMerchantProcessor: merchantProcessor ! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:28:12' prior: 50659565!
+test02CannotCheckoutACartWithAnExpiredCreditCart
+	|cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #book -> 3.
+	mockedMerchantProcessor := MockedMerchantProcessor new.
+	card := Card 
+		withNumber: self validCardNumber 
+		expiration: GregorianMonthOfYear current previous
+		cardHolder: 'manucho'.
+		
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'book'.
+	
+	self should: [Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor ]
+		raise: Error
+		withExceptionDo: [:anError | 
+			self assert: anError messageText equals: Cashier cardIsExpiredErrorMessage . ].
+	! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:28:12' prior: 50659521!
+test01CannotCheckoutAnEmptyCart
+	|cart card mockedMerchantProcessor|
+	
+	mockedMerchantProcessor := MockedMerchantProcessor new.
+	card := self createValidCard.
+	cart := Cart acceptingItemsOf: (Dictionary new).
+	
+	self should: [Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor ]
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: Cashier cartIsEmptyErrorMessage ].! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:28:12' prior: 50659539!
+checkoutWithValidCartWhenMerchantProcessorReturnsErrorShouldReturnSameErrorMessage: anErrorMessage
+
+	|cashier cart catalog card mockedMerchantProcessor|
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	catalog add: #anotherValidBook -> 9.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: [self error: anErrorMessage].
+	card := self createValidCard .
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	cart add: 'anotherValidBook'.
+	cashier := Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor .
+	
+	self 
+		should: [cashier checkout]
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: anErrorMessage].
+	! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:28:12' prior: 50659612!
+test03CashierCheckoutsCartWithOneItem
+	|cashier cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: ['transactionID'] whenItReceives: [:anAmount | anAmount = 7].
+	card := self createValidCard.
+	cashier := Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor .
+	
+	self assert: cashier checkout equals: 'transactionID'
+	! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:28:12' prior: 50659589!
+test04CashierCheckoutsCartWithMultipleItems
+	|cashier cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	catalog add: #anotherValidBook -> 9.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: 'transactionID' whenItReceives: [:anAmount | anAmount = 16].
+	card := self createValidCard.
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	cart add: 'anotherValidBook'.
+	cashier := Cashier for: cart withCard: card andMerchantProcessor: mockedMerchantProcessor .
+	
+	self assert: cashier checkout equals: 'transactionID'
+	! !
+
+!methodRemoval: Cashier class #for:withCard:forMonthOfYear:andMerchantProcessor: stamp: 'h 11/6/2023 14:28:12'!
+for: aCart withCard: aCard forMonthOfYear: aMonthOfYear andMerchantProcessor: merchantProcessor
+	self assertCartIsNotEmpty: aCart.
+	self assertCardIsNotExpired: aCard .
+	
+	^self new initializeFor: aCart withCard: aCard andMerchantProcessor: merchantProcessor !
+
+!testRun: #CashierTest #test01CannotCheckoutAnEmptyCart stamp: 'h 11/6/2023 14:28:22'!
+PASSED!
+
+!testRun: #CashierTest #test02CannotCheckoutACartWithAnExpiredCreditCart stamp: 'h 11/6/2023 14:28:22'!
+PASSED!
+
+!testRun: #CashierTest #test03CashierCheckoutsCartWithOneItem stamp: 'h 11/6/2023 14:28:22'!
+PASSED!
+
+!testRun: #CashierTest #test04CashierCheckoutsCartWithMultipleItems stamp: 'h 11/6/2023 14:28:22'!
+PASSED!
+
+!testRun: #CashierTest #test05CannotChekoutWhenCardHasInsufficientFunds stamp: 'h 11/6/2023 14:28:22'!
+PASSED!
+
+!testRun: #CashierTest #test06CannotCheckoutWhitAStolenCard stamp: 'h 11/6/2023 14:28:23'!
+PASSED!
+!Cashier class methodsFor: 'instance creation' stamp: 'h 11/6/2023 14:29:20'!
+for: aCart withCard: aCard forMonthOfYear: aMonthOfYear andMerchantProcessor: merchantProcessor
+	self assertCartIsNotEmpty: aCart.
+	self assertCardIsNotExpired: aCard .
+	
+	^self new initializeFor: aCart withCard: aCard andMerchantProcessor: merchantProcessor ! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:29:20' prior: 50659667!
+test02CannotCheckoutACartWithAnExpiredCreditCart
+	|cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #book -> 3.
+	mockedMerchantProcessor := MockedMerchantProcessor new.
+	card := Card 
+		withNumber: self validCardNumber 
+		expiration: GregorianMonthOfYear current previous
+		cardHolder: 'manucho'.
+		
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'book'.
+	
+	self should: [Cashier for: cart withCard: card forMonthOfYear: GregorianMonthOfYear current andMerchantProcessor: mockedMerchantProcessor ]
+		raise: Error
+		withExceptionDo: [:anError | 
+			self assert: anError messageText equals: Cashier cardIsExpiredErrorMessage . ].
+	! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:29:20' prior: 50659707!
+checkoutWithValidCartWhenMerchantProcessorReturnsErrorShouldReturnSameErrorMessage: anErrorMessage
+
+	|cashier cart catalog card mockedMerchantProcessor|
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	catalog add: #anotherValidBook -> 9.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: [self error: anErrorMessage].
+	card := self createValidCard .
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	cart add: 'anotherValidBook'.
+	cashier := Cashier for: cart withCard: card forMonthOfYear: GregorianMonthOfYear current andMerchantProcessor: mockedMerchantProcessor .
+	
+	self 
+		should: [cashier checkout]
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: anErrorMessage].
+	! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:29:20' prior: 50659690!
+test01CannotCheckoutAnEmptyCart
+	|cart card mockedMerchantProcessor|
+	
+	mockedMerchantProcessor := MockedMerchantProcessor new.
+	card := self createValidCard.
+	cart := Cart acceptingItemsOf: (Dictionary new).
+	
+	self should: [Cashier for: cart withCard: card forMonthOfYear: GregorianMonthOfYear current andMerchantProcessor: mockedMerchantProcessor ]
+		raise: Error
+		withExceptionDo: [:anError | self assert: anError messageText equals: Cashier cartIsEmptyErrorMessage ].! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:29:20' prior: 50659733!
+test03CashierCheckoutsCartWithOneItem
+	|cashier cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: ['transactionID'] whenItReceives: [:anAmount | anAmount = 7].
+	card := self createValidCard.
+	cashier := Cashier for: cart withCard: card forMonthOfYear: GregorianMonthOfYear current andMerchantProcessor: mockedMerchantProcessor .
+	
+	self assert: cashier checkout equals: 'transactionID'
+	! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'h 11/6/2023 14:29:20' prior: 50659753!
+test04CashierCheckoutsCartWithMultipleItems
+	|cashier cart catalog card mockedMerchantProcessor|
+	
+	catalog := Dictionary new.
+	catalog add: #validBook -> 7.
+	catalog add: #anotherValidBook -> 9.
+	
+	mockedMerchantProcessor := MockedMerchantProcessor returns: 'transactionID' whenItReceives: [:anAmount | anAmount = 16].
+	card := self createValidCard.
+	
+	cart := Cart acceptingItemsOf: (catalog).
+	cart add: 'validBook'.
+	cart add: 'anotherValidBook'.
+	cashier := Cashier for: cart withCard: card forMonthOfYear: GregorianMonthOfYear current andMerchantProcessor: mockedMerchantProcessor .
+	
+	self assert: cashier checkout equals: 'transactionID'
+	! !
+
+!methodRemoval: Cashier class #for:withCard:andMerchantProcessor: stamp: 'h 11/6/2023 14:29:20'!
+for: aCart withCard: aCard andMerchantProcessor: merchantProcessor
+	self assertCartIsNotEmpty: aCart.
+	self assertCardIsNotExpired: aCard .
+	
+	^self new initializeFor: aCart withCard: aCard andMerchantProcessor: merchantProcessor !
+!Cashier class methodsFor: 'instance creation' stamp: 'h 11/6/2023 14:29:32' prior: 50659806!
+for: aCart withCard: aCard forMonthOfYear: aMonthOfYear andMerchantProcessor: merchantProcessor
+	self assertCartIsNotEmpty: aCart.
+	self assertCardIsNotExpired: aCard since: aMonthOfYear .
+	
+	^self new initializeFor: aCart withCard: aCard andMerchantProcessor: merchantProcessor ! !
+
+!testRun: #CashierTest #test01CannotCheckoutAnEmptyCart stamp: 'h 11/6/2023 14:29:35'!
+PASSED!
+
+!testRun: #CashierTest #test02CannotCheckoutACartWithAnExpiredCreditCart stamp: 'h 11/6/2023 14:29:35'!
+PASSED!
+
+!testRun: #CashierTest #test03CashierCheckoutsCartWithOneItem stamp: 'h 11/6/2023 14:29:35'!
+PASSED!
+
+!testRun: #CashierTest #test04CashierCheckoutsCartWithMultipleItems stamp: 'h 11/6/2023 14:29:35'!
+PASSED!
+
+!testRun: #CashierTest #test05CannotChekoutWhenCardHasInsufficientFunds stamp: 'h 11/6/2023 14:29:35'!
+PASSED!
+
+!testRun: #CashierTest #test06CannotCheckoutWhitAStolenCard stamp: 'h 11/6/2023 14:29:35'!
+PASSED!
+
+!testRun: #CartTest #test01NewCartsAreCreatedEmpty stamp: 'h 11/6/2023 14:29:36'!
+PASSED!
+
+!testRun: #CartTest #test02CanNotAddItemsThatDoNotBelongToStore stamp: 'h 11/6/2023 14:29:37'!
+PASSED!
+
+!testRun: #CartTest #test03AfterAddingAnItemTheCartIsNotEmptyAnymore stamp: 'h 11/6/2023 14:29:37'!
+PASSED!
+
+!testRun: #CartTest #test04CanNotAddNonPositiveNumberOfItems stamp: 'h 11/6/2023 14:29:37'!
+PASSED!
+
+!testRun: #CartTest #test05CanNotAddMoreThanOneItemNotSellByTheStore stamp: 'h 11/6/2023 14:29:37'!
+PASSED!
+
+!testRun: #CartTest #test06CartRemembersAddedItems stamp: 'h 11/6/2023 14:29:37'!
+PASSED!
+
+!testRun: #CartTest #test07CartDoesNotHoldNotAddedItems stamp: 'h 11/6/2023 14:29:37'!
+PASSED!
+
+!testRun: #CartTest #test08CartRemembersTheNumberOfAddedItems stamp: 'h 11/6/2023 14:29:37'!
+PASSED!
+
+!testRun: #CardTest #test01CardNumberIdCannotHaveLessThan16Digits stamp: 'h 11/6/2023 14:29:39'!
+PASSED!
+
+!testRun: #CardTest #test02CardNumberIdCannotHaveMoreThan16Digits stamp: 'h 11/6/2023 14:29:39'!
+PASSED!
+
+!testRun: #CardTest #test03CardNameCannotBeEmpty stamp: 'h 11/6/2023 14:29:39'!
+PASSED!
+
+Date today month!
+
+Date today month!
+
+Date today month class!
+
+Date today monthOfYear !
+
+Date today!
+
+Date today monthOfYear !
+
+Date today month!
+
+Date today month monthOfYear !
+
+Date monthOfYear !
+
+GregorianMonthOfYear current previous!
+
+GregorianMonthOfYear current previous < Date today!
+
+!methodRemoval: Cashier class #assertCardIsNotExpired: stamp: 'h 11/6/2023 14:33:54'!
+assertCardIsNotExpired: aCard
+
+	^ (aCard isExpirationLessThan: GregorianMonthOfYear current) ifTrue: [self error: self cardIsExpiredErrorMessage ]!
+
+!testRun: #CashierTest #test01CannotCheckoutAnEmptyCart stamp: 'h 11/6/2023 14:33:56'!
+PASSED!
+
+!testRun: #CashierTest #test02CannotCheckoutACartWithAnExpiredCreditCart stamp: 'h 11/6/2023 14:33:56'!
+PASSED!
+
+!testRun: #CashierTest #test03CashierCheckoutsCartWithOneItem stamp: 'h 11/6/2023 14:33:56'!
+PASSED!
+
+!testRun: #CashierTest #test04CashierCheckoutsCartWithMultipleItems stamp: 'h 11/6/2023 14:33:56'!
+PASSED!
+
+!testRun: #CashierTest #test05CannotChekoutWhenCardHasInsufficientFunds stamp: 'h 11/6/2023 14:33:56'!
+PASSED!
+
+!testRun: #CashierTest #test06CannotCheckoutWhitAStolenCard stamp: 'h 11/6/2023 14:33:56'!
+PASSED!
+
+----SNAPSHOT----(6 November 2023 14:33:59) CuisUniversity-5981.image priorSource: 10468751!
