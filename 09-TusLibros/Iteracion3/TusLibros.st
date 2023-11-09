@@ -258,8 +258,8 @@ setUp
 	factory := StoreTestObjectsFactory new! !
 
 
-!InterfazEntradaTests methodsFor: 'support' stamp: 'mm uu 11/8/2023 14:25:42'!
-createCartForClient: aClient with: aPassword add: anItem withOcurrences: ocurrences with: anInterface
+!InterfazEntradaTests methodsFor: 'support' stamp: 'h 11/9/2023 12:31:53'!
+checkoutCartForClient: aClient with: aPassword add: anItem withOcurrences: ocurrences with: anInterface
 	|cartId card merchantProcessor |
 	card := factory notExpiredCreditCard .
 	merchantProcessor := MerchantProcessorStub withDefaultBehavior: [:anAmount :aCreditCard|].
@@ -416,14 +416,14 @@ test09CannotAddItemThatIsNotInCatalog
 		withExceptionDo: [
 			:anError | self assert: anError messageText equals: Cart invalidItemErrorMessage ]! !
 
-!InterfazEntradaTests methodsFor: 'tests' stamp: 'mm uu 11/8/2023 16:58:31'!
+!InterfazEntradaTests methodsFor: 'tests' stamp: 'h 11/9/2023 12:31:53'!
 test11InterfaceShowsPurchaseAfterCheckout
 	|interface|
 	
 	interface := factory defaultInterface .
 	
 	self 
-		createCartForClient: factory defaultUsername 
+		checkoutCartForClient: factory defaultUsername 
 		with: factory defaultPassword 
 		add: factory itemSellByTheStore 
 		withOcurrences: 1
@@ -435,19 +435,27 @@ test11InterfaceShowsPurchaseAfterCheckout
 			with: factory itemSellByTheStore with: 1
 			with: factory itemSellByTheStorePrice )! !
 
-!InterfazEntradaTests methodsFor: 'tests' stamp: 'mm uu 11/8/2023 16:58:20'!
-test12InterfaceShowsMultiplePurchasesAfterMultipleCheckouts
+!InterfazEntradaTests methodsFor: 'tests' stamp: 'h 11/9/2023 14:08:12'!
+test12InterfaceShowsPurchasesAfterMultipleCheckouts
 	|interface|
 	interface := factory defaultInterface.
 		
 	self 
-		createCartForClient: factory defaultUsername 
+		checkoutCartForClient: factory defaultUsername 
 		with: factory defaultPassword 
 		add: factory itemSellByTheStore 
 		withOcurrences: 1
 		with: interface.
+		
 	self 
-		createCartForClient: factory defaultUsername 
+		checkoutCartForClient: factory defaultUsername 
+		with: factory defaultPassword 
+		add: factory itemSellByTheStore 
+		withOcurrences: 1
+		with: interface.
+	
+	self 
+		checkoutCartForClient: factory defaultUsername 
 		with: factory defaultPassword 
 		add: factory anotherItemSellByTheStore 
 		withOcurrences: 1
@@ -455,12 +463,12 @@ test12InterfaceShowsMultiplePurchasesAfterMultipleCheckouts
 					
 	self 
 		assert:  (interface listPurchasesFor: factory defaultUsername and: factory defaultPassword )
-		equals: (OrderedCollection 
+		equals: ((OrderedCollection 
 			with: factory itemSellByTheStore with: 1 
-			with: factory anotherItemSellByTheStore with: 1
-			with: factory itemSellByTheStorePrice + factory itemSellByTheStorePrice)! !
+			with: factory itemSellByTheStore with: 1
+			with: factory anotherItemSellByTheStore with: 1) add: (factory itemSellByTheStorePrice *2)+ factory itemSellByTheStorePrice;yourself)! !
 
-!InterfazEntradaTests methodsFor: 'tests' stamp: 'mm uu 11/8/2023 16:58:16'!
+!InterfazEntradaTests methodsFor: 'tests' stamp: 'h 11/9/2023 12:31:53'!
 test13InterfaceShowsMultiplePurchasesForDifferentClients
 	|interface users transactionId anotherTransactionId|
 	users := factory defaultUsers .
@@ -469,14 +477,14 @@ test13InterfaceShowsMultiplePurchasesForDifferentClients
 	interface := InterfazEntrada withUsers: users withCatalog: factory defaultCatalog withDateTime: (DateTimeSimulator startingAt: factory today).
 	
 	transactionId := self 
-		createCartForClient: factory defaultUsername 
+		checkoutCartForClient: factory defaultUsername 
 		with: factory defaultPassword 
 		add: factory itemSellByTheStore 
 		withOcurrences: 1
 		with: interface.
 	
 	anotherTransactionId := self
-		createCartForClient: 'juan'
+		checkoutCartForClient: 'juan'
 		with: 'pepito' 
 		add: factory anotherItemSellByTheStore 
 		withOcurrences: 2
@@ -574,10 +582,19 @@ initializeAcceptingItemsOf: aCatalog
 	items := Bag new.! !
 
 
+!Cart methodsFor: 'queries' stamp: 'mm uu 11/6/2023 20:03:15'!
+items
+	^items copy! !
+
 !Cart methodsFor: 'queries' stamp: 'HernanWilkinson 6/17/2013 17:45'!
 occurrencesOf: anItem
 
 	^items occurrencesOf: anItem  ! !
+
+!Cart methodsFor: 'queries' stamp: 'mm uu 11/6/2023 21:36:57'!
+total
+
+	^ items sum: [ :anItem | catalog at: anItem ] ifEmpty: [0]! !
 
 
 !Cart methodsFor: 'testing' stamp: 'HernanWilkinson 6/17/2013 17:44'!
@@ -589,16 +606,6 @@ includes: anItem
 isEmpty
 	
 	^items isEmpty ! !
-
-
-!Cart methodsFor: 'total' stamp: 'mm uu 11/6/2023 20:03:15'!
-items
-	^items copy! !
-
-!Cart methodsFor: 'total' stamp: 'mm uu 11/6/2023 21:36:57'!
-total
-
-	^ items sum: [ :anItem | catalog at: anItem ] ifEmpty: [0]! !
 
 
 !Cart methodsFor: 'adding' stamp: 'HernanWilkinson 6/17/2013 17:44'!
@@ -803,7 +810,7 @@ startingAt: aDateTime
 
 !classDefinition: #InterfazEntrada category: 'TusLibros'!
 Object subclass: #InterfazEntrada
-	instanceVariableNames: 'usersList userList catalog lastCartId salesBook sessions lastTransactionId dateTime'
+	instanceVariableNames: 'usersList catalog lastCartId salesBook sessions lastTransactionId dateTime'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'TusLibros'!
@@ -859,11 +866,13 @@ addToCartWithId: cartId item: anItem withOcurrences: ocurrences
 	cart add: ocurrences of: anItem ! !
 
 
-!InterfazEntrada methodsFor: 'checkout' stamp: 'mm uu 11/8/2023 16:35:49'!
+!InterfazEntrada methodsFor: 'checkout' stamp: 'h 11/9/2023 12:21:54'!
 checkoutCartId: aCartId charging: aCard through: aMerchantProcessor on: aDate
 	|cart cashier transactionId|
+	
 	cart := self retrieveCartWith: aCartId.
 	transactionId := self createTransactionId .
+	
 	cashier := Cashier 
 		toCheckout: cart
 		charging: aCard
@@ -871,7 +880,9 @@ checkoutCartId: aCartId charging: aCard through: aMerchantProcessor on: aDate
 		on: aDate
 		registeringOn: salesBook
 		for: ((sessions at: aCartId) clientId).
+		
 	cashier checkOut .
+	
 	^transactionId.! !
 
 
@@ -990,12 +1001,12 @@ initializeTotal: aTotal for: aClient with: anItemsList
 isFromClient: aClientId
 	^aClientId = client ! !
 
-!Sale methodsFor: 'accesing' stamp: 'mm uu 11/8/2023 13:04:23'!
+!Sale methodsFor: 'accesing' stamp: 'h 11/9/2023 13:52:01'!
 items
 	
-	^ items! !
+	^ items copy! !
 
-!Sale methodsFor: 'accesing' stamp: 'mm uu 11/8/2023 16:46:49'!
+!Sale methodsFor: 'accesing' stamp: 'h 11/9/2023 14:46:55'!
 itemsWithCount
 	|itemsWithCount|
 	itemsWithCount := OrderedCollection new.
@@ -1003,12 +1014,12 @@ itemsWithCount
 		itemsWithCount add: anItem.
 		itemsWithCount add: (items contents at: anItem).
 	].
-	^itemsWithCount ! !
+	^itemsWithCount! !
 
-!Sale methodsFor: 'accesing' stamp: 'HernanWilkinson 6/17/2013 18:48'!
+!Sale methodsFor: 'accesing' stamp: 'h 11/9/2023 13:52:38'!
 total
 	
-	^ total! !
+	^ total copy! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -1028,28 +1039,29 @@ Object subclass: #Session
 	poolDictionaries: ''
 	category: 'TusLibros'!
 
+!Session methodsFor: 'test' stamp: 'mm uu 11/8/2023 16:34:27'!
+isExpiredFrom: aDateTime
+	^(aDateTime - lastAccessTime) > 30 minutes! !
+
+
 !Session methodsFor: 'initialization' stamp: 'mm uu 11/8/2023 16:13:09'!
 initializeFor: aClientId createdAt: aDateTime withCart: aCart
 	clientId := aClientId.
 	lastAccessTime := aDateTime.
 	cart := aCart.! !
 
-!Session methodsFor: 'initialization' stamp: 'mm uu 11/8/2023 16:34:27'!
-isExpiredFrom: aDateTime
-	^(aDateTime - lastAccessTime) > 30 minutes! !
-
 
 !Session methodsFor: 'access' stamp: 'mm uu 11/8/2023 16:57:47'!
 accessedAt: aDateTime
 	lastAccessTime := aDateTime! !
 
-!Session methodsFor: 'access' stamp: 'mm uu 11/8/2023 16:13:31'!
+!Session methodsFor: 'access' stamp: 'h 11/9/2023 14:47:30'!
 cart
 	^cart! !
 
-!Session methodsFor: 'access' stamp: 'mm uu 11/8/2023 17:04:14'!
+!Session methodsFor: 'access' stamp: 'h 11/9/2023 14:39:44'!
 clientId
-	^clientId ! !
+	^clientId copy! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
