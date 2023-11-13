@@ -1,0 +1,1281 @@
+
+
+----QUIT----(13 August 2023 19:14:09) CuisUniversity-5981.image priorSource: 5713367!
+
+----STARTUP---- (13 August 2023 19:14:10) as /Users/hernan/Documents/Cuis/5.0-64Bits/Cuis-University-Installer/CuisUniversity-5981.image!
+
+
+----QUIT----(13 August 2023 19:14:10) CuisUniversity-5981.image priorSource: 10197065!
+
+----STARTUP---- (12 November 2023 15:48:45) as C:\Users\Intekio\Desktop\windows64\CuisUniversity-5981.image!
+
+
+----End fileIn of C:\Users\Intekio\Desktop\windows64\TusLibros-Model Ejercicio it4.st----!
+
+----End fileIn of C:\Users\Intekio\Desktop\windows64\TusLibros-Tests Ejercicio it4.st----!
+
+!testRun: #TusLibrosSystemFacadeTest #test01CanCreateCartWithValidUserAndPassword stamp: 'h 11/12/2023 15:51:52'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test02CanNotCreateCartWithInvalidUser stamp: 'h 11/12/2023 15:51:52'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test03CanNotCreateCartWithInvalidPassword stamp: 'h 11/12/2023 15:51:52'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test04CanAddItemsToACreatedCart stamp: 'h 11/12/2023 15:51:52'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test05CanNotAddItemToNotCreatedCart stamp: 'h 11/12/2023 15:51:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test06CanNotAddItemNotSellByTheStore stamp: 'h 11/12/2023 15:51:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test08CanNotListCartOfInvalidCartId stamp: 'h 11/12/2023 15:51:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'h 11/12/2023 15:51:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10CheckOutReturnsTransactionIdAndImpactsCustomerPurchases stamp: 'h 11/12/2023 15:51:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10_1_CanNotCheckoutAnAlreadyCheckedOutCart stamp: 'h 11/12/2023 15:51:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test11CanNotCheckoutANotCreatedCart stamp: 'h 11/12/2023 15:51:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test12CanNotCheckoutAnEmptyCart stamp: 'h 11/12/2023 15:51:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test13CanNotCheckoutWithAnExpiredCreditCard stamp: 'h 11/12/2023 15:51:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test14ListPurchasesIncludesBoughtItems stamp: 'h 11/12/2023 15:51:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test15CanNotListPurchasesOfInvalidCustomer stamp: 'h 11/12/2023 15:51:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test16CanNotListPurchasesOfValidCustomerWithInvalidPassword stamp: 'h 11/12/2023 15:51:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test17CanNotAddToCartWhenSessionIsExpired stamp: 'h 11/12/2023 15:51:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test18CanNotListCartWhenSessionIsExpired stamp: 'h 11/12/2023 15:51:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test19CanNotCheckOutCartWhenSessionIsExpired stamp: 'h 11/12/2023 15:51:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 15:51:55'!
+FAILURE!
+
+!testRun: #TusLibrosSystemFacadeTest #test21StorePerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 15:51:57'!
+FAILURE!
+
+----End fileIn of C:\Users\Intekio\Desktop\windows64\TusLibrosREST Ejercicio it4.st----!
+
+----End fileIn of C:\Users\Intekio\Desktop\windows64\Packages\System\Collections-CompactArrays.pck.st----!
+
+----End fileIn of C:\Users\Intekio\Desktop\windows64\Packages\Features\Compression.pck.st----!
+
+----End fileIn of C:\Users\Intekio\Desktop\windows64\Packages\Features\Sound.pck.st----!
+
+----End fileIn of C:\Users\Intekio\Desktop\windows64\Packages\Features\Cryptography-DigitalSignatures.pck.st----!
+
+----End fileIn of C:\Users\Intekio\Desktop\windows64\Packages\Features\Identities-UUID.pck.st----!
+
+----End fileIn of C:\Users\Intekio\Desktop\windows64\Packages\System\Network-Kernel.pck.st----!
+
+----End fileIn of C:\Users\Intekio\Desktop\windows64\WebClient.pck.st----!
+
+----SNAPSHOT----(12 November 2023 15:54:58) CuisUniversity-5981.image priorSource: 10197292!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:08:40'!
+FAILURE!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:08:42'!
+FAILURE!
+!TusLibrosSystemFacade methodsFor: 'private' stamp: 'h 11/12/2023 16:16:47' prior: 50651140!
+bookPerformance: anItem
+
+	| bookPerformance totalMoney totalSales |
+
+	bookPerformance := Dictionary new.
+	
+	[totalSales := self totalSalesOf: anItem] fork.
+	[totalMoney := self totalMoneyRaisedBy: anItem] fork.
+	
+	bookPerformance at: 'quantity' put: totalSales.
+	bookPerformance at: 'total' put: totalMoney.
+	bookPerformance at: 'summary' put: anItem,' was selled ',totalSales asString, ' times and raised a total amount of money equal to: ', totalMoney asString.
+	
+	^bookPerformance
+	
+
+! !
+
+!testRun: #TusLibrosSystemFacadeTest #test01CanCreateCartWithValidUserAndPassword stamp: 'h 11/12/2023 16:16:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test02CanNotCreateCartWithInvalidUser stamp: 'h 11/12/2023 16:16:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test03CanNotCreateCartWithInvalidPassword stamp: 'h 11/12/2023 16:16:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test04CanAddItemsToACreatedCart stamp: 'h 11/12/2023 16:16:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test05CanNotAddItemToNotCreatedCart stamp: 'h 11/12/2023 16:16:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test06CanNotAddItemNotSellByTheStore stamp: 'h 11/12/2023 16:16:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test08CanNotListCartOfInvalidCartId stamp: 'h 11/12/2023 16:16:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'h 11/12/2023 16:16:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10CheckOutReturnsTransactionIdAndImpactsCustomerPurchases stamp: 'h 11/12/2023 16:16:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10_1_CanNotCheckoutAnAlreadyCheckedOutCart stamp: 'h 11/12/2023 16:16:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test11CanNotCheckoutANotCreatedCart stamp: 'h 11/12/2023 16:16:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test12CanNotCheckoutAnEmptyCart stamp: 'h 11/12/2023 16:16:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test13CanNotCheckoutWithAnExpiredCreditCard stamp: 'h 11/12/2023 16:16:54'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test14ListPurchasesIncludesBoughtItems stamp: 'h 11/12/2023 16:16:54'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test15CanNotListPurchasesOfInvalidCustomer stamp: 'h 11/12/2023 16:16:54'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test16CanNotListPurchasesOfValidCustomerWithInvalidPassword stamp: 'h 11/12/2023 16:16:54'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test17CanNotAddToCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:16:54'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test18CanNotListCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:16:54'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test19CanNotCheckOutCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:16:54'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:16:54'!
+FAILURE!
+
+!testRun: #TusLibrosSystemFacadeTest #test21StorePerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:16:56'!
+FAILURE!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:17:03'!
+FAILURE!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:17:04'!
+FAILURE!
+!TusLibrosSystemFacade methodsFor: 'private' stamp: 'h 11/12/2023 16:19:45' prior: 50689945!
+bookPerformance: anItem
+
+	| bookPerformance totalMoney totalSales readySemaphore|
+	
+	readySemaphore := Semaphore new.
+
+	bookPerformance := Dictionary new.
+	
+	[totalSales := self totalSalesOf: anItem] fork.
+	[totalMoney := self totalMoneyRaisedBy: anItem. readySemaphore signal.] fork.
+	readySemaphore wait.
+	
+	bookPerformance at: 'quantity' put: totalSales.
+	bookPerformance at: 'total' put: totalMoney.
+	bookPerformance at: 'summary' put: anItem,' was selled ',totalSales asString, ' times and raised a total amount of money equal to: ', totalMoney asString.
+	
+	^bookPerformance
+	
+
+! !
+
+!testRun: #TusLibrosSystemFacadeTest #test01CanCreateCartWithValidUserAndPassword stamp: 'h 11/12/2023 16:19:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test02CanNotCreateCartWithInvalidUser stamp: 'h 11/12/2023 16:19:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test03CanNotCreateCartWithInvalidPassword stamp: 'h 11/12/2023 16:19:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test04CanAddItemsToACreatedCart stamp: 'h 11/12/2023 16:19:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test05CanNotAddItemToNotCreatedCart stamp: 'h 11/12/2023 16:19:50'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test06CanNotAddItemNotSellByTheStore stamp: 'h 11/12/2023 16:19:50'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test08CanNotListCartOfInvalidCartId stamp: 'h 11/12/2023 16:19:50'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'h 11/12/2023 16:19:50'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10CheckOutReturnsTransactionIdAndImpactsCustomerPurchases stamp: 'h 11/12/2023 16:19:50'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10_1_CanNotCheckoutAnAlreadyCheckedOutCart stamp: 'h 11/12/2023 16:19:50'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test11CanNotCheckoutANotCreatedCart stamp: 'h 11/12/2023 16:19:50'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test12CanNotCheckoutAnEmptyCart stamp: 'h 11/12/2023 16:19:50'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test13CanNotCheckoutWithAnExpiredCreditCard stamp: 'h 11/12/2023 16:19:50'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test14ListPurchasesIncludesBoughtItems stamp: 'h 11/12/2023 16:19:50'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test15CanNotListPurchasesOfInvalidCustomer stamp: 'h 11/12/2023 16:19:50'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test16CanNotListPurchasesOfValidCustomerWithInvalidPassword stamp: 'h 11/12/2023 16:19:50'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test17CanNotAddToCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:19:50'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test18CanNotListCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:19:50'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test19CanNotCheckOutCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:19:50'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:19:51'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test21StorePerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:19:53'!
+FAILURE!
+
+!testRun: #TusLibrosSystemFacadeTest #test21StorePerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:19:56'!
+FAILURE!
+!TusLibrosSystemFacade methodsFor: 'private' stamp: 'h 11/12/2023 16:22:11' prior: 50651181!
+storePerformance
+
+	| totalMoney totalSales performance readySemaphore|
+	
+	readySemaphore := Semaphore new.
+	performance := Dictionary new.
+	
+	[totalSales := self totalSales] fork.
+	[totalMoney := self totalMoneyRaised. readySemaphore signal. ] fork.
+	readySemaphore wait.
+	
+	performance at: 'quantity' put: totalSales.
+	performance at: 'total' put: totalMoney.
+	performance at: 'summary' put: 'The store selled a total of ',totalSales asString, ' books and raised a total amount of money equal to: ', totalMoney asString.
+	
+	^performance
+	
+
+! !
+
+!testRun: #TusLibrosSystemFacadeTest #test01CanCreateCartWithValidUserAndPassword stamp: 'h 11/12/2023 16:22:15'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test02CanNotCreateCartWithInvalidUser stamp: 'h 11/12/2023 16:22:15'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test03CanNotCreateCartWithInvalidPassword stamp: 'h 11/12/2023 16:22:15'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test04CanAddItemsToACreatedCart stamp: 'h 11/12/2023 16:22:15'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test05CanNotAddItemToNotCreatedCart stamp: 'h 11/12/2023 16:22:15'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test06CanNotAddItemNotSellByTheStore stamp: 'h 11/12/2023 16:22:15'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test08CanNotListCartOfInvalidCartId stamp: 'h 11/12/2023 16:22:15'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'h 11/12/2023 16:22:15'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10CheckOutReturnsTransactionIdAndImpactsCustomerPurchases stamp: 'h 11/12/2023 16:22:16'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10_1_CanNotCheckoutAnAlreadyCheckedOutCart stamp: 'h 11/12/2023 16:22:16'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test11CanNotCheckoutANotCreatedCart stamp: 'h 11/12/2023 16:22:16'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test12CanNotCheckoutAnEmptyCart stamp: 'h 11/12/2023 16:22:16'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test13CanNotCheckoutWithAnExpiredCreditCard stamp: 'h 11/12/2023 16:22:16'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test14ListPurchasesIncludesBoughtItems stamp: 'h 11/12/2023 16:22:16'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test15CanNotListPurchasesOfInvalidCustomer stamp: 'h 11/12/2023 16:22:16'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test16CanNotListPurchasesOfValidCustomerWithInvalidPassword stamp: 'h 11/12/2023 16:22:16'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test17CanNotAddToCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:22:16'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test18CanNotListCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:22:16'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test19CanNotCheckOutCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:22:16'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:22:17'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test21StorePerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:22:18'!
+PASSED!
+
+----SNAPSHOT----(12 November 2023 16:22:22) CuisUniversity-5981.image priorSource: 11465058!
+!TusLibrosSystemFacade methodsFor: 'private' stamp: 'h 11/12/2023 16:27:15'!
+resumeAfter: blockToExecute
+
+	|readySemaphore|
+	
+	readySemaphore := Semaphore new.
+	
+	[blockToExecute value. readySemaphore signal] fork.
+	readySemaphore wait.
+	
+	^nil
+	
+
+! !
+!TusLibrosSystemFacade methodsFor: 'private' stamp: 'h 11/12/2023 16:28:16' prior: 50690156!
+storePerformance
+
+	| totalMoney totalSales performance|
+	
+	performance := Dictionary new.
+	
+	self resumeAfter: [[totalSales := self totalSales] fork. [totalMoney := self totalMoneyRaised.] fork.] .
+	
+	performance at: 'quantity' put: totalSales.
+	performance at: 'total' put: totalMoney.
+	performance at: 'summary' put: 'The store selled a total of ',totalSales asString, ' books and raised a total amount of money equal to: ', totalMoney asString.
+	
+	^performance
+	
+
+! !
+!TusLibrosSystemFacade methodsFor: 'private' stamp: 'h 11/12/2023 16:28:58' prior: 50690051!
+bookPerformance: anItem
+
+	| bookPerformance totalMoney totalSales|
+
+	bookPerformance := Dictionary new.
+	
+	self resumeAfter: [[totalSales := self totalSalesOf: anItem] fork. [totalMoney := self totalMoneyRaisedBy: anItem.] fork].
+
+	
+	bookPerformance at: 'quantity' put: totalSales.
+	bookPerformance at: 'total' put: totalMoney.
+	bookPerformance at: 'summary' put: anItem,' was selled ',totalSales asString, ' times and raised a total amount of money equal to: ', totalMoney asString.
+	
+	^bookPerformance
+	
+
+! !
+
+!testRun: #TusLibrosSystemFacadeTest #test01CanCreateCartWithValidUserAndPassword stamp: 'h 11/12/2023 16:29:02'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test02CanNotCreateCartWithInvalidUser stamp: 'h 11/12/2023 16:29:02'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test03CanNotCreateCartWithInvalidPassword stamp: 'h 11/12/2023 16:29:02'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test04CanAddItemsToACreatedCart stamp: 'h 11/12/2023 16:29:02'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test05CanNotAddItemToNotCreatedCart stamp: 'h 11/12/2023 16:29:02'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test06CanNotAddItemNotSellByTheStore stamp: 'h 11/12/2023 16:29:02'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test08CanNotListCartOfInvalidCartId stamp: 'h 11/12/2023 16:29:02'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'h 11/12/2023 16:29:02'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10CheckOutReturnsTransactionIdAndImpactsCustomerPurchases stamp: 'h 11/12/2023 16:29:02'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10_1_CanNotCheckoutAnAlreadyCheckedOutCart stamp: 'h 11/12/2023 16:29:02'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test11CanNotCheckoutANotCreatedCart stamp: 'h 11/12/2023 16:29:02'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test12CanNotCheckoutAnEmptyCart stamp: 'h 11/12/2023 16:29:02'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test13CanNotCheckoutWithAnExpiredCreditCard stamp: 'h 11/12/2023 16:29:02'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test14ListPurchasesIncludesBoughtItems stamp: 'h 11/12/2023 16:29:02'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test15CanNotListPurchasesOfInvalidCustomer stamp: 'h 11/12/2023 16:29:02'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test16CanNotListPurchasesOfValidCustomerWithInvalidPassword stamp: 'h 11/12/2023 16:29:02'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test17CanNotAddToCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:29:02'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test18CanNotListCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:29:02'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test19CanNotCheckOutCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:29:02'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:29:03'!
+FAILURE!
+
+!testRun: #TusLibrosSystemFacadeTest #test21StorePerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:29:03'!
+FAILURE!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:29:11'!
+FAILURE!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:29:11'!
+FAILURE!
+!TusLibrosSystemFacade methodsFor: 'private' stamp: 'h 11/12/2023 16:31:24' prior: 50690258!
+resumeAfter: blockToExecute
+
+	|readySemaphore|
+	
+	readySemaphore := Semaphore new.
+	
+	[blockToExecute value. readySemaphore signal].
+	readySemaphore wait.
+	
+	^nil
+	
+
+! !
+
+!testRun: #TusLibrosSystemFacadeTest #test01CanCreateCartWithValidUserAndPassword stamp: 'h 11/12/2023 16:31:27'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test02CanNotCreateCartWithInvalidUser stamp: 'h 11/12/2023 16:31:27'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test03CanNotCreateCartWithInvalidPassword stamp: 'h 11/12/2023 16:31:27'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test04CanAddItemsToACreatedCart stamp: 'h 11/12/2023 16:31:27'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test05CanNotAddItemToNotCreatedCart stamp: 'h 11/12/2023 16:31:27'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test06CanNotAddItemNotSellByTheStore stamp: 'h 11/12/2023 16:31:27'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test08CanNotListCartOfInvalidCartId stamp: 'h 11/12/2023 16:31:27'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'h 11/12/2023 16:31:27'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10CheckOutReturnsTransactionIdAndImpactsCustomerPurchases stamp: 'h 11/12/2023 16:31:28'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10_1_CanNotCheckoutAnAlreadyCheckedOutCart stamp: 'h 11/12/2023 16:31:28'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test11CanNotCheckoutANotCreatedCart stamp: 'h 11/12/2023 16:31:28'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test12CanNotCheckoutAnEmptyCart stamp: 'h 11/12/2023 16:31:28'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test13CanNotCheckoutWithAnExpiredCreditCard stamp: 'h 11/12/2023 16:31:28'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test14ListPurchasesIncludesBoughtItems stamp: 'h 11/12/2023 16:31:28'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test15CanNotListPurchasesOfInvalidCustomer stamp: 'h 11/12/2023 16:31:28'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test16CanNotListPurchasesOfValidCustomerWithInvalidPassword stamp: 'h 11/12/2023 16:31:28'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test17CanNotAddToCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:31:28'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test18CanNotListCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:31:28'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test19CanNotCheckOutCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:31:28'!
+PASSED!
+!TusLibrosSystemFacade methodsFor: 'private' stamp: 'h 11/12/2023 16:33:22' prior: 50690392!
+resumeAfter: blockToExecute
+
+	|readySemaphore|
+	
+	readySemaphore := Semaphore new.
+	
+	[blockToExecute value. readySemaphore signal] value.
+	readySemaphore wait.
+	
+	^nil
+	
+
+! !
+
+!testRun: #TusLibrosSystemFacadeTest #test01CanCreateCartWithValidUserAndPassword stamp: 'h 11/12/2023 16:33:26'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test02CanNotCreateCartWithInvalidUser stamp: 'h 11/12/2023 16:33:26'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test03CanNotCreateCartWithInvalidPassword stamp: 'h 11/12/2023 16:33:26'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test04CanAddItemsToACreatedCart stamp: 'h 11/12/2023 16:33:26'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test05CanNotAddItemToNotCreatedCart stamp: 'h 11/12/2023 16:33:26'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test06CanNotAddItemNotSellByTheStore stamp: 'h 11/12/2023 16:33:26'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test08CanNotListCartOfInvalidCartId stamp: 'h 11/12/2023 16:33:26'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'h 11/12/2023 16:33:26'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10CheckOutReturnsTransactionIdAndImpactsCustomerPurchases stamp: 'h 11/12/2023 16:33:26'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10_1_CanNotCheckoutAnAlreadyCheckedOutCart stamp: 'h 11/12/2023 16:33:26'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test11CanNotCheckoutANotCreatedCart stamp: 'h 11/12/2023 16:33:26'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test12CanNotCheckoutAnEmptyCart stamp: 'h 11/12/2023 16:33:26'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test13CanNotCheckoutWithAnExpiredCreditCard stamp: 'h 11/12/2023 16:33:26'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test14ListPurchasesIncludesBoughtItems stamp: 'h 11/12/2023 16:33:26'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test15CanNotListPurchasesOfInvalidCustomer stamp: 'h 11/12/2023 16:33:26'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test16CanNotListPurchasesOfValidCustomerWithInvalidPassword stamp: 'h 11/12/2023 16:33:26'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test17CanNotAddToCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:33:26'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test18CanNotListCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:33:26'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test19CanNotCheckOutCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:33:27'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:33:27'!
+FAILURE!
+
+!testRun: #TusLibrosSystemFacadeTest #test21StorePerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:33:27'!
+FAILURE!
+
+----STARTUP---- (12 November 2023 16:38:40) as C:\Users\Intekio\Desktop\windows64\CuisUniversity-5981.image!
+
+
+!testRun: #TusLibrosSystemFacadeTest #test01CanCreateCartWithValidUserAndPassword stamp: 'h 11/12/2023 16:38:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test02CanNotCreateCartWithInvalidUser stamp: 'h 11/12/2023 16:38:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test03CanNotCreateCartWithInvalidPassword stamp: 'h 11/12/2023 16:38:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test04CanAddItemsToACreatedCart stamp: 'h 11/12/2023 16:38:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test05CanNotAddItemToNotCreatedCart stamp: 'h 11/12/2023 16:38:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test06CanNotAddItemNotSellByTheStore stamp: 'h 11/12/2023 16:38:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test08CanNotListCartOfInvalidCartId stamp: 'h 11/12/2023 16:38:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'h 11/12/2023 16:38:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10CheckOutReturnsTransactionIdAndImpactsCustomerPurchases stamp: 'h 11/12/2023 16:38:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10_1_CanNotCheckoutAnAlreadyCheckedOutCart stamp: 'h 11/12/2023 16:38:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test11CanNotCheckoutANotCreatedCart stamp: 'h 11/12/2023 16:38:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test12CanNotCheckoutAnEmptyCart stamp: 'h 11/12/2023 16:38:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test13CanNotCheckoutWithAnExpiredCreditCard stamp: 'h 11/12/2023 16:38:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test14ListPurchasesIncludesBoughtItems stamp: 'h 11/12/2023 16:38:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test15CanNotListPurchasesOfInvalidCustomer stamp: 'h 11/12/2023 16:38:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test16CanNotListPurchasesOfValidCustomerWithInvalidPassword stamp: 'h 11/12/2023 16:38:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test17CanNotAddToCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:38:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test18CanNotListCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:38:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test19CanNotCheckOutCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:38:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:38:47'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test21StorePerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:38:48'!
+PASSED!
+!TusLibrosSystemFacade methodsFor: 'private' stamp: 'h 11/12/2023 16:42:16'!
+resumeAfterParalelComputing: firstBlockToExecute and: secondBlockToExecute
+
+	|readySemaphore|
+	
+	readySemaphore := Semaphore new.
+	
+	[firstBlockToExecute value] fork.
+	[secondBlockToExecute value. readySemaphore signal] fork.
+	readySemaphore wait.
+	
+	^nil
+	
+
+! !
+!TusLibrosSystemFacade methodsFor: 'private' stamp: 'h 11/12/2023 16:43:01' prior: 50690156!
+storePerformance
+
+	| totalMoney totalSales performance|
+	
+	performance := Dictionary new.
+	
+	self resumeAfterParalelComputing: [totalSales := self totalSales] and: [totalMoney := self totalMoneyRaised.].
+	
+	performance at: 'quantity' put: totalSales.
+	performance at: 'total' put: totalMoney.
+	performance at: 'summary' put: 'The store selled a total of ',totalSales asString, ' books and raised a total amount of money equal to: ', totalMoney asString.
+	
+	^performance
+	
+
+! !
+!TusLibrosSystemFacade methodsFor: 'private' stamp: 'h 11/12/2023 16:43:43' prior: 50690051!
+bookPerformance: anItem
+
+	| bookPerformance totalMoney totalSales readySemaphore|
+	
+	readySemaphore := Semaphore new.
+
+	bookPerformance := Dictionary new.
+	
+	self resumeAfterParalelComputing: [totalSales := self totalSalesOf: anItem] and:  [totalMoney := self totalMoneyRaisedBy: anItem].
+	
+	bookPerformance at: 'quantity' put: totalSales.
+	bookPerformance at: 'total' put: totalMoney.
+	bookPerformance at: 'summary' put: anItem,' was selled ',totalSales asString, ' times and raised a total amount of money equal to: ', totalMoney asString.
+	
+	^bookPerformance
+	
+
+! !
+!TusLibrosSystemFacade methodsFor: 'private' stamp: 'h 11/12/2023 16:43:50' prior: 50690674!
+bookPerformance: anItem
+
+	| bookPerformance totalMoney totalSales|
+
+	bookPerformance := Dictionary new.
+	
+	self resumeAfterParalelComputing: [totalSales := self totalSalesOf: anItem] and:  [totalMoney := self totalMoneyRaisedBy: anItem].
+	
+	bookPerformance at: 'quantity' put: totalSales.
+	bookPerformance at: 'total' put: totalMoney.
+	bookPerformance at: 'summary' put: anItem,' was selled ',totalSales asString, ' times and raised a total amount of money equal to: ', totalMoney asString.
+	
+	^bookPerformance
+	
+
+! !
+
+!testRun: #TusLibrosSystemFacadeTest #test01CanCreateCartWithValidUserAndPassword stamp: 'h 11/12/2023 16:43:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test02CanNotCreateCartWithInvalidUser stamp: 'h 11/12/2023 16:43:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test03CanNotCreateCartWithInvalidPassword stamp: 'h 11/12/2023 16:43:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test04CanAddItemsToACreatedCart stamp: 'h 11/12/2023 16:43:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test05CanNotAddItemToNotCreatedCart stamp: 'h 11/12/2023 16:43:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test06CanNotAddItemNotSellByTheStore stamp: 'h 11/12/2023 16:43:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test08CanNotListCartOfInvalidCartId stamp: 'h 11/12/2023 16:43:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'h 11/12/2023 16:43:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10CheckOutReturnsTransactionIdAndImpactsCustomerPurchases stamp: 'h 11/12/2023 16:43:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10_1_CanNotCheckoutAnAlreadyCheckedOutCart stamp: 'h 11/12/2023 16:43:53'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test11CanNotCheckoutANotCreatedCart stamp: 'h 11/12/2023 16:43:54'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test12CanNotCheckoutAnEmptyCart stamp: 'h 11/12/2023 16:43:54'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test13CanNotCheckoutWithAnExpiredCreditCard stamp: 'h 11/12/2023 16:43:54'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test14ListPurchasesIncludesBoughtItems stamp: 'h 11/12/2023 16:43:54'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test15CanNotListPurchasesOfInvalidCustomer stamp: 'h 11/12/2023 16:43:54'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test16CanNotListPurchasesOfValidCustomerWithInvalidPassword stamp: 'h 11/12/2023 16:43:54'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test17CanNotAddToCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:43:54'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test18CanNotListCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:43:54'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test19CanNotCheckOutCartWhenSessionIsExpired stamp: 'h 11/12/2023 16:43:54'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:43:55'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test21StorePerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 16:43:56'!
+PASSED!
+
+----SNAPSHOT----(12 November 2023 16:44:00) CuisUniversity-5981.image priorSource: 11475343!
+
+----SNAPSHOT----(12 November 2023 20:24:22) CuisUniversity-5981.image priorSource: 11492564!
+!TusLibrosSystemFacade methodsFor: 'private' stamp: 'h 11/12/2023 20:25:44' prior: 50690644!
+resumeAfterParalelComputing: firstBlockToExecute and: secondBlockToExecute
+
+	|readySemaphore|
+	
+	readySemaphore := Semaphore new.
+	
+	[firstBlockToExecute value. readySemaphore signal] fork.
+	secondBlockToExecute value.
+	readySemaphore wait.
+	
+
+! !
+
+!testRun: #TusLibrosSystemFacadeTest #test01CanCreateCartWithValidUserAndPassword stamp: 'h 11/12/2023 20:25:48'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test02CanNotCreateCartWithInvalidUser stamp: 'h 11/12/2023 20:25:48'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test03CanNotCreateCartWithInvalidPassword stamp: 'h 11/12/2023 20:25:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test04CanAddItemsToACreatedCart stamp: 'h 11/12/2023 20:25:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test05CanNotAddItemToNotCreatedCart stamp: 'h 11/12/2023 20:25:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test06CanNotAddItemNotSellByTheStore stamp: 'h 11/12/2023 20:25:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test08CanNotListCartOfInvalidCartId stamp: 'h 11/12/2023 20:25:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'h 11/12/2023 20:25:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10CheckOutReturnsTransactionIdAndImpactsCustomerPurchases stamp: 'h 11/12/2023 20:25:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10_1_CanNotCheckoutAnAlreadyCheckedOutCart stamp: 'h 11/12/2023 20:25:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test11CanNotCheckoutANotCreatedCart stamp: 'h 11/12/2023 20:25:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test12CanNotCheckoutAnEmptyCart stamp: 'h 11/12/2023 20:25:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test13CanNotCheckoutWithAnExpiredCreditCard stamp: 'h 11/12/2023 20:25:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test14ListPurchasesIncludesBoughtItems stamp: 'h 11/12/2023 20:25:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test15CanNotListPurchasesOfInvalidCustomer stamp: 'h 11/12/2023 20:25:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test16CanNotListPurchasesOfValidCustomerWithInvalidPassword stamp: 'h 11/12/2023 20:25:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test17CanNotAddToCartWhenSessionIsExpired stamp: 'h 11/12/2023 20:25:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test18CanNotListCartWhenSessionIsExpired stamp: 'h 11/12/2023 20:25:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test19CanNotCheckOutCartWhenSessionIsExpired stamp: 'h 11/12/2023 20:25:49'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 20:25:50'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test21StorePerformanceShouldNotTakeTooLong stamp: 'h 11/12/2023 20:25:51'!
+PASSED!
+
+----SNAPSHOT----(12 November 2023 20:29:17) CuisUniversity-5981.image priorSource: 11492658!
+
+TusLibrosServerRestInterface installForDefaultSystem!
+
+TusLibrosClientTestWindow open!
+
+Dictionary newFromPairs: {'clientId'. 1. 'password'. 2}!
+
+Smalltalk!
+
+WebServer reset!
+
+TusLibrosServerRestInterface installForDefaultSystem!
+
+TusLibrosClientTestWindow open!
+
+WebServer reset!
+
+----SNAPSHOT----(12 November 2023 23:28:45) CuisUniversity-5981.image priorSource: 11495654!
+!TusLibrosClientRestInterface methodsFor: 'requests' stamp: 'h 11/12/2023 23:38:47' prior: 50652824!
+createCartFor: aUser password: aPassword
+
+	| fieldDict resp readySemaphore|
+	
+	readySemaphore := Semaphore new.
+	
+	fieldDict := Dictionary newFromPairs: {'clientId'. aUser. 'password'. aPassword}.		
+	
+	[resp := WebClient htmlSubmit: (self url,'/createCart') fields: fieldDict. readySemaphore signal.].
+	readySemaphore wait.
+		
+	resp isSuccess 
+		ifTrue:[^(WebUtils jsonDecode: ((resp content) readStream))] 
+		ifFalse:[^self error: resp content]! !
+
+TusLibrosServerRestInterface installForDefaultSystem!
+
+TusLibrosClientTestWindow open!
+
+----STARTUP---- (12 November 2023 23:39:37) as C:\Users\Intekio\Desktop\windows64\CuisUniversity-5981.image!
+
+!TusLibrosClientRestInterface methodsFor: 'requests' stamp: 'h 11/12/2023 23:40:22' prior: 50652824!
+createCartFor: aUser password: aPassword
+
+	| fieldDict resp readySemaphore|
+	
+	readySemaphore := Semaphore new.
+	
+	fieldDict := Dictionary newFromPairs: {'clientId'. aUser. 'password'. aPassword}.		
+	
+	[resp := WebClient htmlSubmit: (self url,'/createCart') fields: fieldDict. readySemaphore signal] fork.
+	readySemaphore wait.
+		
+	resp isSuccess 
+		ifTrue:[^(WebUtils jsonDecode: ((resp content) readStream))] 
+		ifFalse:[^self error: resp content]! !
+
+TusLibrosServerRestInterface installForDefaultSystem!
+
+TusLibrosClientTestWindow open!
+!TusLibrosClientRestInterface methodsFor: 'requests' stamp: 'h 11/12/2023 23:41:39' prior: 50690930!
+createCartFor: aUser password: aPassword
+
+	| fieldDict resp|
+	
+	fieldDict := Dictionary newFromPairs: {'clientId'. aUser. 'password'. aPassword}.		
+	
+	[resp := WebClient htmlSubmit: (self url,'/createCart') fields: fieldDict] fork.
+	
+		
+	resp isSuccess 
+		ifTrue:[^(WebUtils jsonDecode: ((resp content) readStream))] 
+		ifFalse:[^self error: resp content]! !
+
+WebServer reset!
+
+TusLibrosClientTestWindow installForDefaultSystem .!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientRestInterface open.!
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientRestInterface methodsFor: 'requests' stamp: 'h 11/12/2023 23:43:29' prior: 50690951!
+createCartFor: aUser password: aPassword
+
+	| fieldDict resp|
+	
+	fieldDict := Dictionary newFromPairs: {'clientId'. aUser. 'password'. aPassword}.		
+	
+	[resp := WebClient htmlSubmit: (self url,'/createCart') fields: fieldDict.
+	
+		
+	resp isSuccess 
+		ifTrue:[^(WebUtils jsonDecode: ((resp content) readStream))] 
+		ifFalse:[^self error: resp content]  
+		] fork! !
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientRestInterface methodsFor: 'requests' stamp: 'h 11/12/2023 23:45:03' prior: 50690972!
+createCartFor: aUser password: aPassword
+
+	[| fieldDict resp|
+	
+	fieldDict := Dictionary newFromPairs: {'clientId'. aUser. 'password'. aPassword}.		
+	
+	resp := WebClient htmlSubmit: (self url,'/createCart') fields: fieldDict.
+	
+		
+	resp isSuccess 
+		ifTrue:[^(WebUtils jsonDecode: ((resp content) readStream))] 
+		ifFalse:[^self error: resp content]  
+		] fork! !
+!TusLibrosClientRestInterface methodsFor: 'requests' stamp: 'h 11/12/2023 23:51:34' prior: 50690990!
+createCartFor: aUser password: aPassword
+
+	| fieldDict resp|
+	
+	fieldDict := Dictionary newFromPairs: {'clientId'. aUser. 'password'. aPassword}.		
+	
+	[resp := WebClient htmlSubmit: (self url,'/createCart') fields: fieldDict.] fork.
+	
+	resp isSuccess 
+		ifTrue:[^(WebUtils jsonDecode: ((resp content) readStream))] 
+		ifFalse:[^self error: resp content]  ! !
+!TusLibrosClientRestInterface methodsFor: 'requests' stamp: 'NR 6/9/2022 08:11:20' prior: 50691005!
+createCartFor: aUser password: aPassword
+
+	| fieldDict resp |
+	
+	fieldDict := Dictionary newFromPairs: {'clientId'. aUser. 'password'. aPassword}.		
+	
+	resp := WebClient htmlSubmit: (self url,'/createCart') fields: fieldDict.
+		
+	resp isSuccess 
+		ifTrue:[^(WebUtils jsonDecode: ((resp content) readStream))] 
+		ifFalse:[^self error: resp content]! !
+
+WebServer reset.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'h 11/13/2023 00:02:58' prior: 50652949!
+createCart
+
+	[| newCartId |
+	
+	newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+	cartIds add: newCartId.
+	self triggerEvent: #newCartIdArrived] fork! !
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'h 11/13/2023 00:05:36' prior: 50652936!
+addToCart
+
+	[| cartId bookIsbn |
+
+	(self areCartIdAndBookSelected) ifTrue:[
+		cartId := self selectedCartId.
+		bookIsbn := self selectedBook.
+		restInterface add: 1 of: bookIsbn toCartIdentifiedAs: cartId.
+		self triggerEvent: #bookAddedToCart withArguments: (Array with: bookIsbn with: cartId)]
+	] fork! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'h 11/13/2023 00:06:33' prior: 50652958!
+listCart
+
+	[| cartId |
+	
+	(self isCartIdSelected) ifTrue:[
+		cartId := self selectedCartId.
+		currentSelectedCartContent := restInterface listCart: cartId.
+		self triggerEvent: #newCurrentSelectedCartContentArrived with: cartId ].
+	] fork! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'h 11/13/2023 00:09:10' prior: 50691035!
+createCart
+
+	[| newCartId |
+	
+	newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+	cartIds add: newCartId.
+	self triggerEvent: #newCartIdArrived
+	] fork! !
+
+WebServer reset.!
+
+TusLibrosClientTestWindow open.!
+
+----SNAPSHOT----(13 November 2023 00:12:46) CuisUniversity-5981.image priorSource: 11496030!
+
+----QUIT----(13 November 2023 00:18:32) CuisUniversity-5981.image priorSource: 11501799!
+
+----STARTUP---- (13 November 2023 15:29:34) as C:\Users\Intekio\Desktop\windows64\CuisUniversity-5981.image!
+
+
+!testRun: #TusLibrosSystemFacadeTest #test01CanCreateCartWithValidUserAndPassword stamp: 'h 11/13/2023 15:29:44'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test02CanNotCreateCartWithInvalidUser stamp: 'h 11/13/2023 15:29:44'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test03CanNotCreateCartWithInvalidPassword stamp: 'h 11/13/2023 15:29:44'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test04CanAddItemsToACreatedCart stamp: 'h 11/13/2023 15:29:44'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test05CanNotAddItemToNotCreatedCart stamp: 'h 11/13/2023 15:29:44'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test06CanNotAddItemNotSellByTheStore stamp: 'h 11/13/2023 15:29:44'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test08CanNotListCartOfInvalidCartId stamp: 'h 11/13/2023 15:29:44'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'h 11/13/2023 15:29:44'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10CheckOutReturnsTransactionIdAndImpactsCustomerPurchases stamp: 'h 11/13/2023 15:29:44'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10_1_CanNotCheckoutAnAlreadyCheckedOutCart stamp: 'h 11/13/2023 15:29:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test11CanNotCheckoutANotCreatedCart stamp: 'h 11/13/2023 15:29:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test12CanNotCheckoutAnEmptyCart stamp: 'h 11/13/2023 15:29:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test13CanNotCheckoutWithAnExpiredCreditCard stamp: 'h 11/13/2023 15:29:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test14ListPurchasesIncludesBoughtItems stamp: 'h 11/13/2023 15:29:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test15CanNotListPurchasesOfInvalidCustomer stamp: 'h 11/13/2023 15:29:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test16CanNotListPurchasesOfValidCustomerWithInvalidPassword stamp: 'h 11/13/2023 15:29:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test17CanNotAddToCartWhenSessionIsExpired stamp: 'h 11/13/2023 15:29:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test18CanNotListCartWhenSessionIsExpired stamp: 'h 11/13/2023 15:29:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test19CanNotCheckOutCartWhenSessionIsExpired stamp: 'h 11/13/2023 15:29:45'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'h 11/13/2023 15:29:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test21StorePerformanceShouldNotTakeTooLong stamp: 'h 11/13/2023 15:29:47'!
+PASSED!
+
+----STARTUP---- (13 November 2023 16:02:48) as C:\Users\Intekio\Desktop\windows64\CuisUniversity-5981.image!
+
+
+!classRemoval: #StoreTestObjectsFactory stamp: 'h 11/13/2023 16:03:05'!
+Object subclass: #StoreTestObjectsFactory
+	instanceVariableNames: 'today'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros-Tests'!
+
+!classRemoval: #ManualClock stamp: 'h 11/13/2023 16:03:05'!
+Clock subclass: #ManualClock
+	instanceVariableNames: 'now'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros-Tests'!
+
+!classRemoval: #TusLibrosSystemFacadeTest stamp: 'h 11/13/2023 16:03:05'!
+TestCase subclass: #TusLibrosSystemFacadeTest
+	instanceVariableNames: 'testObjectsFactory clock systemFacade merchantProcessorTransactionId'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros-Tests'!
+
+!classRemoval: #CreditCardTest stamp: 'h 11/13/2023 16:03:06'!
+TestCase subclass: #CreditCardTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros-Tests'!
+
+!classRemoval: #CashierTest stamp: 'h 11/13/2023 16:03:06'!
+TestCase subclass: #CashierTest
+	instanceVariableNames: 'testObjectsFactory debitBehavior'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros-Tests'!
+
+!classRemoval: #CartTest stamp: 'h 11/13/2023 16:03:06'!
+TestCase subclass: #CartTest
+	instanceVariableNames: 'testObjectsFactory'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros-Tests'!
+
+!classRemoval: #TusLibrosSystemFacade stamp: 'h 11/13/2023 16:03:07'!
+Object subclass: #TusLibrosSystemFacade
+	instanceVariableNames: 'validUsersAndPasswords catalog lastId merchantProcessor salesBook clock cartSessions'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros-Model'!
+
+!classRemoval: #Ticket stamp: 'h 11/13/2023 16:03:08'!
+Object subclass: #Ticket
+	instanceVariableNames: 'lineItems transactionId transactionIdSale transactionIdTaxes'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros-Model'!
+
+!classRemoval: #Sale stamp: 'h 11/13/2023 16:03:08'!
+Object subclass: #Sale
+	instanceVariableNames: 'customer ticket'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros-Model'!
+
+!classRemoval: #MerchantProcessor stamp: 'h 11/13/2023 16:03:08'!
+Object subclass: #MerchantProcessor
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros-Model'!
+
+!classRemoval: #LineItem stamp: 'h 11/13/2023 16:03:09'!
+Object subclass: #LineItem
+	instanceVariableNames: 'item quantity total'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros-Model'!
+
+!classRemoval: #CreditCard stamp: 'h 11/13/2023 16:03:09'!
+Object subclass: #CreditCard
+	instanceVariableNames: 'expiration number ownerName'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros-Model'!
+
+!classRemoval: #Clock stamp: 'h 11/13/2023 16:03:09'!
+Object subclass: #Clock
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros-Model'!
+
+!classRemoval: #Cashier stamp: 'h 11/13/2023 16:03:09'!
+Object subclass: #Cashier
+	instanceVariableNames: 'cart salesBook merchantProcessor creditCard owner ticket'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros-Model'!
+
+!classRemoval: #CartSession stamp: 'h 11/13/2023 16:03:10'!
+Object subclass: #CartSession
+	instanceVariableNames: 'owner cart lastUsedTime systemFacade'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros-Model'!
+
+!classRemoval: #Cart stamp: 'h 11/13/2023 16:03:10'!
+Object subclass: #Cart
+	instanceVariableNames: 'catalog items'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros-Model'!
+
+----End fileIn of C:\Users\Intekio\Desktop\windows64\TusLibros-Model.st----!
